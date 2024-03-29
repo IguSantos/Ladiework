@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LadieWork</title>
+  <meta name="description"
+    content="LadieWork é uma plataforma dedicada às mulheres, oferecendo uma variedade de cursos, mentorias e oportunidades de aprendizado. Descubra e desenvolva novas habilidades em um ambiente inclusivo e diversificado.">
+
+  <!-- Fonts -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../public/css/reset.css">
+  <link rel="stylesheet" href="../../public/css/fixed.css">
+  <link rel="stylesheet" href="../../public/css/stylehome.css">
+
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <hr class="top-line">
+
+    <nav>
+      <img id="menu-icon" src="../../public/images/menu.svg" alt="" onclick="openMenu()">
+
+      <nav id="mobile-nav" class="hidden">
+
+        <div class="menu">
+          <hr class="top-line">
+          <ion-icon name="close" id="closeMenu" onclick="closeMenu()"></ion-icon>
+
+          <div class="enter">
+            <button class="login-mobile">Login</button>
+            <button class="sign-in">Cadastro</button>
+          </div>
+
+          <ul>
+            <a href="carrinho.html">
+              <li>Carrinho</li>
+            </a>
+            <a href="">
+              <li>Mentoria</li>
+            </a>
+            <a href="cursos.html">
+              <li>Cursos</li>
+            </a>
+          </ul>
+          <ul>
+            <span>Mais Populares</span>
+            <a href="">
+              <li>Marketing</li>
+            </a>
+            <a href="">
+              <li>Programação</li>
+            </a>
+            <a href="">
+              <li>Web Design</li>
+            </a>
+          </ul>
+
+          <ul>
+            <a href="">
+              <li>Ajuda</li>
+            </a>
+            <a href="">
+              <li>Configurações
+              <li>
+            </a>
+          </ul>
+
+        </div>
+      </nav>
+
+
+      <!-- Logo -->
+      <img id="logo" onclick="window.location.href = 'index.html'" src="../../public/images/logo.png" alt="LadieWork">
+
+
+      <!-- Navigation Links -->
+      <div class="nav-items">
+        <a href="carrinho.html">
+          <ion-icon name="cart-outline"></ion-icon>
+        </a>
+        <ul>
+          <li><a href="pages/mentoria.html">Mentoria</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+        </ul>
+
+
+        <button class="login">Login</button>
+        <button class="cadastro">Cadastro</button>
+      </div>
+
+      <!-- Mobile Navigation List -->
+
+
+  </header>
+
+  <main>
+
+    <!-- Above the Fold Section -->
+    <section>
+      <article class="abovethefold">
+        <img src="../../public/images/abovethefoldgirl.png" alt="Mulher sorrindo" class="smile-women1">
+        <section class="desc">
+          <h2>LadieWork, a chave para o desenvolvimento pessoal e profissional!</h2>
+          <p>Voltada para mulheres que desejam crescer financeiramente em seu próprio serviço, ou buscam se destacar no
+            mercado de trabalho.</p>
+        </section>
+      </article>
+
+      <!-- Cursos Home Section -->
+      <article class="cursoshome">
+        <section class="desc">
+          <h2>Cursos para você evoluir a sua carreira</h2>
+          <p>Oferecemos cursos onlines, pagos e gratuitos para que você possa evoluir na sua carreira como profissional!
+          </p>
+          <button onclick="window.location.href = 'cursos.html'">Inscreva-se</button>
+
+        </section>
+        <img src="../../public/images/smilewomen2.svg" alt="Mulher sorrindo" class="smilewomen2">
+      </article>
+
+      <article class="seethecurses">
+        <section class="photo">
+          <div></div> <!-- É só um bloco branco ;) -->
+          <img src="../../public/images/it.png" alt="">
+          <figcaption>TI e Software</figcaption>
+        </section>
+        <section class="photo">
+          <div></div>
+          <img src="../../public/images/graphic-designer.png" alt="">
+          <figcaption>Design</figcaption>
+        </section>
+        <section class="photo">
+          <div></div>
+          <img src="../../public/images/language.png" alt="">
+          <figcaption>Idioma</figcaption>
+        </section>
+        <section class="photo">
+          <div></div>
+          <img src="../../public/images/social-media.png" alt="">
+          <figcaption>Marketing</figcaption>
+        </section>
+        <section class="photo">
+          <div></div>
+          <img src="../../public/images/diversity.png" alt="">
+          <figcaption>Desenvolvimento Pessoal</figcaption>
+        </section>
+        <section class="photo">
+          <div></div>
+          <img src="../../public/images/financial-profit.png" alt="">
+          <figcaption>Finanças</figcaption>
+        </section>
+
+        <button class="button" onclick="window.location.href = 'cursos.html'">Explorar mais</button>
+      </article>
+
+      <article class="sobrementoria">
+        <section class="mentoriaresumo">
+          <h2>Utilize nossas mentorias ou seje uma mentora!</h2>
+          <p>Como <strong>mentora</strong>, descubra o poder transformador de orientar outros em suas jornadas. Ao
+            compartilhar sua
+            experiência, você fortalece suas habilidades de liderança e comunicação, enquanto ajuda outros a alcançar
+            seu potencial máximo.
+            E como <strong>mentorada</strong> receba orientação personalizada para alcançar seus objetivos, enquanto
+            desenvolve
+            habilidades essenciais para o sucesso. </p>
+
+        </section>
+        <img src="../../public/images/working-women.jpg" alt="">
+      </article>
+
+
+
+      <!-- Aside Section -->
+      <aside>
+        <span><a href="pages/mentoria.html">Procuro mentoria</a></span>
+        <span><a href="pages/mentoria.html">Procuro ser uma mentora</a></span>
+      </aside>
+
+      <!-- Article Section -->
+      <article class="onu">
+        <p>Nós estamos na reta com esses</p>
+        <p>Objetivos de desenvolvimento Sustentáveis</p>
+        <a href="https://brasil.un.org/pt-br/sdgs/4" target="_blank"><img src="../../public/images/onu4.png" alt=""></a>
+        <a href="https://brasil.un.org/pt-br/sdgs/5" target="_blank"><img src="../../public/images/onu5.png"
+            class="onu-mini" alt=""></a>
+        <a href="https://brasil.un.org/pt-br/sdgs/8" target="_blank"><img src="../../public/images/onu8.png" alt=""></a>
+        <a href="https://brasil.un.org/pt-br/sdgs/10" target="_blank"><img src="../../public/images/onu10.png"
+            class="onu-mini" alt=""></a>
+        <a href="https://brasil.un.org/pt-br/sdgs/12" target="_blank"><img src="../../public/images/onu12.png"
+            alt=""></a>
+        <a href="https://brasil.un.org/pt-br/sdgs/17" target="_blank"><img src="../../public/images/onu17.png"
+            class="onu-mini" alt=""></a>
+      </article>
+
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="hidden"><ion-icon name="chevron-up-outline"></ion-icon></button>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <img src="../../public/images/logobranca.png" alt="LadieWork">
+
+    <ul>
+      <a href="">
+        <li>Ensinar na Ladiework</li>
+      </a>
+      <a href="mentorias.html">
+        <li>Mentorias</li>
+      </a>
+      <a href="cursos.html">
+        <li>Cursos</li>
+      </a>
+      <a href="">
+        <li>Quem Somos</li>
+      </a>
+      <a href="">
+        <li>Fale Conosco</li>
+      </a>
+      <a href="">
+        <li>Ajuda e Suporte</li>
+      </a>
+      <a href="">
+        <li>Chat</li>
+      </a>
+      <a href="">
+        <li>Termos</li>
+      </a>
+      <a href="">
+        <li>Política e Privacidade</li>
+      </a>
+      <a href="">
+        <li>Mapa do Site</li>
+      </a>
+      <a href="">
+        <li>Configurações</li>
+      </a>
+    </ul>
+
+    <div class="container">
+      <section class="socials">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </section>
+      <button class="contato">Contato</button>
+    </div>
+
+    <span>© 2024 - LadieWork</span>
+  </footer>
+
+  <!-- Scripts -->
+
+  <script src="../../public/js/home.js"></script>
+  <script src="../../public/js/menu-mobile.js"></script>
+
+
+</body>
+
+
+
+
+
+</html>

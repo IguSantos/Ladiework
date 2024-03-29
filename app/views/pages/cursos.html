@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos</title>
+  <link rel="stylesheet" href="../../public/css/reset.css">
+  <link rel="stylesheet" href="../../public/css/fixed.css">
+  <link rel="stylesheet" href="../../public/css/cursos.css">
+  <link rel="icon" sizes="41x22" href="../../public/images/favicon.png" type="image/png">
+  <meta name="description"
+    content="Descubra uma ampla seleção de cursos para mulheres, abrangendo uma variedade de categorias. Explore opções gratuitas e pagas, projetadas para capacitá-la em todas as áreas da vida. Encontre o curso perfeito para você e embarque em sua jornada de aprendizado hoje mesmo!">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+</head>
+
+<body>
+
+  <aside class="top-information">
+    <h1>Principais Cursos</h1>
+
+    <input type="search" id="searchInput" placeholder="Pesquisar..."> <img class="filter-image"
+      src="../../public/images/filterimage.svg" alt="">
+
+  </aside>
+  <main>
+
+    <aside id="filtragem">
+      <button class="dropdown-btn" id="dropdownBtn">Mais curtidos <ion-icon name="caret-up-outline"></ion-icon></button>
+      <!-- Lista de opções -->
+      <div class="dropdown-content" tabindex="1" id="dropdownOptions">
+        <div>Mais curtidos </div>
+        <div>Novos</div>
+        <div>Para você</div>
+        <div>Por preço</div>
+      </div>
+
+
+      <article id="filtering">
+        <h2 class="filter-toggle" onclick="toggleFilter()"><ion-icon name="filter-outline"></ion-icon>Filtrar</h2>
+        <div class="stars">
+          <h3>Clasificações</h3>
+          <input type="radio" id="estrelas5" name="classificacao" value="5">
+          <label for="estrelas5">4,5 Estrelas ou mais</label><br>
+          <input type="radio" id="estrelas4" name="classificacao" value="4">
+          <label for="estrelas4">4,0 Estrelas ou mais</label><br>
+          <input type="radio" id="estrelas3" name="classificacao" value="3">
+          <label for="estrelas3">3,5 Estrelas ou mais</label><br>
+          <input type="radio" id="estrelas2" name="classificacao" value="2">
+          <label for="estrelas2">3,0 ou cima</label><br>
+        </div>
+        <div class="video-duration">
+          <h3>Duração de vídeo</h3>
+          <input type="checkbox" id="ate1hora" name="duracao" value="1">
+          <label for="ate1hora">Até 1 hora</label><br>
+          <input type="checkbox" id="de1a3horas" name="duracao" value="3">
+          <label for="de1a3horas">De 1 a 3 horas</label><br>
+          <input type="checkbox" id="de3a6horas" name="duracao" value="6">
+          <label for="de3a6horas">De 3 a 6 horas</label><br>
+          <input type="checkbox" id="maisde6horas" name="duracao" value="6+">
+          <label for="maisde6horas">De 6 a 7 horas</label><br>
+          <input type="checkbox" id="12horas" name="duracao" value="7+">
+          <label for="maisde6horas">12 horas</label><br>
+        </div>
+        <div class="price">
+          <h3>Preço</h3>
+          <input type="checkbox" id="pago" name="pago" value="1">
+          <label for="pago">Pago</label><br>
+          <input type="checkbox" id="gratuito" name="gratuito" value="3">
+          <label for="gratuito">Gratuito</label><br>
+        </div>
+        <div class="category">
+          <h3>Categoria</h3>
+          <input type="checkbox" id="design" name="design" value="1">
+          <label for="design">Design</label><br>
+          <input type="checkbox" id="ti" name="ti" value="3">
+          <label for="ti">TI</label><br>
+          <input type="checkbox" id="financas" name="financas" value="1">
+          <label for="financas">Finanças</label><br>
+          <input type="checkbox" id="marleting" name="marleting" value="3">
+          <label for="marleting">Marketing</label><br>
+        </div>
+
+
+      </article>
+
+      <div id="background">
+        <article id="filtering-mobile">
+            <h2 class="filter-toggle"><ion-icon name="filter-outline"></ion-icon>Filtrar</h2>
+            <ion-icon name="close" id="closeFilter" onclick="closeFilter()"></ion-icon>
+            <div class="stars">
+                <h3>Classificações</h3>
+                <input type="radio" id="estrelas5-mobile" name="classificacao" value="5">
+                <label for="estrelas5-mobile">4,5 Estrelas ou mais</label><br>
+                <input type="radio" id="estrelas4-mobile" name="classificacao" value="4">
+                <label for="estrelas4-mobile">4,0 Estrelas ou mais</label><br>
+                <input type="radio" id="estrelas3-mobile" name="classificacao" value="3">
+                <label for="estrelas3-mobile">3,5 Estrelas ou mais</label><br>
+                <input type="radio" id="estrelas2-mobile" name="classificacao" value="2">
+                <label for="estrelas2-mobile">3,0 ou cima</label><br>
+            </div>
+            <div class="video-duration">
+                <h3>Duração de vídeo</h3>
+                <input type="checkbox" id="ate1hora-mobile" name="duracao" value="1">
+                <label for="ate1hora-mobile">Até 1 hora</label><br>
+                <input type="checkbox" id="de1a3horas-mobile" name="duracao" value="3">
+                <label for="de1a3horas-mobile">De 1 a 3 horas</label><br>
+                <input type="checkbox" id="de3a6horas-mobile" name="duracao" value="6">
+                <label for="de3a6horas-mobile">De 3 a 6 horas</label><br>
+                <input type="checkbox" id="maisde6horas-mobile" name="duracao" value="6+">
+                <label for="maisde6horas-mobile">De 6 a 7 horas</label><br>
+                <input type="checkbox" id="12horas-mobile" name="duracao" value="7+">
+                <label for="12horas-mobile">12 horas</label><br>
+            </div>
+            <div class="price">
+                <h3>Preço</h3>
+                <input type="checkbox" id="pago-mobile" name="pago" value="1">
+                <label for="pago-mobile">Pago</label><br>
+                <input type="checkbox" id="gratuito-mobile" name="gratuito" value="3">
+                <label for="gratuito-mobile">Gratuito</label><br>
+            </div>
+            <div class="category">
+                <h3>Categoria</h3>
+                <input type="checkbox" id="design-mobile" name="design" value="1">
+                <label for="design-mobile">Design</label><br>
+                <input type="checkbox" id="ti-mobile" name="ti" value="3">
+                <label for="ti-mobile">TI</label><br>
+                <input type="checkbox" id="financas-mobile" name="financas" value="1">
+                <label for="financas-mobile">Finanças</label><br>
+                <input type="checkbox" id="marketing-mobile" name="marketing" value="3">
+                <label for="marketing-mobile">Marketing</label><br>
+            </div>
+        </article>
+    </div>
+    
+
+    </aside>
+
+    <article class="curses">
+
+      <div class="course">
+
+        <div class="info">
+          <h3>Curso de Marketing Digital</h3>
+          <div class="details">
+            <span>60 horas</span>
+            <span>Marketing Digital</span>
+            <span>Avançado</span>
+          </div>
+
+            <button class="learn-more">Saiba Mais</button>
+            <button class="add-cart"> <ion-icon name="cart-outline"></ion-icon><ion-icon name="add-outline"></ion-icon></button>
+  
+
+
+          <div class="course-info" id="ti-info2">
+            <div class="triangle"></div>
+
+            <h3>Sobre o curso</h3>
+            <p id="about-curse">Domenda a criar campanhas eficazes para aumentar a visibilidade da marca e
+              gerar leads qualificados.</p> <!-- Colocar maximo -->
+
+            <hr>
+            <div class="additional-information">
+
+              <p id="user">Sophia Moreira</p>
+              <p id="price">R$ 149</p>
+              <span>4x de $37,25</span>
+            </div>
+          </div>
+
+        </div>
+
+        <img src="../../public/images/worker.png" alt="Foto do curso">
+      </div>
+
+      <div class="course">
+
+        <div class="info">
+          <h3>Curso de Marketing Digital</h3>
+          <div class="details">
+            <span>60 horas</span>
+            <span>Marketing Digital</span>
+            <span>Avançado</span>
+          </div>
+
+            <button class="learn-more" onclick="window.location.href = 'cursoinfo.html'" >Saiba Mais</button>
+            <button class="add-cart"> <ion-icon name="cart-outline"></ion-icon><ion-icon name="add-outline"></ion-icon></button>
+  
+
+
+          <div class="course-info" id="ti-info">
+            <div class="triangle"></div>
+
+            <h3>Sobre o curso</h3>
+            <p id="about-curse">Domine as estratégias de marketing digital, incluindo SEO, marketing de conteúdo, mídia
+              social e análise de dados. Aprenda a criar campanhas eficazes para aumentar a visibilidade da marca e
+              gerar leads qualificados.</p> <!-- Colocar maximo -->
+
+            <hr>
+            <div class="additional-information">
+
+              <p id="user">Sophia Moreira</p>
+              <p id="price">R$ 149</p>
+              <span>4x de $37,25</span>
+            </div>
+          </div>
+
+        </div>
+
+        <img src="../../public/images/worker.png" alt="Foto do curso">
+      </div>
+      
+
+    </article>
+
+  </main>
+
+
+  <nav class="next">
+    <div><ion-icon name="chevron-back-outline"></ion-icon> </div>
+    <a href="">1</a>
+    <a href="">2</a>
+    <a href="">3</a>
+
+
+    <div><ion-icon name="chevron-forward-outline"></ion-icon></div>
+  </nav>
+
+  <aside class="inspiration"><img src="../../public/images/up.svg " alt=""><span>Nossos cursos estão prontos para te
+      levar ao próximo nivel!</span>
+    <img src="../../public/images/up.svg " alt=""><span>Faça a escolha que melhor se adeque a você!</span><img
+      src="../../public/images/megaphone.svg " alt=""><span>Confie no seu potencial e conquiste sua vaga
+      desejada!</span>
+  </aside>
+
+  <script src="../../public/js/menu-mobile.js"></script>
+  <script src="../../public/js/cursos.js"></script>
+
+</body>
+
+
+</html>

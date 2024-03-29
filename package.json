@@ -1,0 +1,11 @@
+{
+  "name": "ladiework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "text"
+  },
+  "author": "Igor Santos",
+  "license": "MIT"
+}

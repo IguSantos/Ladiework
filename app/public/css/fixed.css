@@ -1,0 +1,451 @@
+/* ===== HEADER - NAV ===== */
+
+/* Linha superior do header */
+.top-line {
+    background-color: var(--second-color);
+    height: 3.2vh;
+    width: 100%;
+    border: none;
+}
+
+/* Configurações gerais */
+html {
+    background-color: rgb(247, 247, 247);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Estilização da barra de navegação */
+nav {
+    padding: 5px 0 4px 0;
+    margin: 0 95px;
+    border-bottom: 2px solid #c5b8d9;
+    height: 4.5rem;
+    display: flex;
+    justify-content: space-between;
+    color: var(--second-color);
+}
+
+/* Remover decoração padrão dos links */
+a {
+    text-decoration: none;
+}
+
+/* Estilização dos links de navegação */
+nav a {
+    font-family: "Poppins SemiBold", "Poppins", sans-serif;
+    color: var(--second-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--hover-nav);
+}
+
+#logo {
+    cursor: pointer;
+    object-fit: contain;
+}
+
+
+.active {
+    color: var(--hover-nav);
+    border-bottom: 2px solid var(--hover-nav);
+}
+
+/* Ícones */
+.icon {
+    display: flex;
+    gap: 5px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-items {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+#menu-icon {
+    display: none;
+}
+
+
+
+nav li {
+    font-weight: 900;
+    font-size: 1.25rem;
+}
+
+nav ion-icon {
+    width: 30px;
+    color: grey;
+    height: 30px;
+}
+
+/* Botões de login e cadastro */
+.login,
+.cadastro,
+.sign-in,
+.login-mobile {
+    border-radius: 13px;
+    font-family: "Poppins SemiBold", "Poppins", sans-serif;
+    color: white;
+    font-weight: 100;
+    font-size: 1em;
+    padding: 4px 20px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    opacity: 1;
+    margin: 0 auto;
+}
+
+.login,
+.login-mobile {
+    background-color: var(--button-color);
+}
+
+.cadastro,
+.sign-in {
+    color: var(--button-color);
+    border: 2px solid var(--button-color);
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: var(--primary-color);
+    padding: 5px 0;
+    z-index: 3;
+    padding: 30px;
+    height: 25vh;
+    position: relative;
+
+}
+
+footer span {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 100;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+}
+
+footer img {
+    width: 7%;
+}
+
+footer ul {
+    columns: 3;
+    list-style-type: none;
+}
+
+footer>ul>a {
+    text-decoration: none;
+}
+
+footer li {
+    cursor: pointer;
+    font-weight: 200;
+    font-size: 0.9rem;
+    margin-left: 20px;
+}
+
+footer p {
+    margin-left: 2%;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.contato {
+    background-color: white;
+    border-radius: 13px;
+    font-size: 0.9em;
+    color: var(--primary-color);
+    font-weight: 200;
+    padding: 6px 22px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 1;
+    margin: 0 auto;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+
+}
+
+.socials {
+    border-bottom: 1px solid white;
+    margin: 0;
+    width: 100%;
+    display: flex;
+}
+
+.socials>ion-icon {
+    cursor: pointer;
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    color: white;
+}
+
+/* ===== SCROLLBAR ===== */
+
+/* Estilização da barra de rolagem */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--secondy-color);
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color);
+}
+
+/* ===== MOBILE NAVBAR ===== */
+
+.no-scroll {
+    overflow: hidden;
+}
+
+#mobile-nav {
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 14;
+    background: rgba(0, 0, 0, 0.425);
+    transition: background 1s ease-in;
+  
+}
+
+.menu {
+    left: 0;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    height: 75vh;
+    text-align: left;
+}
+
+nav img.profile {
+    display: none;
+}
+
+#mobile-nav ion-icon {
+    color: rgb(26, 26, 26);
+    font-size: 7rem;
+    margin: 3% 0 0 1%;
+}
+
+#mobile-nav ul {
+    padding: 20px 0;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid grey;
+}
+
+.menu li {
+    font-weight: 300;
+    font-size: 1.8rem;
+    text-align: left;
+}
+
+
+#mobile-nav ul:last-child {
+    border: none;
+}
+
+.menu ul span {
+    color: black;
+    font-size: 1.7rem;
+
+}
+
+.menu a {
+    font-weight: 300;
+    text-align: left;
+
+}
+
+#mobile-nav a:hover {
+    color: rgba(209, 209, 209, 0.712);
+}
+
+
+#mobile-nav.show-menu {
+    right: 0;
+   
+}
+
+.sign-in,
+.login-mobile {
+    width: 150px;
+    height: 40px;
+}
+
+.enter {
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-around;
+    border-bottom: 2px solid rgba(209, 209, 209, 0.651);
+    margin: 0 30px;
+}
+
+#mobile-nav .active {
+    color: rgba(255, 255, 255, 0.76);
+    border-bottom: 2px solid rgba(209, 209, 209, 0.651);
+}
+
+#mobile-nav img {
+    margin: 0 0 5% 0;
+    width: 12%;
+}
+
+
+/* MOBILE */
+@media (min-width: 700px) and (max-width: 900px) {
+    /* HEADER MOBILE */
+    #closeMenu {
+        position: absolute;
+        left: 102%;
+        top: 2%;
+        background-color: aliceblue;
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    .menu ion-icon {
+        width: 60px;
+        height: 60px;
+        display: block;
+    }
+
+    #menu-icon {
+        display: block;
+        width: 50px;
+    }
+
+    nav ion-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    nav {
+        background-color: white;
+        height: 5rem;
+        margin: 0;
+        padding: 10px;
+        color: var(--second-color);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #logo {
+        flex-grow: 1;
+    }
+
+    .sign-in {
+        background-color: white;
+    }
+
+    .sign-in,
+    .login-mobile {
+        display: block;
+    }
+
+    nav button {
+        display: none;
+    }
+
+    nav ul:nth-of-type(1) {
+        display: none;
+    }
+
+    nav img {
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* FOOTER MOBILE */
+    footer {
+        height: 57vh;
+        text-align: center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    footer li {
+        font-size: 1.4rem;
+    }
+
+    footer img {
+        width: 30%;
+    }
+
+    footer span {
+        position: absolute;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .socials>ion-icon {
+        margin: 10px;
+        height: 40px;
+        width: 40px;
+    }
+
+    footer ul {
+        columns: 1;
+        text-align: left;
+        margin-left: -70%;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        margin-top: auto;
+    }
+}
