@@ -1,5 +1,6 @@
-
-
-node_modules
-
-.vscode/*
+.env
+config.ini
+node_modules/
+build/
+dist/
+.vscode/
