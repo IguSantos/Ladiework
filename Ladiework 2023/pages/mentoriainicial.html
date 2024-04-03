@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentorias</title>
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/fixed.css" />
+  <link rel="stylesheet" href="../css/mentoriasinicial.css">
+
+</head>
+
+<body>
+
+  <div id="barra-de-carregamento"></div>
+  <header></header>
+
+  <nav>
+
+    <div class="mobile-menu" id="btnMenu" onclick="openMenu()">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+
+
+    <div class="icon"><img src="../files/logo.png" alt=""> <i>LadieWork</i></div>
+
+    <a href="login.html"><img src="../files/profile.svg" class="profile" alt=""></a>
+
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="#" class="active">Mentoria</a></li>
+      <li><a href="./cursos.html">Cursos</a></li>
+      <li><a href="./perfil.html">Perfil</a></li>
+      <li><a href="comunidade.html">Comunidade</a></li>
+    </ul>
+
+
+    <div id="nav-list">
+
+      <ion-icon name="close" onclick="closeMenu()"></ion-icon>
+      <ul>
+
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#" class="active">Mentoria</a></li>
+        <li><a href="../pages/cursos.html">Cursos</a></li>
+        <li><a href="../pages/comunidade.html">Comunidade</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div>
+      <p>Estamos quase lá! Aperte em <b>continuar</b> para que procuremos as mentorias de seu interesse, depois basta escolher entre as opções propostas e aprender novas habilidades.</p>
+
+      <input type="submit" value="Continuar" id="continuar" onclick="carregarERedirecionar()" >
+
+    </div>
+
+    <img class="triangulo" src="../files/trinagulo.svg" alt="">
+
+    <aside id="cartao-mentoria">
+
+
+      <h2>Mentoria da Mulher</h2>
+      <span id="por-usuaria">Por user1267</span>
+
+      <img src="../files/muiesorrindo.svg" alt="">
+      <p>Descrição:</p>
+
+      <div class='descricao-mentoria'>
+
+        <p id="descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+          Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>
+
+        <a >Veja mais</a>
+
+      </div>
+
+      <ul>
+        <li>Tempo de mentoria: <span id="hora-mentoria">1 h</span></li>
+        <li>Tempo de duração: <span id="duracao-mentoria">2 semanas</span></li>
+        <li>Mentora: <span id="criadora-mentoria">Usuária4567</span></li>
+      </ul>
+
+      <button disabled>Começar!</button>
+
+    </aside> 
+
+    <!-- popup -->
+
+    <div class="fundopreto" id="popup">
+      <div class="popup-categoria">
+
+        <h2>Bem-vinda a área de Mentoria!</h2>
+
+        <div class="principal">
+          <div class="explicacao">
+
+            <h4>Como funciona?</h4>
+
+            <p>LadieWork pretende obter as melhores recomendações de mentorias que atendam às suas necessidades, é
+              importante que você selecione pelo menos <b>três</b> categorias que representem seus interesses e
+              objetivos. Esse processo ajuda o sistema a entender melhor o que você está buscando. Quanto mais
+              categorias você escolher, mais precisas serão as sugestões de mentorias.</p>
+            <span>Com dúvidas?<a href="">Saiba mais</a></span>
+          </div>
+
+          <div class="checkbox">
+            <h4>Selecione suas preferências:</h4>
+
+            <div class="realcheckbox">
+
+              <div>
+                <label><input type="checkbox" id="categoria1">
+                  Finanças</label><br>
+                <label><input type="checkbox" id="categoria2">
+                  Marketing </label><br>
+                <label><input type="checkbox" id="categoria3">
+                  Habilidades </label><br>
+                <label><input type="checkbox" id="categoria4">
+                  Networking</label><br>
+                <label><input type="checkbox" id="categoria5">
+                  Liderança</label>
+              </div>
+
+
+              <div>
+                <label><input type="checkbox" id="categoria6">
+                  Carreira
+                </label><br>
+                <label><input type="checkbox" id="categoria7">
+                  Criatividade</label><br>
+                <label><input type="checkbox" id="categoria8">
+                  Inovação</label><br>
+                <label><input type="checkbox" id="categoria9">
+                  Educação</label><br>
+                <label><input type="checkbox" id="categoria10">
+                  Gestão</label><br>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <button onclick="closePopup()" >Continuar</button>
+
+      </div>
+    </div>
+
+  </main>
+
+
+
+  <footer>
+    <p>
+      LadieWork 2023 - Todos os direitos reservados -
+      <a href="/">Termos de uso</a> - <a href="/">politica de privacidade</a>
+    </p>
+
+    <div class="socials">
+      <ion-icon name="mail-outline"></ion-icon>
+      <ion-icon name="logo-instagram"></ion-icon>
+      <ion-icon name="logo-facebook"></ion-icon>
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </div>
+  </footer>
+
+
+  <script src="../script/mobile-navbar.js"></script>
+  <script src="../script/filtragemmentoria.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

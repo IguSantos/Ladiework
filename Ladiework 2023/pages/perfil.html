@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bem-Vinda ao seu perfil!</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/fixed.css" />
+    <link rel="stylesheet" href="../css/perfil.css">
+
+    <script src="../script/mobile-navbar.js" defer></script>
+  </head>
+  <body>
+
+    <div id="barra-de-carregamento"></div>
+    <header></header>
+
+    <nav> 
+
+      <div class="mobile-menu" id="btnMenu" onclick="openMenu()" >
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+   </div>
+
+      
+      <div class="icon"><img src="../files/logo.png" alt="" > <i>LadieWork</i></div>
+
+      <a href="login.html"><img src="../files/profile.svg" class="profile" alt=""></a> 
+
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/mentoriainicial.html">Mentoria</a></li>
+        <li><a href="../pages/cursos.html">Cursos</a></li>
+        <li><a href="#" class="active">Perfil</a></li>
+        <li><a href="comunidade.html">Comunidade</a></li>
+      </ul>
+
+
+           
+<div id="nav-list" >
+
+  <ion-icon name="close" onclick="closeMenu()" ></ion-icon>
+<ul>
+
+ <li><a href="../index.html" >Home</a></li>
+ <li><a href="../pages/mentoriainicial.html">Mentoria</a></li>
+ <li><a href="../pages/cursos.html">Cursos</a></li>
+ <li><a href="../pages/comunidade.html">Comunidade</a></li>
+</ul>
+</div> 
+    </nav>
+
+<main>
+  
+<section>
+<div class="perfilVisualizar">
+  <img src="../files/muié6.png" alt="">
+
+  <div class="informacoes">
+    <div class="usuaria">
+      <h2 class="nomeUsuaria">Usuária51614116</h2>
+      <button>Editar Perfil</button>
+    </div>
+
+
+  <h4>Bio:</h4> 
+  <p id="bio">
+Mentora - empresa abobrinha
+</p>
+
+  <span id="localizacao"><img src="" alt="">Paraná, Brasil </span>
+
+
+  </div>
+
+
+
+</div>
+
+<div class="redessociais">
+
+
+  <div class="redes">
+    <ion-icon name="logo-instagram"></ion-icon><span>@Usuária51614116</span>
+  </div>
+
+
+  <div class="redes">
+    <ion-icon name="logo-facebook"></ion-icon> <span>Usuária Silva</span>
+  </div>
+
+
+    <div class="redes">
+      <ion-icon name="mail-outline"></ion-icon>
+      <span>UsuáriaSilva@gmail.com</span>
+    </div>
+
+</div>
+
+</section>
+
+
+<aside>
+
+ <h3>Mudar perfil</h3>
+ <button id="mudarperfil">Ser mentora</button>
+
+
+</aside>
+
+</main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

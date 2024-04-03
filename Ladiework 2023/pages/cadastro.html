@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet" />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O começo de uma nova jornada</title>
+
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/fixed.css" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
+
+    <script src="../script/mobile-navbar.js" defer></script>
+</head>
+
+<body>
+    <div id="barra-de-carregamento"></div>
+    <header></header>
+
+    <nav>
+
+        <div class="mobile-menu" id="btnMenu" onclick="openMenu()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
+
+        <div class="icon"><img src="../files/logo.png" alt=""> <i>LadieWork</i></div>
+
+        <a href="login.html"><img src="../files/profile.svg" class="profile" alt=""></a>
+
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/mentoria.html">Mentoria</a></li>
+            <li><a href="../pages/cursos.html">Cursos</a></li>
+            <li><a href="#" class="active">Perfil</a></li>
+            <li><a href="comunidade.html">Comunidade</a></li>
+        </ul>
+
+
+
+        <div id="nav-list">
+
+            <ion-icon name="close" onclick="closeMenu()"></ion-icon>
+            <ul>
+
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/mentoria.html">Mentoria</a></li>
+                <li><a href="../pages/cursos.html">Cursos</a></li>
+                <li><a href="../pages/comunidade.html">Comunidade</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+
+        <form id="loginCadastro">
+            <h1> Fale um pouco sobre você! </h2>
+
+                <div class="container">
+                    <div class="nome">
+                        <label for="nome"> Nome </label><br>
+                        <input type="text" id="nome" name="nome" require><br>
+                    </div>
+
+                    <div class="nascimento">
+                        <label for="nascimento"> Nascimento </label><br>
+                        <input type="date" id="nascimento" name="nascimento" required  min="1978-01-01" max="2007-01-01"><br>
+                    </div>
+                    <div class="bbb">
+                        <label class="UF" for="UF"> UF </label><br>
+                        <input type="number" id="UF" name="UF" required maxlength="2" ><br>
+                    </div>
+                    <div class="bbb">
+                        <label class="pcd" for="pcd"> Você é PcD? </label><br>
+                        <select id="pcd" name="pcd">
+                            <option value="..."> ... </option>
+                            <option value="sim"> Sim </option>
+                            <option value="nao"> Não </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="cac">
+                        <label for="DDD"> DDD </label><br>
+                        <input type="text" id="DDD" name="DDD" required maxlength="2"><br>
+                    </div>
+
+                    <div class="ccc">
+                        <label class="telefone" for="telefone "> Telefone </label><br>
+                        <input type="text" id="telefone" name="telefone" required autocomplete="off"><br>
+                    </div>
+
+                    <div class="nivelestudo">
+                        <label for="nivelestudo"> Qual o seu nível de estudo? </label><br>
+                        <select id="nivelestudo" name="nivelestudo"> ...
+                            <option value="..."> ... </option>
+                            <option value="..."> Ensino Fundamental Completo </option>
+                            <option value="..."> Ensino Médio Completo </option>
+                            <option value="..."> Faculdade </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="Email">
+                    <div class="cbc">
+                        <label for="Email"> Email </label><br>
+                        <input type="email" id="Email" name="Email" required><br>
+                    </div>
+                    <div class="ddd">
+                        <label for="senha"> Senha </label><br>
+                        <input type="password" id="senha" name="senha" required autocomplete="off"><img src="../files/olhinho.svg" alt="" class="eye-icon" onclick="togglePasswordVisibility()"><br>
+
+                    </div>
+                    <div class="ddd">
+                        <label for="confirmar"> Confirmar senha </label><br>
+                        <input type="password" id="confirmar" name="confirmar" required autocomplete="off">
+                        <img src="../files/olhinho.svg" alt="" class="eye-icon2" onclick="togglePasswordVisibility2()">
+
+                        <br>
+                    </div>
+                </div>
+                <h1> Fale um pouco sobre o seu trabalho </h1>
+
+                <div class="experiência">
+                    <div class="eee">
+                        <label for="experiencia"> Experiência </label><br>
+                        <textarea name="experiencia" id="experiencia" rows="10" cols="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="enviar">
+                    <input type="submit" id="enviar" value="Tudo Pronto!">
+                </div>
+
+        </form>
+
+        <div class="perfil">
+
+            <div class="mini-perfil" >
+                <img id="profileImage" src="../files/perfil.svg">
+                <p>Sua foto de Perfil</p>
+                <button id="editar" name="editar"> Editar</button>
+                <input type="file" id="inputImage" accept="image/*" style="display: none;" required >
+            </div>
+
+
+        </div>
+
+
+
+    </main>
+
+
+    <footer>
+        <p>
+            LadieWork 2023 - Todos os direitos reservados -
+            <a href="/">Termos de uso</a> - <a href="/">politica de privacidade</a>
+        </p>
+
+        <div class="socials">
+            <ion-icon name="mail-outline"></ion-icon>
+            <ion-icon name="logo-instagram"></ion-icon>
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </div>
+    </footer>
+
+
+    <script src="../script/cadastro.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

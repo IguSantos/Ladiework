@@ -1,0 +1,387 @@
+body {
+    height: 100%;
+}
+
+main {
+    text-align: center;
+    margin: auto;
+    max-width: 100%;
+    height: 100vh;
+
+    background: rgb(247, 247, 247) url(https://i.ibb.co/ysLPNVs/Cursos.png) no-repeat center center/cover;
+}
+
+input {
+    margin: 6% 0;
+    width: 83%;
+    background-color: var(--background-color);
+    height: 46px;
+    border-radius: 5px 0 0 0;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+#filter {
+    border-radius: 0px 5px 5px 0;
+    background-color: rgba(150, 113, 211, 1);
+    border: none;
+    outline: none;
+    height: 46px;
+    width: 7%;
+    margin-left: -5px;
+
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+
+label {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    top: 24%;
+    left: 92%;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+
+#filtro {
+    display: inline;
+    height: 46px;
+    width: 6%;
+}
+
+.courses-catalog {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.course {
+    border-radius: 11px;
+    padding: 20px;
+    height: 350px;
+    width: 230px;
+    background-color: rgba(232, 232, 232, 0.98);
+}
+
+.course img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.course h2 {
+    margin-top: 8px;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--button-color);
+}
+
+.course p:nth-of-type(1) {
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0.5;
+    margin-bottom: 3px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #8e8e8e;
+    text-align: left;
+}
+
+.course p:nth-of-type(2) {
+    text-align: left;
+    margin: 10px 0;
+    opacity: 0.8;
+    font-size: 16px;
+    font-weight: 600;
+    color: #7c63a5;
+}
+
+/* Estilo para o modal */
+.fundo-preto {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+#openPopUp {
+    cursor: pointer;
+}
+
+
+.popup-curso {
+    display: flex;
+    border-radius: 17px;
+    margin: 6% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 824px;
+    height: 78%;
+    gap: 40px;
+    background: #f6f1ff url(https://i.ibb.co/SyXpn21/cursos-pop-up-1.png) no-repeat center center/cover;
+    position: relative;
+    border-radius: 12px;
+
+    
+}
+
+.info-curso {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 24rem;
+    text-align: left;
+    background-color: #ddcff0;
+    border-radius: 10px;
+}
+
+.info-curso h3 {
+    color: var(--button-color);
+    padding-bottom: 17px;
+    border-bottom: 2px solid #be9ed7;
+}
+
+.info-curso p {
+    font-size: 84%;
+    text-indent: 5px;
+    font-weight: 500;
+    color: var(--font-color);
+}
+
+.info-comprar p:nth-of-type(1) {
+    text-align: left;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--primary-color);
+    font-weight: 600;
+    color: #b9a8d5;
+}
+
+.info-comprar p:nth-of-type(2) {
+    text-align: left;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 25px;
+    opacity: 0.7;
+}
+
+.info-comprar button {
+    cursor: pointer;
+    width: 209px;
+    height: 40px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--button-color);
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    line-height: normal;
+}
+
+/* Botão para fechar o modal */
+.close {
+    color: var(--primary-color);
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* MOBILE */
+
+@media (min-width: 100px) and (max-width: 900px) {
+
+
+    .courses-catalog {
+        gap: 40px;
+        padding: 10% 0;
+    }
+
+    .course {
+        padding: 20px;
+        height: 415px;
+        width: 276px;
+    }
+
+    .course h2 {
+        font-size: 1.4rem;
+    }
+
+    .info-curso h3 {
+        font-size: 30px;
+    }
+
+    .course p:nth-of-type(1) {
+        font-size: 1rem;
+
+    }
+
+    .course p:nth-of-type(2) {
+        font-size: 1.3rem;
+    }
+
+    main {
+        padding-top: 75px;
+    }
+
+
+    input {
+        margin: 8% 0;
+        width: 77%;
+        height: 41px;
+    }
+
+    .fundo-preto {
+        display: none;
+        position: fixed;
+        z-index: 15;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #filter {
+        height: 42px;
+        width: 17%;
+    }
+
+    .popup-curso .visualizar-curso {
+        width: 90%;
+    }
+
+    .popup-curso {
+        margin: 0;
+        padding:  0;
+        border-radius: 0;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        gap: 40px;
+        overflow-x: hidden;
+      
+    }
+
+    .close {
+        width: 9%;
+        margin-top: 20px;
+        margin-right: 5px;
+    }
+
+    .info-curso p {
+        font-size: 15px;
+    }
+
+    .info-curso {
+        padding-top: 41px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .info-comprar {
+        padding: 20px 10px;
+    }
+
+    .info-comprar p:nth-of-type(2) {
+        font-size: 23px;
+    }
+
+}
+
+
+
+@media (min-width: 1500px) and (max-width: 2000px) {
+
+    .course {
+        height: 448px;
+        width: 308px;
+    }
+
+    .course h2 {
+        font-size: 1.3rem;
+    }
+
+    .course p:nth-of-type(1) {
+        font-size: 1rem;
+    }
+
+    .course p:nth-of-type(2) {
+        font-size: 22px
+    }
+
+    .popup-curso {
+        margin: 6% auto;
+        width: 1000px;
+        height: 62%;
+    }
+
+    .info-curso {
+        width: 32rem;
+    }
+
+    .info-curso h3 {
+        font-size: 25px;
+    }
+
+    .info-curso p {
+        font-size: 100%;
+
+    }
+
+    .popup-curso .visualizar-curso {
+        width: 100%;
+    }
+
+    .info-comprar p:nth-of-type(1) {
+        font-size: 20px;
+    }
+
+    .info-comprar button {
+        width: 219px;
+        height: 48px;
+    }
+
+    .info-comprar p:nth-of-type(2) {
+        padding: 16px 0;
+    }
+
+    .close {
+        width: 59px;
+    }
+
+    input {
+        margin: 5% 0;
+        width: 73%;
+        height: 49px;
+    }
+
+    #filter {
+        height: 48px;
+        font-size: 18px;
+    }
+
+}

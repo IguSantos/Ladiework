@@ -1,0 +1,201 @@
+main {
+  margin:auto;
+  padding: 35px 0;
+  max-width: 90%;
+  display: flex;
+  gap: 200px;
+}
+
+.perfilVisualizar {
+    display: flex;
+    gap: 18px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #c5b8d9;
+}
+
+.perfilVisualizar > img{
+    width: 158px;
+    height: 159px;
+ border-radius: 50%;
+}
+
+.informacoes h2 {
+    font-size: 20px;
+    display: inline;
+    margin-right: 20px;
+    font-family: "Poppins", "Poppins", sans-serif;
+    font-weight: 600;
+    color: #333333;
+}
+
+.informacoes h4 {
+    margin-top: 20px;
+}
+
+
+.informacoes button {
+    cursor: pointer;
+    width: 101px;
+    height: 30px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 10px;
+    background-color: #dac3ff;
+    box-sizing: border-box;
+    font-family: "Poppins Bold", "Poppins", "Poppins", sans-serif;
+    font-weight: 700;
+    color: #9872d7;
+    text-align: center;
+    line-height: normal;
+    border: none;
+}
+
+h4 {
+  color: #333333d3;
+}
+
+.informacoes #bio {
+   color: #888888;
+}
+
+#localizacao {
+ color:   rgba(159, 159, 159, 0.788);  
+ font-size: 15px;
+}
+
+
+.redessociais {
+    padding: 23px 0;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+
+ion-icon {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.redes {
+    display: flex;
+    align-items: center;
+    color:  #8e8e8e;
+}
+
+aside {
+    padding-top: 100px;
+    text-align: center;
+}
+
+aside h3 {
+font-size: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  font-family: "Poppins Bold", "Poppins", "Poppins", sans-serif;
+  font-weight: 700;
+  color: #725f90;
+}
+
+aside button {
+    cursor: pointer;
+    width: 192px;
+    height: 29px;
+    border: none;
+    font-size: 17px;
+    border-radius: 15px;
+    background-color: #a47ee2;
+    font-family: "Poppins Bold", "Poppins", "Poppins", sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+@media (min-width: 100px) and (max-width: 900px) {
+
+    main {
+        padding: 100px 0;
+        max-width: 100%;
+        flex-direction: column;
+        gap: 0px;
+      }
+
+      .perfilVisualizar {
+   width: 100%;
+   padding-left: 20px;
+}
+
+.perfilVisualizar > img{
+    width: 130px;
+    height: 130px;
+}
+
+.redessociais {
+ padding-left: 10px;
+}
+
+
+
+aside {
+    padding: 0;
+}
+
+aside h3 {
+    font-size: 23px;
+}
+      
+
+
+
+}
+
+@media (min-width: 1500px) and (max-width: 2000px)  {
+  
+    .informacoes h2 {
+        font-size: 23px;
+    }
+
+    .informacoes button {
+        width: 106px;
+        height: 34px;
+    }
+
+    .informacoes h4 {
+        font-size: 17px;
+    }
+
+    .informacoes #bio {
+        font-size: 16px;
+    }
+
+    #localizacao {
+        font-size: 16px;
+    }
+
+    .perfilVisualizar > img {
+    width: 178px;
+    height: 178px;
+    border-radius: 50%;
+}
+
+aside h3 {
+    font-size: 23px;
+}
+
+aside button {
+        width: 200px;
+    height: 40px;
+    font-size: 19px;
+}
+
+.redessociais span {
+    font-size: 20px;
+}
+
+ion-icon {
+ font-size: 30px;
+}
+
+}
+
+
+
+
+
+

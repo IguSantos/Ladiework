@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comunidade</title>
+
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/fixed.css" />
+  <link rel="stylesheet" href="../css/stylecomunidade.css">
+
+  <script src="../script/mobile-navbar.js" defer></script>
+</head>
+
+<body>
+  <div id="barra-de-carregamento"></div>
+  <header></header>
+
+  <nav>
+    <div class="mobile-menu" id="btnMenu" onclick="openMenu()">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+
+    <div class="icon"><img src="../files/logo.png" alt=""> <i>LadieWork</i></div>
+
+    <a href="login.html"><img src="../files/profile.svg" class="profile" alt=""></a>
+
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../pages/mentoria.html">Mentoria</a></li>
+      <li><a href="../pages/cursos.html">Cursos</a></li>
+      <li><a href="../pages/login.html">Perfil</a></li>
+      <li><a href="#" class="active">Comunidade</a></li>
+    </ul>
+
+
+    <div id="nav-list">
+
+      <ion-icon name="close" onclick="closeMenu()"></ion-icon>
+      <ul>
+
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/mentoria.html">Mentoria</a></li>
+        <li><a href="../pages/cursos.html">Cursos</a></li>
+        <li><a href="#" class="active" onclick="closeMenu()">Comunidade</a></li>
+      </ul>
+    </div>
+
+
+  </nav>
+  <div id="second-nav">
+    <p id="post">Postagens</p>
+    <hr>
+    <p id="chat">Conversas</p>
+  </div>
+  <main>
+    <aside class="chat" class="conteudo" id="justChat">
+      <h1>Chat</h1>
+
+      <ul>
+        <li>
+          <img src="../files/muié3.png" alt="" class="chatphoto">
+          <div class="last-time">
+            <h3 id="user">Luciana</h3>
+            <p>Você: Olá! É Sobre a....</p>
+
+          </div>
+          <p class="hours">1:35 PM</p>
+        </li>
+        <li>
+          <img src="../files/muié6.png" alt="">
+          <div class="last-time">
+            <h3 id="user">Fernanda A</h3>
+            <p>Você: Olá! Gostaria de...</p>
+
+          </div>
+          <p class="hours">1:40 PM</p>
+        </li>
+        <li>
+          <img src="../files/muié4.png" alt="">
+
+          <div class="last-time">
+            <h3 id="user">Leticia da Silva</h3>
+            <p>Podemos resolver isso...</p>
+
+          </div>
+          <p class="hours">Domingo</p>
+        </li>
+        <li>
+          <img src="../files/muié5.png" alt="">
+          <div class="last-time">
+            <h3 id="user">Isis</h3>
+            <p>Ótimo! nos falamos...</p>
+
+          </div>
+          <p class="hours">Domingo</p>
+        </li>
+
+
+
+
+      </ul>
+
+    </aside>
+
+    <section class="conteudo" id="justPost">
+
+      <article class="only-feed">
+
+        <div class="header">
+          <img src="../files/muié7.png" alt="">
+          <div class="user">
+            <h2> Gabriela Andrade</h2>
+            <p>@gabrielaandrade</p>
+          </div>
+          <p>1:35 PM</p>
+
+          <img src="../files/3pontos.svg" alt="">
+
+
+        </div>
+
+        <img src="../files/conversation.svg" alt="">
+        <div class="desc only-feed">
+          <h3>Estou pronta para ajudar!</h3>
+          <p>Sou mentora de market digital, estou ajudando mulheres com pequenos negócios!</p>
+        </div>
+        <div class="avaliation only-feed">
+          <img src="../files/like.svg" alt="">
+          <img src="../files/dislike.svg" alt="">
+          <img src="../files/chat.svg" alt="">
+        </div>
+
+      </article>
+
+      <article class="only-feed" >
+
+        <div class="header">
+          <img src="../files/muié8.png" alt="">
+          <div class="user">
+            <h2>Sofia</h2>
+            <p>@sofia</p>
+          </div>
+          <p>1:35 PM</p>
+
+          <img src="../files/3pontos.svg" alt="">
+
+
+        </div>
+
+        <img src="../files/conversation.svg" alt="">
+        <div class="desc only-feed">
+          <h3>Do que voce precisa?</h3>
+          <p>Procurando verdadeiras empreendedoras!</p>
+        </div>
+        <div class="avaliation only-feed">
+          <img src="../files/like.svg" alt="">
+          <img src="../files/dislike.svg" alt="">
+          <img src="../files/chat.svg" alt="">
+        </div>
+
+      </article>
+
+
+      <button id="postar"><ion-icon name="add-outline"></ion-icon></button>
+
+    </section>
+
+    <aside class="recomendation">
+      <div class="header-recomendation">
+        <h3>Recomendamos também...</h3>
+      </div>
+      <ul>
+        <li>
+          <img src="../files/muié.png" alt="">
+          <div class="user-recomendation">
+            <h2>Yasmin Santos</h2>
+            <p>@yasminsantos</p>
+          </div>
+
+          <button class="seguir">SEGUIR</button>
+
+        </li>
+
+        <li>
+          <img src="../files/muié2.png" alt="">
+          <div class="user-recomendation">
+            <h2> Leticia Amaral</h2>
+            <p>@leticiaamaral</p>
+          </div>
+
+          <button class="seguir" >SEGUIR</button>
+
+
+        </li>
+
+      </ul>
+
+      
+    </aside>
+
+   
+  </main>
+
+
+  <script src="../script/change-categories.js"></script>
+
+  <script src="../script/seguir.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

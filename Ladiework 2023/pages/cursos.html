@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursos</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/fixed.css" />
+    <link rel="stylesheet" href="../css/stylecursos.css" />
+    <script src="../script/mobile-navbar.js" defer></script>
+  </head>
+
+      <div id="barra-de-carregamento"></div>
+    <header></header>
+
+    <nav>
+
+      <div class="mobile-menu" id="btnMenu" onclick="openMenu()">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+   </div>
+      
+
+      <div class="icon">
+        <img src="../files/logo.png" alt="" /> <i>LadieWork</i>
+      </div>
+
+      <a href="login.html"><img src="../files/profile.svg" class="profile" alt=""></a>
+
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/mentoria.html">Mentoria</a></li>
+        <li><a href="#" class="active">Cursos</a></li>
+        <li><a href="../pages/login.html">Perfil</a></li>
+        <li><a href="comunidade.html">Comunidade</a></li>
+      </ul>
+
+      <div id="nav-list" >
+
+        <ion-icon name="close" onclick="closeMenu()" ></ion-icon>
+      <ul>
+      
+       <li><a href="../index.html" >Home</a></li>
+       <li><a href="../pages/mentoria.html" >Mentoria</a></li>
+       <li><a href="../pages/cursos.html" class="active" onclick="closeMenu()">Cursos</a></li>
+       <li><a href="../pages/comunidade.html">Comunidade</a></li>
+      </ul>
+
+    </nav>
+  <body>
+
+
+    <main>
+     
+        <input type="search" id="search"/>
+        <label for="" id="filtro"></label>
+        <button id="filter">Filtrar</button>
+        
+
+      <section class="courses-catalog">
+ 
+        <div id="fundo-preto" class="fundo-preto">
+          <div class="popup-curso">
+            <div class="info-curso">
+
+              <h3>Mulher Brilhante</h3>
+              
+                <p>Quer ser uma mulher brilhante, poderosa, feliz, autoconfiante e bem-sucedida</p>
+
+                <p>Quer encontrar sua prosperidade com propósito</p>
+            
+                <p>Quer viver de maneira plena, tanto pessoal quanto profissionalmente</p>
+            
+                <p>Quer superar medos, traumas e crenças limitantes que travam a sua vida</p>
+            
+                <p>Quer ser uma empresária de sucesso e ter tempo para se dedicar à família e aos seus relacionamentos</p>
+            
+                <p>Quer alcançar performances de excelência e multiplicar seu faturamento</p>
+            
+                <p>Quer transformar sonhos e projetos em realidade concreta</p>
+              
+            </div>
+
+            <div class="info-comprar">
+              <img src="../files/curso1.svg" alt="" class="visualizar-curso"/>
+            <img src="../files/close.svg" alt="" class="close">
+              <p>Por Mulher Brilhante</p>
+              <p>Gratuito</p>
+                <a href="login.html"><button>Inscreva-se já</button></a>
+            </div>
+
+          </div>
+        </div>
+        
+
+        <div class="course" id="openPopUp">
+          <img src="../files/curso1.svg" alt="" />
+          <h2>Mulher brilhante</h2>
+          <p>Por Mulher Brilhante</p>
+          <p>Gratuito</p>
+        </div>
+
+        <div class="course">
+          <img src="../files/curso1.svg" alt="" />
+          <h2>Sebrae Delas</h2>
+          <p>Por SebraeDelas</p>
+          <p>Gratuito</p>
+        </div>
+
+        <div class="course">
+          <img src="../files/elastech.svg" alt="" />
+          <h2>ElasNaTech()</h2>
+          <p>Por TechCurse</p>
+          <p>R$: 500,00</p>
+        </div>
+
+          <div class="course">
+          <img src="../files/despertando.svg" alt="" />
+          <h2>Despertando a empreendedora</h2>
+          <p>Por EmpreendendoDemais</p>
+          <p>R$: 300,00</p>
+        </div>
+      </section>
+    </main>
+
+
+<script  src="../script/popupcurso.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

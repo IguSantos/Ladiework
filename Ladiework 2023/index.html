@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LadieWork</title> 
+    
+
+    <link rel="stylesheet" href="css/reset.css" >
+    <link rel="stylesheet" href="css/fixed.css">
+    <link rel="stylesheet" href="css/stylehome.css">
+</head>
+<body>
+
+  
+    
+<header>
+</header>
+
+
+    <nav>   
+      <div class="mobile-menu" id="btnMenu" onclick="openMenu()" >
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+   </div>
+  
+   <div class="icon"> <img src="files/logo.png" alt="" > <i>LadieWork</i></div>
+
+   <a href="pages/login.html"><img src="files/profile.svg" class="profile" alt=""></a>
+          
+  <ul>
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="pages/mentoria.html">Mentoria</a></li>
+    <li><a href="pages/cursos.html">Cursos</a></li>
+    <li><a href="pages/login.html">Perfil</a></li>
+    <li><a href="pages/comunidade.html">Comunidade</a></li>
+</ul>
+
+
+
+<div id="nav-list" >
+
+     <ion-icon name="close" id="closeMenu"  onclick="closeMenu()"></ion-icon>
+  <ul>
+ 
+    <li><a href="#" class="active" onclick="closeMenu()" >Home</a></li>
+    <li><a href="pages/mentoria.html">Mentoria</a></li>
+    <li><a href="pages/cursos.html">Cursos</a></li>
+    <li><a href="pages/comunidade.html">Comunidade</a></li>
+  </ul>
+</div>
+
+
+</nav>
+
+
+
+
+<main>
+
+
+  <section class="carregar">
+    <div class="loading">
+        <img src="files/logo.png" alt="logo" class="logo">
+        <div class="animation-bar"></div>
+    </div>
+  </section>
+
+
+
+
+
+    <section>
+      <div class="abovethefold">
+        <img src="files/smilewomen.png" alt="" class="smile-women1">
+        <div class="desc">
+          <h2>A LadieWork ajuda você a alcançar a sua independencia financeira</h2>
+          <p>Voltada para mulheres que desejam crescer financeiramente em seu próprio serviço, ou buscam ajudar empreendedoras.</p>
+        </div>
+      </div>
+
+      <div class="cursoshome">
+        <div class="desc">
+          <h2>Cursos para você evoluir a sua carreira</h2>
+          <p>A LadieWork oferece cursos onlines e presenciais, pagos e gratuitos para que você possa evoluir na sua carreira como empreendedora!</p>
+          <button><a href="pages/cursos.html">Inscreva-se</a></button>
+        </div>
+        
+        <img src="files/smilewomen2.svg" alt="" class="smilewomen2">
+        
+       
+      </div>
+
+      <aside>
+        
+        <span><a href="pages/mentoria.html">Procuro mentoria</a></span> <span><a href="pages/mentoria.html">Procuro ser uma mentora</a></span>
+
+      </aside>
+
+      <article class="onu"> 
+
+        <p>Nós estamos na reta com esses</p>
+
+        <p>Objetivos de desenvolvimento Sustentáveis</p>
+
+        <img src="files/onu4.png" alt="">
+        <img src="files/onu5.png" class="onu-mini" alt="">
+        <img src="files/onu8.png" alt="">
+        <img src="files/onu10.png" class="onu-mini"  alt="">
+        <img src="files/onu12.png" alt="">
+        <img src="files/onu17.png" class="onu-mini" alt="">
+
+      </article>
+
+      
+<div class="contact-us">
+  <div class="contact">
+
+  <div class="contact-legend">
+      <div class="line"></div> <h2>Contato</h2> <div class="line"></div>
+  </div>
+
+    <p>Está com alguma dúvida? Fale conosco!</p>
+
+      <form action="/seila.html" method="POST">
+        <label for="name">Nome</label>
+        <input type="name" id="name" required>
+  
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+    
+
+      <label for="mensagem">Nos envie uma mensagem</label>
+      <textarea name="" id="mensagem" cols="40" rows="7"></textarea>
+
+          <div class="checkbox">
+            <input type="checkbox" id="terms" value="improve">
+            <label for="terms">Eu aceito receber informações e novidades sobre o LadieWork</label>
+          </div>
+
+          <input type="submit" value="Enviar">
+
+            </form>
+      
+</div>
+
+
+<img src="files/smilewomen3.svg" class="smilewomen3" alt="">
+
+</div>
+
+    </section>
+
+    <button id="scrollToTopBtn" class="hidden"><ion-icon name="chevron-up-outline"></ion-icon></button>
+    
+</main>
+<footer>
+  <p>LadieWork 2023 - Todos os direitos reservados - <a href="https://en.help.roblox.com/hc/pt-br/articles/115004647846" target="_blank">Termos de uso</a> - <a href="/">politica de privacidade</a></p>
+  
+  <div class="socials">
+    <ion-icon name="mail-outline"></ion-icon>
+    <ion-icon name="logo-instagram"></ion-icon>
+    <ion-icon name="logo-facebook"></ion-icon>
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </div>
+      </footer>
+
+
+<script src="script/mobile-navbar.js"></script>
+
+
+<script src="script/scroll.js"></script>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

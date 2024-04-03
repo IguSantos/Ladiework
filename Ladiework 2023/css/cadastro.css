@@ -1,0 +1,521 @@
+* {
+  border: none;
+
+  
+}
+
+main {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 30px;
+
+  background: rgb(247, 247, 247) url(https://i.ibb.co/WDDMtCg/Cadastro.png) no-repeat center center/cover;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+
+h1 {
+  width: 97%;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  font-size: 23px;
+  margin-left: 13px;
+  font-family: "Poppins Bold", "Poppins", sans-serif;
+  border-bottom: 2px solid #812ec2;
+  color: #812ec2;
+}
+
+
+.mini-perfil p {
+  font-family: "Poppins Bold", "Poppins", sans-serif;
+  margin: 12px 0;
+  color: #786892;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+label {
+  font-size: small;
+  font-family: "Arial", sans-serif;
+  color: #574377;
+}
+
+/*_______________________________*/
+
+div.perfil {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 30%;
+  gap: 170px;
+}
+
+.mini-perfil {
+  text-align: center;
+
+}
+
+
+.perfil img {
+  border-radius: 70%;
+  width: 190px;
+  height: 188px;
+ 
+}
+
+div.nome {
+  display: inline-block;
+  padding: 20px 0px 10px 45px;
+}
+
+input#nome {
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  width: 100%;
+}
+
+div.nascimento {
+  display: inline-block;
+  padding: 20px 0px 10px 30px;
+}
+
+.nascimento input {
+  margin-top: 4px;
+}
+
+.nome input {
+  margin-top: 4px;
+}
+
+.bbb select,
+.bbb input {
+  margin-top: 4px;
+}
+
+.eee textarea {
+  margin-top: 4px;
+}
+
+.cbc {
+  margin-left: 45px;
+}
+
+div.aaa {
+  display: inline-block;
+  padding: 20px 0px 10px 45px;
+}
+
+div.bbb {
+  display: inline-block;
+  padding-left: 30px;
+}
+
+form {
+  display: block;
+  width: 59%;
+
+}
+
+.cac {
+  display: inline-block;
+  padding-left: 45px;
+}
+
+div.ccc {
+  display: inline-block;
+  padding-left: 30px;
+}
+
+
+div.nivelestudo {
+  display: inline-block;
+  padding-left: 30px;
+}
+
+.container {
+  margin-bottom: 10px;
+}
+
+#nivelestudo {
+
+  width: 230px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+}
+
+
+div.ddd {
+  position: relative;
+  display: inline-block;
+  margin-left: 45px;
+  margin-top: 10px;
+}
+
+.eye-icon, .eye-icon2 {
+  width: 23px;
+  object-fit: contain;
+  position: absolute;
+  right: 10px;
+  top: 34px;
+  cursor: pointer;
+}
+
+div.eee {
+  padding: 10px 0px 20px 45px;
+}
+
+#Email {
+  width: 240px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+#senha {
+  width: 190px;
+  height: 33px;
+  padding: 2px;
+
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+#confirmar {
+  width: 190px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+#editar {
+  width: 80px;
+  height: 27px;
+  padding: 3px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #9671d3;
+  box-sizing: border-box;
+  font-family: "Poppins Bold", "Poppins", "Poppins", sans-serif;
+  font-weight: 700;
+  color: white;
+}
+
+#enviar {
+  cursor: pointer;
+  width: 190px;
+  height: 48px;
+  border-radius: 13px;
+  margin-left: 30px;
+  background-color: #9671d3;
+  font-family: "Poppins Bold", "Poppins", sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+}
+
+/*_______________________________*/
+#nome {
+  width: 299px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+#sobrenome {
+  left: 110px;
+  width: 299px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+#nascimento {
+  width: 142px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+
+
+/*_______________________________*/
+
+#UF {
+  width: 68px;
+  height: 33px;
+  padding: 2px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+#pcd {
+  width: 68px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+}
+
+/*_______________________________*/
+#DDD {
+  width: 68px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+#telefone {
+  width: 227px;
+  height: 33px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid #8e71bc;
+  background-color: #d6c4ec;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+
+/*_______________________________*/
+#biografia {
+  width: 690px;
+  height: 169px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px;
+  resize: none;
+  border: 0px;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+/*_______________________________*/
+#experiencia {
+  width: 690px;
+  resize: none;
+  height: 169px;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  background-color: #ddcff0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #000000;
+  text-align: left;
+}
+
+@media (min-width: 100px) and (max-width: 900px) {
+
+  main {
+    padding-left: 0;
+    padding-top: 40px;
+    flex-direction: column;
+  }
+
+  h1 {
+    width: 90%;
+    font-size: 20px;
+  }
+
+  #experiencia {
+    width: 300px;
+
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+  }
+
+  div.nome {
+    margin: 0;
+    width: 100%;
+    padding: 13px 10px;
+
+  }
+
+  .eye-icon, .eye-icon2 {
+  right: 17px;
+  top: 48px;
+}
+
+
+  div.nascimento,
+  #nascimento {
+    display: block;
+    margin: 0;
+    width: 100%;
+    padding: 13px 10px;
+  }
+
+  .nascimento {
+    border-bottom: 2px solid var(--font-color);
+  }
+
+  div.bbb {
+    padding: 20px 0 15px 10px;
+  }
+
+  .cac,
+  div.ccc {
+    padding-left: 10px;
+  }
+
+  div.nivelestudo {
+    width: 100%;
+    padding: 20px 0 30px 10px;
+    border-bottom: 2px solid var(--font-color);
+  }
+
+  #nivelestudo {
+    width: 97%;
+  }
+
+  input#Email {
+    width: 100%;
+  }
+
+  .cbc, div.ddd {
+    margin: 0;
+    width: 100%;
+    padding: 13px 10px;
+  }
+
+  div.ddd {
+    padding: 13px 10px 0 10px;
+    width: 100%;
+  }
+
+  #senha,
+  #confirmar {
+    width: 100%;
+  }
+
+  div.eee {
+    padding-left: 10px;
+    margin-top: 4px;
+  }
+
+  #experiencia {
+    width: 97%;
+  }
+
+  #enviar {
+    
+    margin-bottom: 30px;
+    width: 173px;
+    height: 38px;
+    border-radius: 7px;
+    margin-left: 11px;
+    font-size: 18px;
+    color: #ffffff;
+  }
+
+  div.perfil {
+    padding-top: 30px;
+    border-top: 2px solid var(--font-color);
+    display: flex;
+    width: 100%;
+    height: 30%;
+    gap: 170px;
+    margin-bottom: 30px;
+  }
+
+
+  div.mini-perfil {
+    width: 70%;
+    padding: 10px 0;
+  }
+
+  .perfil img {
+    width: 190px;
+  height: 188px;
+  }
+
+
+
+}
+
+@media screen and (max-width: 1900px) {
+ h1 {
+  font-size: 25px;
+ }
+
+ #nome {
+  width: 4000px;
+ }
+
+}

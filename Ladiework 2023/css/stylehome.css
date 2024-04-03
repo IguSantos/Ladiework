@@ -1,0 +1,464 @@
+section {
+    margin: auto;
+    max-width: 73%;
+}
+
+main {
+    background: rgb(247, 247, 247) url(https://i.ibb.co/gwnksyN/Home.png) no-repeat center center/cover;
+}
+
+.abovethefold {
+    display: flex;
+    border-bottom: 2px solid #c5b8d9;
+}
+
+.smile-women1 {
+    width: 50%;
+}
+
+.smilewomen2,
+.smilewomen3 {
+    width: 40%;
+    object-fit: contain;
+}
+
+.desc h2 {
+    display: inline;
+    text-align: left;
+    font-size: 1.4em;
+    color: var(--font-color);
+}
+
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.desc p,
+.contact-us p {
+
+    font-size: 1.2em;
+    opacity: 0.7;
+}
+
+.cursoshome {
+    display: flex;
+    margin-top: 8%;
+}
+
+.cursoshome button,
+button a {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: 900;
+    font-size: 1em;
+    background-color: var(--button-color);
+    padding: 7px 23px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    opacity: 1;
+    margin: 0 auto;
+}
+
+.cursoshome button:hover {
+    opacity: 0.9;
+
+}
+
+aside {
+    gap: 40px;
+    padding: 50px 150px;
+    font-weight: 800;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #c5b8d9;
+}
+
+.onu {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 2.3em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #c5b8d9;
+}
+
+.onu img {
+    width: 12%;
+    margin: 10px;
+
+}
+
+.onu .onu-mini {
+    width: 15%;
+    margin-bottom: 40px;
+    left: 20%;
+}
+
+.onu p:nth-of-type(2) {
+    color: var(--font-color);
+    font-weight: 700;
+    margin-bottom: 2em;
+}
+
+aside>span {
+    margin: auto;
+}
+
+aside a {
+    color: var(--span-color);
+}
+
+.contact-us {
+    display: flex;
+    padding: 5em 0;
+    justify-content: space-between;
+}
+
+.contact {
+    padding-bottom: 5px;
+    width: 50%;
+}
+
+.contact p {
+    font-weight: 200;
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-legend {
+    display: flex;
+    margin: auto;
+}
+
+.line {
+    background-color: var(--secondy-color);
+    height: 2px;
+    width: 35%;
+}
+
+.contact h2,
+.line {
+    font-size: x-large;
+    display: inline-flex;
+    color: var(--font-color);
+}
+
+.contact label {
+    display: inline;
+    font-size: 13px;
+    opacity: 0.6;
+    padding-bottom: 10px;
+}
+
+input:focus,
+textarea {
+    outline: none;
+}
+
+input[type="email"],
+input[type="name"] {
+    background-color: #e6e4e8;
+    border: none;
+    border-bottom: 2px solid var(--secondy-color);
+    border-radius: 4px 4px 0 0;
+    width: 100%;
+    height: 32px;
+    margin: 10px 0 30px;
+    display: block;
+
+}
+
+.checkbox {
+    border-bottom: 2px solid #c5b8d9;
+}
+
+.contact h2,
+.contact div {
+    margin: auto;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    width: 1.5em;
+    height: 20px;
+    cursor: pointer;
+    appearance: none;
+    border: 2px solid var(--secondy-color);
+    -webkit-appearance: none;
+    border-radius: 4px;
+    outline: none;
+
+    vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--secondy-color);
+
+}
+
+textarea {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    border: none;
+    background-color: #e6e4e8;
+    resize: none;
+}
+
+.contact input[type="submit"] {
+    display: block;
+    margin: 23px auto;
+    padding: 5px 28px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 22px;
+    background-color: var(--button-color);
+    cursor: pointer;
+}
+
+
+#scrollToTopBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 3;
+    position: fixed;
+    bottom: 20px;
+    right: -60px;
+    height: 40px;
+    width: 40px;
+    background-color: var(--button-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transition: right 0.2s ease;
+}
+
+#scrollToTopBtn.show {
+    right: 20px;
+    transition: right 0.2s ease;
+}
+
+
+@media (min-width: 100px) and (max-width: 1100px) {
+    main {
+        padding-top: 30px;
+    }
+
+    section {
+        max-width: 90%;
+    }
+
+    .abovethefold {
+        padding-top: 20px;
+        flex-direction: column;
+
+    }
+
+    .abovethefold img {
+        width: 90%;
+        object-fit: contain;
+    }
+
+    .abovethefold p,
+    .cursoshome p {
+        font-size: 1rem;
+        margin-bottom: 13px;
+    }
+
+    .abovethefold h2,
+    .cursoshome h2 {
+        font-size: 1.2rem;
+    }
+
+    .desc {
+        gap: 10px;
+    }
+
+    .cursoshome {
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    .cursoshome img {
+        width: 60%;
+    }
+
+    aside {
+        align-items: center;
+        font-size: 18px;
+        padding: 2.3rem 1.6rem;
+    }
+
+    aside>span {
+        margin: 0;
+        text-align: center;
+    }
+
+    .onu {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.3em;
+        align-items: center;
+    }
+
+    .onu img,
+    .onu img.onu-mini {
+        width: 60%;
+        margin-bottom: 30px;
+    }
+
+    .contact {
+        width: 100%;
+    }
+
+    .contact-us {
+        padding: 0;
+        flex-direction: column-reverse;
+        align-items: center;
+
+    }
+
+    .contact h2,
+    .line {
+        margin: 3px;
+        font-size: 1.5rem;
+        display: inline-flex;
+    }
+
+    .contact-us img {
+        width: 70%;
+    }
+
+}
+
+
+@media (min-width: 1500px) and (max-width: 1900px) {
+    .desc h2 {
+        font-size: 1.9em;
+    }
+
+    .desc p,
+    .contact-us p {
+        font-size: 1.3em;
+    }
+
+    .cursoshome button,
+    button a {
+        font-size: 1.2em;
+        padding: 7px 23px;
+    }
+
+    aside a {
+        text-decoration: none;
+        font-size: 30px;
+        color: var(--button-color);
+    }
+
+    #scrollToTopBtn {
+        height: 60px;
+        font-size: 25px;
+        width: 60px;
+    }
+
+    .onu {
+        font-size: 1.7em;
+    }
+
+    .contact h2, .line {
+    font-size: 30px;
+    }
+
+    .contact label {
+        padding: 0;
+        display: inline;
+        font-size: 17px; 
+    }
+
+    input[type="email"], input[type="name"] {
+        height: 38px; 
+    
+    }
+
+    .contact input[type="submit"] {
+        padding: 7px 40px;
+    }
+
+
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+section.carregar {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 2s ease;
+}
+
+
+
+
+
+.logo{
+    width:80px;
+    height: 130px;
+}
+.animation-bar{
+    width: 150px;
+    height: 2px;
+    background: #cfcfcf;
+    margin-top: 22px;
+    overflow: hidden;
+    position: relative;
+}
+.animation-bar::before{
+    content: "";
+    width: 75px;
+    height: 2px;
+    background: #573790;
+    position: absolute;
+    left: -34px;
+    animation: animation 1.5s infinite ease;
+}
+@keyframes animation{
+    50%{
+        left: 96px;
+    }
+}

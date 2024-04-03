@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil</title>
+
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/fixed.css" />
+    <link rel="stylesheet" href="../css/stylelogin.css" />
+
+    <script src="../script/mobile-navbar.js" defer></script>
+  </head>
+  <body>
+     <div id="barra-de-carregamento"></div>
+    <header></header>
+
+    <nav> 
+
+      <div class="mobile-menu" id="btnMenu" onclick="openMenu()">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+   </div>
+
+      
+      <div class="icon"><img src="../files/logo.png" alt="" > <i>LadieWork</i></div>
+
+      <a href="login.html"><img src="../files/profile.svg" class="profile" alt=""></a> 
+
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/mentoria.html">Mentoria</a></li>
+        <li><a href="../pages/cursos.html">Cursos</a></li>
+        <li><a href="#" class="active">Perfil</a></li>
+        <li><a href="comunidade.html">Comunidade</a></li>
+      </ul>
+
+
+           
+<div id="nav-list" >
+
+  <ion-icon name="close" onclick="closeMenu()" ></ion-icon>
+<ul>
+
+ <li><a href="../index.html" >Home</a></li>
+ <li><a href="../pages/mentoria.html">Mentoria</a></li>
+ <li><a href="../pages/cursos.html">Cursos</a></li>
+ <li><a href="../pages/comunidade.html">Comunidade</a></li>
+</ul>
+</div> 
+    </nav>
+
+    <main>
+    
+      <section>
+        <div class="login">
+          <form id="loginForm">
+            <label for="email">Email ou nome de usuário</label>
+            <input type="email" id="email" name="email" placeholder="Email ou user" required>
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Senha" required />
+            <a href="">Esqueceu sua senha?</a>
+            <input type="submit" value="Entrar" id="enviar-dados" />
+
+            
+      
+            <div class="ou">
+              <div class="line"></div> <h2>ou</h2> <div class="line"></div>
+            </div>
+
+            <p>Não tem uma conta? <a href="cadastro.html" style="color:  #7036ce; text-decoration: none;" >Inscreva-se</a></p>
+      
+          
+          </form>
+
+          
+        
+          <div class="login-google">
+            <img class="google-grande" src="../files/google_sombra.svg" alt="" />
+         
+              <button>Fazer login com google</button>
+            
+          </div>
+        </div>
+        
+
+        <div class="welcome">
+          <h1>Bem-Vinda a LadieWork</h1>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        LadieWork 2023 - Todos os direitos reservados -
+        <a href="/">Termos de uso</a> - <a href="/">politica de privacidade</a>
+      </p>
+
+      <div class="socials">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </div>
+    </footer>
+
+    <script src="../script/checkout.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,546 @@
+main {
+    height: 100vh;
+    margin: auto;
+    max-width: 96%;
+
+    display: grid;
+    grid-template-areas: "chat feed recomendation";
+    grid-template-columns: 2fr 4fr 3fr;
+    grid-template-rows: 100vh;
+}
+
+body {
+    overflow: hidden;
+}
+
+#postar {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 29px;
+    z-index: 17;
+    bottom: 50px;
+    right: 36vw;
+    position: fixed;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    color: white;
+    opacity: 0.9;
+
+}
+
+.chat {
+    grid-area: chat;
+    padding-right: 12px;
+}
+
+
+.chat h1 {
+    margin-top: 30px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: var(--background-color);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+.chat ul {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 100%;
+    border-radius: 5px;
+
+    height: 70%;
+}
+
+.chat li {
+    background-color: #f2f2f2;
+    height: 64px;
+    padding-left: 5px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.445);
+    display: flex;
+    list-style-type: none;
+    font-size: 10px;
+}
+
+.chat li:hover {
+    background-color: #c0c0c0;
+    cursor: pointer;
+}
+
+.chat .last-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 14px;
+    width: 260px;
+}
+
+.chat li h3 {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.chat .last-time p {
+    font-size: 12px;
+}
+
+.chat li img {
+    width: 18%;
+    height: 51%;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.hours {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+}
+
+section {
+    grid-area: feed;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-right: 1px solid #c5b8d9;
+    border-left: 1px solid #c5b8d9;
+    overflow-y: scroll;
+    gap: 40px;
+}
+
+article {
+    text-align: center;
+    max-height: 78%;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+}
+
+article .header {
+    height: 10%;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.445);
+}
+
+.user {
+    width: 60%;
+}
+
+.header {
+    padding: 6% 0;
+}
+
+.header P {
+    font-size: 12px;
+    width: 15%;
+}
+
+.user h2 {
+    text-align: left;
+    font-size: 15px;
+}
+
+.user p {
+    text-align: left;
+    font-size: 11px;
+}
+
+.header img:nth-of-type(1) {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin: 20px 10px 20px 10px;
+}
+
+.header img:nth-of-type(2) {
+    cursor: pointer;
+    width: 4px;
+    object-fit: contain;
+    margin: 20px;
+}
+
+article img {
+    margin: 30px 40px 0 0;
+    width: 80%;
+    object-fit: contain;
+}
+
+.desc {
+    max-width: 80%;
+    margin-left: 33px;
+    opacity: 0.8;
+    text-align: left;
+}
+
+.desc p {
+    margin: 10px 0 0 0;
+}
+
+.avaliation img {
+    margin: 0 5px;
+    width: 20px;
+    cursor: pointer;
+
+}
+
+.observation {
+    display: flex;
+    justify-content: row;
+}
+
+.avaliation {
+    margin-left: 77%;
+    display: flex;
+}
+
+.second-nav {
+    display: none;
+}
+
+.recomendation {
+    margin: 30px 20px;
+    width: 80%;
+    grid-area: recomendation;
+    height: 313px;
+    border-radius: 11px;
+    background-color: #f2f2f2;
+}
+
+.recomendation>.header-recomendation {
+    height: 10%;
+    opacity: 0.6;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.445);
+    padding: 10px;
+    font-size: 10px;
+    background-color: #f2f2f2;
+}
+
+.user-recomendation {
+    width: 50%;
+}
+
+.user-recomendation h2 {
+    font-size: 15px;
+}
+
+.user-recomendation p {
+    font-size: 10px;
+}
+
+.recomendation ul {
+    padding: 20px 5px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.recomendation li {
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    height: 11%;
+    border-radius: 10px;
+    background-color: #e2e2e2;
+    gap: 10px;
+    display: flex;
+    list-style-type: none;
+}
+
+.recomendation li:hover {
+    background-color: #d6d6d6;
+}
+
+.recomendation li img {
+    width: 12%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.recomendation button {
+    cursor: pointer;
+    text-align: center;
+    font-size: 10px;
+    width: 80px;
+    height: 25px;
+    border: none;
+    border-radius: 18px;
+    background-color: var(--button-color);
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    line-height: normal;
+}
+
+.recomendation button:hover {
+    background-color: hsl(263, 63%, 64%);
+}
+
+#second-nav {
+    display: none;
+}
+
+/* BIG DESKTOP */
+
+
+@media (min-width: 1500px) and (max-width: 2000px) {
+    .user-recomendation {
+        width: 55%;
+    }
+
+    .recomendation button {
+        font-size: 0.8rem;
+        width: 100px;
+        height: 30px;
+        border: none;
+        border-radius: 18px;
+        background-color: var(--button-color);
+        font-weight: 700;
+        color: #ffffff;
+        text-align: center;
+        line-height: normal;
+    }
+
+    .user h2 {
+        font-size: 17px;
+    }
+
+    .user p {
+        font-size: 14px;
+    }
+
+    .header p {
+        font-size: 16px;
+    }
+
+    .header img:nth-of-type(1) {
+      width: 45px;
+      height: 45px;
+    }
+
+    article h3 {
+        margin-top: 20px;
+        font-size: 25px;
+    }
+
+    .desc p {
+        font-size: 18px;
+    }
+
+    .avaliation img {
+        width: 25px;
+    }
+
+    .chat li {
+        height: 75px;
+    }
+
+    .chat li img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .chatl li h3 {
+        font-size: 15px;
+    }
+
+    .chat .last-time p {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    .user-recomendation p {
+        font-size: 12px;
+    }
+
+
+    .user-recomendation h2 {
+        font-size: 16px;
+    }
+
+    #postar {
+        width: 63px;
+        height: 63px;
+        font-size: 43px;
+        bottom: 40px;
+      
+    }
+
+    .chat h1 {
+        font-size: 19px;
+    }
+
+
+}
+
+/* MOBIL */
+
+@media (min-width: 100px) and (max-width: 900px) {
+
+    .conteudo {
+        display: none;
+    }
+
+    .ativo {
+        display: block;
+    }
+
+    main {
+        padding-top: 130px;
+        grid-template-areas: "feed chat";
+        grid-template-columns: 100% 100%;
+        grid-template-rows: 100vh;
+
+        overflow: hidden;
+    }
+
+    .recomendation {
+        display: none;
+    }
+
+    .second-nav {
+        display: block;
+    }
+
+
+    section {
+        display: block;
+        border: none;
+        padding: 0;
+    }
+
+    article {
+        text-align: center;
+        height: 600px;
+        border-radius: 10px;
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    .desc {
+        max-width: 80%;
+        margin-left: 33px;
+        opacity: 0.8;
+    }
+
+    .desc p {
+        margin: 10px 0 0 0;
+    }
+
+    .avaliation {
+        margin-left: 70%;
+        gap: 5px;
+    }
+
+
+    #postar {
+        font-size: 33px;
+        width: 55px;
+        height: 55px;
+        bottom: 50px;
+        right: 2rem;
+    }
+
+    .avaliation img {
+        margin-right: 7px;
+        width: 18px;
+        cursor: pointer;
+    }
+
+    nav {
+        box-shadow: none;
+    }
+
+    #second-nav {
+        margin:5rem 30px 0 23px;
+        z-index: 3;
+        position: fixed;
+        display: flex;
+        justify-content: space-evenly;
+        height: 33px;
+        width: 90%;
+        background-color: #c5b8d9;
+        align-items: center;
+        border-radius: 0 0 3px 3px;
+    }
+
+    #second-nav p {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    hr {
+        border: 1px solid #a393b9;
+        height: 100%;
+    }
+
+    main {
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .chat {
+        grid-area: initial;
+        padding: initial;
+        gap: 0;
+        width: 100%;
+    }
+
+    .chat h1 {
+        display: none;
+    }
+
+    .chat ul {
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .chat li img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .chat li {
+        align-items: center;
+        width: 100%;
+        height: 80px;
+
+    }
+
+    .chat li:hover {
+        background-color: #c0c0c0;
+    }
+
+    #user {
+        font-size: 17px;
+    }
+
+    .last-time {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hours {
+        padding-bottom: 40px;
+    }
+
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+}

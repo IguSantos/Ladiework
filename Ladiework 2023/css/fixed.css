@@ -1,0 +1,309 @@
+/* ===== HEADER - NAV ===== */
+
+header {
+    background-color: var(--secondy-color);
+    height: 3.2vh;
+    width: 100%;
+}
+
+html {
+    background-color: rgb(247, 247, 247);
+}
+
+#barra-de-carregamento {
+    width: 0;
+    height: 4px;
+    background-color: rgb(191, 94, 230);
+    /* Cor da barra de carregamento */
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+    z-index: 999;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+nav {
+    padding: 5px 0 4px 0;
+    margin: 0 95px;
+    border-bottom: 2px solid #c5b8d9;
+    height: 4.5rem;
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondy-color);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+nav a {
+    font-family: "Poppins SemiBold", "Poppins", sans-serif;
+    color: var(--secondy-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--hover-nav);
+}
+
+.active {
+    color: var(--hover-nav);
+    border-bottom: 2px solid var(--hover-nav);
+}
+
+
+.icon {
+    display: flex;
+    gap: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.icon>i {
+    margin-top: 35px;
+    user-select: none;
+}
+
+nav ul {
+    margin-right: 5%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav li {
+    font-weight: 900;
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    background-color: #8b53e6;
+    padding: 5px 0;
+    z-index: 10;
+}
+
+footer p {
+    margin-left: 2%;
+
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.socials ion-icon {
+    margin: 10px;
+    height: 36px;
+    width: 30px;
+
+}
+
+/* ===== SCROLLBAR ===== */
+
+*::-webkit-scrollbar {
+    width: 8px;
+
+}
+
+*::-webkit-scrollbar-track {
+    background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--secondy-color);
+    border-radius: 3px;
+
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color);
+}
+
+
+/* ===== MOBILE NAVBAR ===== */
+
+nav .mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+nav .mobile-menu div {
+    width: 280%;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--primary-color);
+    margin: 8px;
+    transition: 0.3s;
+}
+
+#nav-list {
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 14;
+    transition: right 0.3s ease-in;
+    background: var(--primary-color) url(https://i.ibb.co/MfGjzHz/Menu-celular-1.png) no-repeat center center/cover;
+}
+
+nav img.profile {
+    display: none;
+}
+
+#nav-list ion-icon {
+    color: white;
+    font-size: 60px;
+    margin: 3% 0 0 1%;
+}
+
+#nav-list ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    gap: 30px;
+}
+
+#nav-list a {
+    color: rgba(255, 255, 255, 0.897);
+    text-align: center;
+    font-size: 50px;
+}
+
+#nav-list a:hover {
+    color: rgba(209, 209, 209, 0.712);
+}
+
+#nav-list li {
+    margin: 20px 0;
+    text-align: center;
+
+}
+
+#nav-list.show-menu {
+    right: 0;
+}
+
+#nav-list .active {
+    color: rgba(255, 255, 255, 0.76);
+    border-bottom: 2px solid rgba(209, 209, 209, 0.651);
+}
+
+#nav-list img {
+    margin: 0 0 5% 0;
+    width: 12%;
+}
+
+@media (min-width: 1500px) and (max-width: 2000px) {
+
+    nav {
+        height: 4.7rem;
+    }
+
+    header {
+        height: 3.4vh;
+    }
+
+    nav li {
+        font-weight: 900;
+        font-size: 25px;
+        margin-left: 55px;
+    }
+
+    footer p {
+        font-size: 1.3rem;
+    }
+
+
+
+}
+
+/* MOBILE */
+
+@media (min-width: 100px) and (max-width: 900px) {
+
+    header {
+        display: none;
+    }
+
+    nav {
+        top: 0;
+        position: fixed;
+        z-index: 10;
+        align-items: center;
+        background-color: white;
+        height: 5rem;
+        width: 100%;
+        margin: 0;
+        padding: 5px;
+        justify-content: space-between;
+        color: var(--secondy-color);
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+
+    }
+
+    nav ul:nth-of-type(1) {
+        display: none;
+    }
+
+    nav .icon {
+        height: 100%;
+        object-fit: contain;
+    }
+
+    nav img.profile {
+        height: 60px;
+        width: 60px ;
+        object-fit: contain;
+        display: block;
+        margin-right: 20px;
+    }
+
+    i {
+        display: none;
+    }
+
+    nav .mobile-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    /* FOOTER MOBILE */
+
+    footer {
+        height: 14vh;
+        text-align: center;
+        padding: 20px;
+
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    .socials ion-icon {
+        display: none;
+    }
+
+}
