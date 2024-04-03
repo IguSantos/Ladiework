@@ -1,6 +1,0 @@
-.env
-config.ini
-node_modules/
-build/
-dist/
-.vscode/
