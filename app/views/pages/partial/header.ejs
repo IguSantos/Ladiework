@@ -1,0 +1,79 @@
+<header>
+  <hr class="top-line">
+
+  <nav>
+    <img id="menu-icon" src="images/menu.svg" alt="" onclick="openMenu()">
+
+    <nav id="mobile-nav" class="hidden">
+
+      <div class="menu">
+        <hr class="top-line">
+        <ion-icon name="close" id="closeMenu" onclick="closeMenu()"></ion-icon>
+
+        <div class="enter">
+
+          <button class="login-mobile" onclick="window.location.href = 'login'">Login</button>
+          <button class="sign-in" onclick="window.location.href = 'cadastro'">Cadastro</button>
+        </div>
+
+        <ul>
+          <a href="carrinho">
+            <li>Carrinho</li>
+          </a>
+          <a href="">
+            <li>Mentoria</li>
+          </a>
+          <a href="cursos">
+            <li>Cursos</li>
+          </a>
+        </ul>
+        <ul>
+          <span>Mais Populares</span>
+          <a href="">
+            <li>Marketing</li>
+          </a>
+          <a href="">
+            <li>Programação</li>
+          </a>
+          <a href="">
+            <li>Web Design</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="">
+            <li>Ajuda</li>
+          </a>
+          <a href="">
+            <li>Configurações
+            <li>
+          </a>
+        </ul>
+
+      </div>
+    </nav>
+
+
+    <!-- Logo -->
+    <img id="logo" onclick="window.location.href = '/'" src="images/logo.png" alt="LadieWork">
+
+
+    <!-- Navigation Links -->
+    <div class="nav-items">
+      <a href="carrinho">
+        <ion-icon name="cart-outline"></ion-icon>
+      </a>
+      <ul>
+        <li><a href="mentoria">Mentoria</a></li>
+        <li><a href="cursos">Cursos</a></li>
+      </ul>
+
+
+      <button class="login" onclick="window.location.href = 'login'">Login</button>
+      <button class="cadastro" onclick="window.location.href = 'cadastro'">Cadastro</button>
+    </div>
+
+    <!-- Mobile Navigation List -->
+
+    <script src="js/menu-mobile.js"></script>
+</header>

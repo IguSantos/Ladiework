@@ -1,0 +1,287 @@
+h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-left: 70px;
+    color: var(--font-color);
+    margin-bottom: 10px;
+}
+
+main {
+    display: flex;
+    gap: 15px;
+    width: 87%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+section {
+    width: 700px;
+    margin-top: 30px;
+}
+
+section h2 {
+    margin-left: 30px;
+    font-size: 1.3rem;
+    margin: 10px;
+    opacity: 0.6;
+}
+
+.choose-img {
+    width: 20px;
+}
+
+aside {
+    width: 340px;
+
+
+}
+
+aside h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+aside span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.9;
+    line-height: 25px;
+}
+
+aside hr {
+    width: 90%;
+    margin: 10px 0;
+}
+
+aside span:nth-of-type(1) {
+    margin-right: 45%;
+
+}
+
+aside span:nth-of-type(3) {
+    margin-right: 52%;
+}
+
+.total {
+    font-weight: 600;
+    font-size: 1.2rem;
+    opacity: 1;
+    margin-right: 61%;
+}
+
+.service-terms {
+    margin-top: 6px;
+    display: block;
+    width: 300px;
+    line-height: 13px;
+    font-size: 0.7rem;
+}
+
+
+
+.card {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.card h3 {
+    opacity: 0.7;
+    font-size: 1rem;
+
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-weight: bold;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card li {
+    list-style: none;
+    margin: 10px 0;
+    height: 30px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card h3>span {
+    font-size: 0.8rem;
+    opacity: 0, 7;
+
+    font-weight: 500;
+}
+
+.card li span {
+    opacity: 0.7;
+    align-self: flex-end;
+    margin-left: 10px;
+
+}
+
+.card li ion-icon {
+    margin-right: 15px;
+}
+
+
+.card li:hover {
+    background-color: #e9e9e9;
+
+}
+
+.card a {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+
+.aulas {
+    display: none;
+    padding: 10px;
+}
+
+
+aside button {
+    margin-top: 30px;
+    width: 90%;
+    border: none;
+    background-color: var(--button-color);
+    color: white;
+    display: block;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-details {
+    margin-left: 70px;
+}
+
+.order-details h2 {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+
+}
+
+.order-details img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 7px;
+
+}
+
+.order-details ul {
+    list-style-type: none;
+}
+
+.order-details li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+.order-details li div:nth-of-type(1) {
+    display: flex;
+    align-items: center;
+}
+
+.order-details ul li span {
+    margin-right: 0;
+    font-size: 1rem;
+}
+
+.curse-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.9rem;
+    line-height: 12px;
+    opacity: 0.8;
+}
+
+header {
+    border: none;
+}
+
+header a {
+    vertical-align: center;
+    height: 20px;
+}
+
+nav img {
+    width: 35px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    align-self: center;
+}
+
+@media (min-width: 400px) and (max-width: 800px) {
+    main {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        height: 200px;
+        width: 440px;
+        margin: auto;
+
+    }
+
+    nav {
+        background: transparent;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        margin-top: 31px;
+        margin-left: 18px;
+    }
+
+    aside {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    aside button {
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .total {
+        margin-right: 72%;
+    }
+
+    aside span:nth-of-type(1) {
+        margin-right: 64%;
+    }
+
+    aside span:nth-of-type(3) {
+        margin-right: 67%;
+    }
+
+    .order-details li {
+        width: 70%;
+    }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+  <title>LadieWork</title>
+  <meta name="description"
+    content="LadieWork é uma plataforma dedicada às mulheres, oferecendo uma variedade de cursos, mentorias e oportunidades de aprendizado. Descubra e desenvolva novas habilidades em um ambiente inclusivo e diversificado.">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+
+  <!-- Fonts -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/fixed.css">
+  <link rel="stylesheet" href="css/stylehome.css">
+
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <%- include("partial/header") %>
+
+    <main>
+
+      <!-- Above the Fold Section -->
+      <section>
+        <article class="abovethefold">
+          <img src="images/abovethefoldgirl.png" alt="Mulher sorrindo" class="smile-women1">
+          <section class="desc">
+            <h2>LadieWork, a chave para o desenvolvimento pessoal e profissional!</h2>
+            <p>Voltada para mulheres desejam crescer financeiramente em seu próprio serviço, ou buscam se destacar no
+              mercado de trabalho.</p>
+          </section>
+        </article>
+
+        <!-- Cursos Home Section -->
+        <article class="cursoshome">
+          <section class="desc">
+            <h2>Cursos para você evoluir a sua carreira</h2>
+            <p>Oferecemos cursos onlines, pagos e gratuitos para que você possa evoluir na sua carreira como
+              profissional!
+            </p>
+            <button onclick="window.location.href = 'cuchatrsos'">Inscreva-se</button>
+
+          </section>
+          <img src="images/smilewomen2.svg" alt="Mulher sorrindo" class="smilewomen2">
+        </article>
+
+        <article class="seethecurses">
+          <section class="photo">
+            <div></div> <!-- É só um bloco branco ;) -->
+            <img src="images/it.png" alt="">
+            <figcaption>TI e Software</figcaption>
+          </section>
+          <section class="photo">
+            <div></div>
+            <img src="images/graphic-designer.png" alt="">
+            <figcaption>Design</figcaption>
+          </section>
+          <section class="photo">
+            <div></div>
+            <img src="images/language.png" alt="">
+            <figcaption>Idioma</figcaption>
+          </section>
+          <section class="photo">
+            <div></div>
+            <img src="images/social-media.png" alt="">
+            <figcaption>Marketing</figcaption>
+          </section>
+          <section class="photo">
+            <div></div>
+            <img src="images/diversity.png" alt="">
+            <figcaption>Desenvolvimento Pessoal</figcaption>
+          </section>
+          <section class="photo">
+            <div></div>
+            <img src="images/financial-profit.png" alt="">
+            <figcaption>Finanças</figcaption>
+          </section>
+
+          <button class="button" onclick="window.location.href = 'cursos'">Explorar mais</button>
+        </article>
+
+        <article class="sobrementoria">
+          <section class="mentoriaresumo">
+            <h2>Utilize nossas mentorias ou seje uma mentora!</h2>
+            <p>Como <strong>mentora</strong>, descubra o poder transformador de orientar outros em suas jornadas. Ao
+              compartilhar sua
+              experiência, você fortalece suas habilidades de liderança e comunicação, enquanto ajuda outros a alcançar
+              seu potencial máximo.
+              E como <strong>mentorada</strong> receba orientação personalizada para alcançar seus objetivos, enquanto
+              desenvolve
+              habilidades essenciais para o sucesso. </p>
+
+          </section>
+          <img src="images/working-women.jpg" alt="">
+        </article>
+
+
+
+        <!-- Aside Section -->
+        <aside>
+          <span><a href="pages/mentoria.html">Procuro mentoria</a></span>
+          <span><a href="pages/mentoria.html">Procuro ser uma mentora</a></span>
+        </aside>
+
+        <!-- Article Section -->
+        <article class="onu">
+          <p>Nós estamos na reta com esses</p>
+          <p>Objetivos de desenvolvimento Sustentáveis</p>
+          <a href="https://brasil.un.org/pt-br/sdgs/4" target="_blank"><img src="images/onu4.png" alt=""></a>
+          <a href="https://brasil.un.org/pt-br/sdgs/5" target="_blank"><img src="images/onu5.png" class="onu-mini"
+              alt=""></a>
+          <a href="https://brasil.un.org/pt-br/sdgs/8" target="_blank"><img src="images/onu8.png" alt=""></a>
+          <a href="https://brasil.un.org/pt-br/sdgs/10" target="_blank"><img src="images/onu10.png" class="onu-mini"
+              alt=""></a>
+          <a href="https://brasil.un.org/pt-br/sdgs/12" target="_blank"><img src="images/onu12.png" alt=""></a>
+          <a href="https://brasil.un.org/pt-br/sdgs/17" target="_blank"><img src="images/onu17.png" class="onu-mini"
+              alt=""></a>
+        </article>
+
+      </section>
+
+      <!-- Scroll to Top Button -->
+      <button id="scrollToTopBtn" class="hidden"><ion-icon name="chevron-up-outline"></ion-icon></button>
+    </main>
+
+    <!-- Footer Section -->
+    <%- include("partial/footer") %>
+      <!-- Scripts -->
+
+      <script src="js/home.js"></script>
+      
+
+
+</body>
+
+
+
+
+
+</html>

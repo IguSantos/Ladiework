@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+  <title>LadieWork - Login</title>
+
+  <!-- Fonts -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/fixed.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <%- include("partial/header") %>
+
+<body>
+    <main>
+        <form >
+            <div class="form-step active">
+                <h2>Que bom ver você de novo!</h2>
+            
+                <div class="content">
+                  <div class="input-wrapper">
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" placeholder="Digite seu e-mail"  required>
+                  </div>
+
+                  <div class="input-wrapper">
+                    <label for="password">Senha</label>
+                    <input id="password" name="password" type="password" placeholder="Digite sua senha" required>
+                  </div>
+                  <a href="">Esqueceu a senha?</a>
+                </div>
+
+                <div class="button-wrapper justify-end">
+                  <button type="submit" class="btn" >Entrar</button>
+                </div>
+              <span class="ou">ou</span>  
+                <span class="donthave">Não tem uma conta? <a href="cadastro">Inscreva-se</a></span>
+              </div>
+        </form>
+    
+
+    </main>
+</body>

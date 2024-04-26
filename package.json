@@ -1,0 +1,15 @@
+{
+  "name": "ladiework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "text"
+  },
+  "author": "Igor Santos",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.19.2"
+  }
+}
