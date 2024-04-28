@@ -9,6 +9,10 @@ router.get('/cursoinfo', (req, res) => {
   res.render('pages/cursoinfo');
 });
 
+router.get('/pagamentopix', (req, res) => {
+  res.render('pages/pagamentopix');
+});
+
 router.get('/carrinho', (req, res) => {
   res.render('pages/carrinho');
 });
