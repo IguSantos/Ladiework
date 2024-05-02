@@ -37,6 +37,10 @@ input[type="search"] {
     align-self: center;
 }
 
+.return {
+    display: none;
+}
+
 .chat ul {
 
     font-size: 0.7rem;
@@ -78,6 +82,7 @@ input[type="search"] {
     margin-left: 20px;
     border-radius: 5px;
     background-color: rgb(240, 240, 240);
+
 }
 
 .main>header {
@@ -128,6 +133,7 @@ input[type="search"] {
     width: 490px;
     border-radius: 5px 5px 0 5px;
     padding: 10px;
+    position: relative;
 }
 
 .conversation input[type="text"]:placeholder {
@@ -185,8 +191,8 @@ input[type="file"] {
 
 .chat-container-you {
     margin-top: 20px;
-   
-    
+
+
 }
 
 .chat-message {
@@ -201,7 +207,7 @@ input[type="file"] {
     display: flex;
     gap: 5px;
 
-    
+
     width: 245px;
     margin-left: 340px;
     justify-content: end;
@@ -310,4 +316,98 @@ span.bio {
     border-radius: 5px;
     margin-top: 20px;
     margin-left: 70%;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    body {
+        position: relative;
+    }
+
+    .main {
+        right: 100%;
+        top: 0;
+        display: block;
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+        margin: 0;
+        height: 100vh;
+        transition: right 0.3s ease;
+    }
+
+    .chat-enter {
+        right: 0;
+    }
+
+    .conversation {
+        height: 100vh;
+    }
+
+    .main .about-profile {
+        display: none;
+    }
+
+    .chat {
+        border: none;
+        width: 100%;
+    }
+
+    .chat>header {
+        background-color: transparent;
+    }
+
+    .chat>header input {
+        background-color: var(--color-base-gray-100);
+    }
+
+    .send-message {
+        width: 100%;
+    }
+
+    .conversation input[type="text"] {
+        width: 75vw;
+    }
+
+    .chat ul {
+        font-size: 0.9rem;
+        margin: 15px 0;
+        padding: 0 11px;
+        width: 100vw;
+    }
+
+    .return {
+        display: block;
+        margin-left: -40px;
+    }
+
+    input[type="search"] {
+        height: 25px;
+        border: none;
+        width: 300px;
+        border-radius: 10px 10px 10px 0;
+    }
+
+    .chat ul li {
+        gap: 17px;
+        margin-bottom: 15px;
+        height: 45px;
+        display: flex;
+        width: 100%;
+        justify-content: start;
+        overflow-x: hidden;
+    }
+
+    .last-time {
+        width: 100%;
+    }
+
+    .chat-message-you {
+        font-size: 0.8rem;
+        display: flex;
+        gap: 5px;
+        width: 245px;
+        margin-left: 45%;
+        justify-content: end;
+    }
+
 }

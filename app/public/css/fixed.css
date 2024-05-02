@@ -50,6 +50,21 @@ nav a:hover {
     object-fit: contain;
 }
 
+.profile-login-desktop {
+    width: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+
+.profile-login-mobile {
+    width: 45px;
+    padding: 10px 0;
+    border-radius: 50%;
+    display: none;
+
+   
+}
 
 
 
@@ -107,7 +122,7 @@ nav ion-icon {
     border-radius: 14px;
     cursor: pointer;
     opacity: 1;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .login,
@@ -323,11 +338,12 @@ nav img.profile {
 
 .enter {
     display: flex;
-    padding: 20px 0;
+    
     justify-content: space-around;
     border-bottom: 2px solid rgba(209, 209, 209, 0.651);
     margin: 0 8px;
-    gap: 20px;
+    align-items: center;
+    
 }
 
 #mobile-nav .active {
@@ -335,7 +351,7 @@ nav img.profile {
     border-bottom: 2px solid rgba(209, 209, 209, 0.651);
 }
 
-#mobile-nav img {
+#mobile-nav img:last-of-type(1) {
     margin: 0 0 5% 0;
     width: 12%;
 }
@@ -364,6 +380,18 @@ nav img.profile {
         display: block;
         width: 46px;
     }
+
+    .profile-login-desktop {
+        display: none;
+        
+    }
+    
+    .profile-login-mobile {
+     
+        display: block;
+       
+    }
+    
 
     nav ion-icon {
         width: 50px;

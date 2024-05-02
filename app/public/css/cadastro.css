@@ -155,7 +155,7 @@ form {
 .profile img {
     width: 100px;
     margin: 10px 0;
-    object-fit: contain;
+    object-fit: cover;
 
 
 }
@@ -256,7 +256,6 @@ a {
     }
     
     form {
-        max-width: 400px;
         width: 100%;
         padding: 20px;
         border: 1px solid var(--color-base-gray-100);
@@ -272,6 +271,8 @@ a {
     
     .button-wrapper {
         margin-top: 30px;
+        gap: 40px;
+    
     }
     
     .btn {
@@ -291,18 +292,16 @@ a {
     .secondary {
         margin-right: 0;
     }
-    
-    .profile {
-        flex-direction: column;
-    }
+
     
     .profile img {
         width: 80px;
+        height: 80px;
     }
     
     .profile button {
         width: 150px;
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
     
     .label {
