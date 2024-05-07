@@ -3,11 +3,8 @@ body,
 input,
 textarea,
 input {
-
     font-size: 16px;
 }
-
-
 
 main {
     width: 35%;
@@ -310,3 +307,6 @@ a {
     
 
 }
+
+
+

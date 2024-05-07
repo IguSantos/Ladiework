@@ -318,6 +318,8 @@ span.bio {
     margin-left: 70%;
 }
 
+/* MOBILE */
+
 @media (min-width: 320px) and (max-width: 480px) {
     body {
         position: relative;
@@ -410,4 +412,59 @@ span.bio {
         justify-content: end;
     }
 
+}
+
+/* DESKTOP */
+
+@media (min-width: 1399px) and (max-width: 1500px) {
+    main {
+        width: 82%;
+        margin: 10px auto;
+    }
+
+    h1 {
+        margin-left: 20px;
+    }
+
+    section {
+        width: 40%;
+        margin-right: 10px;
+    }
+
+    section article {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    aside {
+        width: 40%;
+    }
+
+    aside h2,
+    aside p,
+    aside span {
+        margin-left: 10px;
+    }
+
+    aside hr {
+        margin-left: 0;
+    }
+
+    .more-curses {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .slider {
+        width: 100%;
+    }
+
+    .slider article {
+        width: 90%;
+    }
+
+    .nextButton,
+    .prevButton {
+        margin: 0;
+    }
 }

@@ -13,6 +13,10 @@ router.get('/pagamentopix', (req, res) => {
   res.render('pages/pagamentopix');
 });
 
+router.get('/assistiraula', (req, res) => {
+  res.render('pages/viewvideocurse');
+});
+
 router.get('/carrinho', (req, res) => {
   res.render('pages/carrinho');
 });

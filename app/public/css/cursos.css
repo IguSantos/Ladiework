@@ -249,6 +249,7 @@ input[type=search]::placeholder {
 
 .course img {
     width: 30%;
+    height: 30%;
     height: auto;
     object-fit: contain;
 }
@@ -422,21 +423,21 @@ input[type=search]::placeholder {
     .dropdown-btn {
         margin-left: 30px;
     }
-    
+
     h1 {
         font-size: 1.1rem;
         margin: 10px 8px;
         padding: 0;
     }
-    
+
     .no-scroll {
         overflow: hidden;
     }
-    
+
     .add-cart {
         font-size: 1.2rem;
     }
-    
+
     #background {
         position: fixed;
         top: 0;
@@ -446,7 +447,7 @@ input[type=search]::placeholder {
         z-index: 3;
         background-color: rgba(0, 0, 0, 0.247);
     }
-    
+
     #closeFilter {
         z-index: 4;
         position: absolute;
@@ -454,22 +455,22 @@ input[type=search]::placeholder {
         top: 16px;
         font-size: 2.3rem;
     }
-    
+
     #background.show-filter {
         right: 0;
     }
-    
+
     #closeFilter {
         display: block;
     }
-    
+
     #filtering-mobile h2 {
         font-size: 1.2rem;
         padding: 12px 6px;
         border-bottom: 1px solid rgb(128, 128, 128);
         opacity: 0.7;
     }
-    
+
     #filtering-mobile {
         margin-top: 20px;
         background-color: var(--grey-color);
@@ -481,7 +482,7 @@ input[type=search]::placeholder {
         left: 0;
         height: 100%;
     }
-    
+
     #filtering-mobile input {
         all: unset;
         background-color: rgb(207, 207, 207);
@@ -490,12 +491,12 @@ input[type=search]::placeholder {
         margin-right: 10px;
         cursor: pointer;
     }
-    
+
     #filtering-mobile h3 {
         font-size: 1.1rem;
         margin: 10px 0;
     }
-    
+
     #filtering-mobile label {
         opacity: 0.5;
         margin: 5px 0;
@@ -504,34 +505,34 @@ input[type=search]::placeholder {
         cursor: pointer;
         user-select: none;
     }
-    
+
     #filtering-mobile div {
         display: block;
     }
-    
+
     main {
         width: 100%;
         margin: 0;
         flex-direction: column;
     }
-    
+
     #filtering div {
         display: none;
     }
-    
+
     #filtering>h2 {
         border: none;
         height: 39px;
     }
-    
+
     #adaptforyou {
         margin-left: 30px;
     }
-    
+
     #filtering {
         margin-left: 30px;
     }
-    
+
     .course {
         border-radius: 10px;
         display: flex;
@@ -540,52 +541,52 @@ input[type=search]::placeholder {
         height: 200px;
         padding: 20px;
     }
-    
+
     #filtering h2 {
         font-size: 1.3rem;
     }
-    
+
     .curses {
         margin-top: 30px;
         margin-left: 0;
         align-items: center;
         justify-content: center;
     }
-    
+
     .top-information {
         margin: 10px 10px;
         display: flex;
         align-items: center;
         width: 96%;
     }
-    
+
     input[type=search] {
         height: 25px;
         width: 200px;
     }
-    
+
     .next ion-icon {
         width: 20px;
     }
-    
+
     .next {
         background-color: rgb(247, 247, 247);
     }
-    
+
     .inspiration img {
         width: 25px;
         margin-right: -3px;
     }
-    
+
     .dropdown-content {
         left: 33px;
     }
-    
+
     .inspiration>span {
         width: 100px;
         font-size: 0.7rem;
     }
-    
+
 
 }
 

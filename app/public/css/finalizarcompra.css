@@ -300,6 +300,8 @@ nav {
     align-self: center;
 }
 
+/* MOBILE */
+
 @media (min-width: 400px) and (max-width: 800px) {
     main {
         position: relative;
@@ -347,5 +349,17 @@ nav {
 
     .order-details li {
         width: 70%;
+    }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1399px) and (max-width: 1500px) {
+    h1 {
+        font-size: 1.2rem;
+        margin-top: 50px;
+    }
+
+    main {
+        width: 85%;
     }
 }
