@@ -3,6 +3,7 @@ main {
     gap: 20px;
     width: 83%;
     margin: 40px auto;
+    justify-content: center;
 }
 
 h1 {
