@@ -1,4 +1,3 @@
-
 main {
     padding: 10px 0;
     width: 90%;
@@ -8,6 +7,7 @@ main {
     justify-content: space-between;
     padding-bottom: 110px;
 }
+
 .header {
     width: 90%;
     margin: auto;
@@ -27,7 +27,7 @@ h3 {
     padding: 5px;
     width: 360px;
     margin-bottom: 20px;
-    
+
 }
 
 .classes article h4 {
@@ -101,6 +101,7 @@ iframe {
     margin-top: 20px;
     width: 100%;
     padding: 10px;
+    height: 138px;
     background-color: #e5d6ff;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
@@ -121,7 +122,7 @@ iframe {
 
 .style-progress-bar {
     width: 540px;
-   
+
     font-size: 1rem;
 }
 
@@ -153,10 +154,52 @@ iframe {
     margin-top: 10px;
 }
 
-@media (min-width: 400px) and (max-width: 800px) { 
+/* MOBILE */
 
+@media (min-width: 320px) and (max-width: 800px) {
 
+    .header {
+        width: 90%;
+        flex-direction: column;
+    }
 
+    .style-progress-bar {
+        width: 100%;
+        font-size: 0.9rem;
+    }
 
-    
+    .go-back {
+        background-color: transparent;
+        align-items: left;
+        margin: 20px 5px;
+    }
+
+    main {
+        flex-direction: column;
+        width: 95%;
+        gap: 20px;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .video-section article {
+        height: 190px;
+
+    }
+
+    .video-section {
+        width: 100%;
+        margin: auto;
+        padding: 0;
+        border: none;
+        padding-bottom: 50px;
+        border-bottom: 1px solid rgb(182, 182, 182);
+    }
+
+    iframe {
+        border-radius: 10px;
+        width: 100%;
+        height: 220px;
+    }
+
 }

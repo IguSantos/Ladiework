@@ -302,7 +302,7 @@ nav {
 
 /* MOBILE */
 
-@media (min-width: 400px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 800px) {
     main {
         position: relative;
         flex-direction: column;
@@ -310,9 +310,19 @@ nav {
     }
 
     section {
-        width: 420px;
+        width: 100%;
+        /* Alterado para 90% para se adaptar a larguras entre 320px e 400px */
+        max-width: 420px;
+        /* Adicionado para limitar a largura máxima a 420px */
         margin: auto;
+    }
 
+    .card {
+        width: 100%;
+    }
+
+    .radio-container {
+       width: 100%;
     }
 
     nav {
@@ -320,36 +330,59 @@ nav {
     }
 
     h1 {
-        font-size: 1.4rem;
-        margin-top: 31px;
-        margin-left: 18px;
+        font-size: 1.2rem;
+        /* Reduzido o tamanho da fonte para melhorar a adaptação */
+        margin-top: 20px;
+        /* Ajustado para ficar proporcional */
+        margin-left: 5%;
+        /* Ajustado para ficar proporcional */
     }
 
     aside {
-        width: 100%;
-        margin-bottom: 40px;
+        width: 90%;
+        /* Alterado para 90% para se adaptar a larguras entre 320px e 400px */
+        margin-bottom: 20px;
+        /* Ajustado para ficar proporcional */
     }
 
     aside button {
-        height: 40px;
-        font-size: 1rem;
+        height: 30px;
+        /* Reduzido a altura do botão para melhorar a adaptação */
+        font-size: 0.9rem;
+        /* Reduzido o tamanho da fonte para melhorar a adaptação */
+        margin: 15px auto;
     }
 
     .total {
-        margin-right: 72%;
+        margin-right: 50%;
+        /* Ajustado para ficar proporcional */
     }
 
     aside span:nth-of-type(1) {
-        margin-right: 64%;
+        margin-right: 47%;
+        /* Ajustado para ficar proporcional */
+    }
+
+    aside hr {
+        width: 100%;
     }
 
     aside span:nth-of-type(3) {
-        margin-right: 67%;
+        margin-right: 54%;
+        /* Ajustado para ficar proporcional */
     }
 
     .order-details li {
-        width: 70%;
+        width: 90%;
+        /* Alterado para 90% para se adaptar a larguras entre 320px e 400px */
     }
+
+    aside.order-details {
+        margin: auto;
+    }
+
+
+
 }
 
 /* DESKTOP */

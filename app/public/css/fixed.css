@@ -358,7 +358,7 @@ nav img.profile {
 
 
 /* MOBILE */
-@media (min-width: 400px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 800px) {
 
     /* HEADER MOBILE */
     #closeMenu {
@@ -449,7 +449,7 @@ nav img.profile {
 
     footer span {
         position: absolute;
-        font-size: 1.2rem;
+        font-size: 0.8rem;
         margin-top: 10px;
         margin-bottom: 10px;
     }
@@ -464,7 +464,7 @@ nav img.profile {
         columns: 1;
         text-align: left;
         margin-left: -70%;
-        margin-bottom: 20px;
+        margin-bottom: 81px;
     }
 
     .container {
