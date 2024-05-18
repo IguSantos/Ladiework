@@ -35,20 +35,17 @@ main {
     font-size: 1.1rem;
     margin-top: 10px;
     color: var(--title-color);
-
 }
 
 .more-curses span {
     font-size: 0.8rem;
     color: var(--span-color);
-
 }
 
 .more-curses p {
     margin: 12px 0;
     font-size: 0.7rem;
     opacity: 0.8;
-
 }
 
 .more-curses button {
@@ -63,7 +60,6 @@ main {
     border: none;
     border-radius: 13px;
     cursor: pointer;
-
 }
 
 /* SOBRE O CURSO */

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Uma nova jornada!</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fixed.css">
+    <link rel="stylesheet" href="css/create.css">
+    <link rel="icon" sizes="41x22" href="images/favicon.png" type="image/png">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+</head>
+
+<body>
+
+    <main>
+
+        <div class="style-progress-bar">
+            <div id="progress-bar">
+                <div id="current-progress"></div>
+            </div>
+        </div>
+
+        <h1>Vamos começar!</h1>
+        <span>Escolha qual modalidade deseja criar...</span>
+
+
+        <section id="cards"> 
+        
+            <article id="card-curse"  class="card">
+                <h2>Curso</h2>
+    
+                <p>Transforme suas ideias em cursos com um clique. Comece a criar de forma dinâmica e intuitiva
+                    agora mesmo!</p>
+    
+                <ion-icon name="book-outline"></ion-icon>
+    
+            </article>
+    
+    
+    
+            <article id="card-mentoring"  class="card">
+                            <h2>Mentoria</h2>
+    
+                            <p>Transforme sua experiência em oportunidades de aprendizado. Inicie sua jornada de mentoria
+                                com um simples clique e comece a orientar e inspirar outros de forma dinâmica e criativa!"
+                            </p>
+    
+                            <ion-icon name="newspaper-outline"></ion-icon>
+                        </article>
+    
+             </section>
+
+             <input type="text" placeholder="Exemplo: Aprenda Marketing Digital" id="input" class="none" minlength="10" maxlength="100" required>
+
+
+         <select name="Marketing" class=" none" id="category"  >
+            <option value="Marketing">Marketing</option>
+            <option value="Empreendedorismo">Empreendedorismo</option>
+            <option value="TI">TI</option>
+            <option value="Logística">Lógistica</option>
+           </select>
+
+         
+
+        <article id="hours" class="hours none">
+            <label>
+                <input type="checkbox" name="" id="nao_sei_ainda">
+                Não sei ainda
+            </label>
+            <br>
+
+            <label>
+                <input type="checkbox" name="" id="ocupado">
+                Ocupado (1 - 2 horas)
+            </label>
+            <br>
+
+            <label>
+                <input type="checkbox" name="" id="pouco_tempo">
+                Tenho pouco tempo (2 - 4 horas)
+            </label>
+            <br>
+
+            <label>
+                <input type="checkbox" name="" id="tempo_sobra">
+                Tenho tempo de sobra (5 horas ou mais)
+            </label>
+        </article> 
+
+        <button id="continue" class="none">Continuar</button>
+         <button id="continue-two" class="none">Continuar</button>
+         <button id="continue-three" class="none">Criar</button>
+
+      
+    </main>
+
+
+    <script src="js/create.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+main {
+    width: 85%;
+    margin: auto;
+}
+
+.style-progress-bar {
+    width: 100%;
+    font-size: 1rem;
+    margin: 30px auto;
+}
+
+#progress-bar {
+    border: 1px solid var(--primary-color);
+    height: 9px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 1em;
+}
+
+#current-progress {
+    background: linear-gradient(to right, #501785, #8b53e6);
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    transition: width 0.5s ease;
+    /* Adiciona uma transição suave na largura */
+}
+
+h1 {
+    width: 60%;
+    margin: 40px auto 0;
+    text-align: center;
+    color: var(--button-color);
+    font-weight: 600;
+}
+
+span {
+    text-align: center;
+    display: block;
+    opacity: 0.8;
+    margin: 10px 0 50px 0;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 70px;
+}
+
+section .card {
+    width: 320px;
+    padding: 80px 10px 80px 10px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+section .card h2 {
+    margin: auto;
+    padding: 5px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    width: 110px;
+    font-size: 1.2rem;
+    border: 1px solid var(--primary-color);
+    color: var(--button-color);
+
+}
+
+section .card p {
+    text-align: center;
+    opacity: 0.8;
+    line-height: 20px;
+    margin-bottom: 40px;
+    height: 50%;
+    opacity: 0.8;
+}
+
+.none {
+    display: none;
+}
+
+section .card ion-icon {
+    margin: auto;
+    display: block;
+    font-size: 2.4rem;
+    color: var(--button-color);
+}
+
+.card:hover {
+    transform: scale(1.060);
+}
+
+.input {
+    margin: 140px auto 50px;
+    display: block;
+    width: 70%;
+    height: 40px;
+    border-radius: 12px;
+    border-color: rgba(128, 128, 128, 0.226);
+    padding: 10px;
+}
+
+.input::placeholder {
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+
+
+button {
+    display: block;
+    margin: auto;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 3px 30px;
+    color: var(--button-color);
+    background-color: transparent;
+    border: 1px solid var(--button-color);
+    cursor: pointer;
+
+}
+
+button:active {
+    border-color: #8A2BE2;
+}
+
+button:hover {
+    background-color: var(--button-color);
+    color: white;
+    transition: background 0.2s ease-in-out;
+}
+
+.select-style {
+    color: var(--font-color);
+    font-size: 1rem;
+    margin: 140px auto 50px;
+    display: block;
+    width: 70%;
+    height: 43px;
+    border-radius: 12px;
+    border-color: rgba(128, 128, 128, 0.226);
+    padding: 10px;
+}
+
+option {
+    font-size: 1.4rem;
+    color: black;
+
+}
+
+option:hover {
+    background-color: #892be254;
+}
+
+.hours {
+    width: 420px;
+    height: 58%;
+    margin: 70px auto;
+    border: 1px solid rgba(128, 128, 128, 0.349);
+    border-radius: 5px;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+}
+
+.hours input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 5px;
+    width: auto;
+
+}
+
+.hours label {
+    opacity: 0.7;
+    cursor: pointer;
+    margin: 10px;
+    display: inline-block;
+    width: auto;
+    font-size: 1.1rem;
+}
+
+.fade-in {
+    animation: fadeInAnimation 0.7s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 700px) { 
+
+h1 {
+    width: 80%;
+    font-size: 1.6rem;
+}
+.hours {
+    width: 90%;
+    height: 70%;
+}
+
+span {
+    font-size: 0.9rem;
+}
+
+.input {
+    width: 90%;
+}
+
+.select-style  {
+    width: 90%;
+    margin-top: 118px;
+}
+
+}
