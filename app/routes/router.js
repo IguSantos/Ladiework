@@ -29,6 +29,10 @@ router.get('/finalizarcompra', (req, res) => {
   res.render('pages/main', { pagina: "finalizarcompra", logado: true });
 });
 
+router.get('/pagamentopix', (req, res) => {
+  res.render('pages/main', { pagina: "pagamentopix", logado: true });
+});
+
 router.get('/criar', (req, res) => {
   res.render('pages/main', { pagina: "create", logado: true });
 });
@@ -40,13 +44,6 @@ router.get('/sobreocurso', (req, res) => {
 router.get('/assistiraula', (req, res) => {
   res.render('pages/main', { pagina: "viewthecourse", logado: null });
 });
-
-router.get('/pagamentopix', (req, res) => {
-  res.render('pages/pagamentopix');
-});
-
-
-
 
 
 module.exports = router;

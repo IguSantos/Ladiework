@@ -1,0 +1,54 @@
+<title>Carrinho</title>
+
+<link rel="stylesheet" href="css/pagamentopix.css">
+
+
+
+
+<body>
+
+    <%- include("../partial/header") %>
+
+        <section class="total">
+            <main class="dispositivo-para-mobile">
+                <h1 class="finalizar">Finalizar a compra</h1>
+                <h2 class="forma">Formas de pagamento</h2>
+                <h2 class="valor">Valor final:</h2>
+                <h4 class="dinheiro">R$100,00</h4>
+                <section class="fixo">
+                    <section class="retangulo1">
+                        <h3 class="texto1">Identifique sua tranferência com um
+                            identificador único</h3>
+                        <hr class="linha1">
+                        <p class="texto2">Identificador único</p>
+                        <input type="text" name="id" placeholder="ID" class="id">
+                        <button class="copiar">Copiar e colar ID</button>
+                        <p class="texto3">1. copie o ID da transação</p>
+                        <p class="texto4">2. Utilize o ID para identificar o
+                            pagamento PIX no seu aplicativo do banco</p>
+                        <button class="botao">Utilizar o QR code</button>
+                    </section>
+                    <h3 class="ou">ou</h3>
+                    <section class="retangulo2">
+                        <h3 class="qr">Leia o código QR utilizando seu
+                            aplicativo do
+                            banco</h3>
+                        <hr class="linha2">
+                        <img src="images/blank.svg" alt="foto-vazia" class="foto-vazia">
+                    </section>
+                </section>
+                <button class="voltar"  onclick="window.location.href = 'finalizarcompra'" >
+                    < Voltar </button>
+                        <section class="retangulo3">
+                            <p class="data-expiracao">Não se esqueça que o seu pagamento
+                                pix expira em --/--/---- </p>
+                            <img src="images/logo.png" alt="logo" class="logo1">
+                        </section>
+            </main>
+        </section>
+
+        <script src="../js/pix.js"></script>
+
+</body>
+
+</html>
