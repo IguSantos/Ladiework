@@ -23,5 +23,9 @@ Plataforma para desenvolvimento profissional feminino <br/>
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- HTML, CSS e JS)
+- HTML, CSS e JS
 - Git, Github (actions, pages)
+
+
+
+

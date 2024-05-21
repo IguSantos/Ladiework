@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-  <title>LadieWork - Chat</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/fixed.css">
-  <link rel="stylesheet" href="css/chat.css">
-  <link rel="icon" sizes="41x22" href="images/favicon.png" type="image/png">
-
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+<title>LadieWork - Chat</title>
+<link rel="stylesheet" href="css/chat.css">
 
 </head>
 
 <body>
-  <%- include("partial/header") %>
+  <%- include("../partial/header") %>
     <main>
 
       <aside class="chat">
@@ -91,7 +76,7 @@
             <ion-icon name="ellipsis-vertical-outline"></ion-icon>
           </div>
         </header>
-        
+
         <section class="main-profile">
           <article class="conversation" id="conversation">
 
@@ -164,6 +149,3 @@
     </main>
 
     <script src="js/chat.js"></script>
-</body>
-
-</html>

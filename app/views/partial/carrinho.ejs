@@ -1,0 +1,151 @@
+<title>Carrinho</title>
+
+<link rel="stylesheet" href="css/carrinho.css">
+
+
+
+</head>
+
+<body>
+    <%- include("../partial/header") %>
+        <h1>Meu carrinho</h1>
+        <main>
+            <section>
+
+
+                <article>
+                    <div class="info-purchase">
+                        <h2>Marketing Digital</h2>
+                        <p>Curso abrange os fundamentos e estratégias avançadas do marketing digital, capacitando os
+                            alunos
+                            a dominar as ferramentas e técnicas necessárias para promover marcas, produtos e serviços
+                            online. </p>
+                        <span class="stars">4.5</span> <img src="" alt=" " class="stars-classifcation"> <span
+                            class="classification">220.000
+                            classificações</span>
+
+
+                        <span class="price">R$ 100,00</span>
+                        <span class="installments">3x de R$25,00</span> <br>
+                    </div>
+
+                    <img src="images/2787860-1024x1024.jpg" alt="">
+                    <ion-icon name="close" onclick="removeArticle(this)"></ion-icon>
+
+
+                </article>
+
+
+            </section>
+
+
+            <aside>
+                <h2>TOTAL:</h2>
+                <p>R$ 300,00</p>
+                <span>6x de R$50,00</span>
+                <br>
+
+                <span class="discont">45% de desconto</span>
+                <button onclick="window.location.href = 'finalizarcompra'">Finalizar compra</button>
+
+                <hr>
+
+                <h4>Promoções</h4>
+
+                <div><input type="search" placeholder="Código do cupom"><button class="apply">Aplicar</button></div>
+
+
+            </aside>
+
+
+
+        </main>
+
+        <hr>
+        <h3>Mais cursos para você</h3>
+        <aside class="more-curses">
+
+
+            <button class="prevButton"><ion-icon name="chevron-back-outline"></ion-icon></button>
+            <div class="slider">
+
+                <article>
+                    <img src="images/templatephoto.svg" alt="">
+                    <h3>Como criar sua empresa</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit nulla, necessitatibus ab optio
+                        numquam exercitationem aspernatur debitis deserunt doloremque corrupti eos sunt, itaque officia,
+                        velit dolorum suscipit ut at? Labore?</p>
+                    <span>Modulo 1</span>
+                    <span>Modulo 2</span>
+                    <span>Modulo 3</span>
+                    <button>Adicionar ao carrinho</button>
+                </article>
+
+                <article>
+                    <img src="images/templatephoto.svg" alt="">
+                    <h3>Como criar sua empresa</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit nulla, necessitatibus ab optio
+                        numquam exercitationem aspernatur debitis deserunt doloremque corrupti eos sunt, itaque officia,
+                        velit dolorum suscipit ut at? Labore?</p>
+                    <span>Modulo 1</span>
+                    <span>Modulo 2</span>
+                    <span>Modulo 3</span>
+                    <button>Adicionar ao carrinho</button>
+                </article>
+                <article>
+                    <img src="images/templatephoto.svg" alt="">
+                    <h3>Como criar sua empresa</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit nulla, necessitatibus ab optio
+                        numquam exercitationem aspernatur debitis deserunt doloremque corrupti eos sunt, itaque officia,
+                        velit dolorum suscipit ut at? Labore?</p>
+                    <span>Modulo 1</span>
+                    <span>Modulo 2</span>
+                    <span>Modulo 3</span>
+                    <button>Adicionar ao carrinho</button>
+                </article>
+                <article>
+                    <img src="images/templatephoto.svg" alt="">
+                    <h3>Como criar sua empresa</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit nulla, necessitatibus ab optio
+                        numquam exercitationem aspernatur debitis deserunt doloremque corrupti eos sunt, itaque officia,
+                        velit dolorum suscipit ut at? Labore?</p>
+                    <span>Modulo 1</span>
+                    <span>Modulo 2</span>
+                    <span>Modulo 3</span>
+                    <button>Adicionar ao carrinho</button>
+                </article>
+                <article>
+                    <img src="images/templatephoto.svg" alt="">
+                    <h3>Como criar sua empresa</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit nulla, necessitatibus ab optio
+                        numquam exercitationem aspernatur debitis deserunt doloremque corrupti eos sunt, itaque officia,
+                        velit dolorum suscipit ut at? Labore?</p>
+                    <span>Modulo 1</span>
+                    <span>Modulo 2</span>
+                    <span>Modulo 3</span>
+                    <button>Adicionar ao carrinho</button>
+                </article>
+                <article>
+                    <img src="images/templatephoto.svg" alt="">
+                    <h3>Como criar sua empresa</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit nulla, necessitatibus ab optio
+                        numquam exercitationem aspernatur debitis deserunt doloremque corrupti eos sunt, itaque officia,
+                        velit dolorum suscipit ut at? Labore?</p>
+                    <span>Modulo 1</span>
+                    <span>Modulo 2</span>
+                    <span>Modulo 3</span>
+                    <button>Adicionar ao carrinho</button>
+                </article>
+
+
+
+            </div>
+
+            <button class="nextButton"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+
+        </aside>
+
+
+            <script src="js/carrinho.js"></script>
+
+

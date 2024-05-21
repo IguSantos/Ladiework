@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 
-<head>
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-  <title>LadieWork - Cursos</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/fixed.css">
   <link rel="stylesheet" href="css/cursos.css">
+  <title>LadieWork - Cursos</title>
   <link rel="icon" sizes="41x22" href="images/favicon.png" type="image/png">
   <meta name="description"
     content="Descubra uma ampla seleção de cursos para mulheres, abrangendo uma variedade de categorias. Explore opções gratuitas e pagas, projetadas para capacitá-la em todas as áreas da vida. Encontre o curso perfeito para você e embarque em sua jornada de aprendizado hoje mesmo!">
 
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 
 </head>
 
-<body>
-  <%- include("partial/header") %>
+<%- include("../partial/header") %>
 
   <aside class="top-information">
     <h1>Principais Cursos</h1>
@@ -192,7 +179,7 @@
             <span>Intermediário</span>
           </div>
 
-          <button class="learn-more" onclick="window.location.href = 'cursoinfo'">Saiba Mais</button>
+          <button class="learn-more" onclick="window.location.href = 'sobreocurso'">Saiba Mais</button>
           <button class="add-cart"> <ion-icon name="cart-outline"></ion-icon><ion-icon
               name="add-outline"></ion-icon></button>
 
@@ -321,9 +308,4 @@
   <script src="js/menu-mobile.js"></script>
   <script src="js/cursos.js"></script>
 
-  <%- include("partial/footer") %>
-
-</body>
-
-
-</html>
+ 
