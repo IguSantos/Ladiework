@@ -1,54 +1,63 @@
-<title>Carrinho</title>
 
-<link rel="stylesheet" href="css/pagamentopix.css">
+  <title>Formas de pagamento</title>
+  <link rel="stylesheet" href="css/pagamentopix.css">
 
-
-
+</head>
 
 <body>
 
     <%- include("../partial/header") %>
 
-        <section class="total">
-            <main class="dispositivo-para-mobile">
-                <h1 class="finalizar">Finalizar a compra</h1>
-                <h2 class="forma">Formas de pagamento</h2>
-                <h2 class="valor">Valor final:</h2>
-                <h4 class="dinheiro">R$100,00</h4>
-                <section class="fixo">
-                    <section class="retangulo1">
-                        <h3 class="texto1">Identifique sua tranferência com um
-                            identificador único</h3>
-                        <hr class="linha1">
-                        <p class="texto2">Identificador único</p>
-                        <input type="text" name="id" placeholder="ID" class="id">
-                        <button class="copiar">Copiar e colar ID</button>
-                        <p class="texto3">1. copie o ID da transação</p>
-                        <p class="texto4">2. Utilize o ID para identificar o
-                            pagamento PIX no seu aplicativo do banco</p>
-                        <button class="botao">Utilizar o QR code</button>
-                    </section>
-                    <h3 class="ou">ou</h3>
-                    <section class="retangulo2">
-                        <h3 class="qr">Leia o código QR utilizando seu
-                            aplicativo do
-                            banco</h3>
-                        <hr class="linha2">
-                        <img src="images/blank.svg" alt="foto-vazia" class="foto-vazia">
-                    </section>
-                </section>
-                <button class="voltar"  onclick="window.location.href = 'finalizarcompra'" >
-                    < Voltar </button>
-                        <section class="retangulo3">
-                            <p class="data-expiracao">Não se esqueça que o seu pagamento
-                                pix expira em --/--/---- </p>
-                            <img src="images/logo.png" alt="logo" class="logo1">
-                        </section>
-            </main>
-        </section>
+  <main>
+    <h1>Finalizar compra</h1>
 
-        <script src="../js/pix.js"></script>
+    <div>
+      <h3>Formas de pagamento</h3>
+      <p class="final-value">Valor final: <span id="final-value">R$ 100</span> </p>
+    </div>
 
-</body>
+    <section>
+      <article id="pix-key" class="pix-key">
 
-</html>
+        <h4>Identifique sua transferência com um identificador único</h4>
+
+        <label for="unique-identificator">Identificador único</label>
+        <br>
+        <input type="text" id="unique-identificator" class="unique" placeholder="ID">
+        <button class="controlv" id="controlv">Copiar e colar ID</button>
+        <button class="controlv">Enviar Código</button>
+
+        <p><strong>1. </strong>Copie o ID de translação</p>
+        <p><strong>2.</strong> Utilize o ID para identificar o pagamento PIX no seu aplicativo do banco</p>
+
+        <button class="backtoid" id="use-code">Utlizar QR code</button>
+
+
+
+
+      </article>
+
+      <span>ou</span>
+
+      <article class="none" id="qr-code">
+        <h4>Leia o código QR usando seu aplicativo do banco</h4>
+        <img src="images/qrcode-pix.png" alt="">
+
+        <button class="backtoid" id="use-id">Voltar para o ID</button>
+
+      </article>
+
+    </section>
+
+    <button class="back" onclick="window.location.href = 'finalizarcompra'"> <ion-icon name="caret-back-outline"></ion-icon> Voltar</button>
+
+    <div class="menssage">
+      <article>
+        <p>Não se esqueça que seu pagameto pix se expira em --/--/-- </p>
+      </article>
+      <img src="../images/logo.png" alt="">
+    </div>
+  </main>
+
+
+  <script src="js/pagamentopix.js"></script>

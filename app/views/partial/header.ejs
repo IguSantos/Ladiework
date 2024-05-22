@@ -71,8 +71,18 @@
         <ion-icon name="cart-outline"></ion-icon>
       </a>
       <ul>
-        <li><a href="mentoria">Mentoria</a></li>
-        <li><a href="cursos">Cursos</a></li>
+        <% if (logado) { %>
+
+          <li><a href="criar">Ensine na Ladiework</a></li>
+
+          <% } else { %>
+
+            <li></li>
+            
+            <% } %>
+
+              <li><a href="mentoria">Mentoria</a></li>
+              <li><a href="cursos">Cursos</a></li>
       </ul>
 
       <% if (logado) { %>
