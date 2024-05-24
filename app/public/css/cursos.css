@@ -7,8 +7,8 @@ main {
 
 h1 {
     margin-left: 30px;
-    color: var(--font-color);
-    border-bottom: 1px solid var(--font-color);
+    color: var(--cta-titles);
+    border-bottom: 1px solid var(--cta-titles);
     font-size: 1.8rem;
 }
 
@@ -39,7 +39,7 @@ input[type=search]:focus {
 }
 
 input[type=search]::placeholder {
-    color: var(--font-color);
+    color: var(--cta-titles);
 }
 
 .top-information {
@@ -418,7 +418,11 @@ input[type=search]::placeholder {
 
 /* MOBILE */
 
-@media (min-width: 400px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 700px) {
+    .filter-image {
+        right: 21px;
+        top: 111px;
+    }
 
     .dropdown-btn {
         margin-left: 30px;
@@ -590,7 +594,7 @@ input[type=search]::placeholder {
 
 }
 
-/* MOBILE */
+
 @media (min-width: 1200px) and (max-width: 1900px) {
     main {
         margin-left: 5%;

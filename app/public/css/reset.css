@@ -17,16 +17,29 @@
         --color-base-gray-300: #7c7c8a;
         --grey-color: #e9e9e9;
     
+        --cta-titles: #8B53E6;
+        --cta: #7339cf;
+        --cta-about-courses: #8E49FF;
+        --third-color: #EBDFFF;
+        --second-font: #836DAC;
+        --second-font-hover: #502496;
+        --button-color: #812ec2;
+        --hover-nav: #935bee;
         --primary-color: #8b53e6;
+
+
+        --paragraphs: #757575;
+        --paragraphs2: #949494;
+
+        
         --title-color: #9f93b3;
         --second-color: #b485ff;
         --pop-up-color: #E5D6FF;
         --information-text-color: #414141;
         --sub-title-color: #995bc9;
         --span-color: #836dac;
-        --font-color: #7c63a5;
-        --button-color: #812ec2;
-        --hover-nav: #935bee;
+
+
     
         --background-color: #e8e8e8fa;
 

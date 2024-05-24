@@ -203,6 +203,8 @@ option:hover {
     }
 }
 
+/* MOBILE */
+
 @media (min-width: 320px) and (max-width: 700px) { 
 
 h1 {

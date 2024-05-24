@@ -2,8 +2,6 @@
 
 <link rel="stylesheet" href="css/carrinho.css">
 
-
-
 </head>
 
 <body>
@@ -12,7 +10,6 @@
         <main>
             <section>
 
-
                 <article>
                     <div class="info-purchase">
                         <h2>Marketing Digital</h2>
@@ -20,8 +17,11 @@
                             alunos
                             a dominar as ferramentas e técnicas necessárias para promover marcas, produtos e serviços
                             online. </p>
-                        <span class="stars">4.5</span> <img src="" alt=" " class="stars-classifcation"> <span
-                            class="classification">220.000
+                        <span class="stars">4.5</span>
+                        <div class="stars-icon"> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
+                                name="star-half"></ion-icon>
+                        </div> <span class="classification">220.000
                             classificações</span>
 
 
@@ -30,7 +30,7 @@
                     </div>
 
                     <img src="images/2787860-1024x1024.jpg" alt="">
-                    <ion-icon name="close" onclick="removeArticle(this)"></ion-icon>
+                    <ion-icon  class="close" name="close" onclick="removeArticle(this)"></ion-icon>
 
 
                 </article>
@@ -146,6 +146,4 @@
         </aside>
 
 
-            <script src="js/carrinho.js"></script>
-
-
+        <script src="js/carrinho.js"></script>

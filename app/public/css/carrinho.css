@@ -1,23 +1,28 @@
+/* Adicionando transições suaves para fontes e tamanhos */
+
 main {
     display: flex;
     gap: 20px;
     width: 83%;
     margin: 40px auto;
     justify-content: center;
+    transition: all 0.5s ease;
 }
 
 h1 {
     font-size: 1.4rem;
     text-align: left;
-    margin-left: 50px;
+    margin-left: 101px;
     margin-top: 60px;
     font-weight: 600;
+    transition: all 0.5s ease;
 }
 
 section {
     overflow-y: scroll;
     width: 690px;
-
+    overflow-x: hidden;
+    transition: all 0.5s ease;
 }
 
 section article {
@@ -25,27 +30,28 @@ section article {
     width: 680px;
     overflow-x: hidden;
     height: 130px;
-    background-color: var(--pop-up-color);
+    background-color: var(--third-color);
     border-radius: 6px;
     display: flex;
     gap: 15px;
     position: relative;
     cursor: pointer;
     margin-bottom: 20px;
-
+    transition: all 0.5s ease;
 }
 
 .info-purchase {
     text-align: left;
     width: 500px;
+    transition: all 0.5s ease;
 }
 
 .info-purchase h2 {
     font-size: 1.4rem;
-    color: var(--font-color);
+    color: var(--cta-titles);
     font-weight: 600;
     margin-bottom: 3px;
-
+    transition: all 0.5s ease;
 }
 
 .info-purchase p {
@@ -53,42 +59,33 @@ section article {
     opacity: 0.8;
     font-size: 0.7rem;
     margin-bottom: 3px;
+    transition: all 0.5s ease;
 }
 
 .info-purchase img {
     width: 20px;
+    transition: all 0.5s ease;
 }
 
 .info-purchase .stars {
     font-size: 0.9rem;
     color: var(--primary-color);
     opacity: 0.8;
-}
-
-section>article>ion-icon {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 1.5rem;
-
+    transition: all 0.5s ease;
 }
 
 .info-purchase .classification {
     font-size: 0.8rem;
     margin-left: 5px;
     opacity: 0.9;
+    transition: all 0.5s ease;
 }
 
 article img {
     width: 100px;
     height: 100px;
     object-fit: contain;
-}
-
-article img.stars-classification {
-    width: 10px;
-    height: 10px;
-    object-fit: contain;
+    transition: all 0.5s ease;
 }
 
 /* FINALIZAR COMPRA */
@@ -100,7 +97,7 @@ main aside {
     padding: 15px;
     text-align: center;
     border-radius: 10px;
-
+    transition: all 0.5s ease;
 }
 
 main aside h2 {
@@ -108,6 +105,7 @@ main aside h2 {
     font-size: 1.2rem;
     color: var(--font-color);
     padding-bottom: 5px;
+    transition: all 0.5s ease;
 }
 
 main aside p {
@@ -116,6 +114,7 @@ main aside p {
     font-weight: 600;
     text-align: left;
     opacity: 0.8;
+    transition: all 0.5s ease;
 }
 
 main aside span {
@@ -124,6 +123,7 @@ main aside span {
     max-width: 100%;
     display: block;
     text-align: left;
+    transition: all 0.5s ease;
 }
 
 h4 {
@@ -131,12 +131,13 @@ h4 {
     text-align: left;
     margin: 5px;
     opacity: 0.8;
+    transition: all 0.5s ease;
 }
 
 aside hr {
     width: 100%;
+    transition: all 0.5s ease;
 }
-
 
 input[type="search"] {
     margin-top: 20px;
@@ -145,6 +146,12 @@ input[type="search"] {
     padding: 4px;
     width: 150px;
     height: 30px;
+    transition: all 0.5s ease;
+}
+
+input[type="search"]::placeholder {
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
 }
 
 .apply {
@@ -157,9 +164,8 @@ input[type="search"] {
     color: white;
     font-size: 0.8rem;
     font-weight: 700;
-
+    transition: all 0.5s ease;
 }
-
 
 .hour,
 .module-amount {
@@ -167,17 +173,15 @@ input[type="search"] {
     font-size: 0.9rem;
     opacity: 0.9;
     line-height: 20px;
-
+    transition: all 0.5s ease;
 }
 
 main aside .hour::before,
 main aside .module-amount::before {
     content: "\2022";
-    /* código unicode para um ponto */
     margin-right: 0.5em;
-    /* espaçamento entre a bolinha e o texto */
     color: #000;
-    /* cor da bolinha */
+    transition: all 0.5s ease;
 }
 
 main aside button {
@@ -192,6 +196,7 @@ main aside button {
     font-weight: 300;
     border-radius: 10px;
     margin: 20px 0;
+    transition: all 0.5s ease;
 }
 
 main aside button:hover {
@@ -206,26 +211,25 @@ main aside button:hover {
 .more-curses {
     margin: 40px auto;
     width: 80%;
-
     display: flex;
     align-items: center;
-
+    transition: all 0.5s ease;
 }
 
 .more-curses h3 {
     font-weight: 600;
     font-size: 1.4rem;
     margin: 20px 0;
-
+    transition: all 0.5s ease;
 }
 
 .price,
 .installments {
     display: none;
+    transition: all 0.5s ease;
 }
 
 /* SLIDER */
-
 
 hr {
     border: none;
@@ -233,46 +237,42 @@ hr {
     height: 1px;
     margin: auto;
     background-color: var(--font-color);
+    transition: all 0.5s ease;
 }
-
 
 .slider {
     display: flex;
     gap: 20px;
     width: 85%;
     margin: auto;
-
     position: relative;
     overflow: hidden;
-
-
     scroll-snap-type: x mandatory;
+    transition: all 0.5s ease;
 }
-
 
 .slider article {
     cursor: pointer;
     height: 470px;
-    background-color: var(--pop-up-color);
+    background-color: var(--third-color);
     text-align: center;
     padding: 10px;
-
     width: 100%;
-
     scroll-snap-align: start;
+    transition: all 0.5s ease;
 }
-
-
 
 .slider img {
     width: 250px;
     height: 130px;
     margin-top: 10px;
+    transition: all 0.5s ease;
 }
 
 body h3 {
     margin-left: 140px;
     margin-top: 30px;
+    transition: all 0.5s ease;
 }
 
 .slider h3 {
@@ -282,6 +282,7 @@ body h3 {
     text-align: left;
     padding-top: 10px;
     margin: 5px 0;
+    transition: all 0.5s ease;
 }
 
 .slider p {
@@ -290,7 +291,7 @@ body h3 {
     text-align: left;
     height: 100px;
     margin-bottom: 5px;
-
+    transition: all 0.5s ease;
 }
 
 .slider span {
@@ -303,7 +304,7 @@ body h3 {
     border-radius: 5px;
     width: 100%;
     opacity: 0.8;
-
+    transition: all 0.5s ease;
 }
 
 .slider article button {
@@ -317,7 +318,7 @@ body h3 {
     cursor: pointer;
     font-size: 0.7rem;
     background-color: rgba(255, 255, 255, 0.801);
-
+    transition: all 0.5s ease;
 }
 
 .slider article button:hover {
@@ -333,18 +334,30 @@ body h3 {
     border: none;
     font-size: 3rem;
     cursor: pointer;
-
+    transition: all 0.5s ease;
 }
 
-.classification,
-.stars {
+.stars-icon {
+    display: inline-block;
+    color: var(--primary-color);
+    align-self: center;
+    transition: all 0.5s ease;
+}
+
+.close {
+    font-size: 1.7rem;
+}
+
+.classification {
     display: block;
     display: inline;
+    transition: all 0.5s ease;
 }
+
 
 /* MOBILE */
 
-@media (min-width: 400px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 700px) {
 
     h1 {
         text-align: center;
@@ -353,8 +366,6 @@ body h3 {
         text-align: left;
         margin-top: 22px;
         font-weight: 600;
-
-
     }
 
     main {
@@ -364,7 +375,7 @@ body h3 {
     }
 
     main aside {
-        height: 617px;
+        height: auto;
         border-radius: 0;
         margin: auto;
         width: 100%;
@@ -407,13 +418,12 @@ body h3 {
         width: 90%;
         margin: auto;
         overflow-y: auto;
-
     }
 
     section article {
         width: 100%;
         margin: 30px 0;
-        height: 570px;
+        height: auto;
         background: none;
         flex-direction: column-reverse;
         gap: 0;
@@ -428,8 +438,8 @@ body h3 {
     }
 
     section article img {
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        height: auto;
     }
 
     .info-purchase h2 {
@@ -450,7 +460,7 @@ body h3 {
         font-size: 2.7rem;
         font-weight: 600;
         opacity: 0.8;
-        margin-top: -30px;
+
     }
 
     .installments {
@@ -459,22 +469,18 @@ body h3 {
         font-size: 1.3rem;
     }
 
-    .info-purchase .stars,
-    .classification {
-        position: absolute;
-    }
-
-    .info-purchase .stars {
-        bottom: 50px;
-        right: 140px;
-        font-size: 1.4rem;
-    }
 
     .info-purchase .classification {
         position: absolute;
         bottom: 20px;
         right: 4px;
         font-size: 1rem;
+    }
+
+    .info-purchase .stars {
+        display: none;
+
+
     }
 
     hr {
@@ -504,18 +510,17 @@ body h3 {
     }
 
     .slider article {
-        height: 800px;
-        width: 900px;
+        height: auto;
+        width: 90%;
     }
 
     .slider {
-        height: 500px;
+        height: auto;
     }
 
     input[type="search"] {
-
-        width: 260px;
-        height: 49px;
+        width: 229px;
+        height: 42px;
         padding-left: 20px;
     }
 
@@ -528,9 +533,8 @@ body h3 {
     }
 
     .apply {
-        /* margin-right: 43px; */
-        width: 120px;
-        height: 49px;
+        width: 111px;
+        height: 42px;
         font-size: 1rem;
     }
 
@@ -538,21 +542,24 @@ body h3 {
 
 /* DESKTOP */
 
-@media (min-width: 1399px) and (max-width: 1500px) {
+@media (min-width: 1799px) and (max-width: 2000px) {
     main {
         width: 80%;
     }
+
+
 
     h1 {
         margin-left: 40px;
     }
 
     section {
-        width: 650px;
+        width: 661px;
+
     }
 
     section article {
-        width: 640px;
+        width: 656px;
     }
 
     main aside {

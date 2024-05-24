@@ -15,13 +15,13 @@ h2 {
     font-size: 2rem;
     margin-bottom: 6px;
     font-weight: 200;
-    color: var(--font-color);
+    color: var(--cta-titles);
     padding-bottom: 3px;
     border-bottom: 1px solid var(--span-color);
 }
 
 span {
-    color: var(--sub-title-color);
+    color: var(--second-font);
     font-weight: 700;
 
 }
@@ -68,7 +68,7 @@ form {
     text-transform: uppercase;
     min-width: 6.8rem;
     width: 100%;
-    background-color: #812ec2;
+    background-color: var(--cta);
     color: white;
     transition: all .4s;
 }
@@ -235,23 +235,24 @@ a {
 
 /* MOBILE */
 
-@media (min-width: 400px) and (max-width: 800px) {
+@media (min-width: 320px) and (max-width: 700px) {
+
     body,
     input,
     textarea {
         font-size: 14px;
     }
-    
+
     main {
         width: 90%;
         margin: 40px auto;
     }
-    
+
     h2 {
         font-size: 1.5rem;
         margin-bottom: 6px;
     }
-    
+
     form {
         width: 100%;
         padding: 20px;
@@ -260,53 +261,50 @@ a {
         background-color: #E5D6FF;
         overflow: hidden;
     }
-    
+
     .content {
         margin-top: 20px;
         padding-bottom: 10px;
     }
-    
+
     .button-wrapper {
         margin-top: 30px;
         gap: 40px;
-    
+
     }
-    
+
     .btn {
         padding: 12px 20px;
         font-size: 0.9rem;
         min-width: auto;
     }
-    
+
     .input-wrapper {
         margin-bottom: 15px;
     }
-    
+
     .primary {
         margin-left: 0;
     }
-    
+
     .secondary {
         margin-right: 0;
     }
 
-    
+
     .profile img {
         width: 80px;
         height: 80px;
     }
-    
+
     .profile button {
         width: 150px;
         font-size: 0.6rem;
     }
-    
+
     .label {
         color: #603a9d;
     }
-    
+
 
 }
-
-
-

@@ -72,7 +72,7 @@ input[type="search"] {
 
 .hours {
     text-align: center;
-    width: 60px;
+    width: 50px;
 }
 
 /* CHATS */
@@ -320,9 +320,14 @@ span.bio {
 
 /* MOBILE */
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 700px) {
     body {
         position: relative;
+    }
+
+    .hours {
+        text-align: center;
+        width: 80px;
     }
 
     .main {
@@ -351,7 +356,8 @@ span.bio {
 
     .chat {
         border: none;
-        width: 100%;
+        width: 90%;
+        margin: auto;
     }
 
     .chat>header {
@@ -394,9 +400,10 @@ span.bio {
         margin-bottom: 15px;
         height: 45px;
         display: flex;
-        width: 100%;
+        width: 79%;
         justify-content: start;
         overflow-x: hidden;
+        overflow: hidden;
     }
 
     .last-time {
@@ -408,7 +415,7 @@ span.bio {
         display: flex;
         gap: 5px;
         width: 245px;
-        margin-left: 45%;
+        margin-left: 21%;
         justify-content: end;
     }
 
@@ -416,10 +423,10 @@ span.bio {
 
 /* DESKTOP */
 
-@media (min-width: 1399px) and (max-width: 1500px) {
+@media (min-width: 1399px) and (max-width: 2000px) {
     main {
-        width: 82%;
-        margin: 10px auto;
+        width: 75%;
+        
     }
 
     h1 {

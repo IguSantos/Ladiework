@@ -12,14 +12,14 @@ form.addEventListener('click', (e) => {
     const actions = {
         next() {
             const emailInput = document.getElementById('email').value;
-            
-            // Verifique se o email não termina com "@gmail.com"
+
+            // Verificar se o email não termina com "@gmail.com"
             if (!emailInput.endsWith('@gmail.com')) {
                 // Se o email não for válido, mostre uma mensagem de erro e não permita que o usuário avance
                 alert('Por favor, insira um endereço de e-mail válido com "@gmail.com".');
                 return;
             }
-            
+
             // Se o email for válido, continue para o próximo passo do formulário
             currentStep++;
             updateActiveStep();
@@ -85,16 +85,16 @@ function isValidInput() {
     return result;
 }
 
-document.querySelector('[data-action="next"]').addEventListener('click', function() {
+document.querySelector('[data-action="next"]').addEventListener('click', function () {
     const emailInput = document.getElementById('email').value;
-    
+
     // Verifique se o email não termina com "@gmail.com"
     if (!emailInput.endsWith('@gmail.com')) {
         // Se o email não for válido, mostre uma mensagem de erro e não permita que o usuário avance
         alert('Por favor, insira um endereço de e-mail válido com "@gmail.com".');
         return;
     }
-    
+
     // Se o email for válido, continue para o próximo passo do formulário
     actions['next']();
 });

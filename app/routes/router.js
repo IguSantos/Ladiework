@@ -42,7 +42,7 @@ router.get('/sobreocurso', (req, res) => {
 });
 
 router.get('/assistiraula', (req, res) => {
-  res.render('pages/main', { pagina: "viewthecourse", logado: null });
+  res.render('pages/main', { pagina: "viewvideocourse", logado: null });
 });
 
 

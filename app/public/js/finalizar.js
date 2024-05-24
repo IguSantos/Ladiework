@@ -32,7 +32,6 @@ function toggleDisplay(element) {
   element.style.display = (element.style.display === "none") ? "block" : "none";
 }
 
-
 function toggleDisplay(element) {
   if (element.style.display === 'none') {
     element.style.display = 'block';
@@ -40,7 +39,6 @@ function toggleDisplay(element) {
     element.style.display = 'none';
   }
 }
-
 
 // ROTA PARA AS PÁGINAS
 
@@ -54,53 +52,45 @@ document.addEventListener('DOMContentLoaded', function () {
   const prazoInput = form.querySelector('#prazo');
   const cvcInput = form.querySelector('#cvc');
 
-  // Adiciona um evento de clique ao campo de seleção do Pix
   pixOption.addEventListener('click', function () {
-      // Se a opção Pix for selecionada, limpa os campos do formulário de cartão de crédito/débito
-      cpfInput.value = '';
-      cnpjInput.value = '';
-      numeroCartaoInput.value = '';
-      prazoInput.value = '';
-      cvcInput.value = '';
+    cpfInput.value = '';
+    cnpjInput.value = '';
+    numeroCartaoInput.value = '';
+    prazoInput.value = '';
+    cvcInput.value = '';
 
-      // Remove o foco dos campos do formulário de cartão de crédito/débito
-      cpfInput.blur();
-      cnpjInput.blur();
-      numeroCartaoInput.blur();
-      prazoInput.blur();
-      cvcInput.blur();
+    cpfInput.blur();
+    cnpjInput.blur();
+    numeroCartaoInput.blur();
+    prazoInput.blur();
+    cvcInput.blur();
   });
 
-  // Adiciona um evento de clique ao formulário de cartão de crédito/débito
   form.addEventListener('click', function () {
-      // Se o formulário de cartão de crédito/débito for clicado, desmarca a opção Pix
-      pixOption.checked = false;
+    pixOption.checked = false;
   });
 
-  // Adiciona um evento de clique ao botão "Prosseguir"
   proceedButton.addEventListener('click', function (event) {
-      event.preventDefault(); // Evita que o formulário seja enviado automaticamente
+    event.preventDefault();
+    if (pixOption.checked) {
 
-      // Verifica se a opção de pagamento Pix está selecionada
-      if (pixOption.checked) {
-          // Se o Pix estiver selecionado, redirecione para a página de pagamento Pix
-          window.location.href = 'pagamentopix'; // Substitua 'pagamentopix' pelo URL real da sua página de pagamento Pix
+      window.location.href = 'pagamentopix';
+    } else {
+
+      const cpf = cpfInput.value;
+      const cnpj = cnpjInput.value;
+      const numeroCartao = numeroCartaoInput.value;
+      const prazo = prazoInput.value;
+      const cvc = cvcInput.value;
+
+      if (cpf && cnpj && numeroCartao && prazo && cvc) {
+
+        alert('Compra finalizada com sucesso!');
+
       } else {
-          // Caso contrário, verifique se todos os campos do formulário de cartão de crédito/débito estão preenchidos
-          const cpf = cpfInput.value;
-          const cnpj = cnpjInput.value;
-          const numeroCartao = numeroCartaoInput.value;
-          const prazo = prazoInput.value;
-          const cvc = cvcInput.value;
 
-          if (cpf && cnpj && numeroCartao && prazo && cvc) {
-              // Todos os campos estão preenchidos, então finalize a compra
-              alert('Compra finalizada com sucesso!');
-              // Aqui você pode redirecionar o usuário para outra página ou executar outra ação
-          } else {
-              // Caso contrário, exiba uma mensagem de erro ou destaque os campos que precisam ser preenchidos
-              alert('Por favor, preencha todos os campos do formulário.');
-          }
+        alert('Por favor, preencha todos os campos do formulário.');
       }
+    }
   });
 });

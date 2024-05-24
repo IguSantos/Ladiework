@@ -46,8 +46,7 @@ function showProfile(contactName) {
     // Atualiza o nome do contato na seção de conversa
     document.getElementById('contact-name').innerText = contactName;
     
-    // Aqui você pode adicionar lógica para exibir o perfil completo da pessoa selecionada,
-    // com base no nome do contato, como buscar informações do banco de dados, etc.
+
 }
 
 // Adiciona eventos de clique aos itens da lista de contatos para exibir o perfil
