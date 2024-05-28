@@ -542,15 +542,14 @@ body h3 {
 
 /* DESKTOP */
 
-@media (min-width: 1799px) and (max-width: 2000px) {
+@media (min-width: 1900px) and (max-width: 2100px) {
     main {
         width: 80%;
     }
 
 
-
     h1 {
-        margin-left: 40px;
+        margin-left: 135px;
     }
 
     section {

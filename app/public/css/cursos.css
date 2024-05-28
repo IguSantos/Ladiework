@@ -318,13 +318,12 @@ input[type=search]::placeholder {
 
 }
 
-
 .add-cart {
     vertical-align: middle;
     text-align: center;
     padding: 0;
     padding: 3px 18px;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 
 }
 
@@ -595,7 +594,11 @@ input[type=search]::placeholder {
 }
 
 
-@media (min-width: 1200px) and (max-width: 1900px) {
+/* DESKTOP */
+
+@media (min-width: 1900px) and (max-width: 2100px) {
+
+
     main {
         margin-left: 5%;
         padding-top: 5vh;
@@ -612,6 +615,10 @@ input[type=search]::placeholder {
 
     .top-information {
         width: 80%;
+    }
+
+    .inspiration img {
+        margin-right: -265px;
     }
 
     .dropdown-btn {
@@ -634,12 +641,21 @@ input[type=search]::placeholder {
         margin-left: 40px;
     }
 
+    .add-cart {
+        padding: 6px 18px;
+    }
+
     .course {
         width: 430px;
     }
 
     .info h3 {
         max-width: 240px;
+    }
+
+    .filter-image {
+        right: 198px;
+        top: 119px;
     }
 
     .learn-more,
