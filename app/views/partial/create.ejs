@@ -8,88 +8,135 @@
 
     <%- include("../partial/header") %>
 
-    <main>
+        <main>
 
-        <div class="style-progress-bar">
-            <div id="progress-bar">
-                <div id="current-progress"></div>
+            <div class="style-progress-bar">
+                <div id="progress-bar">
+                    <div id="current-progress"></div>
+                </div>
             </div>
-        </div>
 
-        <h1>Vamos começar!</h1>
-        <span>Escolha qual modalidade deseja criar...</span>
+            <h1>Vamos começar!</h1>
+            <span>Escolha qual modalidade deseja criar...</span>
 
+            <section id="cards" class="cards">
 
-        <section id="cards" class="cards">
+                <article id="card-course" class="card">
+                    <h2>Curso</h2>
 
-            <article id="card-curse" class="card">
-                <h2>Curso</h2>
+                    <p>Transforme suas ideias em cursos com um clique. Comece a criar de forma dinâmica e intuitiva
+                        agora mesmo!</p>
 
-                <p>Transforme suas ideias em cursos com um clique. Comece a criar de forma dinâmica e intuitiva
-                    agora mesmo!</p>
+                    <ion-icon name="book-outline"></ion-icon>
 
-                <ion-icon name="book-outline"></ion-icon>
+                </article>
 
+                <article id="card-mentoring" class="card">
+                    <h2>Mentoria</h2>
+
+                    <p>Transforme sua experiência em oportunidades de aprendizado. Inicie sua jornada de mentoria
+                        com um simples clique e comece a orientar e inspirar outros de forma dinâmica e criativa!"
+                    </p>
+
+                    <ion-icon name="newspaper-outline"></ion-icon>
+                </article>
+
+            </section>
+
+            <input type="text" placeholder="Exemplo: Aprenda Marketing Digital" id="input" class="none" minlength="10"
+                maxlength="100" required>
+
+            <!-- INPUT COURSE -->
+            <input type="text" placeholder="Exemplo: Curso de Design Gráfico" id="input-course" class="none"
+                minlength="10" maxlength="100" required>
+
+            <select name="Marketing" class=" none" id="category">
+                <option value="Marketing">Marketing Digital</option>
+                <option value="Empreendedorismo">Empreendedorismo</option>
+                <option value="TI">TI</option>
+                <option value="Logística">Design</option>
+            </select>
+
+            <select name="Formacao" class=" none" id="category-formation">
+                <option value="MestradoMarketing">Mestrada em Marketing Digital</option>
+                <option value="CienciaCompu">Bacharelada em Ciência da Computação</option>
+                <option value="CursoTecSoftware">Curso Técnico em Desenvolvimento de Software</option>
+                <option value="DesignGrafico">Bacharelada em Design Gráfico</option>
+            </select>
+
+            <!-- SELECT COURSE -->
+            <select name="Nivel" class=" none" id="category-level">
+                <option value="Iniciante">Iniciante</option>
+                <option value="Intermediario">Intermediário</option>
+                <option value="Avancado">Avançado</option>
+
+            </select>
+
+            <article id="hours" class="hours none">
+                <label>
+                    <input type="checkbox" name="" id="nao_sei_ainda">
+                    Não sei ainda
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" name="" id="ocupado">
+                    Ocupado (1 - 2 horas)
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" name="" id="pouco_tempo">
+                    Tenho pouco tempo (2 - 4 horas)
+                </label>
+                <br>
+
+                <label>
+                    <input type="checkbox" name="" id="tempo_sobra">
+                    Tenho tempo de sobra (5 horas ou mais)
+                </label>
             </article>
 
+            <!-- Checbox Course -->
+            <article id="hours-course" class="hours none">
+                <label>
+                    <input type="checkbox" name="" id="10">
+                    2 - 10 horas
+                </label>
+                <br>
 
+                <label>
+                    <input type="checkbox" name="" id="20">
+                    10 - 20 horas
+                </label>
+                <br>
 
-            <article id="card-mentoring" class="card">
-                <h2>Mentoria</h2>
+                <label>
+                    <input type="checkbox" name="" id="40">
+                    20 - 40 horas
+                </label>
+                <br>
 
-                <p>Transforme sua experiência em oportunidades de aprendizado. Inicie sua jornada de mentoria
-                    com um simples clique e comece a orientar e inspirar outros de forma dinâmica e criativa!"
-                </p>
-
-                <ion-icon name="newspaper-outline"></ion-icon>
+                <label>
+                    <input type="checkbox" name="" id="40+">
+                    40 horas ou mais
+                </label>
             </article>
 
-        </section>
+            <button id="continue" class="none">Continuar</button>
+            <button id="continue-two" class="none">Continuar</button>
+            <button id="continue-three" class="none">Criar</button>
+            <button id="continue-four" class="none">Criar</button>
 
-        <input type="text" placeholder="Exemplo: Aprenda Marketing Digital" id="input" class="none" minlength="10"
-            maxlength="100" required>
+            <!-- BUTTON COURSES -->
 
-
-        <select name="Marketing" class=" none" id="category">
-            <option value="Marketing">Marketing</option>
-            <option value="Empreendedorismo">Empreendedorismo</option>
-            <option value="TI">TI</option>
-            <option value="Logística">Lógistica</option>
-        </select>
-
+            <button id="continue-course" class="none">Continuar</button>
+            <button id="continue-two-course" class="none">Continuar</button>
+            <button id="continue-three-course" class="none">Criar</button>
+            <button id="continue-four-course" class="none">Criar</button>
 
 
-        <article id="hours" class="hours none">
-            <label>
-                <input type="checkbox" name="" id="nao_sei_ainda">
-                Não sei ainda
-            </label>
-            <br>
-
-            <label>
-                <input type="checkbox" name="" id="ocupado">
-                Ocupado (1 - 2 horas)
-            </label>
-            <br>
-
-            <label>
-                <input type="checkbox" name="" id="pouco_tempo">
-                Tenho pouco tempo (2 - 4 horas)
-            </label>
-            <br>
-
-            <label>
-                <input type="checkbox" name="" id="tempo_sobra">
-                Tenho tempo de sobra (5 horas ou mais)
-            </label>
-        </article>
-
-        <button id="continue" class="none">Continuar</button>
-        <button id="continue-two" class="none">Continuar</button>
-        <button id="continue-three" class="none">Criar</button>
+        </main>
 
 
-    </main>
-
-
-    <script src="js/create.js"></script>
+        <script src="js/create.js"></script>

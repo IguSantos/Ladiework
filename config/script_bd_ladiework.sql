@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `bqkfbzyeptqs5ylpsmpw`;
+CREATE DATABASE IF NOT EXISTS `bqkfbzyeptqs5ylpsmpw`;
 USE `bqkfbzyeptqs5ylpsmpw`;
 
 SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
@@ -33,7 +33,7 @@ CREATE TABLE `cursos` (
   `TITULO_CURSOS` varchar(60) NOT NULL,
   `CONTEUDO_PROGRAMATICO_CURSOS` longtext NOT NULL,
   `DURACAO_CURSOS` float NOT NULL,
-  `NIVEL_DIFICUL_CURSOS` enum('Iniciante','Intermediario','Avançado') NOT NULL, -- MUDANÇA
+  `DURACAO_CURSOS` enum('Iniciante','Intermediario','Avançado') NOT NULL,
   `PRECO_CURSOS` float NOT NULL,
   `DESCRICAO_CURSOS` mediumtext NOT NULL,
   `FOTO_CURSOS` blob NOT NULL,
@@ -47,10 +47,8 @@ LOCK TABLES `cursos` WRITE;
 
 UNLOCK TABLES;
 
-
 DROP TABLE IF EXISTS `forma de pagamento`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `forma de pagamento` (
   `ID_FORMAPAGTO` int(11) NOT NULL AUTO_INCREMENT,
   `PIX_EMAIL_FORMAPAGTO` varchar(100) NOT NULL,
@@ -65,24 +63,13 @@ CREATE TABLE `forma de pagamento` (
   UNIQUE KEY `PIX_CHAVE_ALEATORIA_FORMAPAGTO_UNIQUE` (`PIX_CHAVE_ALEATORIA_FORMAPAGTO`),
   UNIQUE KEY `PIX_CELULAR_FORMAPAGTO_UNIQUE` (`PIX_CELULAR_FORMAPAGTO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `forma de pagamento`
---
 
 LOCK TABLES `forma de pagamento` WRITE;
-/*!40000 ALTER TABLE `forma de pagamento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `forma de pagamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `instrutor`
---
-
 DROP TABLE IF EXISTS `instrutor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `instrutor` (
   `ID_INSTRUTOR` int(11) NOT NULL AUTO_INCREMENT,
   `NOME_INSTRUTOR` varchar(100) NOT NULL,
@@ -130,54 +117,29 @@ CREATE TABLE `material` (
   KEY `fk_MATERIAL_CURSOS1_idx` (`CURSOS_ID_CURSOS`),
   CONSTRAINT `fk_MATERIAL_CURSOS1` FOREIGN KEY (`CURSOS_ID_CURSOS`) REFERENCES `cursos` (`ID_CURSOS`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `material`
---
 
 LOCK TABLES `material` WRITE;
-/*!40000 ALTER TABLE `material` DISABLE KEYS */;
-/*!40000 ALTER TABLE `material` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `mentora`
---
-
 DROP TABLE IF EXISTS `mentora`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `mentora` (
   `ID_MENTORA` int(11) NOT NULL AUTO_INCREMENT,
   `REDES_SOCIAIS_MENTORA` varchar(30) DEFAULT NULL,
   `FORM_ACADEMICA_MENTORA` mediumtext NOT NULL,
   `DISPONIBILIDADE_HORARIO_MENTORA` datetime NOT NULL,
-  `PREFERENCIAS_REMOTAS_MENTORA` enum('online','presencial') NOT NULL,
   `RESTRICOES_MENTORA` mediumtext NOT NULL,
   `STATUS_MENTORA` enum('ativa','inativa') NOT NULL,
   `NOME_MENTORA` varchar(100) NOT NULL,
   PRIMARY KEY (`ID_MENTORA`),
   UNIQUE KEY `REDES_SOCIAIS_MENTORA_UNIQUE` (`REDES_SOCIAIS_MENTORA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `mentora`
---
 
 LOCK TABLES `mentora` WRITE;
-/*!40000 ALTER TABLE `mentora` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mentora` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `pagamento_cursos`
---
-
 DROP TABLE IF EXISTS `pagamento_cursos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `pagamento_cursos` (
   `ID_PAGTOCURSOS` int(11) NOT NULL AUTO_INCREMENT,
   `STATUS_PAGTOCURSOS` enum('Pago','Não Pago','Pendente') NOT NULL,
@@ -192,24 +154,12 @@ CREATE TABLE `pagamento_cursos` (
   CONSTRAINT `fk_PAGAMENTO_CURSOS_USUARIO_CONTRATA_CURSOS1` FOREIGN KEY (`USUARIO_CONTRATA_CURSOS_USUARIO_ID_USUARIO`, `USUARIO_CONTRATA_CURSOS_CURSOS_ID_CURSOS`) REFERENCES `usuario_contrata_cursos` (`USUARIO_ID_USUARIO`, `CURSOS_ID_CURSOS`),
   CONSTRAINT `fk_PAGAMENTO_FORMA DE PAGAMENTO1` FOREIGN KEY (`FORMA DE PAGAMENTO_ID_FORMAPAGTO`) REFERENCES `forma de pagamento` (`ID_FORMAPAGTO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pagamento_cursos`
---
 
 LOCK TABLES `pagamento_cursos` WRITE;
-/*!40000 ALTER TABLE `pagamento_cursos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pagamento_cursos` ENABLE KEYS */;
+
 UNLOCK TABLES;
-
---
--- Table structure for table `pagamento_mentora`
---
-
 DROP TABLE IF EXISTS `pagamento_mentora`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `pagamento_mentora` (
   `ID_PAGTOMENT` int(11) NOT NULL AUTO_INCREMENT,
   `STATUS_PAGTOMENTORA` enum('Pago','Não Pago','Pendente') NOT NULL,
@@ -225,35 +175,24 @@ CREATE TABLE `pagamento_mentora` (
   CONSTRAINT `fk_PAGAMENTO_MENTORA_FORMA DE PAGAMENTO1` FOREIGN KEY (`FORMA DE PAGAMENTO_ID_FORMAPAGTO`) REFERENCES `forma de pagamento` (`ID_FORMAPAGTO`),
   CONSTRAINT `fk_PAGAMENTO_MENTORA_USUARIO_CONTRATA_MENTORA1` FOREIGN KEY (`USUARIO_CONTRATA_MENTORA_USUARIO_ID_USUARIO`, `USUARIO_CONTRATA_MENTORA_MENTORA_USUARIO_ID_USUARIO`, `USUARIO_CONTRATA_MENTORA_MENTORA_ID_MENTORA`) REFERENCES `usuario_contrata_mentora` (`USUARIO_ID_USUARIO`, `MENTORA_USUARIO_ID_USUARIO`, `MENTORA_ID_MENTORA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pagamento_mentora`
---
-
 LOCK TABLES `pagamento_mentora` WRITE;
-/*!40000 ALTER TABLE `pagamento_mentora` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pagamento_mentora` ENABLE KEYS */;
+
 UNLOCK TABLES;
 
---
--- Table structure for table `usuario`
---
-
 DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
+-- TIPO DE USUARIO?
+
 CREATE TABLE `usuario` (
   `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT,
   `EMAIL_USUARIO` varchar(100) NOT NULL,
   `CELULAR_USUARIO` char(14) DEFAULT NULL,
   `NOME_USUARIO` varchar(100) NOT NULL,
   `FOTO_USUARIO` blob,
-  `CPF_USUARIO` char(11) NOT NULL,
+  `CPF_USUARIO` char(11) NOT NULL, -- cadastro de mentora
   `DT_NASC_USUARIO` date NOT NULL,
   `DESCRICAO_USUARIO` mediumtext,
   `HISTORICO_PROFISSIONAL_USUARIO` mediumtext,
-  `ENDERECO_USUARIO` varchar(120) NOT NULL,
   `SENHA` varbinary(32) NOT NULL,
   `MENTORA_ID_MENTORA` int(11) NOT NULL,
   PRIMARY KEY (`ID_USUARIO`),
@@ -264,24 +203,14 @@ CREATE TABLE `usuario` (
   KEY `fk_USUARIO_MENTORIA1_idx` (`MENTORA_ID_MENTORA`),
   CONSTRAINT `fk_USUARIO_MENTORIA1` FOREIGN KEY (`MENTORA_ID_MENTORA`) REFERENCES `mentora` (`ID_MENTORA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
 
 LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+
 UNLOCK TABLES;
 
---
--- Table structure for table `usuario_contrata_cursos`
---
 
 DROP TABLE IF EXISTS `usuario_contrata_cursos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `usuario_contrata_cursos` (
   `USUARIO_ID_USUARIO` int(11) NOT NULL,
   `CURSOS_ID_CURSOS` int(11) NOT NULL,
@@ -291,24 +220,14 @@ CREATE TABLE `usuario_contrata_cursos` (
   CONSTRAINT `fk_USUARIO_has_CURSOS_CURSOS1` FOREIGN KEY (`CURSOS_ID_CURSOS`) REFERENCES `cursos` (`ID_CURSOS`),
   CONSTRAINT `fk_USUARIO_has_CURSOS_USUARIO1` FOREIGN KEY (`USUARIO_ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario_contrata_cursos`
---
 
 LOCK TABLES `usuario_contrata_cursos` WRITE;
-/*!40000 ALTER TABLE `usuario_contrata_cursos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario_contrata_cursos` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `usuario_contrata_mentora`
---
+UNLOCK TABLES
+
 
 DROP TABLE IF EXISTS `usuario_contrata_mentora`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `usuario_contrata_mentora` (
   `USUARIO_ID_USUARIO` int(11) NOT NULL,
   `MENTORA_USUARIO_ID_USUARIO` int(11) NOT NULL,
@@ -319,24 +238,15 @@ CREATE TABLE `usuario_contrata_mentora` (
   CONSTRAINT `fk_PERFIL_HAS_MENTORIA_MENTORIA1` FOREIGN KEY (`MENTORA_ID_MENTORA`) REFERENCES `mentora` (`ID_MENTORA`),
   CONSTRAINT `fk_perfil_has_mentoria_perfil1` FOREIGN KEY (`USUARIO_ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `usuario_contrata_mentora`
---
 
 LOCK TABLES `usuario_contrata_mentora` WRITE;
-/*!40000 ALTER TABLE `usuario_contrata_mentora` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario_contrata_mentora` ENABLE KEYS */;
+
 UNLOCK TABLES;
 
---
--- Table structure for table `videoaulas`
---
 
 DROP TABLE IF EXISTS `videoaulas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `videoaulas` (
   `ID_VIDEOAULAS` int(11) NOT NULL AUTO_INCREMENT,
   `TITULO_VIDEOAULAS` varchar(60) NOT NULL,
@@ -348,25 +258,8 @@ CREATE TABLE `videoaulas` (
   KEY `fk_VIDEOAULAS_CURSOS1_idx` (`CURSOS_ID_CURSOS`),
   CONSTRAINT `fk_VIDEOAULAS_CURSOS1` FOREIGN KEY (`CURSOS_ID_CURSOS`) REFERENCES `cursos` (`ID_CURSOS`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `videoaulas`
---
 
 LOCK TABLES `videoaulas` WRITE;
-/*!40000 ALTER TABLE `videoaulas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `videoaulas` ENABLE KEYS */;
+
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-05-21 16:01:53

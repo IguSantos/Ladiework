@@ -5,7 +5,7 @@ const { body, validationResult } = require("express-validator");
 const courseController = {
 
     listPaginatedCourses: async (req, res) => {
-        res.locals.moment = moment; // O QUE É MOMENT?
+        res.locals.moment = moment; 
         try {
             let page  = req.query.page == undefined ? 1 : req.query.page; // Definir a página atual
             let results = null // Valor padrão como nulo para oferecer ao paginador "false"
