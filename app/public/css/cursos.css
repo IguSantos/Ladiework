@@ -1,4 +1,9 @@
+body{
+    background: rgb(247, 247, 247) url("https://i.ibb.co/zQdHxKX/Cursos.png") no-repeat center center/cover;
+}
+
 main {
+
     margin-left: 5%;
     display: flex;
     padding-top: 5vh;
@@ -33,8 +38,8 @@ input[type=search]:focus {
     width: 15px;
     height: 15px;
     position: absolute;
-    right: 135px;
-    top: 114px;
+    right: 10px;
+    top: 7px;
     user-select: none;
 }
 
@@ -48,6 +53,10 @@ input[type=search]::placeholder {
     justify-content: space-between;
     margin: 20px auto;
 
+}
+
+.top-information > div {
+    position: relative;
 }
 
 /* Estilizando o botão */
@@ -238,6 +247,7 @@ input[type=search]::placeholder {
 }
 
 .course {
+    background-color: rgb(247, 247, 247);
     border-radius: 10px;
     display: flex;
     justify-content: space-around;
@@ -303,7 +313,6 @@ input[type=search]::placeholder {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     background-color: rgba(255, 255, 255, 0.479);
-    padding: 5px 10px;
     border-radius: 10px;
     padding: 7px 18px;
     cursor: pointer;
@@ -414,7 +423,6 @@ input[type=search]::placeholder {
 }
 
 #filtering ion-icon {
-
     margin: 0 10px;
 }
 
@@ -422,10 +430,7 @@ input[type=search]::placeholder {
 /* MOBILE */
 
 @media (min-width: 320px) and (max-width: 700px) {
-    .filter-image {
-        right: 21px;
-        top: 111px;
-    }
+
 
     .dropdown-btn {
         margin-left: 30px;
@@ -600,7 +605,7 @@ input[type=search]::placeholder {
 
 /* DESKTOP */
 
-@media (min-width: 1600px) and (max-width: 2000px) {
+@media (min-width: 1300px) and (max-width: 2000px) {
 
 
     main {
@@ -653,10 +658,6 @@ input[type=search]::placeholder {
         max-width: 240px;
     }
 
-    .filter-image {
-        right: 190px;
-        top: 117px; 
-    }
 
 
     .learn-more,
