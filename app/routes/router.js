@@ -19,8 +19,9 @@ router.get('/mentorias', (req, res) => {
 //   coursesController.listPaginatedCourses(req, res);
 // });
 
-router.get('/cadastrar', (req, res) => {
-  res.render('pages/main', { pagina: "cadastro", logado: null });
+
+router.get("/cadastrar", function (req, res) {
+  res.render("pages/main", { pagina: "cadastro", listaErros: null, valores: { nome_usu: "", nomeusu_usu: "", email_usu: "", senha_usu: "" } });
 });
 
 router.get('/login', (req, res) => {
