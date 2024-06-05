@@ -17,7 +17,6 @@ router.get("/", (req, res) => {
   res.send("Rota raiz");
 });
 
-
 app.use(express.static("app/public"));
 
 app.set("view engine", "ejs");

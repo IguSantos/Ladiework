@@ -30,6 +30,18 @@ const userModel = {
         }
     },
 
+    create: async (camposForm) => {
+        try {
+            const [results] = await pool.query(
+                "insert into usuario set ?", [camposForm]
+            )
+            return results;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    },
+
     // TERA TIPO DE USUARIO?
 
     findId: async (id) => {
@@ -48,7 +60,6 @@ const userModel = {
         }
     },
 
-    
 
 };
 

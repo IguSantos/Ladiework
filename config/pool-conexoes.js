@@ -12,12 +12,12 @@ const pool = mysql.createPool({
 
 pool.getConnection((err, conn) => {
     if (err) {
-        console.error(err);
+        console.log(err);
       
     } else {
         console.log("Conectado ao Banco de Dados");
        
     }
-})
+});
 
 module.exports = pool.promise();

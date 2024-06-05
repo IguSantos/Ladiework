@@ -6,7 +6,6 @@ body {
 
 
 main {
-
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
     width: 35%;
     margin: 40px auto;
@@ -19,6 +18,16 @@ h2 {
     color: var(--cta-titles);
     padding-bottom: 3px;
     border-bottom: 1px solid var(--span-color);
+}
+
+.warning {
+    color: red;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.erro {
+    border: 1px solid red;
 }
 
 span {

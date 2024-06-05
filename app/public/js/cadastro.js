@@ -14,7 +14,7 @@ form.addEventListener('click', (e) => {
             const emailInput = document.getElementById('email').value;
 
             // Verificar se o email não termina com "@gmail.com"
-            if (!emailInput.endsWith('@gmail.com')) {
+            if (error) {
                 // Se o email não for válido, mostre uma mensagem de erro e não permita que o usuário avance
                 alert('Por favor, insira um endereço de e-mail válido com "@gmail.com".');
                 return;
