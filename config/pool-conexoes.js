@@ -12,7 +12,7 @@ const pool = mysql.createPool({
 
 pool.getConnection((err, conn) => {
     if (err) {
-        console.log(err);
+        console.log("Deu erro! ", err);
       
     } else {
         console.log("Conectado ao Banco de Dados");

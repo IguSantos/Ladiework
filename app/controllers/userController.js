@@ -34,6 +34,8 @@ const userController = {
             .withMessage("A senha deve ter no mínimo 4 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
 
+    // ?
+
     cadastrar: (req, res) => {
         const errors = validationResult(req);
         console.log(errors);
@@ -63,6 +65,7 @@ const userController = {
         }
     },
 
+   // GIOVANNI
     logar: (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {

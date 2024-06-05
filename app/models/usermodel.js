@@ -20,8 +20,8 @@ const userModel = {
     findUserEmail: async (camposForm) => {
         try {
             const [results] = await pool.query(
-                "SELECT * FROM usuario WHERE EMAIL_USUARIO = ?", // Errado ou nao?
-                [camposForm.EMAIL_USUARIO, camposForm.EMAIL_USUARIO]
+                "SELECT * FROM usuario WHERE EMAIL_USUARIO = ?",   
+                [camposForm.EMAIL_USUARIO]
             )
             return results;
         } catch (error) {
@@ -42,7 +42,6 @@ const userModel = {
         }
     },
 
-    // TERA TIPO DE USUARIO?
 
     findId: async (id) => {
         try {

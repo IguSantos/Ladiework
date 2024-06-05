@@ -58,7 +58,7 @@ CREATE TABLE `forma de pagamento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-LOCK TABLES `forma de pagamento` WRITE;
+LOCK TABLES `forma de pagamento` WRITE;email
 UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `instrutor`;
