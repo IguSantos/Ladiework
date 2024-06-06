@@ -1,5 +1,14 @@
 var pool = require("../../config/pool_connections");
 
+
+// Como crio um usuario falso?
+// Analisar o cadastro e tentar criar uma usuaria
+// Autenticação ira libeara algumas partes
+// Autenticação Mentora (Criar uma mentora falsa)
+// "Cadastro de mentora" ver como poderei fazer
+// Acessar dashboard de algum lugar
+// Reuniãozinha <---o
+
 const userModel = {
     findAll: async () => {
         try {
