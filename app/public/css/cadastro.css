@@ -9,6 +9,7 @@ main {
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
     width: 35%;
     margin: 40px auto;
+    height: 650px;
 }
 
 h2 {
@@ -26,7 +27,7 @@ h2 {
     font-weight: 500;
 }
 
-.erro {
+.error {
     border: 1px solid red;
 }
 
@@ -41,6 +42,7 @@ button {
 }
 
 form {
+    margin: auto;
     max-width: 526px;
     width: 40vw;
     padding: 2.2rem;
@@ -176,9 +178,17 @@ textarea {
     resize: none;
 }
 
+input {
+    height: 52px;
+}
+
+textarea {
+    height: 75px;
+}
+
 input,
 textarea {
-    height: 60%;
+
     width: 100%;
     border-radius: 10px 0 0 0;
 
@@ -187,7 +197,6 @@ textarea {
     background-color: var(--color-base-white);
 
     border: 1px solid var(--color-base-gray-100);
-
 }
 
 input::placeholder,
@@ -256,6 +265,7 @@ a {
     main {
         width: 90%;
         margin: 40px auto;
+        height: 560px;
     }
 
     h2 {

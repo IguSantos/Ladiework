@@ -1,4 +1,4 @@
-<title>Cadastro</title>
+<title>Cadastro - LadieWork</title>
 <link rel="stylesheet" href="css/cadastro.css">
 
 </head>
@@ -6,84 +6,154 @@
 <body>
     <%- include("../partial/header") %>
 
-        <main id="app">
-            <form>
-                <div class="form-step active">
-                    <h2>Bem-Vinda a LadieWork</h2>
-                    <span class="step1">Fale um pouco sobre você!</span>
-                    <div class="content">
-                        <div class="input-wrapper">
-                            <label for="name">Nome</label>
-                            <input id="name" name="name" type="text" placeholder="Como prefere ser chamado?"
-                                autocomplete="name" >
-                                <span class="warning"></span>
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="email">E-mail</label>
-                            <input id="email" name="email" type="email" placeholder="Digite seu e-mail" required>
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="password">Senha</label>
-                            <input id="password" name="password" type="password" placeholder="Digite sua senha"
-                                required>
-                        </div>
-                    </div>
-                    <div class="button-wrapper justify-end">
-                        <button type="button" class="btn" data-action="next">PRÓXIMO</button>
-                    </div>
-                </div>
-                <div class="form-step hide">
-                    <h2>Bem-Vinda a LadieWork</h2>
-                    <span class="step1">Algumas informações básicas</span>
-                    <div class="content">
-                        <div class="input-wrapper">
-                            <label for="birthday-date">Data de nascimento</label>
-                            <input id="birthday-date" name="birthday-date" type="date" max="2007-12-31" required>
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="phone">Número de telefone</label>
-                            <input id="phone" name="phone" type="tel" placeholder="Digite seu número"
-                                onkeypress="return /\d/.test(event.key)" required>
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="gender">Gênero</label>
-                            <input id="gender" name="gender" type="text" placeholder="Informe seu gênero">
-                        </div>
-                    </div>
-                    <div class="button-wrapper">
-                        <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
-                        <button type="button" class="btn primary" data-action="next">CONTINUAR</button>
-                    </div>
-                </div>
-                <div class="form-step hide">
-                    <h2>Bem-Vinda a LadieWork</h2>
-                    <span class="step1">Personalize seu perfil</span>
-                    <div class="profile">
-                        <div class="pre-visualization">
-                            <img src="images/profilevisualitation.svg" alt="Sua foto de perfil">
-                            <p>Sua foto de perfil</p>
-                        </div>
-                        <div>
-                            <p>Pré-visualização da imagem</p>
-                            <img id="profileImage" src="images/blank.svg" alt="Pré-visualização da imagem">
-                            <button type="button" id="editar" name="editar"> Faça upload de uma foto</button>
-                            <input type="file" id="inputImage" accept="image/*" style="display: none;" required>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="input-wrapper">
-                            <label for="project">Monte uma breve biografia</label>
-                            <textarea id="project" name="project" placeholder="Fale um pouco sobre você"></textarea>
-                            <span class="iagree">Ao clicar em "Tudo pronto", você concorda com os nossos <a
-                                    href="">Termos de Uso</a> e nossa <a href="">Política de Privacidade</a></span>
-                        </div>
-                    </div>
-                    <div class="button-wrapper">
-                        <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
-                        <button class="btn primary" type="submit">TUDO PRONTO</button>
-                    </div>
-                </div>
-            </form>
-        </main>
+    <% let msgError={"nome_usu": "",  "email_usu": "", "senha_usu": "", "aniversario_usu": "", "numero_usu": "", "genero_usu": "", "foto_usu": ""}; 
+    
+    let warningError={ nome_usu: "",  email_usu: "", senha_usu: "", aniversario_usu: "", numero_usu: "", genero_usu: "", foto_usu: ""}; 
 
-        <script src="js/cadastro.js"></script>
+
+    if(errorsList){
+        errorsList.errors.forEach(function(itemError){ 
+            if(itemError.path=="nome_usu" ) {
+                warningError.nome_usu="erro" ; 
+                msgError.nome_usu +=  "" +itemError.msg; 
+            } 
+            if(itemError.path=="senha_usu" ) {
+                warningError.senha_usu="erro" ; 
+                msgError.senha_usu=itemError.msg; 
+            } 
+            if(itemError.path=="email_usu" ) {
+                warningError.email_usu="erro" ; 
+                msgError.email_usu=itemError.msg; 
+            } 
+            if(itemError.path=="aniversario_usu" ) {
+                warningError.aniversario_usu="erro" ; 
+                msgError.aniversario_usu=itemError.msg; 
+            }
+            if(itemError.path=="genero_usu" ) { 
+                warningError.genero_usu="erro" ; 
+                msgError.genero_usu=itemError.msg; 
+            }
+            if(itemError.path=="numero_usu" ) { 
+                warningError.numero_usu="erro" ; 
+                msgError.numero_usu=itemError.msg; 
+            }
+            if(itemError.path=="foto_usu" ) { 
+                warningError.foto_usu="erro" ; 
+                msgError.foto_usu=itemError.msg; 
+            }
+            if(itemError.path=="desc_usu" ) { 
+                warningError.desc_usu="erro" ; 
+                msgError.desc_usu=itemError.msg; 
+            } 
+        }) 
+    } 
+    %>
+
+
+    <main id="app">
+        <form method="post" action="/cadastro">
+            <div class="form-step active">
+                <h2>Bem-Vinda a LadieWork</h2>
+                <span class="step1">Fale um pouco sobre você!</span>
+                <div class="content">
+
+                    <div class="input-wrapper">
+                        <label for="name">Nome</label>
+                        <input id="name" name="name" type="text" placeholder="Como prefere ser chamado?"
+                            autocomplete="name" value="<%= valores.nome_usu %>">  <!-- valores? -->
+                        <span class="warning">
+                        </span>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" placeholder="Digite seu e-mail"
+                            required value="<%= valores.email_usu %>">
+                        <span class="warning">
+                        </span>
+
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="password">Senha</label>
+                        <input id="password" name="password" type="password" placeholder="Digite sua senha"
+                            required value="<%= valores.senha_usu %>">
+                        <span class="warning">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="button-wrapper justify-end">
+                    <button type="button" class="btn" data-action="next">PRÓXIMO</button>
+                </div>
+            </div>
+
+            <div class="form-step hide">
+                <h2>Bem-Vinda a LadieWork</h2>
+                <span class="step1">Algumas informações básicas</span>
+                <div class="content">
+
+                    <div class="input-wrapper">
+                        <label for="birthday-date">Data de nascimento</label>
+                        <input id="birthday-date" name="birthday-date" type="date" max="2007-12-31"
+                            required value="<%= valores.aniversario_usu %>">
+                        <span class="warning">
+                        </span>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="phone">Número de telefone</label>
+                        <input id="phone" name="phone" type="tel" placeholder="Digite seu número"
+                        onkeypress="return /\d/.test(event.key)" required value="<%= valores.numero_usu %>">
+                    <span class="warning">
+                    </span>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="gender">Gênero</label>
+                        <input id="gender" name="gender" type="text" placeholder="Informe seu gênero">
+                        <span class="warning" value="<%= valores.genero_usu %>">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="button-wrapper">
+                    <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
+                    <button type="button" class="btn primary" data-action="next">CONTINUAR</button>
+                </div>
+            </div>
+
+            <div class="form-step hide" >  <!-- Ultima etapa -->
+                <h2>Bem-Vinda a LadieWork</h2>
+                <span class="step1">Personalize seu perfil</span>
+                <div class="profile">
+                    <div class="pre-visualization">
+                        <img src="images/profilevisualitation.svg" alt="Sua foto de perfil" >
+                        <p>Sua foto de perfil</p>
+                    </div>
+                    <div>
+                        <p>Pré-visualização da imagem</p>
+                        <img id="profileImage" src="images/blank.svg" alt="Pré-visualização da imagem" >
+                        <button type="button" id="editar" name="editar"> Faça upload de uma foto</button>
+                        <input type="file" id="inputImage" accept="image/*" style="display: none;"
+                            required value="<%= valores.foto_usu %>">
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="input-wrapper">
+                        <label for="project">Monte uma breve biografia</label>
+                        <textarea id="project" name="project" placeholder="Fale um pouco sobre você" value="<%= valores.desc_usu %>"></textarea>
+                        <br>
+                        <span class="iagree">Ao clicar em "Tudo pronto", você concorda com os nossos <a
+                                href="">Termos de Uso</a> e nossa <a href="">Política de Privacidade</a></span>
+                    </div>
+                </div>
+                <div class="button-wrapper">
+                    <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
+                    <button class="btn primary" type="submit">TUDO PRONTO</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script src="js/cadastro.js"></script>

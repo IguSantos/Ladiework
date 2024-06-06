@@ -1,13 +1,41 @@
 var express = require("express");
 var router = express.Router();
-const pool = require("../../config/pool-conexoes")
+const pool = require("../../config/pool_connections")
+const userController = require("../controllers/userController")
+const { checkAuthenticatedUser, clearSession } = require("../models/authenticator_middleware");
 
-router.get("/", function (req, res) {
-  res.render("pages/main", { pagina: "home", logado: null });
+
+router.get("/", checkAuthenticatedUser, function (req, res) {
+  res.render("pages/main", { pagina: "home", logado: false });
+});
+
+// req.session.logado
+
+router.get("/cadastrar", function (req, res) {
+  res.render("pages/main", {
+    pagina: "cadastro",
+    logado: null,
+    errorsList: null,
+    valores: {
+      nome_usu: "",
+      email_usu: "",
+      senha_usu: "",
+      aniversario_usu: "",
+      numero_usu: "",
+      genero_usu: "",
+      foto_usu: "",
+      desc_usu: ""
+    }
+  });
 });
 
 router.get('/cursos', (req, res) => {
   res.render('pages/main', { pagina: "cursos", logado: null });
+});
+
+// logout
+router.get("/sair", clearSession, function (req, res) {
+  res.redirect("/");
 });
 
 router.get('/mentorias', (req, res) => {
@@ -18,11 +46,6 @@ router.get('/mentorias', (req, res) => {
 //  res.render('pages/main', { pagina: "cursos", logado: null }); PERGUNTAR
 //   coursesController.listPaginatedCourses(req, res);
 // });
-
-
-router.get("/cadastrar", function (req, res) {
-  res.render("pages/main", { pagina: "cadastro", listaErros: null, valores: { nome_usu: "", nomeusu_usu: "", email_usu: "", senha_usu: "" } });
-});
 
 router.get('/login', (req, res) => {
   res.render('pages/main', { pagina: "login", logado: null });

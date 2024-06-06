@@ -1,136 +1,113 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const buttonsNext = document.querySelectorAll('[data-action="next"]');
+    const buttonsPrev = document.querySelectorAll('[data-action="prev"]');
+    const formSteps = document.querySelectorAll('.form-step');
 
-let currentStep = 0;
+    buttonsNext.forEach(button => {
+        button.addEventListener('click', function() {
+            const currentStep = this.closest('.form-step');
+            
+            // Verifica se estamos na primeira etapa do formulário
+            if (currentStep.classList.contains('active')) {
+                // Verifica se há campos vazios ou com erro na primeira etapa do formulário
+                const inputs = currentStep.querySelectorAll('input, textarea');
+                let hasEmptyField = false;
+                let hasError = false;
+                inputs.forEach(input => {
+                    // Verifica se o campo está vazio
+                    if (input.value.trim() === '') {
+                        input.classList.add('error');
+                        input.nextElementSibling.textContent = 'Este campo é obrigatório';
+                        hasEmptyField = true;
+                    } else {
+                        input.classList.remove('error');
+                        input.nextElementSibling.textContent = ''; // Remove qualquer aviso existente
 
-const form = document.querySelector('form');
-const formSteps = document.querySelectorAll('.form-step');
+                        // Verifica o nome
+                        if (input.id === 'name' && (input.value.trim().length < 4 || input.value.trim().length > 45)) {
+                            input.classList.add('error');
+                            input.nextElementSibling.textContent = 'O nome deve ter entre 4 e 45 caracteres';
+                            hasError = true;
+                        }
 
-form.addEventListener('click', (e) => {
-    if (!e.target.matches("[data-action]")) {
-        return;
-    }
+                        // Verifica o email
+                        if (input.id === 'email') {
+                            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            if (!emailPattern.test(input.value.trim())) {
+                                input.classList.add('error');
+                                input.nextElementSibling.textContent = 'Por favor, insira um email válido';
+                                hasError = true;
+                            }
+                        }
 
-    const actions = {
-        next() {
-            const emailInput = document.getElementById('email').value;
+                        // Verifica a senha
+                        if (input.id === 'password' && input.value.trim().length < 8) {
+                            input.classList.add('error');
+                            input.nextElementSibling.textContent = 'A senha deve ter no mínimo 8 caracteres';
+                            hasError = true;
+                        }
+                    }
+                });
 
-            // Verificar se o email não termina com "@gmail.com"
-            if (error) {
-                // Se o email não for válido, mostre uma mensagem de erro e não permita que o usuário avance
-                alert('Por favor, insira um endereço de e-mail válido com "@gmail.com".');
-                return;
+                // Impede a transição para a próxima etapa se houver campo vazio
+                if (hasEmptyField) {
+                    return;
+                }
+
+                // Impede a transição para a próxima etapa se houver erro de validação
+                if (hasError) {
+                    return;
+                }
             }
+            
+            const nextStep = currentStep.nextElementSibling;
 
-            // Se o email for válido, continue para o próximo passo do formulário
-            currentStep++;
-            updateActiveStep();
-            updateProgressStep();
-        },
-        prev() {
-            currentStep--;
-            updateActiveStep();
-            updateProgressStep();
-        }
-    };
+            if (nextStep) {
+                currentStep.classList.remove('active');
+                currentStep.classList.add('hide');
+                nextStep.classList.remove('hide');
+                nextStep.classList.add('active');
+            }
+        });
+    });
 
-    const action = e.target.dataset.action;
-    actions[action]();
+    buttonsPrev.forEach(button => {
+        button.addEventListener('click', function() {
+            const currentStep = this.closest('.form-step');
+            const prevStep = currentStep.previousElementSibling;
 
-});
+            if (prevStep) {
+                currentStep.classList.remove('active');
+                currentStep.classList.add('hide');
+                prevStep.classList.remove('hide');
+                prevStep.classList.add('active');
+            }
+        });
+    });
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    // Verifica o textarea na última etapa do formulário antes de enviar
+    const lastStepButton = document.querySelector('.form-step:last-of-type [type="submit"]');
+    const lastStepTextarea = document.getElementById('project');
 
-    const data = new FormData(form);
-
-    // Salvando os dados no localStorage
-    for (const [key, value] of data.entries()) {
-        localStorage.setItem(key, value);
-    }
-
-    // Mudando o layout para exibir o perfil
-    form.classList.add('hide');
-    document.querySelector('.profile').classList.add('active');
-});
-
-/* PASSAR PARA O PRÓXIMO FORMULÁRIO */
-
-function updateActiveStep() {
-    formSteps.forEach(step => step.classList.remove('active'));
-    formSteps[currentStep].classList.add('active');
-}
-
-const progressSteps = document.querySelectorAll('.step-progress [data-step]');
-function updateProgressStep() {
-    progressSteps.forEach((step, idx) => {
-        step.classList.remove('active');
-        step.classList.remove('done');
-
-        if (idx < currentStep + 1) {
-            step.classList.add("active");
-        }
-
-        if (idx < currentStep) {
-            step.classList.add("done");
+    lastStepButton.addEventListener('click', function(event) {
+        if (lastStepTextarea.value.trim() === '') {
+            lastStepTextarea.classList.add('error');
+            event.preventDefault(); // Impede o envio do formulário se o textarea estiver vazio
         }
     });
-}
 
-/* VALIDAÇÃO */
+    // Verifica se o input de imagem está vazio antes de enviar o formulário
+    const inputImage = document.getElementById('inputImage');
+    const profileImage = document.getElementById('profileImage');
 
-function isValidInput() {
-    const currentFormStep = formSteps[currentStep];
-    const formField = [...currentFormStep.querySelectorAll('input'), ...currentFormStep.querySelectorAll('textarea')];
-    const result = formField.every((input) => input.value.trim() !== '');
-
-    return result;
-}
-
-document.querySelector('[data-action="next"]').addEventListener('click', function () {
-    const emailInput = document.getElementById('email').value;
-
-    // Verifique se o email não termina com "@gmail.com"
-    if (!emailInput.endsWith('@gmail.com')) {
-        // Se o email não for válido, mostre uma mensagem de erro e não permita que o usuário avance
-        alert('Por favor, insira um endereço de e-mail válido com "@gmail.com".');
-        return;
-    }
-
-    // Se o email for válido, continue para o próximo passo do formulário
-    actions['next']();
-});
-
-formSteps.forEach(formStep => {
-    function hide() {
-        formStep.classList.add('hide');
-    }
-
-    formStep.addEventListener('animationend', () => {
-        hide();
-        formSteps[currentStep].classList.remove("hide");
+    lastStepButton.addEventListener('click', function(event) {
+        if (inputImage.files.length === 0) {
+            profileImage.classList.add('error');
+            event.preventDefault(); // Impede o envio do formulário se o input de imagem estiver vazio
+        }
     });
 });
 
-// Carregar os dados salvos no localStorage e exibir no perfil
-window.addEventListener('DOMContentLoaded', () => {
-    const name = localStorage.getItem('name');
-    const email = localStorage.getItem('email');
-    const bio = localStorage.getItem('bio');
-    const profileImageSrc = localStorage.getItem('profileImageSrc');
-
-    if (name && email && bio && profileImageSrc) {
-        // Preencher os campos do perfil
-        document.getElementById('profileName').textContent = name;
-        document.getElementById('profileEmail').textContent = email;
-        document.getElementById('profileBio').textContent = bio;
-        document.getElementById('profileImage').src = profileImageSrc;
-
-        // Mostrar o perfil
-        form.classList.add('hide');
-        document.querySelector('.profile').classList.add('active');
-    }
-});
-
-// Adicionar evento de envio de imagem
 const inputImage = document.getElementById('inputImage');
 const profileImage = document.getElementById('profileImage');
 const miniPerfil = document.getElementById('editar');
@@ -170,8 +147,3 @@ function updateHeaderAfterLogin() {
 // Adicione um ouvinte de evento aos botões de login e cadastro para chamar a função updateHeaderAfterLogin()
 document.querySelector('.login-mobile').addEventListener('click', updateHeaderAfterLogin);
 document.querySelector('.sign-in').addEventListener('click', updateHeaderAfterLogin);
-
-
-
-
-
