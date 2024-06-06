@@ -62,8 +62,12 @@ form {
 
 }
 
+input[type="date"] {
+    cursor: pointer;
+}
+
 .button-wrapper {
-    margin-top: 3.2rem;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -149,20 +153,23 @@ form {
 }
 
 .profile button {
-    width: 170px;
-    height: 30px;
-    font-size: 0.6rem;
+    width: 174px;
+    height: 38px;
+    font-size: 0.7rem;
     border-radius: 20px;
     background-color: var(--button-color);
     box-sizing: border-box;
     font-weight: 600;
     color: #ffffff;
     text-align: center;
+    margin-top: 20px;
     border: none;
 }
 
 .profile img {
-    width: 100px;
+    width: 114px;
+    height: 114px;
+    border-radius: 100%;
     margin: 10px 0;
     object-fit: cover;
 

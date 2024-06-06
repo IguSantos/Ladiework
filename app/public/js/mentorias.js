@@ -36,6 +36,7 @@ dropdownItems.forEach(function (item) {
   });
 });
 
+
 // BARRA DE PESQUISA
 
 function filterCourses() {
@@ -99,5 +100,3 @@ function scrollToCurrentIndex() {
 nextButton.addEventListener('click', nextSlide);
 prevButton.addEventListener('click', prevSlide);
 
-// Inicie a rolagem automática quando a página carregar
-autoScroll();

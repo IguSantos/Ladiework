@@ -1,7 +1,8 @@
 main {
     display: flex;
     width: 95%;
-    margin: 10px auto;
+    margin: 30px auto;
+    
 }
 
 
@@ -423,11 +424,13 @@ span.bio {
 
 /* DESKTOP */
 
-@media (min-width: 1900px) and (max-width: 2000px) {
+@media (min-width: 1720px) and (max-width: 2000px) {
     main {
-        width: 75%;
+        width: 67%;
         
     }
+
+
 
     h1 {
         margin-left: 20px;

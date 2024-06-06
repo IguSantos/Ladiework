@@ -1,0 +1,26 @@
+main {
+    width: 85%;
+    margin: 30px auto;
+}
+
+
+
+/* Estilos para o título */
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Estilos para os links */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}

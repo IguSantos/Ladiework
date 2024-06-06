@@ -68,12 +68,12 @@ const userController = {
     logar: (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.render("pages/login", { errorsList: errors })
+            return res.render("pages/main", { pagina: "login" , errorsList: errors })
         }
         if (req.session.authenticated != null) {
             res.redirect("/");
         } else {
-            res.render("pages/login", { errorsList: errors })
+            res.render("pages/main", { pagina: "login" , errorsList: errors })
         }
     }
 

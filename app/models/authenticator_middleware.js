@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const usuario = require("./usermodel.js");
+const user = require("./usermodel.js");
 const bcrypt = require("bcryptjs");
 
 // TA LOGADO OU NAO?
@@ -19,6 +19,36 @@ clearSession = (req, res, next) => { // Declaração de uma função chamada
     next() // Chama a próxima função middleware na cadeia de execução.
 }
 
+// GIOVANNI
+recordAuthenticatedUser = async (req, res, next) => {
+    errors = validationResult(req)
+    if (errors.isEmpty()) {
+        var dataForm = {
+            NOME_USUARIO: req.body.nome_usu,
+            SENHA_USUARIO: req.body.senha_usu,
+        };
+        var results = await user.findUserEmail(dataForm);
+        var total = Object.keys(results).length;
+        if (total == 1) {
+            if (bcrypt.compareSync(dataForm.senha_usuario, results[0].senha_usuario)) {
+                var logado = {
+                    logado: results[0].nome_usuario,
+                    id: results[0].id_usuario,
+                    tipo: results[0].tipo_usuario
+                };
+            }
+        } else {
+            var logado =  { logado: null, id: null, tipo: null };
+        }
+    } else {
+        var logado =  { logado: null, id: null, tipo: null };
+    }
+    req.session.logado = logado;
+    next();
+}
+
+
+
 
 
 
@@ -26,5 +56,6 @@ clearSession = (req, res, next) => { // Declaração de uma função chamada
 
 module.exports = {
     checkAuthenticatedUser,
-    clearSession 
+    clearSession,
+    recordAuthenticatedUser
 }

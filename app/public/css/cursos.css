@@ -1,9 +1,4 @@
-body{
-    background: rgb(247, 247, 247) url("https://i.ibb.co/zQdHxKX/Cursos.png") no-repeat center center/cover;
-}
-
 main {
-
     margin-left: 5%;
     display: flex;
     padding-top: 5vh;

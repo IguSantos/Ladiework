@@ -15,7 +15,7 @@ pool.getConnection((err, conn) => {
         console.log("Deu erro! ", err);
       
     } else {
-        console.log("Conectado ao Banco de Dados");
+        console.log("Conectado :D");
        
     }
 });

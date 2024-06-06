@@ -1,4 +1,4 @@
-<title>Entrar</title>
+<title>LadieWork - Login</title>
 <link rel="stylesheet" href="css/cadastro.css">
 
 </head>
@@ -7,8 +7,26 @@
   <%- include("../partial/header") %>
 
     <body>
+
+        <% 
+            let avisoErro = {"nome_usu":"", "senha_usu":""}
+            let msgErro = {"nome_usu":"", "senha_usu":""}
+                if(errorsList){
+                    errorsList.errors.forEach(function(itemErro){
+                        if(itemErro.path == "nome_usu"){
+                            avisoErro.nome_usu = "erro";
+                            msgErro.nome_usu = itemErro.msg
+                        }
+                        if(itemErro.path == "senha_usu"){
+                            avisoErro.senha_usu = "erro";
+                            msgErro.senha_usu = itemErro.msg
+                        }
+                    })
+                }
+       %>
+
       <main>
-        <form>
+        <form action="/login" method="post">
           <div class="form-step active">
             <h2>Que bom ver você de novo!</h2>
 

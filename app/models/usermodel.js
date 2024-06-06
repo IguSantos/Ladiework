@@ -1,21 +1,14 @@
 var pool = require("../../config/pool_connections");
 
 
-// Como crio um usuario falso?
-// Analisar o cadastro e tentar criar uma usuaria
-// Autenticação ira libeara algumas partes
-// Autenticação Mentora (Criar uma mentora falsa)
-// "Cadastro de mentora" ver como poderei fazer
-// Acessar dashboard de algum lugar
-// Reuniãozinha <---o
-
 const userModel = {
+   // Seleciona todas as infromações da tabela usuario
     findAll: async () => {
         try {
             const [results] = await pool.query(
                 "SELECT u.ID_USUARIO, u.NOME_USUARIO" +
                 "u.SENHA, u.EMAIL_USUARIO, u.CELULAR_USUARIO, u.FOTO_USUARIO " +
-                "u.DT_NASC_USUARIO, t.MENTORA_ID_MENTORA, t.DESCRICAO_USUARIO " +
+                "u.DT_NASC_USUARIO, t.MENTORA_ID_MENTORA" +
                 "FROM usuario u"
             )
 
@@ -26,10 +19,11 @@ const userModel = {
         }
     },
 
+ //Encontrar o usuario com base no meial fonrecido
     findUserEmail: async (camposForm) => {
         try {
             const [results] = await pool.query(
-                "SELECT * FROM usuario WHERE EMAIL_USUARIO = ?",   
+                "SELECT * FROM usuario WHERE EMAIL_USUARIO = ?",   // Campo email é igual ao valor do parametro passado no ?
                 [camposForm.EMAIL_USUARIO]
             )
             return results;

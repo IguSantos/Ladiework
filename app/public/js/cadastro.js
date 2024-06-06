@@ -46,6 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             input.nextElementSibling.textContent = 'A senha deve ter no mínimo 8 caracteres';
                             hasError = true;
                         }
+
+                        // Verifica o número
+                        if (input.id === 'phone' && (input.value.trim().length !== 11 || !/^\d{2}9\d{8}$/.test(input.value.trim()))) {
+                            input.classList.add('error');
+                            input.nextElementSibling.textContent = 'O número deve seguir o formato correto 11 9XXXXXXXX';
+                            hasError = true;
+                        }
                     }
                 });
 
@@ -95,22 +102,18 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault(); // Impede o envio do formulário se o textarea estiver vazio
         }
     });
-
-    // Verifica se o input de imagem está vazio antes de enviar o formulário
-    const inputImage = document.getElementById('inputImage');
-    const profileImage = document.getElementById('profileImage');
-
-    lastStepButton.addEventListener('click', function(event) {
-        if (inputImage.files.length === 0) {
-            profileImage.classList.add('error');
-            event.preventDefault(); // Impede o envio do formulário se o input de imagem estiver vazio
-        }
-    });
 });
+
+
+
+
+
+
 
 const inputImage = document.getElementById('inputImage');
 const profileImage = document.getElementById('profileImage');
 const miniPerfil = document.getElementById('editar');
+const profilePhoto = document.getElementById('profile-photo'); // adicionando a referência ao elemento 'profile-photo'
 
 miniPerfil.addEventListener('click', () => {
     inputImage.click();
@@ -124,6 +127,7 @@ inputImage.addEventListener('change', (event) => {
 
         reader.onload = (e) => {
             profileImage.src = e.target.result;
+            profilePhoto.src = e.target.result; // atualizando a imagem 'profile-photo' com a nova foto de perfil
             // Salvar a imagem no localStorage
             localStorage.setItem('profileImageSrc', e.target.result);
         };
@@ -132,18 +136,15 @@ inputImage.addEventListener('change', (event) => {
     }
 });
 
-// Adicione este código ao seu JavaScript após o código existente
 
-// Função para atualizar o cabeçalho após o login
-function updateHeaderAfterLogin() {
-    // Esconder os botões de login e cadastro
-    document.querySelector('.enter').style.display = 'none';
-    // Mostrar a imagem do perfil
-    document.getElementById('profileImage').style.display = 'inline-block';
-    // Redirecionar para a página inicial após o login
-    window.location.href = '/';
-}
+document.addEventListener('DOMContentLoaded', function() {
+    flatpickr("#birthday-date", {
+        dateFormat: "Y-m-d",
+        maxDate: "2007-12-31",
+    });
+});
 
-// Adicione um ouvinte de evento aos botões de login e cadastro para chamar a função updateHeaderAfterLogin()
-document.querySelector('.login-mobile').addEventListener('click', updateHeaderAfterLogin);
-document.querySelector('.sign-in').addEventListener('click', updateHeaderAfterLogin);
+
+
+
+
