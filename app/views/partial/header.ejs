@@ -67,11 +67,15 @@
             <a href="">Configurações</a>
           </li>
 
+          <% if (logado) { %>
+
           <li>
             <a href="/sair">Sair</a>
           </li>
 
+  <% } else { %>
 
+    <% } %>
         </ul>
 
       </div>
@@ -94,11 +98,10 @@
 
           <% } else { %>
 
-            <li></li>
 
             <% } %>
 
-              <li><a href="mentorias">Mentoria</a></li>
+              <li><a href="mentorias">Mentorias</a></li>
               <li><a href="cursos">Cursos</a></li>
       </ul>
 
@@ -118,5 +121,5 @@
 
     <!-- Mobile Navigation List -->
 
-    <script src="js/menu-mobile.js"></script>
+   
 </header>

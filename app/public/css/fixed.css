@@ -197,7 +197,6 @@ footer p {
 
 footer a {
     color: white;
-    
 }
 
 footer a:hover {
@@ -289,7 +288,7 @@ footer a:hover {
     position: absolute;
     top: 0;
     width: 68vw;
-    height: 802px;
+    height: 680px;
     text-align: left;
 }
 

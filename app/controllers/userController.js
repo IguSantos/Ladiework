@@ -27,17 +27,17 @@ const userController = {
     cadastrar: (req, res) => {
         const errors = validationResult(req);
         console.log(errors);
-             // GUARDAR INFORMAÇÕES DO CADASTRO
-             const dataForm = {
-                NOME_USUARIO: req.body.nome_usu,
-                SENHA: bcrypt.hashSync(req.body.senha_usu, salt),
-                EMAIL_USUARIO: req.body.email_usu,
-                FOTO_USUARIO: req.body.foto_usu,
-                GENERO: req.body.genero_usu,
-                DESCRICAO_USUARIO: req.body.desc_usu,
-                CELULAR_USUARIO: req.body.numero_usu,
-                DT_NASC_USUARIO: req.body.aniversario_usu
-            };
+        // GUARDAR INFORMAÇÕES DO CADASTRO
+        const dataForm = {
+            NOME_USUARIO: req.body.nome_usu,
+            SENHA: bcrypt.hashSync(req.body.senha_usu, salt),
+            EMAIL_USUARIO: req.body.email_usu,
+            FOTO_USUARIO: req.body.foto_usu,
+            GENERO: req.body.genero_usu,
+            DESCRICAO_USUARIO: req.body.desc_usu,
+            CELULAR_USUARIO: req.body.numero_usu,
+            DT_NASC_USUARIO: req.body.aniversario_usu
+        };
 
         if (!errors.isEmpty()) {
             console.log(errors);
@@ -64,16 +64,16 @@ const userController = {
             .withMessage("A senha deve ter no mínimo 4 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
 
-   // GIOVANNI
+    // GIOVANNI
     logar: (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.render("pages/main", { pagina: "login" , errorsList: errors })
+            return res.render("pages/main", { pagina: "login", errorsList: errors })
         }
         if (req.session.authenticated != null) {
             res.redirect("/");
         } else {
-            res.render("pages/main", { pagina: "login" , errorsList: errors })
+            res.render("pages/main", { pagina: "login", errorsList: errors })
         }
     }
 

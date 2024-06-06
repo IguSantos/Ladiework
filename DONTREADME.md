@@ -34,3 +34,6 @@ user_user?
 
 TAREFAS:
 Giovanni pastas: authenticator_middleware, usercontroller, router, usermodel
+
+Perfil design e funcionando
+carrinho design

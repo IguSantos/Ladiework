@@ -61,6 +61,10 @@ router.get('/cursos', (req, res) => {
   res.render('pages/main', { pagina: "cursos", logado: null });
 });
 
+router.get('/informacao_da_mentoria', (req, res) => {
+  res.render('pages/main', { pagina: "mentoria_info", logado: null });
+});
+
 
 // MENTORIAS
 router.get('/mentorias', (req, res) => {
