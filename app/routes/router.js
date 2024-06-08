@@ -6,7 +6,10 @@ const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser } = requir
 
 
 router.get("/", checkAuthenticatedUser, function (req, res) {
-  res.render("pages/main", { pagina: "home", logado: false });
+  res.render("pages/main", { 
+    pagina: "home", 
+    logado: req.session.logado 
+  });
 });
 
 // req.session.logado
@@ -16,7 +19,7 @@ router.get("/", checkAuthenticatedUser, function (req, res) {
 router.get("/cadastrar", function (req, res) {
   res.render("pages/main", {
     pagina: "cadastro",
-    logado: null,
+    logado: null, 
     errorsList: null,
     valores: {
       nome_usu: "",
@@ -24,11 +27,9 @@ router.get("/cadastrar", function (req, res) {
       senha_usu: "",
       aniversario_usu: "",
       numero_usu: "",
-      genero_usu: "",
-      foto_usu: "",
-      desc_usu: ""
+      foto_usu: ""
     }
-  });  // E number?
+  });  // E number? Logado null e redirecionamento
 });
 
 router.post("/cadastrar",
@@ -55,32 +56,31 @@ router.get("/sair", clearSession, function (req, res) {
 });
 
 
-
 // CURSOS
 router.get('/cursos', (req, res) => {
-  res.render('pages/main', { pagina: "cursos", logado: null });
+  res.render('pages/main', { pagina: "cursos",  logado: req.session.logado  });
 });
 
 router.get('/informacao_da_mentoria', (req, res) => {
-  res.render('pages/main', { pagina: "mentoria_info", logado: null });
+  res.render('pages/main', { pagina: "mentoria_info",  logado: req.session.logado });
 });
 
 
 // MENTORIAS
 router.get('/mentorias', (req, res) => {
-  res.render('pages/main', { pagina: "mentorias", logado: null });
+  res.render('pages/main', { pagina: "mentorias",  logado: req.session.logado });
 });
 
 router.get('/privacidade', (req, res) => {
-  res.render('pages/main', { pagina: "politicadeprivacidade", logado: null });
+  res.render('pages/main', { pagina: "politicadeprivacidade",  logado: req.session.logado  });
 });
 
 router.get('/termosecondicoes', (req, res) => {
-  res.render('pages/main', { pagina: "termos", logado: null });
+  res.render('pages/main', { pagina: "termos",  logado: req.session.logado  });
 });
 
 router.get('/quemsomos', (req, res) => {
-  res.render('pages/main', { pagina: "quemsomos", logado: null });
+  res.render('pages/main', { pagina: "quemsomos",  logado: req.session.logado  });
 });
 
 // router.get('/cursos',  function (req, res) {
@@ -91,23 +91,23 @@ router.get('/quemsomos', (req, res) => {
 
 
 router.get('/chat', (req, res) => {
-  res.render('pages/main', { pagina: "chat", logado: true });
+  res.render('pages/main', { pagina: "chat",  logado: req.session.logado });
 });
 
 router.get('/carrinho', (req, res) => {
-  res.render('pages/main', { pagina: "carrinho", logado: null });
+  res.render('pages/main', { pagina: "carrinho",  logado: req.session.logado });
 });
 
 router.get('/finalizarcompra', (req, res) => {
-  res.render('pages/main', { pagina: "finalizarcompra", logado: true });
+  res.render('pages/main', { pagina: "finalizarcompra",  logado: req.session.logado  });
 });
 
 router.get('/pagamentopix', (req, res) => {
-  res.render('pages/main', { pagina: "pagamentopix", logado: true });
+  res.render('pages/main', { pagina: "pagamentopix",  logado: req.session.logado  });
 });
 
 router.get('/criar', (req, res) => {
-  res.render('pages/main', { pagina: "create", logado: true });
+  res.render('pages/main', { pagina: "create",  logado: req.session.logado });
 });
 
 router.get('/sobreocurso', (req, res) => {

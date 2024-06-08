@@ -15,6 +15,7 @@
           <% if (logado) { %>
             <img id="profileImageMobile" src="images/profilephoto.svg" alt="" class="profile-login-mobile">
 
+
             <% } else{ %>
 
               <button class="login-mobile" onclick="window.location.href = 'login'">Login</button>
@@ -89,7 +90,7 @@
     <!-- Navigation Links -->
     <div class="nav-items">
       <a href="carrinho">
-        <ion-icon name="cart-outline"></ion-icon>
+        <ion-icon name="cart-outline" class="cart"></ion-icon>
       </a>
       <ul>
         <% if (logado) { %>
@@ -107,8 +108,33 @@
 
       <% if (logado) { %>
 
-        <img id="profileImage" src="images/profilephoto.svg" alt="" class="profile-login-desktop">
+        <img id="profileImage" src="images/profile_women.jpg" alt="" class="profile-login-desktop">
 
+
+
+        <section class="info_profile hidden" id="infoProfile" >
+          <div class="triangle"></div>
+          <article class="header_profile">
+            <img src="images/profile_women.jpg" alt=""> <div>
+              <p> Leticia </p> <span class="user_type">Mentora</span> 
+            <button class="edit">Editar</button>
+            </div>
+            <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
+          </article>
+          <article class="profile_info">
+   <span>Sobre</span>
+   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est asperiores quo quos. Quod aliquam dicta cumque, reiciendis nulla pariatur autem rerum nisi sint laudantium reprehenderit nesciunt ad sed ullam doloribus!</p>
+   <span >Contato</span>
+   <ul>
+    <ion-icon name="mail-outline" ></ion-icon>
+    <li>amandasilva04@gmail.com</li> <br>
+    <ion-icon name="call-outline" ></ion-icon>
+    <li>+55 (11) 94563-2056</li>
+   </ul>
+          </article>
+
+          <span class="membersince" >Membro Desde: Junho 2023</span>  <a href="sair" class="logout">Sair</a>
+        </section>
         <% } else { %>
 
           <button class="login" onclick="window.location.href = 'login'">Login</button>

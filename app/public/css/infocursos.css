@@ -41,13 +41,18 @@ main {
     color: var(--cta-titles);
 }
 
+.more-curses h2{
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
 .more-curses span {
     font-size: 0.8rem;
     color: var(--span-color);
 }
 
 .more-curses p {
-    margin: 12px 0;
+    margin: 3px 0;
     font-size: 0.7rem;
     opacity: 0.8;
 }
@@ -70,6 +75,34 @@ main {
 
 section {
     margin-top: 37px;
+}
+
+.havementory {
+   font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--second-color);
+    display: block;
+}
+
+.get_mentory {
+    width: 70%;
+    height: 35px;
+    border: none;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: var(--cta-titles);
+    margin: 20px 0;
+}
+
+.get_mentory:hover {
+ background-color: var(--cta);
 }
 
 h1 {
@@ -134,7 +167,7 @@ section h2 {
 section #more-info-curse {
     opacity: 0.8;
     font-size: 0.9rem;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     width: 90%;
 }
 

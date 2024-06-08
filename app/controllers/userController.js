@@ -13,30 +13,23 @@ const userController = {
         body("senha_usu")
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"),
-        body("aniversario_usu")
-            .isDate("DD/MM/YYYY").withMessage("Coloque sua data de aniversário!"),
         body("numero_usu")
-            .isMobilePhone("pt-BR", { min: 10, max: 10 }).withMessage("Coloque seu número de telefone correto!"),
-        body("genero_usu")
-            .isLength({ min: 3, max: 45 }).withMessage("Mínimo de 3 letras e máximo de 45!"),
-        body("desc_usu")
-            .isLength({ min: 10, max: 45 }).withMessage("Mínimo de 10 letras e máximo de 45!"),
+            .isMobilePhone("pt-BR", { min: 11, max: 11 }).withMessage("Coloque seu número de telefone correto!") // aqui
 
     ],
 
-    cadastrar: (req, res) => {
+    cadastrar: async (req, res) => {
         const errors = validationResult(req);
         console.log(errors);
         // GUARDAR INFORMAÇÕES DO CADASTRO
         const dataForm = {
             NOME_USUARIO: req.body.nome_usu,
-            SENHA: bcrypt.hashSync(req.body.senha_usu, salt),
+            SENHA_USUARIO: bcrypt.hashSync(req.body.senha_usu, salt),
             EMAIL_USUARIO: req.body.email_usu,
             FOTO_USUARIO: req.body.foto_usu,
-            GENERO: req.body.genero_usu,
-            DESCRICAO_USUARIO: req.body.desc_usu,
             CELULAR_USUARIO: req.body.numero_usu,
-            DT_NASC_USUARIO: req.body.aniversario_usu
+            DT_NASC_USUARIO: req.body.aniversario_usu,
+            DT_CRIACAO: new Date()
         };
 
         if (!errors.isEmpty()) {
@@ -47,11 +40,12 @@ const userController = {
 
         // CRIAR USUARIO
         try {
-            let create = user.create(dataForm);
+            let create = await user.create(dataForm);
+            console.log(create)
             res.redirect("/");
         } catch (e) {
             console.log(e);
-            res.render("pages/main", { pagina: "cadastro", errorsList: errors, valores: req.body });
+            res.render("pages/main", { pagina: "home", logado: null, errorsList: errors, valores: req.body });
         }
     },
 

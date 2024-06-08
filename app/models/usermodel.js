@@ -19,7 +19,7 @@ const userModel = {
         }
     },
 
- //Encontrar o usuario com base no meial fonrecido
+ //Encontrar o usuario com base no email fornecido
     findUserEmail: async (camposForm) => {
         try {
             const [results] = await pool.query(

@@ -16,14 +16,13 @@
             warningError.senha_usu="erro" ; msgError.senha_usu=itemError.msg; } if(itemError.path=="email_usu" ) {
             warningError.email_usu="erro" ; msgError.email_usu=itemError.msg; } if(itemError.path=="aniversario_usu" ) {
             warningError.aniversario_usu="erro" ; msgError.aniversario_usu=itemError.msg; }
-            if(itemError.path=="genero_usu" ) { warningError.genero_usu="erro" ; msgError.genero_usu=itemError.msg; }
             if(itemError.path=="numero_usu" ) { warningError.numero_usu="erro" ; msgError.numero_usu=itemError.msg; }
             if(itemError.path=="foto_usu" ) { warningError.foto_usu="erro" ; msgError.foto_usu=itemError.msg; }
-            if(itemError.path=="desc_usu" ) { warningError.desc_usu="erro" ; msgError.desc_usu=itemError.msg; } }) } %>
+            }) } %>
 
 
             <main id="app">
-                <form method="post" action="/cadastro">
+                <form method="post" action="/cadastrar">
                     <div class="form-step active">
                         <h2>Bem-Vinda a LadieWork</h2>
                         <span class="step1">Fale um pouco sobre você!</span>
@@ -31,7 +30,7 @@
 
                             <div class="input-wrapper">
                                 <label for="name">Nome</label>
-                                <input id="name" name="name" type="text" placeholder="Como prefere ser chamado?"
+                                <input id="name" name="nome_usu" type="text" placeholder="Como prefere ser chamado?"
                                     autocomplete="name" value="<%= valores.nome_usu %>"> <!-- valores? -->
                                 <span class="warning">
                                 </span>
@@ -39,7 +38,7 @@
 
                             <div class="input-wrapper">
                                 <label for="email">E-mail</label>
-                                <input id="email" name="email" type="email" placeholder="Digite seu e-mail" required
+                                <input id="email" name="email_usu" type="email" placeholder="Digite seu e-mail" required
                                     value="<%= valores.email_usu %>">
                                 <span class="warning">
                                 </span>
@@ -48,7 +47,7 @@
 
                             <div class="input-wrapper">
                                 <label for="password">Senha</label>
-                                <input id="password" name="password" type="password" placeholder="Digite sua senha"
+                                <input id="password" name="senha_usu" type="password" placeholder="Digite sua senha"
                                     required value="<%= valores.senha_usu %>">
                                 <span class="warning">
                                 </span>
@@ -67,7 +66,7 @@
 
                             <div class="input-wrapper">
                                 <label for="birthday-date">Data de nascimento</label>
-                                <input id="birthday-date" name="birthday-date" type="date"
+                                <input id="birthday-date" name="aniversario_usu" type="date"
                                     placeholder="Selecione a data de nascimento" required
                                     value="<%= valores.aniversario_usu %>">
                                 <span class="warning">
@@ -76,7 +75,7 @@
 
                             <div class="input-wrapper">
                                 <label for="phone">Número de telefone</label>
-                                <input id="phone" name="phone" type="tel"
+                                <input id="phone" name="numero_usu" type="tel"
                                     placeholder="Digite seu número. Ex: 11 9XXXXXXXX"
                                     onkeypress="return /\d/.test(event.key)" required value="<%= valores.numero_usu %>">
                                 <span class="warning">
@@ -100,7 +99,7 @@
                                 <figcaption>Sua foto de perfil</figcaption>
 
                                 <button type="button" id="editar" name="editar"> Faça upload de uma foto</button>
-                                <input type="file" id="inputImage" accept="image/*" style="display: none;"
+                                <input type="file" id="inputImage" accept="image/*" style="display: none;" name="foto_usu"
                                     value="<%= valores.foto_usu %>">
                             </div>
                         </div>

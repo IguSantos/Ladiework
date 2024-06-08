@@ -41,10 +41,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
 
                         // Verifica a senha
-                        if (input.id === 'password' && input.value.trim().length < 8) {
-                            input.classList.add('error');
-                            input.nextElementSibling.textContent = 'A senha deve ter no mínimo 8 caracteres';
-                            hasError = true;
+                        if (input.id === 'password') {
+                            const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+                            if (!passwordPattern.test(input.value.trim())) {
+                                input.classList.add('error');
+                                input.nextElementSibling.textContent = 'A senha deve ter no mínimo 8 caracteres, incluindo 1 letra maiúscula, 1 caractere especial e 1 número';
+                                hasError = true;
+                            }
                         }
 
                         // Verifica o número
