@@ -13,7 +13,7 @@ checkAuthenticatedUser = (req, res, next) => {
     next(); 
 }
 
-// LOGOUT
+// LOGOUT - NAO FUNCIONANDO
 clearSession = (req, res, next) => { // Declaração de uma função chamada 
     req.session.destroy(); // Remove todos os dados associados ao usuario. Usa a funcao da biblioteca nodejs "Destroy()"
     console.log("saiu!")
@@ -48,6 +48,16 @@ recordAuthenticatedUser = async (req, res, next) => {
     next();
 }
 
+verifyAuthenticatedUser = (normaluser, destinoFalha = "partial/login") => {
+    return (req, res, next) => {
+        if (req.session.logado != null &&
+            normaluser.find(function (element) { return element == req.session.logado.tipo }) != undefined) {
+            next();
+        } else {
+            res.render(destinoFalha, req.session.logado);
+        }
+    };
+}
 
 
 
@@ -58,5 +68,6 @@ recordAuthenticatedUser = async (req, res, next) => {
 module.exports = {
     checkAuthenticatedUser,
     clearSession,
-    recordAuthenticatedUser
+    recordAuthenticatedUser,
+    verifyAuthenticatedUser
 }

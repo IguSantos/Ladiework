@@ -33,14 +33,14 @@ CREATE TABLE `chat` (
 -- Tabela cursos: Tabela que armazena informações sobre os cursos oferecidos.
 CREATE TABLE `cursos` (
   `ID_CURSOS` int NOT NULL AUTO_INCREMENT,
-  `TITULO_CURSOS` varchar(60) NOT NULL,
+  `TITULO_CURSOS` varchar(60) NOT NULL, 
   `CONTEUDO_PROGRAMATICO_CURSOS` longtext NOT NULL,
-  `DURACAO_CURSOS` float NOT NULL,
-  `NIVEL_DIFICUL_CURSOS` enum('Iniciante','Intermediário','Avançado') NOT NULL,
+  `DURACAO_CURSOS` float NOT NULL, 
+  `NIVEL_DIFICUL_CURSOS` enum('Iniciante','Intermediário','Avançado') NOT NULL, 
   `PRECO_CURSOS` float NOT NULL,
   `DESCRICAO_CURSOS` mediumtext NOT NULL,
   `FOTO_CURSOS` blob NOT NULL,
-  `CATEGORIA_CURSOS` varchar(50) NOT NULL,
+  `CATEGORIA_CURSOS` varchar(50) NOT NULL, 
   `AVALIACOES_CURSOS` mediumtext,
   PRIMARY KEY (`ID_CURSOS`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -149,7 +149,6 @@ CREATE TABLE `pagamento_mentora` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 
-
 -- Tabela usuario: Tabela que armazena informações sobre os usuários.
 CREATE TABLE `usuario` (
   `ID_USUARIO` int NOT NULL AUTO_INCREMENT,
@@ -158,15 +157,13 @@ CREATE TABLE `usuario` (
   `NOME_USUARIO` varchar(100) NOT NULL,
   `FOTO_USUARIO` blob,
   `DT_NASC_USUARIO` date NOT NULL,
-  `SENHA_USUARIO` varbinary(32) NOT NULL,
+  `SENHA_USUARIO` char(60) NOT NULL,
   `DT_CRIACAO` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID_USUARIO`),
   UNIQUE KEY `EMAIL_MENTORA_UNIQUE` (`EMAIL_USUARIO`),
   UNIQUE KEY `CELULAR_MENTORA_UNIQUE` (`CELULAR_USUARIO`),
   UNIQUE KEY `SENHA_UNIQUE` (`SENHA_USUARIO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
-
 
 
 -- Tabela usuario_contrata_cursos: Tabela de associação entre usuários e cursos que eles contrataram.

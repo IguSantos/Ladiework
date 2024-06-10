@@ -242,7 +242,7 @@ a {
 }
 
 .ou {
-    color: var(--font-color);
+    color: var(--information-text-color);
     margin: 10px 0;
     font-size: 20px;
     text-align: center;
