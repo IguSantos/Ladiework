@@ -1,151 +1,90 @@
 <header>
   <hr class="top-line">
-
   <nav>
     <img id="menu-icon" src="images/menu.svg" alt="" onclick="openMenu()">
-
-    <nav id="mobile-nav" class="hidden">
-
+    <nav id="mobile-nav" >
       <div class="menu">
         <hr class="top-line">
         <ion-icon name="close" id="closeMenu" onclick="closeMenu()"></ion-icon>
-
         <div class="enter">
-
           <% if (logado) { %>
             <img id="profileImageMobile" src="images/profilephoto.svg" alt="" class="profile-login-mobile">
-
-
-            <% } else{ %>
-
-              <button class="login-mobile" onclick="window.location.href = 'login'">Login</button>
-              <button class="sign-in" onclick="window.location.href = 'cadastrar'">Cadastro</button>
-
-              <% } %>
+          <% } else { %>
+            <button class="login-mobile" onclick="window.location.href = 'login'">Login</button>
+            <button class="sign-in" onclick="window.location.href = 'cadastrar'">Cadastro</button>
+          <% } %>
         </div>
-
         <ul>
           <li>
             <a href="carrinho">Carrinho</a>
           </li>
           <% if (logado) { %>
-
             <li><a href="criar">Ensine na Ladiework</a></li>
-
-            <% } else { %>
-
-              
-              <% } %>
-                <li>
-                  <a href="mentorias">Mentoria</a>
-                </li>
-
-                <li>
-                  <a href="cursos">Cursos</a>
-                </li>
-
+          <% } %>
+          <li><a href="mentorias">Mentoria</a></li>
+          <li><a href="cursos">Cursos</a></li>
         </ul>
-
         <ul>
           <span>Mais Populares</span>
-          <a href="">
-            <li>Marketing</li>
-          </a>
-          <a href="">
-            <li>Programação</li>
-          </a>
-          <a href="">
-            <li>Web Design</li>
-          </a>
+          <a href=""><li>Marketing</li></a>
+          <a href=""><li>Programação</li></a>
+          <a href=""><li>Web Design</li></a>
         </ul>
-
         <ul>
-          <li>
-            <a href="">Ajuda</a>
-          </li>
-
-          <li>
-            <a href="">Configurações</a>
-          </li>
-
+          <li><a href="">Ajuda</a></li>
+          <li><a href="">Configurações</a></li>
           <% if (logado) { %>
-
-          <li>
-            <a href="/sair">Sair</a>
-          </li>
-
-  <% } else { %>
-
-    <% } %>
+          <li><a href="/sair">Sair</a></li>
+          <% } %>
         </ul>
-
       </div>
     </nav>
-
-
-    <!-- Logo -->
     <img id="logo" onclick="window.location.href = '/'" src="images/logo.png" alt="LadieWork">
-
-
-    <!-- Navigation Links -->
     <div class="nav-items">
       <a href="carrinho">
         <ion-icon name="cart-outline" class="cart"></ion-icon>
       </a>
       <ul>
         <% if (logado) { %>
-
           <li><a href="criar">Ensine na Ladiework</a></li>
-
-          <% } else { %>
-
-
-            <% } %>
-
-              <li><a href="mentorias">Mentorias</a></li>
-              <li><a href="cursos">Cursos</a></li>
+        <% } %>
+        
+        <li><a href="mentorias">Mentorias</a></li>
+        <li><a href="cursos">Cursos</a></li>
       </ul>
-
+      
       <% if (logado) { %>
-
-        <img id="profileImage" src="images/profile_women.jpg" alt="" class="profile-login-desktop">
-
-
-
-        <section class="info_profile hidden" id="infoProfile" >
+        <img id="profileImage" src="images/profilephoto.svg" alt="" class="profile-login-desktop">
+        <section class="info_profile hidden" id="infoProfile">
           <div class="triangle"></div>
           <article class="header_profile">
-            <img src="images/profile_women.jpg" alt=""> <div>
-              <p> Leticia </p> <span class="user_type">Mentora</span> 
-            <button class="edit">Editar</button>
+            <img src="images/profilephoto.svg" alt="">
+            <div>
+              <p><%= logado %></p>
+              <span class="user_type">Mentora</span>
+              <button class="edit">Editar</button>
             </div>
             <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
           </article>
           <article class="profile_info">
-   <span>Sobre</span>
-   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est asperiores quo quos. Quod aliquam dicta cumque, reiciendis nulla pariatur autem rerum nisi sint laudantium reprehenderit nesciunt ad sed ullam doloribus!</p>
-   <span >Contato</span>
-   <ul>
-    <ion-icon name="mail-outline" ></ion-icon>
-    <li>amandasilva04@gmail.com</li> <br>
-    <ion-icon name="call-outline" ></ion-icon>
-    <li>+55 (11) 94563-2056</li>
-   </ul>
+            <span>Sobre</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est asperiores quo quos. Quod aliquam dicta cumque, reiciendis nulla pariatur autem rerum nisi sint laudantium reprehenderit nesciunt ad sed ullam doloribus!</p>
+            <span>Contato</span>
+            <ul>
+              <ion-icon name="mail-outline"></ion-icon>
+              <li>amandasilva04@gmail.com</li>
+              <br>
+              <ion-icon name="call-outline"></ion-icon>
+              <li>+55 (11) 94563-2056</li>
+            </ul>
           </article>
-
-          <span class="membersince" >Membro Desde: Junho 2023</span>  <a href="sair" class="logout">Sair</a>
+          <span class="membersince">Membro Desde: Junho 2023</span>
+          <a href="sair" class="logout">Sair</a>
         </section>
-        <% } else { %>
-
-          <button class="login" onclick="window.location.href = 'login'">Login</button>
-          <button class="cadastro" onclick="window.location.href = 'cadastrar'">Cadastro</button>
-
-          <% } %>
-
-
+      <% } else { %>
+        <button class="login" onclick="window.location.href = 'login'">Login</button>
+        <button class="cadastro" onclick="window.location.href = 'cadastrar'">Cadastro</button>
+      <% } %>
     </div>
-
-    <!-- Mobile Navigation List -->
-
-   
+  </nav>
 </header>

@@ -22,6 +22,7 @@ const userController = {
         const errors = validationResult(req);
         console.log(errors);
         // GUARDAR INFORMAÇÕES DO CADASTRO
+
         const dataForm = {
             NOME_USUARIO: req.body.nome_usu,
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha_usu, salt),
@@ -29,9 +30,12 @@ const userController = {
             FOTO_USUARIO: req.body.foto_usu,
             CELULAR_USUARIO: req.body.numero_usu,
             DT_NASC_USUARIO: req.body.aniversario_usu,
-            DT_CRIACAO: new Date()
+            DT_CRIACAO_CONTA_USUARIO: new Date()
         };
 
+
+
+        // Se algo der errado em todo o cadastro ele reseta
         if (!errors.isEmpty()) {
             console.log(errors);
             return res.render("pages/main", { pagina: "cadastro", errorsList: errors, valores: req.body });
@@ -40,12 +44,23 @@ const userController = {
 
         // CRIAR USUARIO
         try {
+            // let findUserEmail = await user.findUserEmail(dataForm);
+            // if (findUserEmail) {
+            //     console.log("EMAIL JA EXISTE!!")
+            // }
+            // else {
             let create = await user.create(dataForm);
-            console.log(create)
+            req.session.logado = req.body.nome_usu;
+
             res.redirect("/");
-        } catch (e) {
-            console.log(e);
-            res.render("pages/main", { pagina: "home", logado: null, errorsList: errors, valores: req.body });
+            // }
+        } catch (error) {
+            console.log("Erro ao cadastrar:", error);
+            res.render("pages/main", {
+                pagina: "home",
+                errorsList: errors,
+                valores: req.body
+            });
         }
     },
 
@@ -58,18 +73,34 @@ const userController = {
             .withMessage("A senha deve ter no mínimo 4 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
     ],
 
-    // GIOVANNI
-    logar: (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.render("pages/main", { pagina: "login", errorsList: errors })
-        }
-        if (req.session.authenticated != null) {
-            res.redirect("/");
-        } else {
-            res.render("pages/main", { pagina: "login", errorsList: errors })
+
+    logar: async (req, res) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.render("pages/main", { pagina: "login", errorsList: errors, logado: null });
+            }
+
+            const dataForm = {
+                EMAIL_USUARIO: req.body.email_usu,
+                SENHA_USUARIO: req.body.senha_usu
+            };
+
+            let findUserEmail = await user.findUserEmail(dataForm);
+            if (findUserEmail.length === 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, findUserEmail[0].SENHA_USUARIO)) {
+                req.session.logado = findUserEmail[0].NOME_USUARIO.toString(); 
+                return res.redirect("/");
+            } else {
+                res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null });
+            }
+        } catch (e) {
+            console.log("Deu erro no logar!!", e);
+            res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Erro no servidor" }], logado: null });
         }
     }
+
+
+
 
 
 }

@@ -4,14 +4,16 @@ const bcrypt = require("bcryptjs");
 
 // TA LOGADO OU NAO?
 checkAuthenticatedUser = (req, res, next) => {
-    if (req.session.logado) { // Se existe uma variavel logado
-        var logado = req.session.logado; // Se existir, coloca a uma variavel
-    } else {
-        var logado = { logado: null, id: null, tipo: null }; // Cria um objeto logado com tudo anulado
+    if(req.session.logado){
+        var logado = req.session.logado;
+    }else{
+        var logado = null;
     }
-    req.session.logado = logado; // Retorna o valor de logado
-    next(); 
+    next();
 }
+
+
+
 
 // LOGOUT - NAO FUNCIONANDO
 clearSession = (req, res, next) => { // Declaração de uma função chamada 
@@ -20,44 +22,54 @@ clearSession = (req, res, next) => { // Declaração de uma função chamada
     next() // Chama a próxima função middleware na cadeia de execução.
 }
 
-// GIOVANNI
+
 recordAuthenticatedUser = async (req, res, next) => {
-    errors = validationResult(req)
+    console.log("Middleware recordAuthenticatedUser");
+
+    errors = validationResult(req);
+    console.log("Validation errors:", errors.array());
+
     if (errors.isEmpty()) {
         var dataForm = {
-            NOME_USUARIO: req.body.nome_usu,
-            SENHA_USUARIO: req.body.senha_usu,
+            EMAIL_USUARIO: req.body.email_usu,
+            SENHA_USUARIO: req.body.senha_usu
         };
+
+        console.log("Data form:", dataForm);
+
         var results = await user.findUserEmail(dataForm);
+        console.log("Database results:", results);
+
         var total = Object.keys(results).length;
-        if (total == 1) {
-            if (bcrypt.compareSync(dataForm.senha_usuario, results[0].senha_usuario)) {
-                var logado = {
-                    logado: results[0].nome_usuario,
-                    id: results[0].id_usuario,
-                    tipo: results[0].tipo_usuario
-                };
-            }
+        console.log("Total results found:", total);
+
+        // Verificação bem-sucedida do login
+        if (total == 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, results[0].SENHA_USUARIO)) {
+            var logado = results[0].NOME_USUARIO; // Definir o nome de usuário como logado
         } else {
-            var logado =  { logado: null, id: null, tipo: null };
+            var logado = null;
         }
+
     } else {
-        var logado =  { logado: null, id: null, tipo: null };
+        req.session.logado = null;
     }
-    req.session.logado = logado;
+
     next();
 }
 
-verifyAuthenticatedUser = (normaluser, destinoFalha = "partial/login") => {
-    return (req, res, next) => {
-        if (req.session.logado != null &&
-            normaluser.find(function (element) { return element == req.session.logado.tipo }) != undefined) {
-            next();
-        } else {
-            res.render(destinoFalha, req.session.logado);
-        }
-    };
-}
+
+
+
+// verifyAuthenticatedUser = (normaluser, destinoFalha = "partial/login") => {
+//     return (req, res, next) => {
+//         if (req.session.logado != null &&
+//             normaluser.find(function (element) { return element == req.session.logado.tipo }) != undefined) {
+//             next();
+//         } else {
+//             res.render(destinoFalha, req.session.logado);
+//         }
+//     };
+// }
 
 
 
@@ -69,5 +81,5 @@ module.exports = {
     checkAuthenticatedUser,
     clearSession,
     recordAuthenticatedUser,
-    verifyAuthenticatedUser
+    // verifyAuthenticatedUser
 }

@@ -48,6 +48,7 @@ Conectar as mentorias e cursos + tirar lorem ipsum
 atualizar vão entre o footer
 regras de validaçao para criar cursos
 atualziar a criação de cursos/mentoria
+CASO O EMAIL JA EXISTA!!
 
 CADASTRO
 

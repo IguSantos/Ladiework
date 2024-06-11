@@ -8,22 +8,7 @@
 
     <body>
 
-        <% 
-            let avisoErro = {"nome_usu":"", "senha_usu":""}
-            let msgErro = {"nome_usu":"", "senha_usu":""}
-                if(errorsList){
-                    errorsList.errors.forEach(function(itemErro){
-                        if(itemErro.path == "nome_usu"){
-                            avisoErro.nome_usu = "erro";
-                            msgErro.nome_usu = itemErro.msg
-                        }
-                        if(itemErro.path == "senha_usu"){
-                            avisoErro.senha_usu = "erro";
-                            msgErro.senha_usu = itemErro.msg
-                        }
-                    })
-                }
-       %>
+ 
 
       <main>
         <form action="/login" method="post">
@@ -33,12 +18,12 @@
             <div class="content">
               <div class="input-wrapper">
                 <label for="email">E-mail</label>
-                <input id="email" name="email" type="email" placeholder="Digite seu e-mail" required>
+                <input id="email" name="email_usu" type="email" placeholder="Digite seu e-mail" required>
               </div>
 
               <div class="input-wrapper">
                 <label for="password">Senha</label>
-                <input id="password" name="password" type="password" placeholder="Digite sua senha" required>
+                <input id="password" name="senha_usu" type="password" placeholder="Digite sua senha" required>
               </div>
               <a href="">Esqueceu a senha?</a>
             </div>

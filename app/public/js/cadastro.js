@@ -99,12 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lastStepButton = document.querySelector('.form-step:last-of-type [type="submit"]');
     const lastStepTextarea = document.getElementById('project');
 
-    lastStepButton.addEventListener('click', function(event) {
-        if (lastStepTextarea.value.trim() === '') {
-            lastStepTextarea.classList.add('error');
-            event.preventDefault(); // Impede o envio do formulário se o textarea estiver vazio
-        }
-    });
+   
 });
 
 

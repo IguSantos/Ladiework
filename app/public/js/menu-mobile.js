@@ -1,10 +1,8 @@
 function openMenu() {
     const navList = document.getElementById('mobile-nav')
     navList.classList.add('show-menu')
-
+ 
     document.body.classList.add('no-scroll')
-
-
 }
 
 function closeMenu() {
@@ -13,7 +11,6 @@ function closeMenu() {
 };
 
 // PROFILE
-
 document.addEventListener("DOMContentLoaded", function() {
     var profileImage = document.getElementById("profileImage");
     var infoProfile = document.getElementById("infoProfile");

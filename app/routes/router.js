@@ -9,11 +9,10 @@ const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser } = requir
 
 
 router.get("/", checkAuthenticatedUser, function (req, res) {
-  res.render("pages/main", {
-    pagina: "home",
-    logado: null
-  });
+  res.render("pages/main", { pagina: "home", logado: req.session.logado });
+  console.log("Session logado:", req.session.logado);
 });
+
 
 // req.session.logado -- o que tnha
 // nao sair 
@@ -46,23 +45,17 @@ router.post("/cadastrar",
 router.get('/login', (req, res) => {
   res.render('pages/main', {
     pagina: "login",
+    logado: req.session.logado,
     errorsList: null,
-    logado: null,
-    valores: {
-      email_usu: "",
-      senha_usu: ""
-    }
   });
 });
 
 router.post(
-  "/login",
-  userController.validationRulesFormLogin, recordAuthenticatedUser,
-  function (req, res) {
+  "/login", recordAuthenticatedUser,
+   function (req, res) {
     userController.logar(req, res);
   });
 
-// SAIR
 router.get("/sair", clearSession, function (req, res) {
   res.redirect("/");
 });
@@ -81,7 +74,7 @@ router.get('/criar', (req, res) => {
     pagina: "create",
     dados: null,
     errorsList: null,
-    logado: null
+    logado: req.session.logado
   });
 });
 
@@ -138,11 +131,11 @@ router.get('/pagamentopix', (req, res) => {
 
 
 router.get('/sobreocurso', (req, res) => {
-  res.render('pages/main', { pagina: "cursoinfo", logado: null });
+  res.render('pages/main', { pagina: "cursoinfo", logado: req.session.logado });
 });
 
 router.get('/assistiraula', (req, res) => {
-  res.render('pages/main', { pagina: "viewvideocourse", logado: null });
+  res.render('pages/main', { pagina: "viewvideocourse", logado: req.session.logado });
 });
 
 
