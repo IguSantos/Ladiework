@@ -12,14 +12,26 @@ function closeMenu() {
 
 // PROFILE
 document.addEventListener("DOMContentLoaded", function() {
-    var profileImage = document.getElementById("profileImage");
-    var infoProfile = document.getElementById("infoProfile");
+  var profileImage = document.getElementById("profileImage");
+  var infoProfile = document.getElementById("infoProfile");
 
-    profileImage.addEventListener("click", function() {
-      if (infoProfile.classList.contains("hidden")) {
-        infoProfile.classList.remove("hidden");
-      } else {
-        infoProfile.classList.add("hidden");
-      }
-    });
+  profileImage.addEventListener("click", function() {
+    if (infoProfile.classList.contains("hidden")) {
+      infoProfile.classList.remove("hidden");
+    } else {
+      infoProfile.classList.add("hidden");
+    }
   });
+
+  // Adiciona um evento para fechar o perfil quando a largura da janela for menor que 800px
+  window.addEventListener("resize", function() {
+    if (window.innerWidth < 800 && !infoProfile.classList.contains("hidden")) {
+      infoProfile.classList.add("hidden");
+    }
+  });
+
+  // Verifica a largura da janela ao carregar a página
+  if (window.innerWidth < 800 && !infoProfile.classList.contains("hidden")) {
+    infoProfile.classList.add("hidden");
+  }
+});

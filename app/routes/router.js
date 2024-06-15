@@ -56,6 +56,7 @@ router.post(
     userController.logar(req, res);
   });
 
+
 router.get("/sair", clearSession, function (req, res) {
   res.redirect("/");
 });
@@ -77,6 +78,16 @@ router.get('/criar', (req, res) => {
     logado: req.session.logado
   });
 });
+
+
+router.get("/criar", function (req, res) {
+  res.render("pages/main", { pagina: "criar" , dados: null, errorsList: null });
+});
+
+router.post("/criar",  function (req, res) {
+    coursesController.addCourse(req, res);
+  }
+);
 
 
 // router.post("/criar",  function (req, res) {

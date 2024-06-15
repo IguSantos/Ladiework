@@ -13,12 +13,12 @@ h1 {
     transition: font-size 0.5s ease, color 0.5s ease, font-weight 0.5s ease;
 }
 
-div:nth-of-type(1) {
+main div {
     display: flex;
     justify-content: space-between;
 }
 
-div>h3 {
+main div h3 {
     font-size: 1.3rem;
     opacity: 0.7;
     font-weight: 700;
@@ -26,18 +26,18 @@ div>h3 {
     transition: font-size 0.5s ease, opacity 0.5s ease, font-weight 0.5s ease;
 }
 
-div>.final-value {
+div .final-value {
     font-weight: 600;
     font-size: 1.3rem;
     opacity: 0.8;
     transition: font-size 0.5s ease, opacity 0.5s ease, font-weight 0.5s ease;
 }
 
-div>.final-value span {
+div .final-value span {
     font-weight: 200;
 }
 
-section {
+main section {
     margin: 30px 0;
     display: flex;
     gap: 20px;
@@ -46,14 +46,14 @@ section {
     transition: gap 0.5s ease;
 }
 
-section>span {
+main section span {
     display: block;
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--button-color);
 }
 
-section article {
+main section article {
     height: 430px;
     width: 500px;
     background-color: var(--third-color);
@@ -67,7 +67,7 @@ section article {
     display: none;
 }
 
-section article h4 {
+main section article h4 {
     margin-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(104, 104, 104, 0.514);
@@ -109,19 +109,19 @@ label {
     transition: width 0.5s ease;
 }
 
-article:nth-of-type(2) {
+main section article:nth-of-type(2) {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-article>img {
+main section article>img {
     width: 270px;
     height: 270px;
     object-fit: cover;
 }
 
-article p {
+main section article p {
     margin: 20px 0;
     opacity: 0.7;
     font-size: 1.1rem;
@@ -156,10 +156,13 @@ article p {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    color: var(--font-color);
+    color: var(--second-font);
     width: 200px;
     border-radius: 10px 10px 0 10px;
     font-size: 0.9rem;
+    position: absolute;
+    right: 29px;
+    bottom: 45px;
 }
 
 .menssage img {
@@ -170,9 +173,8 @@ article p {
 
 .menssage {
     display: flex;
-    top: 550px;
-    right: 50px;
-    position: absolute;
+
+    position: relative;
 }
 
 .backtoid {
@@ -207,7 +209,7 @@ article p {
         transition: width 0.5s ease;
     }
 
-    section span {
+    main section span {
         display: none;
     }
 
@@ -215,7 +217,7 @@ article p {
         font-size: 0.8rem;
     }
 
-    div:nth-of-type(1) {
+    div:nth-of-type(3) {
         display: flex;
         gap: 10px;
         flex-direction: column;

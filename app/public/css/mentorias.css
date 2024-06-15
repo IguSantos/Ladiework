@@ -66,7 +66,7 @@ h2 {
     transition: all 0.5s ease;
 }
 
-section {
+main > section {
     width: 100%;
     display: flex;
     align-items: center;
@@ -82,7 +82,7 @@ section {
     transition: all 0.5s ease;
 }
 
-article {
+.slider article {
     width: 578px;
     height: 247px;
     border-radius: 10px;
@@ -94,13 +94,13 @@ article {
     flex-shrink: 0;
 }
 
-article img {
+.slider article img {
     border-radius: 0 10px 10px 0;
     width: 230px;
     object-fit: cover;
 }
 
-article span {
+.slider article span {
     color: var(--span-color);
     font-size: 1rem;
     font-weight: bold;
@@ -116,7 +116,7 @@ article span {
     overflow: hidden;
 }
 
-article h3 {
+.slider article h3 {
     color: var(--title-bold);
     margin-left: 15px;
     margin-top: 8px;

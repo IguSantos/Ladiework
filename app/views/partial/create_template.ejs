@@ -8,6 +8,7 @@
 
     <%- include("../partial/header") %>
 
+    <% let valorCampos = {tituloCurso"", tarefa:"", prazo:moment(amanha).format( 'YYYY-MM-DD')} %>
 
         <main>
 
@@ -102,8 +103,10 @@
             <form action="/criar" method="post" id="create-course">
 
                 <input type="text" placeholder="Exemplo: Curso de Design Gráfico" id="input-course" class="none"
-                    minlength="10" maxlength="100" required>
+                    minlength="10" maxlength="100" required  value="<%= valorCampos.tituloCurso %>">
 
+
+                    <!-- COMO COLOCO? -->
                     <select name="Marketing" class=" none" id="category-course">
                         <option value="Marketing">Marketing Digital</option>
                         <option value="Empreendedorismo">Empreendedorismo</option>

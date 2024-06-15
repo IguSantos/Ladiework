@@ -38,7 +38,7 @@ const userController = {
         // Se algo der errado em todo o cadastro ele reseta
         if (!errors.isEmpty()) {
             console.log(errors);
-            return res.render("pages/main", { pagina: "cadastro", errorsList: errors, valores: req.body });
+            return res.render("pages/main", { pagina: "home", logado: null , errorsList: errors, valores: req.body });
         }
 
 

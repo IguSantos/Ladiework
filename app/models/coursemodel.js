@@ -28,6 +28,21 @@ const courseModel = {
         }  
     },
 
+   posicaoRegCurso: async (id) => {
+        try {
+            const [lines] = await pool.query(
+                'SELECT *, ' +
+                '(SELECT COUNT(*) + 1 FROM cursos AS c2 WHERE c2.ID_CURSOS < c1.ID_CURSOS) AS numero_ordem ' +
+                'FROM cursos AS c1 WHERE c1.ID_CURSOS = ?;',
+                [id]
+            );
+            return lines;
+        } catch (error) {
+            return error;
+        }
+    }
+    
+
 }; 
 
 module.exports = courseModel

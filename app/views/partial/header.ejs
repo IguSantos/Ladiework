@@ -44,6 +44,7 @@
       <a href="carrinho">
         <ion-icon name="cart-outline" class="cart"></ion-icon>
       </a>
+      
       <ul>
         <% if (logado) { %>
           <li><a href="criar">Ensine na Ladiework</a></li>
@@ -54,9 +55,11 @@
       </ul>
       
       <% if (logado) { %>
+        <div class="status"></div>
+        
         <img id="profileImage" src="images/profilephoto.svg" alt="" class="profile-login-desktop">
         <section class="info_profile hidden" id="infoProfile">
-          <div class="triangle"></div>
+          <div class="triangle2"></div>
           <article class="header_profile">
             <img src="images/profilephoto.svg" alt="">
             <div>

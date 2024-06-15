@@ -18,14 +18,14 @@ h1 {
     transition: all 0.5s ease;
 }
 
-section {
+main section {
     overflow-y: scroll;
     width: 690px;
     overflow-x: hidden;
     transition: all 0.5s ease;
 }
 
-section article {
+.purchased-course {
     padding: 10px;
     width: 680px;
     overflow-x: hidden;
@@ -81,7 +81,8 @@ section article {
     transition: all 0.5s ease;
 }
 
-article img {
+.purchased-course
+    img {
     width: 100px;
     height: 100px;
     object-fit: contain;
@@ -420,8 +421,8 @@ body h3 {
         overflow-y: auto;
     }
 
-    section article {
-        width: 100%;
+    .purchased-course {
+        width: 89%;
         margin: 30px 0;
         height: auto;
         background: none;
@@ -433,11 +434,11 @@ body h3 {
         overflow-y: hidden;
     }
 
-    section article ion-icon {
+    .purchased-course ion-icon {
         font-size: 3rem;
     }
 
-    section article img {
+    .purchased-course img {
         width: 100%;
         height: auto;
     }
@@ -451,7 +452,7 @@ body h3 {
         padding-top: 50px;
     }
 
-    section article p {
+    .purchased-course p {
         display: none;
     }
 
