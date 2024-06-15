@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Página de Administração - LadieWork </title>
+    
+    <link rel="stylesheet" href="css/dashboard.css">
+   
+</head>
+
+<body>
+
+
+  <div id="content">
+
+    <header>
+      <div class="busca">
+        <form action="">
+          <input type="text" placeholder="Pesquisar" class="search" id="search-input"/>
+          <button type="submit" title="Buscar">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+        </form>
+        <button title="Notificações"><ion-icon name="notifications-outline"></ion-icon></button>
+        <div class="perfil">
+          <img src="images/muié.png" alt="Sua foto de perfil" />
+          <p>Leticia</p>
+        </div>
+      </div>
+      <div class="saudacao">
+        <div class="perfil">
+          <img src="images/muié.png" alt="Sua foto de perfil" />
+          <span>Olá,</span>
+          <p>Leticia (@leticia)</p>
+        </div>
+        <div class="acoes">
+          <button>Criar Mentoria</button>
+          <!-- <button>Enviar</button> -->
+          <button>Compartilhar Mentoria</button>
+        </div>
+      </div>
+    </header>
+
+    <aside>
+      <div class="logo">
+        <img src="images/logobranca.png" alt="Logotipo ladiework branca">
+      </div>
+      <ul class="menu">
+        <li class="selecionado">
+          <a href="#"><ion-icon name="home-outline"></ion-icon></i>Início</a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="person-outline"></ion-icon>Perfil</a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="chatbubble-outline"></ion-icon>Mensagens</a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="time-outline"></ion-icon>Histórico</a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="people-outline"></ion-icon>Mentoradas</a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="people-circle-outline"></ion-icon>Mentorias</a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="calendar-clear-outline"></ion-icon>Calendário</a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="cellular-outline"></ion-icon>Dashboard</a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <li>
+          <a href="#"><ion-icon name="build-outline"></ion-icon>Ajustes</a>
+        </li>
+        <li>
+          <a href="#"><ion-icon name="information-circle-outline"></ion-icon>Ajuda</a>
+        </li>
+        <li>
+          <a href="mentorias"><ion-icon name="caret-back-outline"></ion-icon>Voltar</a>
+        </li>
+      </ul>
+      <footer>
+        <p id="texto-footer">LadieWork, 2024</p>
+        <div class="links">
+          <a href="#" target="_blank" rel="noopener noreferrer" title="Instagram"><ion-icon
+              name="logo-instagram"></ion-icon></a>
+          <a href="#" target="_blank" rel="noopener noreferrer" title="Email"><ion-icon
+              name="mail-outline"></ion-icon></a>
+        </div>
+      </footer>
+    </aside>
+    
+    <main>
+      <section class="projetos">
+        <h2>Seus projetos</h2>
+        <div>
+          <article class="card">
+            <div class="barra"></div>
+            <div class="conteudo">
+              <h3>Empreendedorismo Feminino</h3>
+              <p>
+                Capacite-se com as ferramentas e o conhecimento necessário para iniciar e gerenciar seu próprio negócio.
+                Descubra histórias de sucesso, dicas práticas e estratégias de crescimento voltadas para mulheres
+                empreendedoras.
+              </p>
+              <div class="acoes">
+                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
+                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
+                <button title="Compartilhar">
+                  <ion-icon name="share-social-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="barra"></div>
+            <div class="conteudo">
+              <h3>Desenvolvimento de Liderança Feminina</h3>
+              <p>
+                Explore técnicas de liderança eficazes e inspire-se com mulheres que ocupam posições de liderança. Aprenda
+                a superar desafios específicos e a promover um ambiente de trabalho inclusivo e equitativo.
+              </p>
+              <div class="acoes">
+                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
+                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
+                <button title="Compartilhar">
+                  <ion-icon name="share-social-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="barra"></div>
+            <div class="conteudo">
+              <h3>Tecnologia e Inovação para Mulheres</h3>
+              <p>
+                Mergulhe no mundo da tecnologia com um enfoque especial para mulheres. Aprenda sobre programação,
+                desenvolvimento de aplicativos e inovação tecnológica, enquanto se conecta com outras mulheres na área.
+              </p>
+              <div class="acoes">
+                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
+                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
+                <button title="Compartilhar">
+                  <ion-icon name="share-social-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="barra"></div>
+            <div class="conteudo">
+              <h3>Saúde e Bem-Estar Feminino</h3>
+              <p>
+                Descubra como manter um equilíbrio saudável entre vida pessoal e profissional. Inclui dicas sobre
+                nutrição, exercícios físicos, saúde mental e bem-estar geral voltadas especificamente para mulheres.
+              </p>
+              <div class="acoes">
+                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
+                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
+                <button title="Compartilhar">
+                  <ion-icon name="share-social-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="barra"></div>
+            <div class="conteudo">
+              <h3>Finanças Pessoais para Mulheres</h3>
+              <p>
+                Aprenda a gerenciar suas finanças pessoais de forma eficaz. Este curso aborda orçamento, investimentos,
+                economia e planejamento financeiro a longo prazo, com um enfoque nas necessidades das mulheres.
+              </p>
+              <div class="acoes">
+                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
+                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
+                <button title="Compartilhar">
+                  <ion-icon name="share-social-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="barra"></div>
+            <div class="conteudo">
+              <h3>Networking e Conexões Profissionais</h3>
+              <p>
+                Desenvolva suas habilidades de networking e aprenda a criar conexões profissionais duradouras. Inclui
+                estratégias para expandir sua rede e aproveitar ao máximo as oportunidades de networking.
+              </p>
+              <div class="acoes">
+                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
+                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
+                <button title="Compartilhar">
+                  <ion-icon name="share-social-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="anuncios">
+        <h2>Recentes</h2>
+        <div class="card">
+          <article>
+            <h4>Empreendedorismo Feminino</h4>
+            <p>
+              Maria comprou a mentoria de Empreendedorismo Feminino para aprender a iniciar e gerenciar um negócio
+              próprio.
+            </p>
+          </article>
+          <article>
+            <h4>Desenvolvimento de Liderança Feminina</h4>
+            <p>
+              Ana adquiriu a mentoria de Desenvolvimento de Liderança Feminina para aprimorar suas habilidades de
+              liderança e promover um ambiente de trabalho inclusivo.
+            </p>
+          </article>
+          <article>
+            <h4>Tecnologia e Inovação para Mulheres</h4>
+            <p>
+              Juliana comprou o curso de Tecnologia e Inovação para Mulheres para aprender sobre programação e
+              desenvolvimento de aplicativos.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="em-alta">
+        <h2>Mentoradas</h2>
+        <div>
+          <div class="perfil">
+            <img src="images/muié2.png" alt="Foto de perfil" />
+            <p>@rafaela23</p>
+          </div>
+          <div class="perfil">
+            <img src="images/muié4.png" alt="Foto de perfil" />
+            <p>@carolrodrigues</p>
+          </div>
+          <div class="perfil">
+            <img src="images/muié3.png" alt="Foto de perfil" />
+            <p>@julianasilva</p>
+          </div>
+          <div class="perfil">
+            <img src="images/muié5.png" alt="Foto de perfil" />
+            <p>@marianagomes</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+  <script>
+    const footer = document.getElementById("texto-footer");
+    footer.innerText = `LadieWork, ${new Date().getFullYear()}`;
+  </script>
+
+  <script src="../../js/dashboard.js"></script>
+
+
+</body>
+
+</html>

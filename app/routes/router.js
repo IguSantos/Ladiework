@@ -100,6 +100,11 @@ router.get('/informacao_da_mentoria', (req, res) => {
   res.render('pages/main', { pagina: "mentoria_info", logado: req.session.logado });
 });
 
+// PAGINA DE ADMINISTRAÇÃO MENTORA
+router.get('/paginadeadministracao', (req, res) => {
+  res.render('pages/adm/usuaria/dashboard', {  logado: req.session.logado });
+});
+
 
 // MENTORIAS
 router.get('/mentorias', (req, res) => {
