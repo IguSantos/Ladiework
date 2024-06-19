@@ -2,9 +2,13 @@ main {
     display: flex;
     width: 95%;
     margin: 30px auto;
-    
+    justify-content: center;
+
 }
 
+footer {
+    display: none;
+}
 
 .chat header {
     height: 40px;
@@ -112,15 +116,18 @@ input[type="search"] {
 }
 
 .conversation {
-    padding: 10px;
     height: 508px;
     width: 600px;
     border-right: 1px solid rgb(161, 161, 161);
     position: relative;
 }
 
+ion-icon {
+    cursor: pointer;
+}
 
-.status {
+
+.status-chat {
     width: 8px;
     height: 8px;
     background-color: rgb(33, 212, 33);
@@ -128,7 +135,6 @@ input[type="search"] {
 }
 
 .conversation input[type="text"] {
-
     border: none;
     height: 30px;
     width: 490px;
@@ -145,13 +151,35 @@ input[type="file"] {
     display: none;
 }
 
+.message-content img {
+    width: 200px;
+}
+
 .send-message {
     display: flex;
     gap: 10px;
-
     position: absolute;
-    top: 90%;
+    top: 92%;
+    margin-left: 17px;
 }
+.main-chat::-webkit-scrollbar {
+    width: 5px; /* Largura da barra de rolagem */
+ 
+}
+
+.main-chat::-webkit-scrollbar-track {
+    background: transparent; /* Cor de fundo da trilha */
+}
+
+.main-chat::-webkit-scrollbar-thumb {
+    background-color: var(--second-color);
+    border-radius: 10px; 
+    border: 1px solid transparent;
+    height: 10px; 
+}
+
+
+
 
 .photo-icon {
     width: 30px;
@@ -182,7 +210,7 @@ input[type="file"] {
 
 }
 
-.chat-container-mentor {
+.chat-container-user {
     background-color: #f0f0f0;
     padding: 5px;
     overflow: hidden;
@@ -192,8 +220,13 @@ input[type="file"] {
 
 .chat-container-you {
     margin-top: 20px;
+}
 
-
+.main-chat {
+    padding-top: 10px;
+    height: 93%;
+    overflow: scroll;
+    width: 100%;
 }
 
 .chat-message {
@@ -207,10 +240,9 @@ input[type="file"] {
     font-size: 0.8rem;
     display: flex;
     gap: 5px;
-
-
     width: 245px;
-    margin-left: 340px;
+
+    margin-left: 344px;
     justify-content: end;
 
 }
@@ -223,9 +255,8 @@ input[type="file"] {
     margin-right: 10px;
 }
 
-
-.message-content p {
-    max-width: 200px;
+.message-content {
+    max-height: 306px;
     opacity: 0.9;
     background-color: #d3d3d3;
     padding: 10px;
@@ -234,6 +265,7 @@ input[type="file"] {
 }
 
 .message-content-you p {
+    
     max-width: 200px;
     opacity: 0.9;
     background-color: #d3d3d3;
@@ -427,7 +459,7 @@ span.bio {
 @media (min-width: 1720px) and (max-width: 2000px) {
     main {
         width: 67%;
-        
+
     }
 
 

@@ -9,6 +9,13 @@ main {
     transition: all 0.5s ease;
 }
 
+body h3 {
+    margin-left: 140px;
+    margin-top: 30px;
+    transition: all 0.5s ease;
+}
+
+
 h1 {
     font-size: 1.4rem;
     text-align: left;
@@ -211,7 +218,7 @@ main aside button:hover {
 
 .more-curses {
     margin: 40px auto;
-    width: 80%;
+    width: 92%;
     display: flex;
     align-items: center;
     transition: all 0.5s ease;
@@ -254,7 +261,7 @@ hr {
 
 .slider article {
     cursor: pointer;
-    height: 470px;
+    height: 492px;
     background-color: var(--third-color);
     text-align: center;
     padding: 10px;
@@ -270,20 +277,21 @@ hr {
     transition: all 0.5s ease;
 }
 
-body h3 {
-    margin-left: 140px;
-    margin-top: 30px;
-    transition: all 0.5s ease;
-}
 
 .slider h3 {
     border-top: 1px solid rgb(172, 172, 172);
     color: var(--font-color);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: left;
-    padding-top: 10px;
+    padding-top: -2px;
     margin: 5px 0;
     transition: all 0.5s ease;
+    height: 56px;
+    
+}
+
+.slider ul {
+    height: 83px;
 }
 
 .slider p {
@@ -293,9 +301,12 @@ body h3 {
     height: 100px;
     margin-bottom: 5px;
     transition: all 0.5s ease;
+    overflow-y: hidden;
 }
 
-.slider span {
+
+
+.slider li {
     font-size: 0.8rem;
     text-align: left;
     display: block;

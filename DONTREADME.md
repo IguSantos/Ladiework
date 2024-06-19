@@ -34,11 +34,19 @@ confirmar senha
 pendendo, em revisao etc dos cursos...
 
 
-footer flutuando
+
 cursos comprados no desk e moobile
-Se dou scroll ele buga o saiba mais mentoria
-Conectar as mentorias e cursos + tirar lorem ipsum
-atualizar vão entre o footer
-regras de validaçao para criar cursos
-atualziar a criação de cursos/mentoria
+confirmar senha
+trocar icons de tipos de curso
+Bloquear o botaod e continuar no cadastro e login....
+maximo de caractere quando enviar mensagem
+paginacao com cursos falsos
+Favicon pagina administracao
 CASO O EMAIL JA EXISTA!! CADASTRO
+atualizacoes do daniel
+
+
+ATUALIZAÇÃO NO CREATE
+Descricao do curso/mentoria
+Span de erro (nao um alert)
+not null nas informacões

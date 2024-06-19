@@ -279,6 +279,11 @@ section #more-info-curse {
     font-size: 1rem;
 }
 
+.stars-icon {
+    display: inline;
+    color: var(--primary-color);
+}
+
 .beamentor {
     margin-top: 20px;
     color: white;

@@ -1,171 +1,133 @@
-const progressBar = document.getElementById('current-progress');
-const cardsSection = document.getElementById('cards');
-const h1Title = document.querySelector('h1');
-const spanElement = document.querySelector('span');
+document.addEventListener('DOMContentLoaded', function() {
+    const cardMentoring = document.getElementById('card-mentoring');
+    const createMentoryForm = document.getElementById('create-mentory');
+    const cardsSection = document.getElementById('cards');
+    const h1Title = document.querySelector('h1');
+    const progressBar = document.getElementById('current-progress');
 
-// Formulário de Mentoria
-const cardMentoring = document.getElementById('card-mentoring');
-const inputFieldMentory = document.getElementById('input');
-const continueButtonMentory = document.getElementById('continue');
-const continueButtonTwoMentory = document.getElementById('continue-two');
-const continueButtonThreeMentory = document.getElementById('continue-three');
-const buttonFourMentory = document.getElementById('continue-four');
-const selectFieldMentory = document.getElementById('category-mentory');
-const selectField2Mentory = document.getElementById('category-formation-mentory');
+    // Esconder formulários e card de mentoria no início
+    createMentoryForm.classList.add('hidden');
 
-// Formulário de Curso
-const cardCourse = document.getElementById('card-course');
-const inputFieldCourse = document.getElementById('input-course');
-const continueButtonCourse = document.getElementById('continue-course');
-const continueButtonTwoCourse = document.getElementById('continue-two-course');
-const continueButtonThreeCourse = document.getElementById('continue-three-course');
-const buttonFourCourse = document.getElementById('continue-four-course');
-const selectFieldCourse = document.getElementById('category-course');
-const selectLevelCourse = document.getElementById('category-level');
+    // Adicionar ouvinte de evento de clique no card de mentoria
+    cardMentoring.addEventListener('click', function() {
+        // Altera o título
+        h1Title.textContent = 'Qual o título da sua mentoria?';
 
-// Função para atualizar a barra de progresso
-function updateProgress(increment) {
-    const currentWidth = parseFloat(progressBar.style.width || '0');
-    const newWidth = currentWidth + increment;
-    progressBar.style.width = `${newWidth}%`;
-}
+        // Esconde os cards
+        cardsSection.style.display = 'none';
 
-// Evento para criar Mentoria
-cardMentoring.addEventListener('click', function () {
-    updateProgress(20);
-    cardsSection.style.display = 'none';
-    continueButtonMentory.classList.remove('none');
-    inputFieldMentory.classList.remove('none');
-    inputFieldMentory.classList.add('input');
-    h1Title.innerText = 'Dê um nome a sua mentoria';
-    spanElement.style.display = 'none';
-});
+        // Mostra o formulário de mentoria
+        createMentoryForm.classList.remove('hidden');
 
-// Evento para criar Curso
-cardCourse.addEventListener('click', function () {
-    updateProgress(20);
-    cardsSection.style.display = 'none';
-    continueButtonCourse.classList.remove('none');
-    inputFieldCourse.classList.remove('none');
-    inputFieldCourse.classList.add('input');
-    h1Title.innerText = 'Dê um nome ao seu curso';
-    spanElement.style.display = 'none';
-});
+        // Mostra apenas o primeiro passo (form-step-1)
+        document.getElementById('form-step-1').style.display = 'block';
 
-// Evento para o botão "Continuar" da Mentoria
-continueButtonMentory.addEventListener('click', function () {
-    const inputValue = inputFieldMentory.value.trim();
+        // Esconde os demais passos (form-step-2, form-step-3, form-step-4)
+        hideFormSteps(['form-step-2', 'form-step-3', 'form-step-4']);
 
-    if (inputValue === '') {
-        alert('Por favor, insira uma informação no campo.');
-    } else {
-        inputFieldMentory.value = '';
+        // Atualiza a largura da barra de progresso
+        updateProgressBar(20);
+    });
 
-        updateProgress(20);
-        inputFieldMentory.style.display = 'none';
-        selectFieldMentory.classList.remove('none');
-        selectFieldMentory.classList.add('select-style');
+    // Evento de clique no botão "Continuar" do form-step-1
+    document.querySelector('#create-mentory .continue').addEventListener('click', function(event) {
+      // Evita o envio do formulário
 
-        continueButtonMentory.classList.add('none');
-        continueButtonTwoMentory.classList.remove('none');
+        // Validação do campo de título
+        const inputTitulo = document.getElementById('input');
+        if (inputTitulo.value.trim() === '') {
+            inputTitulo.classList.add('error');
+            document.querySelector('#form-step-1 .warning').textContent = 'O campo não pode estar vazio';
+            inputTitulo.focus(); // Foca no campo de título para indicar o erro
+            return; // Impede a continuação do fluxo se houver erro
+        } else {
+            inputTitulo.classList.remove('error'); // Remove a classe error se o campo estiver preenchido corretamente
+        }
 
-        h1Title.innerText = 'Em qual categoria seu projeto se encaixa?';
+        // Esconde o form-step-1
+        document.getElementById('form-step-1').style.display = 'none';
+
+        // Mostra o form-step-2
+        document.getElementById('form-step-2').style.display = 'block';
+
+        // Altera o título para Step 2
+        h1Title.textContent = 'Em qual categoria sua mentoria se encaixa?';
+
+        // Esconde os demais passos (form-step-3, form-step-4)
+        hideFormSteps(['form-step-3', 'form-step-4']);
+
+        // Atualiza a largura da barra de progresso
+        updateProgressBar(20);
+    });
+
+    // Evento de clique no botão "Continuar" do form-step-2
+    document.querySelector('#create-mentory .continue-two').addEventListener('click', function(event) {
+      // Evita o envio do formulário
+
+        // Esconde o form-step-2
+        document.getElementById('form-step-2').style.display = 'none';
+
+        // Mostra o form-step-3
+        document.getElementById('form-step-3').style.display = 'block';
+
+        // Altera o título para Step 3
+        h1Title.textContent = 'Qual sua formação na área?';
+
+        // Esconde os demais passos (form-step-4)
+        hideFormSteps(['form-step-4']);
+
+        // Atualiza a largura da barra de progresso
+        updateProgressBar(20);
+    });
+
+    // Evento de clique no botão "Continuar" do form-step-3
+    document.querySelector('#create-mentory .continue-three').addEventListener('click', function(event) {
+      // Evita o envio do formulário
+
+        // Esconde o form-step-3
+        document.getElementById('form-step-3').style.display = 'none';
+
+        // Mostra o form-step-4
+        document.getElementById('form-step-4').style.display = 'block';
+
+        // Altera o título para Step 4
+        h1Title.textContent = 'Adicione uma descrição a sua mentoria';
+
+        // Atualiza a largura da barra de progresso
+        updateProgressBar(20);
+    });
+
+    // Evento de clique no botão "Criar" do form-step-4
+    document.querySelector('#create-mentory .continue-four').addEventListener('click', function(event) {
+        // Validação do campo de descrição (textarea)
+        const textareaDescricao = document.getElementById('description');
+        if (textareaDescricao.value.trim() === '') {
+          // Evita o envio do formulário
+            textareaDescricao.classList.add('error');
+            document.querySelector('#form-step-4 .warning').textContent = 'O campo não pode estar vazio';
+            textareaDescricao.focus(); // Foca no campo de descrição para indicar o erro
+        } else {
+            textareaDescricao.classList.remove('error'); // Remove a classe error se o campo estiver preenchido corretamente
+            document.querySelector('#form-step-4 .warning').textContent = ''; // Limpa qualquer mensagem de erro anterior
+        }
+    });
+
+    // Função para esconder os demais passos do formulário de mentoria
+    function hideFormSteps(stepsToHide) {
+        stepsToHide.forEach(stepId => {
+            const step = document.getElementById(stepId);
+            if (step) {
+                step.style.display = 'none';
+            }
+        });
+    }
+
+    // Função para atualizar a largura da barra de progresso
+    function updateProgressBar(progress) {
+        const currentWidth = parseInt(progressBar.style.width) || 0;
+        progressBar.style.width = currentWidth + progress + '%';
     }
 });
 
-// Evento para o segundo botão "Continuar" da Mentoria
-continueButtonTwoMentory.addEventListener('click', function () {
-    selectField2Mentory.classList.remove('none');
-    selectField2Mentory.classList.add('select-style');
 
-    selectFieldMentory.classList.remove('select-style');
-    selectFieldMentory.classList.add('none');
 
-    continueButtonTwoMentory.classList.add('none');
-    continueButtonThreeMentory.classList.remove('none');
-
-    h1Title.innerText = 'Qual é a sua formação na área?';
-
-    updateProgress(20);
-});
-
-// Evento para o terceiro botão "Continuar" da Mentoria
-continueButtonThreeMentory.addEventListener('click', function () {
-    h1Title.innerText = 'Quanto tempo está disposta a dedicar em seu projeto?';
-
-    selectField2Mentory.classList.remove('select-style');
-    selectField2Mentory.classList.add('none');
-
-    document.getElementById('hours').classList.remove('none');
-    document.getElementById('hours').classList.add('hours');
-
-    continueButtonThreeMentory.classList.add('none');
-    buttonFourMentory.classList.remove('none');
-
-    updateProgress(20);
-});
-
-// Evento para finalizar Mentoria
-buttonFourMentory.addEventListener('click', function () {
-    window.location.href = '/';
-    updateProgress(20);
-});
-
-// Evento para o botão "Continuar" do Curso
-continueButtonCourse.addEventListener('click', function () {
-    const inputValueC = inputFieldCourse.value.trim();
-
-    if (inputValueC === '') {
-        alert('Por favor, insira uma informação no campo.');
-    } else {
-        inputFieldCourse.value = '';
-
-        updateProgress(20);
-        inputFieldCourse.style.display = 'none';
-        selectFieldCourse.classList.remove('none');
-        selectFieldCourse.classList.add('select-style');
-
-        continueButtonCourse.classList.add('none');
-        continueButtonTwoCourse.classList.remove('none');
-
-        h1Title.innerText = 'Em qual categoria seu curso se encaixa?';
-    }
-});
-
-// Evento para o segundo botão "Continuar" do Curso
-continueButtonTwoCourse.addEventListener('click', function () {
-    selectLevelCourse.classList.remove('none');
-    selectLevelCourse.classList.add('select-style');
-
-    selectFieldCourse.classList.remove('select-style');
-    selectFieldCourse.classList.add('none');
-
-    continueButtonTwoCourse.classList.add('none');
-    continueButtonThreeCourse.classList.remove('none');
-
-    h1Title.innerText = 'Qual o nível do curso?';
-
-    updateProgress(20);
-});
-
-// Evento para o terceiro botão "Continuar" do Curso
-continueButtonThreeCourse.addEventListener('click', function () {
-    h1Title.innerText = 'Qual será a duração do curso?';
-
-    selectLevelCourse.classList.remove('select-style');
-    selectLevelCourse.classList.add('none');
-
-    document.getElementById('hours-course').classList.remove('none');
-    document.getElementById('hours-course').classList.add('hours');
-
-    continueButtonThreeCourse.classList.add('none');
-    buttonFourCourse.classList.remove('none');
-
-    updateProgress(20);
-});
-
-// Evento para finalizar Curso
-buttonFourCourse.addEventListener('click', function () {
-    window.location.href = 'cursos';
-    updateProgress(20);
-});

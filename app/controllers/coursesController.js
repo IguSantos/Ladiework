@@ -3,26 +3,7 @@ const courseModel = require("../models/coursemodel");
 const courseController = {
 
 
-    listPaginatedCourses: async (req, res) => {
-        
-        try {
-            let page  = req.query.page == undefined ? 1 : req.query.page; // Definir a página atual
-            let results = null // Valor padrão como nulo para oferecer ao paginador "false"
-            let regPage = 6 // Definir a quantidade de itens por página
-            let start = parseInt(page - 1) * regPage // Cálculo de páginas necessárias para cada página
-            let totReg = await courseModel.totalReg(); // Volta pro course models e pega o total de REGISTRO
-            let totPages = Math.ceil(totReg[0].total / regPage); // Total de páginas (1, 2 e 3...)
-            results = await courseModel.findPage(start, regPage); // Usa o metodo "Inicio e Quantia" 0,5
-            let pager = totReg[0].total <= regPage ? null : { "pagina_atual": page, "total_reg" : totReg[0].total, "total_paginas" : totPages };
-             res.render("pages/main", {pagina: "cursos" , courses: results, pager: pager , logado: req.session.logado}); // Seria o main ou a pagina de cursos?
-        } catch (e) {
-            console.log(e); // exibir os erros no console do vs code
-            res.json({ erro: "Falha ao acessar dados" });
-        }
-    },
-
     addCourse: async (req, res) => {
-        // res.locals.moment = moment;
        
         if (!errors.isEmpty()) {
             console.log(errors);
@@ -30,13 +11,10 @@ const courseController = {
         }
 
         var dataForm = {
-            TITULO_CURSOS: req.body.tarefa,
-            DURACAO_CURSOS: req.body.prazo,
-            NIVEL_DIFICUL_CURSOS: req.body.situacao,
-            CATEGORIA_CURSOS: req.body.situacao
+            TITULO_MENTORA: req.body.titulo,
+            BIOGRAFIA_MENTORA: req.body.prazo,
+           
         };
-
-        let ID_CURSOS = req.body.id_tarefa; // ???
 
         try {
             if(id_tarefa==""){

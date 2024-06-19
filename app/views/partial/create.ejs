@@ -8,150 +8,151 @@
 
     <%- include("../partial/header") %>
 
+        <% let valorCampos = { titulo:"", descricao:""} %>
 
-        <main>
 
-            <div class="style-progress-bar">
-                <div id="progress-bar">
-                    <div id="current-progress"></div>
+            <main>
+
+                <div class="style-progress-bar">
+                    <div id="progress-bar">
+                        <div id="current-progress"></div>
+                    </div>
                 </div>
-            </div>
 
-            <h1>Vamos começar!</h1>
-            <span>Escolha qual modalidade deseja criar...</span>
+                <h1>Vamos começar!</h1>
+                <span id="choose">Escolha qual modalidade deseja criar...</span>
 
-            <section id="cards" class="cards">
+                <section id="cards" class="cards">
 
-                <article id="card-course" class="card">
-                    <h2>Curso</h2>
+                    <article id="card-course" class="card">
+                        <h2>Curso</h2>
 
-                    <p>Transforme suas ideias em cursos com um clique. Comece a criar de forma dinâmica e intuitiva
-                        agora mesmo!</p>
+                        <p>Transforme suas ideias em cursos com um clique. Comece a criar de forma dinâmica e intuitiva
+                            agora mesmo!</p>
 
-                    <ion-icon name="book-outline"></ion-icon>
+                        <ion-icon name="book-outline"></ion-icon>
 
-                </article>
-
-                <article id="card-mentoring" class="card">
-                    <h2>Mentoria</h2>
-
-                    <p>Transforme sua experiência em oportunidades de aprendizado. Inicie sua jornada de mentoria
-                        com um simples clique e comece a orientar e inspirar outros de forma dinâmica e criativa!"
-                    </p>
-
-                    <ion-icon name="newspaper-outline"></ion-icon>
-                </article>
-
-            </section>
-
-
-            <form action="/criar" method="post" id="create-mentory">
-
-                <input type="text" placeholder="Exemplo: Aprenda Marketing Digital" id="input" class="none" minlength="10"
-                maxlength="100" required value="">
-
-                <select name="Marketing" class=" none" id="category-mentory">
-                    <option value="Marketing">Marketing Digital</option>
-                    <option value="Empreendedorismo">Empreendedorismo</option>
-                    <option value="TI">TI</option>
-                    <option value="Logística">Design</option>
-                </select>
-
-                <select name="Formacao" class=" none" id="category-formation-mentory">
-                    <option value="MestradoMarketing">Mestrada em Marketing Digital</option>
-                    <option value="CienciaCompu">Bacharelada em Ciência da Computação</option>
-                    <option value="CursoTecSoftware">Curso Técnico em Desenvolvimento de Software</option>
-                    <option value="DesignGrafico">Bacharelada em Design Gráfico</option>
-                </select>
-
-                <article id="hours" class="hours none">
-                    <label>
-                        <input type="checkbox" name="" id="nao_sei_ainda">
-                        Não sei ainda
-                    </label>
-                    <br>
-    
-                    <label>
-                        <input type="checkbox" name="" id="ocupado">
-                        Ocupado (1 - 2 horas)
-                    </label>
-                    <br>
-    
-                    <label>
-                        <input type="checkbox" name="" id="pouco_tempo">
-                        Tenho pouco tempo (2 - 4 horas)
-                    </label>
-                    <br>
-    
-                    <label>
-                        <input type="checkbox" name="" id="tempo_sobra">
-                        Tenho tempo de sobra (5 horas ou mais)
-                    </label>
-                </article>
-
-                <button id="continue" class="none">Continuar</button>
-                <button id="continue-two" class="none">Continuar</button>
-                <button id="continue-three" class="none">Continuar</button>
-                <button id="continue-four" class="none" type="submit">Criar</button>
-    
-
-            </form>
-
-
-
-            <form action="/criar" method="post" id="create-course">
-
-                <input type="text" placeholder="Exemplo: Curso de Design Gráfico" id="input-course" class="none"
-                    minlength="10" maxlength="100" required>
-
-                    <select name="Marketing" class=" none" id="category-course">
-                        <option value="Marketing">Marketing Digital</option>
-                        <option value="Empreendedorismo">Empreendedorismo</option>
-                        <option value="TI">TI</option>
-                        <option value="Logística">Design</option>
-                    </select>
-        
-
-                    <select name="Nivel" class=" none" id="category-level">
-                        <option value="Iniciante">Iniciante</option>
-                        <option value="Intermediario">Intermediário</option>
-                        <option value="Avancado">Avançado</option>
-        
-                    </select>
-
-                    <article id="hours-course" class="hours none">
-                        <label>
-                            <input type="checkbox" name="" id="10">
-                            2 - 10 horas
-                        </label>
-                        <br>
-        
-                        <label>
-                            <input type="checkbox" name="" id="20">
-                            10 - 20 horas
-                        </label>
-                        <br>
-        
-                        <label>
-                            <input type="checkbox" name="" id="40">
-                            20 - 40 horas
-                        </label>
-                        <br>
-        
-                        <label>
-                            <input type="checkbox" name="" id="40+">
-                            40 horas ou mais
-                        </label>
                     </article>
 
-                    <button id="continue-course" class="none">Continuar</button>
-                    <button id="continue-two-course" class="none">Continuar</button>
-                    <button id="continue-three-course" class="none">Continuar</button>
-                    <button id="continue-four-course" class="none" type="submit">Criar</button>
-            </form>
+
+
+                    <article id="card-mentoring" class="card">
+                        <h2>Mentoria</h2>
+
+                        <p>Transforme sua experiência em oportunidades de aprendizado. Inicie sua jornada de mentoria
+                            com um simples clique e comece a orientar e inspirar outros de forma dinâmica e criativa!"
+                        </p>
+
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                    </article>
+
+                </section>
+
+
+                <form action="/criar" method="post" id="create-mentory" class="hidden">
+
+                    <div class="form-step" id="form-step-1">
+                        <input type="text" placeholder="Exemplo: Aprenda Marketing Digital" id="input" class="input"
+                               minlength="10" maxlength="100" name="titulo" value="<%= valorCampos.titulo %>" required>
+                        <span class="warning"></span>
+                        <button class="continue" type="button">Continuar</button>
+                    </div>
+                    
+                    <div class="form-step" id="form-step-2">
+                        <select name="Marketing" class="select-style" id="category-mentory">
+                            <option value="Marketing">Marketing Digital</option>
+                            <option value="Empreendedorismo">Empreendedorismo</option>
+                            <option value="TI">TI</option>
+                            <option value="Design">Design</option>
+                        </select>
+                        <button class="continue-two" type="button">Continuar</button>
+                    </div>
+                    
+                    <div class="form-step" id="form-step-3">
+                        <select name="Formacao" id="category-formation-mentory" class="select-style">
+                            <option value="MestradoMarketing">Mestrado em Marketing Digital</option>
+                            <option value="CienciaCompu">Bacharelado em Ciência da Computação</option>
+                            <option value="CursoTecSoftware">Curso Técnico em Desenvolvimento de Software</option>
+                            <option value="DesignGrafico">Bacharelado em Design Gráfico</option>
+                        </select>
+                        <button class="continue-three" type="button">Continuar</button>
+                    </div>
+                    
         
+                    <div class="form-step" id="form-step-4">
+                        <textarea name="description" id="description" class="description"
+                            placeholder="Adicione uma descrição para sua mentoria" ><%= valorCampos.descricao %></textarea>
+                        <span class="warning"></span>
+                        <button class="continue-four" type="submit">Criar</button>
+                    </div>
+        
+            
+        
+                </form>
 
-        </main>
 
 
-        <script src="js/create.js"></script>
+                <form id="create-course" class="hidden">
+
+                    <div class="form-step" id="form-step-1">
+                        <input type="text" placeholder="Exemplo: Curso de Design Gráfico" id="input-course" 
+                            minlength="10" maxlength="100" required>
+                    </div>
+                
+                    <div class="form-step" id="form-step-2">
+                        <select name="Marketing"  id="category-course">
+                            <option value="Marketing">Marketing Digital</option>
+                            <option value="Empreendedorismo">Empreendedorismo</option>
+                            <option value="TI">TI</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-step" id="form-step-3">
+                        <select name="Nivel"  id="category-level">
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediario">Intermediário</option>
+                            <option value="Avancado">Avançado</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-step" id="form-step-4">
+                        <article id="hours-course" class="hours">
+                            <label>
+                                <input type="checkbox" name="" id="10">
+                                2 - 10 horas
+                            </label>
+                            <br>
+                            <label>
+                                <input type="checkbox" name="" id="20">
+                                10 - 20 horas
+                            </label>
+                            <br>
+                            <label>
+                                <input type="checkbox" name="" id="40">
+                                20 - 40 horas
+                            </label>
+                            <br>
+                            <label>
+                                <input type="checkbox" name="" id="40+">
+                                40 horas ou mais
+                            </label>
+                        </article>
+                    </div>
+                
+                    <!-- Botões para navegação entre os passos (opcional) -->
+                    <div class="botoes-navegacao">
+                        <button id="continue-course" >Continuar</button>
+                        <button id="continue-two-course" >Continuar</button>
+                        <button id="continue-three-course" >Continuar</button>
+                        <button id="continue-four-course" >Criar</button>
+                    </div>
+                
+                </form>
+                
+
+
+            </main>
+
+
+            <script src="js/create.js"></script>

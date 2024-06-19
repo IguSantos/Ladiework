@@ -1,10 +1,13 @@
-// Seletor para o campo de entrada de mensagem
+// Seletor para o campo de entrada de mensagem e para o contêiner de conversa
 const messageInput = document.getElementById('message-input');
+const submitBtn = document.getElementById('submitBtn');
 
 // Adiciona um evento de "keypress" ao campo de entrada de mensagem
 messageInput.addEventListener('keypress', function(event) {
-    // Verifica se a tecla pressionada foi a tecla Enter (código 13)
-    if (event.keyCode === 13) {
+    // Verifica se a tecla pressionada foi a tecla Enter
+    if (event.key === 'Enter') {
+        // Previne a ação padrão do Enter (submissão de formulário)
+        event.preventDefault();
         // Chama a função sendMessage() para enviar a mensagem
         sendMessage();
     }
@@ -14,11 +17,11 @@ messageInput.addEventListener('keypress', function(event) {
 function sendMessage() {
     // Obtém o texto da mensagem do campo de entrada
     const messageText = messageInput.value.trim();
-    
+
     // Verifica se o campo de entrada não está vazio
     if (messageText !== '') {
         // Cria um novo elemento de mensagem
-        const messageContainer = document.getElementById('conversation');
+        const mainChat = document.getElementById('main-chat');
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-container-you');
         messageElement.innerHTML = `
@@ -29,24 +32,31 @@ function sendMessage() {
                 <img src="images/profilephoto.svg" alt="Foto do usuário" class="user-photo">
             </div>
         `;
-        
+
         // Adiciona a nova mensagem ao contêiner de conversa
-        messageContainer.appendChild(messageElement);
-        
+        mainChat.appendChild(messageElement);
+
         // Limpa o campo de entrada
         messageInput.value = '';
-        
+
         // Rola para baixo para mostrar a última mensagem
-        messageContainer.scrollTop = messageContainer.scrollHeight;
+        mainChat.scrollTop = mainChat.scrollHeight;
     }
 }
+
+
+
+
+
+
+
+
+
 
 // Função para exibir o perfil da pessoa selecionada na lista de contatos
 function showProfile(contactName) {
     // Atualiza o nome do contato na seção de conversa
     document.getElementById('contact-name').innerText = contactName;
-    
-
 }
 
 // Adiciona eventos de clique aos itens da lista de contatos para exibir o perfil
@@ -72,3 +82,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+
+
+
+
+

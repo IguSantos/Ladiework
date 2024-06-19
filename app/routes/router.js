@@ -2,9 +2,10 @@ var express = require("express");
 var router = express.Router();
 const pool = require("../../config/pool_connections")
 const userController = require("../controllers/userController")
-const coursesController = { listPaginatedCourses, addCourse } = require("../controllers/coursesController")
+const mentoryController = {  addMentory } = require("../controllers/coursesController")
 
 const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser } = require("../models/authenticator_middleware");
+const mentoringController = require("../controllers/mentoringController");
 
 
 
@@ -73,21 +74,24 @@ router.get('/cursos', function (req, res) {
 router.get('/criar', (req, res) => {
   res.render('pages/main', {
     pagina: "create",
-    dados: null,
+    dados: null,  
     errorsList: null,
     logado: req.session.logado
   });
 });
 
-
-router.get("/criar", function (req, res) {
-  res.render("pages/main", { pagina: "criar" , dados: null, errorsList: null });
-});
-
+// Envio do formulario
 router.post("/criar",  function (req, res) {
-    coursesController.addCourse(req, res);
+    mentoringController.addMentoring(req, res);
   }
 );
+
+// PAGINA DE ADMINISTRAÇÃO MENTORAr
+router.get('/paginadeadministracao', (req, res) => {
+  console.log("Valor de mentoring na sessão:", req.session.latestMentoring); // Adiciona o console.log aqui
+  res.render('pages/adm/usuaria/dashboard', { logado: req.session.logado, mentoring: req.session.latestMentoring });
+});
+
 
 
 // router.post("/criar",  function (req, res) {
@@ -97,13 +101,10 @@ router.post("/criar",  function (req, res) {
 
 
 router.get('/informacao_da_mentoria', (req, res) => {
-  res.render('pages/main', { pagina: "mentoria_info", logado: req.session.logado });
+  res.render('pages/main', { pagina: "mentoria_info", logado: req.session.logado});
 });
 
-// PAGINA DE ADMINISTRAÇÃO MENTORA
-router.get('/paginadeadministracao', (req, res) => {
-  res.render('pages/adm/usuaria/dashboard', {  logado: req.session.logado });
-});
+
 
 
 // MENTORIAS
