@@ -8,7 +8,7 @@
 
     <%- include("../partial/header") %>
 
-        <% let valorCampos = { titulo:"", descricao:""} %>
+        <% let valorCampos = { titulo:"", descricao:"",   formacao:"",   disponibilidade:"", duracao:""} %>
 
 
             <main>
@@ -53,43 +53,86 @@
 
                     <div class="form-step" id="form-step-1">
                         <input type="text" placeholder="Exemplo: Aprenda Marketing Digital" id="input" class="input"
-                               minlength="10" maxlength="100" name="titulo" value="<%= valorCampos.titulo %>" required>
+                            minlength="10" maxlength="60" name="titulo" value="<%= valorCampos.titulo %>" required>
                         <span class="warning"></span>
-                        <button class="continue" type="button">Continuar</button>
+                        <button class="continue" type="button" data-action="next">Continuar</button>
                     </div>
                     
                     <div class="form-step" id="form-step-2">
-                        <select name="Marketing" class="select-style" id="category-mentory">
-                            <option value="Marketing">Marketing Digital</option>
-                            <option value="Empreendedorismo">Empreendedorismo</option>
-                            <option value="TI">TI</option>
-                            <option value="Design">Design</option>
-                        </select>
-                        <button class="continue-two" type="button">Continuar</button>
+                        <article class="hours">
+                            <label>
+                                <input type="radio" name="disponibilidade" id="hora1" value="1" <% if (valorCampos.disponibilidade === '1') { %> checked <% } %>>
+                                1 Hora
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="disponibilidade" id="hora2" value="2" <% if (valorCampos.disponibilidade === '2') { %> checked <% } %>>
+                                2 Horas
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="disponibilidade" id="hora3" value="3" <% if (valorCampos.disponibilidade === '3') { %> checked <% } %>>
+                                3 Horas
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="disponibilidade" id="hora4mais" value="4+" <% if (valorCampos.disponibilidade === '4+') { %> checked <% } %>>
+                                4 Horas ou Mais
+                            </label>
+                        </article>
+                        <span class="warning"></span>
+                        
+                        <button class="continue-two" type="button" data-action="next">Continuar</button>
                     </div>
                     
                     <div class="form-step" id="form-step-3">
-                        <select name="Formacao" id="category-formation-mentory" class="select-style">
-                            <option value="MestradoMarketing">Mestrado em Marketing Digital</option>
-                            <option value="CienciaCompu">Bacharelado em Ciência da Computação</option>
-                            <option value="CursoTecSoftware">Curso Técnico em Desenvolvimento de Software</option>
-                            <option value="DesignGrafico">Bacharelado em Design Gráfico</option>
+                        <select name="formacao" id="category-formation-mentory" class="select-style">
+                            <option <%= valorCampos.formacao === "Mestrado" ? 'selected' : '' %> value="MestradoMarketing">Mestrado em Marketing Digital</option>
+                            <option <%= valorCampos.formacao === "CienciaCompu" ? 'selected' : '' %> value="CienciaCompu">Bacharelado em Ciência da Computação</option>
+                            <option <%= valorCampos.formacao === "CursoTecSoftware" ? 'selected' : '' %> value="CursoTecSoftware">Curso Técnico em Desenvolvimento de Software</option>
+                            <option <%= valorCampos.formacao === "DesignGrafico" ? 'selected' : '' %> value="DesignGrafico">Bacharelado em Design Gráfico</option>
+                            <option <%= valorCampos.formacao === "Outro" ? 'selected' : '' %> value="Outro">Outro</option>
+                            
                         </select>
-                        <button class="continue-three" type="button">Continuar</button>
+                        <button class="continue-three" type="button" data-action="next">Continuar</button>
+                    </div>
+
+                    <div class="form-step" id="form-step-4">
+                        <article class="hours">
+                            <label>
+                                <input type="radio" name="duracao" id="1s" value="1" <% if (valorCampos.duracao === '1') { %> checked <% } %>>
+                                1 Semana
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="duracao" id="2s" value="2" <% if (valorCampos.duracao === '2') { %> checked <% } %>>
+                                2 Semanas
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="duracao" id="3s" value="3" <% if (valorCampos.duracao === '3') { %> checked <% } %>>
+                                3 Semanas
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="duracao" id="4s+" value="4+" <% if (valorCampos.duracao === '4+') { %> checked <% } %>>
+                                4 Semanas ou Mais
+                            </label>
+                        </article>
+                        <span class="warning"></span>
+                        
+                        <button class="continue-four" type="button" data-action="next">Continuar</button>
                     </div>
                     
-        
-                    <div class="form-step" id="form-step-4">
-                        <textarea name="description" id="description" class="description"
-                            placeholder="Adicione uma descrição para sua mentoria" ><%= valorCampos.descricao %></textarea>
+                    <div class="form-step" id="form-step-5">
+                        <textarea name="descricao" id="description" class="description"
+                            placeholder="Adicione uma descrição para sua mentoria"><%= valorCampos.descricao %></textarea>
                         <span class="warning"></span>
-                        <button class="continue-four" type="submit">Criar</button>
+                        <button class="continue-five" type="submit">Criar</button>
                     </div>
-        
-            
-        
+                
                 </form>
-
+                
 
 
                 <form id="create-course" class="hidden">

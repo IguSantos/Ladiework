@@ -65,10 +65,19 @@ router.get("/sair", clearSession, function (req, res) {
 
 // CURSOS
 
-router.get('/cursos', function (req, res) {
-  coursesController.listPaginatedCourses(req, res);
-});
+// router.get('/cursos', function (req, res) {
+//   coursesController.listPaginatedCourses(req, res);
+// });
 
+
+router.get('/cursos', (req, res) => {
+  res.render('pages/main', {
+    pagina: "cursos",
+    dados: null,  
+    errorsList: null,
+    logado: req.session.logado
+  });
+});
 
 // CRIAR
 router.get('/criar', (req, res) => {

@@ -1,16 +1,7 @@
-/* Adicionando transições suaves para fontes e tamanhos */
 
-main {
-    display: flex;
-    gap: 20px;
-    width: 83%;
-    margin: 40px auto;
-    justify-content: center;
-    transition: all 0.5s ease;
-}
 
 body h3 {
-    margin-left: 140px;
+    margin-left: 18%;
     margin-top: 30px;
     transition: all 0.5s ease;
 }
@@ -19,13 +10,32 @@ body h3 {
 h1 {
     font-size: 1.4rem;
     text-align: left;
-    margin-left: 101px;
-    margin-top: 60px;
+    margin-left: 18%;
+    margin-top: 33px;
     font-weight: 600;
     transition: all 0.5s ease;
 }
 
-main section {
+
+main {
+    /* Estilos para a seção principal */
+    display: flex;
+    gap: 100px;
+    width: 70%;
+    margin: 40px auto;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+main h3 {
+    /* Estilos para o título "Mais cursos para você" dentro da seção principal */
+    margin-left: 18%;
+    margin-top: 30px;
+    transition: all 0.5s ease;
+}
+
+main ul {
+    /* Estilos para a lista de cursos comprados */
     overflow-y: scroll;
     width: 690px;
     overflow-x: hidden;
@@ -33,12 +43,9 @@ main section {
 }
 
 .purchased-course {
-    padding: 10px;
-    width: 680px;
-    overflow-x: hidden;
-    height: 130px;
-    background-color: var(--third-color);
-    border-radius: 6px;
+    /* Estilos para cada curso comprado na lista */
+    height: 65px;
+    border-bottom: 1px solid rgb(209, 209, 209);
     display: flex;
     gap: 15px;
     position: relative;
@@ -48,13 +55,15 @@ main section {
 }
 
 .info-purchase {
+    /* Estilos para as informações do curso comprado (nome do curso e autor) */
     text-align: left;
     width: 500px;
     transition: all 0.5s ease;
 }
 
 .info-purchase h2 {
-    font-size: 1.4rem;
+    /* Estilos para o título do curso */
+    font-size: 1rem;
     color: var(--cta-titles);
     font-weight: 600;
     margin-bottom: 3px;
@@ -62,44 +71,38 @@ main section {
 }
 
 .info-purchase p {
-    height: 50px;
+    /* Estilos para informações adicionais (autor, por exemplo) */
     opacity: 0.8;
-    font-size: 0.7rem;
     margin-bottom: 3px;
     transition: all 0.5s ease;
-}
-
-.info-purchase img {
-    width: 20px;
-    transition: all 0.5s ease;
-}
-
-.info-purchase .stars {
     font-size: 0.9rem;
-    color: var(--primary-color);
-    opacity: 0.8;
+    color: black;
+}
+
+.purchased-course img {
+    /* Estilos para as imagens dos cursos comprados */
+    width: 45%;
+    object-fit: cover;
     transition: all 0.5s ease;
 }
 
-.info-purchase .classification {
-    font-size: 0.8rem;
-    margin-left: 5px;
-    opacity: 0.9;
-    transition: all 0.5s ease;
+.price-and-trash {
+    /* Estilos para o preço do curso e ícone de lixeira */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: black;
 }
 
-.purchased-course
-    img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    transition: all 0.5s ease;
+.price-and-trash ion-icon {
+    /* Estilos para o ícone de lixeira */
+    font-size: 1.1rem;
+    margin-left: 10px;
+    margin-bottom: 5px;
 }
 
-/* FINALIZAR COMPRA */
-
+/* Estilos para a seção de finalização da compra */
 main aside {
-    background-color: var(--pop-up-color);
     width: 300px;
     height: 380px;
     padding: 15px;
@@ -109,23 +112,27 @@ main aside {
 }
 
 main aside h2 {
+    /* Estilos para o título "Total" */
     text-align: left;
-    font-size: 1.2rem;
-    color: var(--font-color);
+    font-size: 1.7rem;
+    color: var(--second-font-hover);
+    font-weight: 700;
     padding-bottom: 5px;
     transition: all 0.5s ease;
 }
 
 main aside p {
+    /* Estilos para o valor total */
     margin-top: -10px;
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 300;
     text-align: left;
     opacity: 0.8;
     transition: all 0.5s ease;
 }
 
 main aside span {
+    /* Estilos para o desconto */
     font-size: 0.8rem;
     opacity: 0.8;
     max-width: 100%;
@@ -134,35 +141,8 @@ main aside span {
     transition: all 0.5s ease;
 }
 
-h4 {
-    font-size: 1rem;
-    text-align: left;
-    margin: 5px;
-    opacity: 0.8;
-    transition: all 0.5s ease;
-}
-
-aside hr {
-    width: 100%;
-    transition: all 0.5s ease;
-}
-
-input[type="search"] {
-    margin-top: 20px;
-    border-radius: 10px 0 0 10px;
-    border: 1px solid rgba(128, 128, 128, 0.705);
-    padding: 4px;
-    width: 150px;
-    height: 30px;
-    transition: all 0.5s ease;
-}
-
-input[type="search"]::placeholder {
-    font-size: 0.8rem;
-    transition: all 0.5s ease;
-}
-
 .apply {
+    /* Estilos para o botão de aplicar desconto */
     cursor: pointer;
     border-radius: 0 10px 10px 0;
     width: 80px;
@@ -177,6 +157,7 @@ input[type="search"]::placeholder {
 
 .hour,
 .module-amount {
+    /* Estilos para informações adicionais (horas, módulos) */
     margin-top: 5px 0;
     font-size: 0.9rem;
     opacity: 0.9;
@@ -184,38 +165,36 @@ input[type="search"]::placeholder {
     transition: all 0.5s ease;
 }
 
-main aside .hour::before,
-main aside .module-amount::before {
-    content: "\2022";
-    margin-right: 0.5em;
-    color: #000;
-    transition: all 0.5s ease;
+.price-course {
+    /* Estilos para o preço do curso */
+    margin-left: 5px;
 }
 
 main aside button {
-    width: 200px;
+    /* Estilos para o botão "Finalizar compra" */
+    width: 100%;
     cursor: pointer;
     height: 35px;
     text-align: center;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgba(128, 128, 128, 0.808);
-    color: rgba(128, 128, 128, 0.808);
+    background-color: var(--cta);
+    color: white;
     font-size: 1rem;
     font-weight: 300;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 20px 0;
     transition: all 0.5s ease;
+    border: none;
 }
 
 main aside button:hover {
+    /* Estilos para o botão "Finalizar compra" quando hover */
     border: none;
     color: white;
-    background-color: var(--button-color);
+    background-color: var(--cta-hover);
     transition: background-color 0.6s ease;
 }
 
-/* SLIDER MAIS CURSOS */
-
+/* Estilos para a seção "Mais cursos para você" */
 .more-curses {
     margin: 40px auto;
     width: 92%;
@@ -224,20 +203,12 @@ main aside button:hover {
     transition: all 0.5s ease;
 }
 
-.more-curses h3 {
-    font-weight: 600;
-    font-size: 1.4rem;
-    margin: 20px 0;
-    transition: all 0.5s ease;
-}
 
 .price,
 .installments {
     display: none;
     transition: all 0.5s ease;
 }
-
-/* SLIDER */
 
 hr {
     border: none;
@@ -247,58 +218,56 @@ hr {
     background-color: var(--font-color);
     transition: all 0.5s ease;
 }
+.more-curses {
+display: flex;
+height: 100px;
+border: 1px solid blue;
+width: 70%;
+margin: auto;
 
-.slider {
-    display: flex;
-    gap: 20px;
-    width: 85%;
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    scroll-snap-type: x mandatory;
-    transition: all 0.5s ease;
 }
 
-.slider article {
-    cursor: pointer;
-    height: 492px;
-    background-color: var(--third-color);
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    scroll-snap-align: start;
-    transition: all 0.5s ease;
-}
-
-.slider img {
-    width: 250px;
-    height: 130px;
-    margin-top: 10px;
-    transition: all 0.5s ease;
-}
-
-
-.slider h3 {
-    border-top: 1px solid rgb(172, 172, 172);
-    color: var(--font-color);
-    font-size: 1.1rem;
+.more-curses-info {
+    margin-left: 5px;
     text-align: left;
-    padding-top: -2px;
-    margin: 5px 0;
-    transition: all 0.5s ease;
-    height: 56px;
-    
 }
 
-.slider ul {
+.more-curses-info > p {
+    font-size: 0.4rem;
+}
+
+.more-curses article {
+    cursor: pointer;
+    height: 100px;
+    width: 400px;
+    text-align: center;
+    border: 1px solid red;
+    display: flex;
+
+}
+
+
+
+.more-curses img {
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+
+.more-curses  h4 {
+  font-size: 1rem;
+
+
+}
+
+.more-curses ul{
     height: 83px;
 }
 
-.slider p {
+.more-curses p {
     font-size: 0.7rem;
     opacity: 0.8;
     text-align: left;
-    height: 100px;
     margin-bottom: 5px;
     transition: all 0.5s ease;
     overflow-y: hidden;
@@ -306,7 +275,7 @@ hr {
 
 
 
-.slider li {
+.more-curses li {
     font-size: 0.8rem;
     text-align: left;
     display: block;
@@ -319,7 +288,7 @@ hr {
     transition: all 0.5s ease;
 }
 
-.slider article button {
+.more-curses article button {
     margin: 20px;
     width: 60%;
     font-weight: 600;
@@ -333,7 +302,7 @@ hr {
     transition: all 0.5s ease;
 }
 
-.slider article button:hover {
+.more-curses article button:hover {
     border: none;
     color: white;
     background-color: var(--button-color);
@@ -365,6 +334,7 @@ hr {
     display: inline;
     transition: all 0.5s ease;
 }
+
 
 
 /* MOBILE */
@@ -426,7 +396,7 @@ hr {
         margin: 30px 0;
     }
 
-    section {
+    ul {
         width: 90%;
         margin: auto;
         overflow-y: auto;
@@ -512,21 +482,21 @@ hr {
         align-items: center;
     }
 
-    .slider article p {
+    .more-curses article p {
         font-size: 0.8rem;
         height: 138px;
     }
 
-    .slider article button {
+    .more-curses article button {
         width: 200px;
     }
 
-    .slider article {
+    .more-curses article {
         height: auto;
         width: 90%;
     }
 
-    .slider {
+    .more-curses {
         height: auto;
     }
 
@@ -555,21 +525,15 @@ hr {
 /* DESKTOP */
 
 @media (min-width: 1900px) and (max-width: 2100px) {
-    main {
-        width: 80%;
-    }
 
 
-    h1 {
-        margin-left: 135px;
-    }
 
-    section {
+    ul {
         width: 661px;
 
     }
 
-    section article {
+    ul article {
         width: 656px;
     }
 
@@ -589,11 +553,8 @@ hr {
         width: 75%;
     }
 
-    .slider {
+    .more-curses {
         width: 80%;
     }
 
-    body h3 {
-        margin-left: 120px;
-    }
 }

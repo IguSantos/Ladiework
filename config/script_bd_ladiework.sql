@@ -102,15 +102,16 @@ CREATE TABLE `mentora` (
   `ID_MENTORA` int NOT NULL AUTO_INCREMENT,
   `REDES_SOCIAIS_MENTORA` varchar(30) DEFAULT NULL,
   `FORM_ACADEMICA_MENTORA` mediumtext NOT NULL,
-  `DISPONIBILIDADE_HORARIO_MENTORA` datetime NOT NULL,
+  `DISPONIBILIDADE_HORARIO_MENTORA` varchar(20) NOT NULL,
   `STATUS_MENTORA` enum('Online','Offline') NOT NULL,
   `TITULO_MENTORA` varchar(60) NOT NULL,
-  `HISTORICO_PROFISSIONAL_MENTORA` mediumtext NOT NULL,
+  `DURACAO_MENTORIA` mediumtext NOT NULL,
   `BIOGRAFIA_MENTORA` mediumtext NOT NULL,
   `AVALIACOES_MENTORA` mediumtext,
   PRIMARY KEY (`ID_MENTORA`),
   UNIQUE KEY `REDES_SOCIAIS_MENTORA_UNIQUE` (`REDES_SOCIAIS_MENTORA`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 
 -- Tabela pagamento_cursos: Tabela que armazena informações sobre os pagamentos de cursos realizados pelos usuários.

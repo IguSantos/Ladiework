@@ -6,43 +6,27 @@
 
 <body>
     <%- include("../partial/header") %>
-        <h1>Meu carrinho</h1>
-        <main>
-            <section>
-
-                <article class="purchased-course">
-                    <div class="info-purchase">
-                        <h2>Marketing Digital</h2>
-                        <p>Curso abrange os fundamentos e estratégias avançadas do marketing digital, capacitando os
-                            alunos
-                            a dominar as ferramentas e técnicas necessárias para promover marcas, produtos e serviços
-                            online. </p>
-                        <span class="stars">4.5</span>
-                        <div class="stars-icon"> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                            <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
-                                name="star-half"></ion-icon>
-                        </div> <span class="classification">220.000
-                            classificações</span>
-
-
-                        <span class="price">R$ 100,00</span>
-                        <span class="installments">3x de R$25,00</span> <br>
-                    </div>
-
-                    <img src="images/2787860-1024x1024.jpg" alt="">
-                    <ion-icon  class="close" name="close" onclick="removeArticle(this)"></ion-icon>
-
-
-                </article>
-
-
-            </section>
-
+    <h1>Meu carrinho</h1>
+    <main>
+          <ul class="purchased-courses">
+    <a href="informacao_da_mentoria">
+        <li class="purchased-course">
+            <img src="images/2787860-1024x1024.jpg" alt="">
+            <div class="info-purchase">
+                <h2>Marketing Digital</h2>
+                <p>Leticia</p>
+            </div>
+            <div class="price-and-trash">
+                <p class="show-price">R$<span class="price-course">100</span></p>
+                <ion-icon name="trash-outline" onclick="removeArticle(this)"></ion-icon>
+            </div>
+        </li>
+    </a>
+</ul>
 
             <aside>
-                <h2>TOTAL:</h2>
+                <h2>Total:</h2>
                 <p>R$ 100,00</p>
-                <span>4x de R$25,00</span>
                 <br>
 
                 <span class="discont">45% de desconto</span>
@@ -50,9 +34,6 @@
 
                 <hr>
 
-                <h4>Promoções</h4>
-
-                <div><input type="search" placeholder="Código do cupom"><button class="apply">Aplicar</button></div>
 
 
             </aside>
@@ -66,81 +47,17 @@
         <aside class="more-curses">
 
 
-            <button class="prevButton"><ion-icon name="chevron-back-outline"></ion-icon></button>
-            <div class="slider">
-
                 <article>
                     <img src="images/templatephoto.svg" alt="">
-                    <h3>Como criar sua empresa</h3>
-                    <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de marketing e gestão. Você aprenderá a transformar sua ideia em um negócio viável, explorando temas como planejamento estratégico, análise de mercado e desenvolvimento de produtos.</p>
-                    <ul>
-                        <li>Módulo 1: Introdução ao Empreendedorismo</li>
-                        <li>Módulo 2: Planejamento de Negócios</li>
-                    </ul>
-                    <button>Adicionar ao carrinho</button>
+                    <div class="more-curses-info">
+                        <h4>Como criar sua empresa</h4>
+                        <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de marketing e gestão..</p>
+                    </div>
                 </article>
             
-                <article>
-                    <img src="images/templatephoto.svg" alt="">
-                    <h3>Desenvolvimento Web Completo</h3>
-                    <p>Este curso oferece uma abordagem abrangente para dominar o desenvolvimento web, desde HTML básico até técnicas avançadas de JavaScript e frameworks modernos como React e Node.js. Ideal para iniciantes e desenvolvedores em busca de atualização profissional.</p>
-                    <ul>
-                        <li>Módulo 1: HTML e CSS Fundamentais</li>
-                        <li>Módulo 3: Frameworks Modernos</li>
-                    </ul>
-                    <button>Adicionar ao carrinho</button>
-                </article>
             
-                <article>
-                    <img src="images/templatephoto.svg" alt="">
-                    <h3>Marketing Digital Estratégico</h3>
-                    <p>Aprenda as melhores práticas de marketing digital para promover negócios online. Este curso cobre desde SEO e redes sociais até campanhas pagas, proporcionando conhecimentos essenciais para alcançar e engajar seu público-alvo.</p>
-                    <ul>
-                        <li>Módulo 1: SEO e Otimização de Conteúdo</li>
-                        <li>Módulo 3: Campanhas de Marketing Online</li>
-                    </ul>
-                    <button>Adicionar ao carrinho</button>
-                </article>
-            
-                <article>
-                    <img src="images/templatephoto.svg" alt="">
-                    <h3>Finanças Pessoais e Investimentos</h3>
-                    <p>Este curso oferece orientações práticas para gerenciar suas finanças pessoais e explorar oportunidades de investimento. Aprenda a criar um plano financeiro sólido, investir em mercados financeiros e alcançar independência financeira.</p>
-                    <ul>
-                        <li>Módulo 1: Fundamentos de Finanças Pessoais</li>
-                        <li>Módulo 3: Planejamento para o Futuro</li>
-                    </ul>
-                    <button>Adicionar ao carrinho</button>
-                </article>
-            
-                <article>
-                    <img src="images/templatephoto.svg" alt="">
-                    <h3>Design Gráfico Avançado</h3>
-                    <p>Explore técnicas avançadas de design gráfico neste curso, abrangendo desde princípios fundamentais de design até software avançado de edição. Ideal para designers que desejam aprimorar suas habilidades e criar projetos inovadores.</p>
-                    <ul>
-                        <li>Módulo 1: Teoria e Princípios de Design</li>
-                        <li>Módulo 3: Aplicações Práticas em Design</li>
-                    </ul>
-                    <button>Adicionar ao carrinho</button>
-                </article>
-            
-                <article>
-                    <img src="images/templatephoto.svg" alt="">
-                    <h3>Culinária Internacional</h3>
-                    <p>Descubra segredos da culinária internacional neste curso emocionante. Aprenda técnicas de preparação, ingredientes típicos e pratos clássicos de diferentes culturas ao redor do mundo.</p>
-                    <ul>
-                        <li>Módulo 1: Cozinha Mediterrânea</li>
-                        <li>Módulo 3: Sabores da América Latina</li>
-                    </ul>
-                    <button>Adicionar ao carrinho</button>
-                </article>
-            
-            </div>
-            
-
-            <button class="nextButton"><ion-icon name="chevron-forward-outline"></ion-icon></button>
 
         </aside>
 
 
-        <script src="js/carrinho.js"></script>
+        <script src="js/crinho.js"></script>

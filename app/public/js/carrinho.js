@@ -1,8 +1,14 @@
 // EXCLUIR CURSO
-
-function removeArticle(icon) {
-    icon.parentNode.remove();
+function removeArticle(iconElement) {
+    // Encontra o elemento <li> pai do ícone clicado
+    const listItem = iconElement.closest('.purchased-course');
+    
+    if (listItem) {
+        listItem.remove(); // Remove o <li> do DOM
+    }
 }
+
+
 
 // SLIDER
 

@@ -1,3 +1,34 @@
+// BARRA DE PESQUISA
+
+function filterCourses() {
+  // Obtém o valor inserido no campo de pesquisa e converte para minúsculas
+  var inputText = document.getElementById('searchInput').value.toLowerCase();
+  
+  // Obtém todos os elementos de curso
+  var courses = document.querySelectorAll('.course');
+
+  // Percorre cada curso
+  courses.forEach(function(course) {
+    // Obtém o título do curso e converte para minúsculas
+    var courseTitle = course.querySelector('h3').textContent.toLowerCase();
+    
+    // Verifica se o título do curso contém o texto de entrada
+    if (courseTitle.includes(inputText)) {
+      course.style.display = 'flex'; // Exibe o curso se corresponder ao filtro
+    } else {
+      course.style.display = 'none'; // Oculta o curso se não corresponder ao filtro
+    }
+  });
+}
+
+// Adiciona um ouvinte de evento para detectar a entrada de texto no campo de pesquisa
+document.getElementById('searchInput').addEventListener('input', filterCourses);
+
+
+
+
+
+
 // INFO CURSOS
 var learnMoreButtons = document.querySelectorAll('.learn-more');
 
@@ -18,18 +49,6 @@ learnMoreButtons.forEach(function (button) {
 });
 
 
-
-// FILTRO
-
-document.getElementById('dropdownBtn').addEventListener('click', function () {
-    // Mostra ou oculta a lista de opções
-    var dropdownOptions = document.getElementById('dropdownOptions');
-    dropdownOptions.style.display = dropdownOptions.style.display === 'none' ? 'block' : 'none';
-    // Seleciona o ícone dentro do botão
-    var icon = document.querySelector('#dropdownBtn ion-icon');
-    // Inverte a rotação do ícone
-    icon.style.transform = icon.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
-});
 
 // Adiciona um evento de clique a cada item da lista suspensa
 var dropdownItems = document.querySelectorAll('.dropdown-content div');

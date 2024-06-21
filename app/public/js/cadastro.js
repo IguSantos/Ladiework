@@ -95,8 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Verifica o textarea na última etapa do formulário antes de enviar
-    const lastStepButton = document.querySelector('.form-step:last-of-type [type="submit"]');
+    
     const lastStepTextarea = document.getElementById('project');
 
    

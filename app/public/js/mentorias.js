@@ -58,45 +58,4 @@ document.getElementById('searchInput').addEventListener('input', filterCourses);
 
 
 
-const slider = document.querySelector('.slider');
-const articles = document.querySelectorAll('.slider article');
-const prevButton = document.querySelector('.prevButton');
-const nextButton = document.querySelector('.nextButton');
-
-let currentIndex = 0;
-let isTransitioning = false;
-
-function nextSlide() {
-  if (isTransitioning) return;
-  currentIndex++;
-  if (currentIndex >= articles.length) {
-    currentIndex = 0;
-  }
-  scrollToCurrentIndex();
-}
-
-function prevSlide() {
-  if (isTransitioning) return;
-  currentIndex--;
-  if (currentIndex < 0) {
-    currentIndex = articles.length - 1;
-  }
-  scrollToCurrentIndex();
-}
-
-function scrollToCurrentIndex() {
-  const articleWidth = articles[0].offsetWidth;
-  const maxScroll = slider.scrollWidth - slider.clientWidth;
-  let targetScroll = currentIndex * articleWidth;
-  if (targetScroll > maxScroll) {
-    targetScroll = maxScroll;
-  }
-  slider.scrollTo({
-    left: targetScroll,
-    behavior: 'smooth'
-  });
-}
-
-nextButton.addEventListener('click', nextSlide);
-prevButton.addEventListener('click', prevSlide);
 

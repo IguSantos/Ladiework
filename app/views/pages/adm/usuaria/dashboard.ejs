@@ -5,6 +5,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -66,7 +67,7 @@
           <a href="#"><ion-icon name="person-outline"></ion-icon>Perfil</a>
         </li>
         <li>
-          <a href="#"><ion-icon name="chatbubble-outline"></ion-icon>Mensagens</a>
+          <a href="/chat"><ion-icon name="chatbubble-outline"></ion-icon>Mensagens</a>
         </li>
         <li>
           <a href="#"><ion-icon name="time-outline"></ion-icon>Histórico</a>
@@ -113,11 +114,9 @@
           <article class="card">
             <div class="barra"></div>
             <div class="conteudo">
-              <h3>Empreendedorismo Feminino</h3>
+              <h3><%= mentoring.TITULO_MENTORA %></h3>
               <p>
-                Capacite-se com as ferramentas e o conhecimento necessário para iniciar e gerenciar seu próprio negócio.
-                Descubra histórias de sucesso, dicas práticas e estratégias de crescimento voltadas para mulheres
-                empreendedoras.
+                <%= mentoring.BIOGRAFIA_MENTORA %>
               </p>
               <div class="acoes">
                 <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
@@ -128,7 +127,8 @@
               </div>
             </div>
           </article>
-          <article class="card">
+
+          <!-- <article class="card">
             <div class="barra"></div>
             <div class="conteudo">
               <h3>Desenvolvimento de Liderança Feminina</h3>
@@ -145,6 +145,7 @@
               </div>
             </div>
           </article>
+
           <article class="card">
             <div class="barra"></div>
             <div class="conteudo">
@@ -162,6 +163,7 @@
               </div>
             </div>
           </article>
+
           <article class="card">
             <div class="barra"></div>
             <div class="conteudo">
@@ -179,6 +181,7 @@
               </div>
             </div>
           </article>
+
           <article class="card">
             <div class="barra"></div>
             <div class="conteudo">
@@ -196,6 +199,7 @@
               </div>
             </div>
           </article>
+
           <article class="card">
             <div class="barra"></div>
             <div class="conteudo">
@@ -212,7 +216,7 @@
                 </button>
               </div>
             </div>
-          </article>
+          </article> -->
         </div>
       </section>
       <section class="anuncios">

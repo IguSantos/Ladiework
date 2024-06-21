@@ -18,6 +18,10 @@ const mentoringController = {
         var dataForm = {
             TITULO_MENTORA: req.body.titulo,
             BIOGRAFIA_MENTORA: req.body.descricao,
+            FORM_ACADEMICA_MENTORA: req.body.formacao,
+            DISPONIBILIDADE_HORARIO_MENTORA: req.body.disponibilidade,
+            DURACAO_MENTORIA: req.body.duracao
+           
         };
 
         try {
@@ -25,7 +29,7 @@ const mentoringController = {
             const create = await mentoringModel.create(dataForm);
 
             // Salva as informações da mentoria recém-criada na sessão (se necessário)
-            req.session.latestMentoring = req.body.titulo;
+             req.session.latestMentoring =dataForm;
 
             console.log("Mentoria criada com sucesso!");
             return res.redirect("/paginadeadministracao");
