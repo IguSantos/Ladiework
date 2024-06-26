@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const inputs = currentStep.querySelectorAll('input, textarea');
                 let hasEmptyField = false;
                 let hasError = false;
+                let passwordValue = '';
+
                 inputs.forEach(input => {
                     // Verifica se o campo está vazio
                     if (input.value.trim() === '') {
@@ -37,6 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
                                 input.classList.add('error');
                                 input.nextElementSibling.textContent = 'Por favor, insira um email válido';
                                 hasError = true;
+                            } else {
+                                // Verifica o domínio do email
+                                const domain = input.value.trim().split('@')[1];
+                                if (domain !== 'gmail.com' && domain !== 'hotmail.com') {
+                                    input.classList.add('error');
+                                    input.nextElementSibling.textContent = 'Apenas emails do Gmail ou Hotmail são aceitos';
+                                    hasError = true;
+                                }
                             }
                         }
 
@@ -47,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 input.classList.add('error');
                                 input.nextElementSibling.textContent = 'A senha deve ter no mínimo 8 caracteres, incluindo 1 letra maiúscula, 1 caractere especial e 1 número';
                                 hasError = true;
+                            } else {
+                                passwordValue = input.value.trim();
                             }
                         }
 
@@ -59,13 +71,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
 
-                // Impede a transição para a próxima etapa se houver campo vazio
-                if (hasEmptyField) {
-                    return;
+                // Verifica se a senha e a confirmação de senha são iguais
+                const confirmPasswordInput = currentStep.querySelector('#confirm-password');
+                if (confirmPasswordInput) {
+                    if (confirmPasswordInput.value.trim() === '') {
+                        confirmPasswordInput.classList.add('error');
+                        confirmPasswordInput.nextElementSibling.textContent = 'Confirme sua senha';
+                        hasError = true;
+                    } else if (confirmPasswordInput.value.trim() !== passwordValue) {
+                        confirmPasswordInput.classList.add('error');
+                        confirmPasswordInput.nextElementSibling.textContent = 'As senhas não coincidem';
+                        hasError = true;
+                    } else {
+                        confirmPasswordInput.classList.remove('error');
+                        confirmPasswordInput.nextElementSibling.textContent = ''; // Remove qualquer aviso existente
+                    }
                 }
 
-                // Impede a transição para a próxima etapa se houver erro de validação
-                if (hasError) {
+                // Impede a transição para a próxima etapa se houver campo vazio ou erro de validação
+                if (hasEmptyField || hasError) {
                     return;
                 }
             }
@@ -95,53 +119,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    
-    const lastStepTextarea = document.getElementById('project');
+    // Impedir colagem no campo de confirmar senha
+    document.getElementById('confirm-password').addEventListener('paste', function(event) {
+        // Cancela o evento de colar
+        event.preventDefault();
+    });
 
-   
-});
-
-
-
-
-
-
-
-const inputImage = document.getElementById('inputImage');
-const profileImage = document.getElementById('profileImage');
-const miniPerfil = document.getElementById('editar');
-const profilePhoto = document.getElementById('profile-photo'); // adicionando a referência ao elemento 'profile-photo'
-
-miniPerfil.addEventListener('click', () => {
-    inputImage.click();
-});
-
-inputImage.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-
-    if (file) {
-        const reader = new FileReader();
-
-        reader.onload = (e) => {
-            profileImage.src = e.target.result;
-            profilePhoto.src = e.target.result; // atualizando a imagem 'profile-photo' com a nova foto de perfil
-            // Salvar a imagem no localStorage
-            localStorage.setItem('profileImageSrc', e.target.result);
-        };
-
-        reader.readAsDataURL(file);
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
+    // Configuração do flatpickr para a data de nascimento
     flatpickr("#birthday-date", {
         dateFormat: "Y-m-d",
         maxDate: "2007-12-31",
+        locale: "pt"
+    });
+
+   
+    // Evento para alterar a imagem de perfil
+    const inputImage = document.getElementById('inputImage');
+    const profileImage = document.getElementById('profileImage');
+    const miniPerfil = document.getElementById('editar');
+    
+
+    miniPerfil.addEventListener('click', () => {
+        inputImage.click();
+    });
+
+
+    inputImage.addEventListener('change', (event) => {
+        profileImage.src = URL.createObjectURL(event.target.files[0]);
+
+        // const file = event.target.files[0];
+
+
+        // if (file) {
+        //     const reader = new FileReader();
+
+        //     reader.onload = (e) => {
+        //         profileImage.src = e.target.result;
+        //       
+        //         // Salvar a imagem no localStorage
+        //         localStorage.setItem('profileImageSrc', e.target.result);
+        //     };
+
+        //     reader.readAsDataURL(file);
+        // }
     });
 });
-
-
-
-
-

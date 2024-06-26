@@ -52,10 +52,10 @@ a {
 
 /* Estilização dos links de navegação */
 nav a {
-    font-family: "Poppins SemiBold", "Poppins", sans-serif;
+   
     color: var(--second-color);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 nav a:hover {
@@ -283,7 +283,7 @@ nav .cart {
     border-radius: 13px;
     font-family: "Poppins SemiBold", "Poppins", sans-serif;
     color: white;
-    font-weight: 100;
+    font-weight: 400;
     font-size: 1em;
     padding: 4px 20px;
     border: none;
@@ -332,7 +332,7 @@ footer {
 footer span {
     position: absolute;
     font-size: 10px;
-    font-weight: 100;
+    font-weight: 300;
     bottom: 0;
     right: 0;
     margin-right: 10px;
@@ -347,6 +347,7 @@ footer img {
 footer ul {
     columns: 3;
     list-style-type: none;
+ 
 }
 
 footer>ul>a {
@@ -355,9 +356,10 @@ footer>ul>a {
 
 footer li {
     cursor: pointer;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 0.9rem;
     margin-left: 20px;
+    margin-bottom: 7px;
 }
 
 footer p {
@@ -378,7 +380,7 @@ footer a:hover {
     border-radius: 13px;
     font-size: 0.9em;
     color: var(--primary-color);
-    font-weight: 200;
+    font-weight: 400;
     padding: 6px 22px;
     border: none;
     border-radius: 10px;

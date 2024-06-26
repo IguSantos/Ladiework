@@ -6,6 +6,8 @@ const mentoryController = {  addMentory } = require("../controllers/coursesContr
 
 const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser } = require("../models/authenticator_middleware");
 const mentoringController = require("../controllers/mentoringController");
+const uploadFile = require("../util/uploader")();
+// const uploadFile = require("../util/uploader")("./app/public/imagem/perfil/");
 
 
 

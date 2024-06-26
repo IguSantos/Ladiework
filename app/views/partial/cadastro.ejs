@@ -8,7 +8,9 @@
 <body>
     <%- include("../partial/header") %>
 
-        <% let msgError={"nome_usu": "" , "email_usu" : "" , "senha_usu" : "" , "aniversario_usu" : "" , "numero_usu"
+        <% 
+        let arquivo = {"imagem":"imagem/img-perfil.png"}
+        let msgError={"nome_usu": "" , "email_usu" : "" , "senha_usu" : "" , "aniversario_usu" : "" , "numero_usu"
             : "" , "genero_usu" : "" , "foto_usu" : "" }; let warningError={ nome_usu: "" , email_usu: "" ,
             senha_usu: "" , aniversario_usu: "" , numero_usu: "" , genero_usu: "" , foto_usu: "" }; if(errorsList){
             errorsList.errors.forEach(function(itemError){ if(itemError.path=="nome_usu" ) {
@@ -49,6 +51,14 @@
                                 <label for="password">Senha</label>
                                 <input id="password" name="senha_usu" type="password" placeholder="Digite sua senha"
                                     required value="<%= valores.senha_usu %>">
+                                <span class="warning">
+                                </span>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <label for="password">Confimar Senha</label>
+                                <input id="confirm-password"  type="password" placeholder="Sua sua senha anterior"
+                                    required>
                                 <span class="warning">
                                 </span>
                             </div>
@@ -100,7 +110,10 @@
 
                                 <button type="button" id="editar" name="editar"> Faça upload de uma foto</button>
                                 <input type="file" id="inputImage" accept="image/*" style="display: none;" name="foto_usu"
-                                    value="<%= valores.foto_usu %>">
+                                 onchange="loadImg(event)">
+
+                                 
+                                    
                             </div>
                         </div>
                         <div class="content">
@@ -120,3 +133,5 @@
 
             <script src="js/cadastro.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+            <!-- <img src="<%= arquivo.imagem %>" id="profileImage" alt="Sua foto de perfil"> -->

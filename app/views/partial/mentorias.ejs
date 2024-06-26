@@ -1,159 +1,170 @@
-<title>Mentorias</title>
+<title>Mentorias - LadieWork</title>
 <link rel="stylesheet" href="css/mentorias.css">
+
+<meta name="description"
+  content="Explore mentorias focadas no desenvolvimento pessoal e profissional, oferecendo orientação valiosa para alcançar seus objetivos e prosperar em todas as áreas da vida. Conecte-se com mentores inspiradores e comece sua jornada de empoderamento e sucesso hoje mesmo!">
+
 
 </head>
 
 <body>
-    <%- include("../partial/header") %>
+  <%- include("../partial/header") %>
 
     <main>
-        <aside class="top-information">
-          <h1>Mentorias</h1>
-    
-          <div>
-            <input type="search" id="searchInput" placeholder="Pesquisar..."> <img class="filter-image"
-              src="images/filterimage.svg" alt="">
-          </div>
-        </aside>
-    
-        <h2>Populares</h2>
-    
-        <section>
-          <button class="prevButton"><ion-icon name="chevron-back-outline"></ion-icon></button>
-    
-    
-          <div class="slider">
-    
-    
-            <article>
-              <div>
-                <h3>Mentoria da Mulher</h3>
-                <span>Sobre a mentoria</span>
-                <p class="info-mentoring">Capacitação personalizada para mulheres em busca de crescimento profissional e
-                  pessoal. Sessões individuais e em grupo focadas em liderança, networking e desenvolvimento pessoal. Junte-se
-                  a nós para alcançar seus objetivos com confiança e determinação.</p>
-    
-                <button class="learn-more" data-mentoring-id="mentoring-info-0" onclick="window.location.href = 'informacao_da_mentoria'">Saiba Mais</button>
-                <div class="mentoring-info" id="mentoring-info-0">
-                  <div class="triangle"></div>
-                  <h3>Informações adicionais</h3>
-                  <p>Tempo de mentoria: <span>1 hora</span></p>
-                  <p>Tempo de duração: <span>2 semanas</span></p>
-                  <p>Mentora: <span>Marcille</span></p>
-                  <p>Formas de pagamento: <span>Cartão de crédito/débito ou pix</span></p>
-                  <hr>
-                  <div class="additional-information">
-                    <p id="price">Preço total:<span class="price">R$ 100</span></p>
-                  </div>
-                </div>
-                <span id="avaliation" class="avaliation">4.5</span>
-                <div class="stars-icon"> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star-half"></ion-icon>
-                </div>
-                <span id="classification" class="classification">220.000 classificações</span>
-              </div>
-              <img src="images/muié2.png" alt="">
-            </article>
-    
-            <article>
-              <div>
-                <h3> Empreendedorismo</h3>
-                <span>Sobre a mentoria</span>
-                <p class="info-mentoring">Aprenda como transformar sua ideia de negócio em uma empresa de sucesso. Nossas sessões
-                  abordam desde a concepção da ideia até a estratégia de crescimento.</p>
-                <button class="learn-more">Saiba Mais</button>
-                <div class="mentoring-info" id="mentoring-info-1">
-                  <div class="triangle"></div>
-                  <h3>Informações adicionais</h3>
-                  <p>Tempo de mentoria: <span>1 hora</span></p>
-                  <p>Tempo de duração: <span>4 semanas</span></p>
-                  <p>Mentora: <span>Carolina</span></p>
-                  <p>Formas de pagamento: <span>Transferência bancária ou boleto</span></p>
-                  <hr>
-                  <div class="additional-information">
-                    <p id="price">Preço total:<span class="price">R$ 150</span></p>
-                  </div>
-                </div>
-                <span id="avaliation" class="avaliation">4.8</span>
-                <div class="stars-icon"> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                </div>
-                <span id="classification" class="classification">150.000 classificações</span>
-              </div>
-              <img src="images/muié4.png" alt="">
-            </article>
-            
-            <article>
-              <div>
-                <h3>Desenvolvimento Pessoal</h3>
-                <span>Sobre a mentoria</span>
-                <p class="info-mentoring">Descubra seu potencial máximo e desenvolva habilidades para uma vida mais plena e
-                  realizada. Nossas sessões abrangem áreas como inteligência emocional, autodesenvolvimento e realização de metas.
-                 </p>
-                <button class="learn-more">Saiba Mais</button>
-                <div class="mentoring-info" id="mentoring-info-2">
-                  <div class="triangle"></div>
-                  <h3>Informações adicionais</h3>
-                  <p>Tempo de mentoria: <span>45 minutos</span></p>
-                  <p>Tempo de duração: <span>6 semanas</span></p>
-                  <p>Mentora: <span>Juliana</span></p>
-                  <p>Formas de pagamento: <span>PayPal ou transferência bancária</span></p>
-                  <hr>
-                  <div class="additional-information">
-                    <p id="price">Preço total:<span class="price">R$ 120</span></p>
-                  </div>
-                </div>
-                <span id="avaliation" class="avaliation">4.9</span>
-                <div class="stars-icon"> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                </div>
-                <span id="classification" class="classification">180.000 classificações</span>
-              </div>
-              <img src="images/muié3.png" alt="">
-            </article>
-            
-            <article>
-              <div>
-                <h3>Mentoria de Carreira</h3>
-                <span>Sobre a mentoria</span>
-                <p class="info-mentoring">Desenvolva uma estratégia para impulsionar sua carreira e alcançar seus objetivos
-                  profissionais. Nossas sessões são voltadas para aprimorar habilidades de comunicação, liderança e gestão de
-                  tempo. Prepare-se para alavancar sua carreira e conquistar o sucesso desejado.</p>
-                <button class="learn-more">Saiba Mais</button>
-                <div class="mentoring-info" id="mentoring-info-3">
-                  <div class="triangle"></div>
-                  <h3>Informações adicionais</h3>
-                  <p>Tempo de mentoria: <span>1 hora e meia</span></p>
-                  <p>Tempo de duração: <span>8 semanas</span></p>
-                  <p>Mentora: <span>Larissa</span></p>
-                  <p>Formas de pagamento: <span>Cartão de crédito/débito ou transferência bancária</span></p>
-                  <hr>
-                  <div class="additional-information">
-                    <p id="price">Preço total:<span class="price">R$ 200</span></p>
-                  </div>
-                </div>
-                <span id="avaliation" class="avaliation">4.7</span>
-                <div class="stars-icon"> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star-half"></ion-icon>
-                </div>
-                <span id="classification" class="classification">200.000 classificações</span>
-              </div>
-              <img src="images/muié5.png" alt="">
-            </article>
-            
-          </div>
-    
-    
-          <button class="nextButton"><ion-icon name="chevron-forward-outline"></ion-icon></button>
-    
-    
-    
-    
-        </section>
-      </main>
-    
-    
-      <script src="js/mentorias.js"></script>
-    </body>
-    
-    </html>
+      <aside class="top-information">
+        <h1>Mentorias</h1>
+
+        <div>
+          <input type="search" id="searchInput" placeholder="Pesquisar..."> <img class="filter-image"
+            src="images/filterimage.svg" alt="">
+        </div>
+      </aside>
+
+      <h2>Populares</h2>
+
+      <section>
+
+
+
+
+
+          <article class="mentoring-card">
+            <img src="images/mentoria-template.jpg" alt="">
+            <div class="info-mentoring">
+              <h3>Mentoria para mulher</h3>
+              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
+                    name="star-half"></ion-icon></div>
+              <span>Duração: 2 meses</span> <br>
+              <span>Investimento: R$ 100</span>
+              <p>
+                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
+                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
+              </p>
+              <button onclick="window.location.href = '/informacao_da_mentoria'">Saiba mais</button>
+            </div>
+
+          </article>
+
+          <article class="mentoring-card">
+            <img src="images/mentoria-template.jpg" alt="">
+            <div class="info-mentoring">
+              <h3>Mentoria para mulher</h3>
+              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
+                    name="star-half"></ion-icon></div>
+              <span>Duração: 2 meses</span> <br>
+              <span>Investimento Gratuito</span>
+              <p>
+                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
+                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
+              </p>
+            <button onclick="window.location.href = '/informacao_da_mentoria'">Saiba mais</button>
+            </div>
+
+          </article>
+
+          <article class="mentoring-card">
+            <img src="images/mentoria-template.jpg" alt="">
+            <div class="info-mentoring">
+              <h3>Mentoria para mulher</h3>
+              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
+                    name="star-half"></ion-icon></div>
+              <span>Duração: 2 meses</span> <br>
+              <span>Investimento Gratuito</span>
+              <p>
+                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
+                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
+              </p>
+              <button>Saiba mais</button>
+            </div>
+
+          </article>
+
+          <article class="mentoring-card">
+            <img src="images/mentoria-template.jpg" alt="">
+            <div class="info-mentoring">
+              <h3>Mentoria para mulher</h3>
+              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
+                    name="star-half"></ion-icon></div>
+              <span>Duração: 2 meses</span> <br>
+              <span>Investimento Gratuito</span>
+              <p>
+                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
+                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
+              </p>
+              <button>Saiba mais</button>
+            </div>
+
+          </article>
+
+          
+
+        
+
+
+
+
+
+      </section>
+
+      
+      <h2>Para você</h2>
+
+      <section>
+
+
+
+
+
+          <article class="mentoring-card">
+            <img src="images/mentoria-template.jpg" alt="">
+            <div class="info-mentoring">
+              <h3>Mentoria para mulher</h3>
+              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
+                    name="star-half"></ion-icon></div>
+              <span>Duração: 2 meses</span> <br>
+              <span>Investimento Gratuito</span>
+              <p>
+                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
+                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
+              </p>
+              <button onclick="window.location.href = '/informacao_da_mentoria'">Saiba mais</button>
+            </div>
+
+          </article>
+
+          <article class="mentoring-card">
+            <img src="images/mentoria-template.jpg" alt="">
+            <div class="info-mentoring">
+              <h3>Mentoria para mulher</h3>
+              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
+                    name="star-half"></ion-icon></div>
+              <span>Duração: 2 meses</span> <br>
+              <span>Investimento Gratuito</span>
+              <p>
+                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
+                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
+              </p>
+              <button>Saiba mais</button>
+            </div>
+
+          </article>
+
+       
+
+      
+      </section>
+
+
+    </main>
+
+
+    <script src="js/mentorias.js"></script>
+</body>
+
+</html>

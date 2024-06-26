@@ -9,7 +9,7 @@ main {
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
     width: 35%;
     margin: 40px auto;
-    height: 650px;
+   
 }
 
 h2 {
@@ -57,7 +57,7 @@ form {
     margin-top: 2rem;
     padding-bottom: 10px;
     display: grid;
-    gap: 0.9rem;
+    gap: 0.5rem;
     border-bottom: 1px solid var(--span-color);
 
 }
@@ -84,7 +84,7 @@ input[type="date"] {
     text-transform: uppercase;
     min-width: 6.8rem;
     width: 100%;
-    background-color: var(--cta);
+    background-color: var(--button-color);
     color: white;
     transition: all .4s;
 }
@@ -177,8 +177,9 @@ input[type="date"] {
 }
 
 label {
-    font-weight: 200;
+    font-weight: 300;
     color: #603a9d;
+
 }
 
 textarea {
@@ -218,10 +219,13 @@ textarea::placeholder {
     }
 }
 
-a {
+.donthave a {
     color: rgb(75, 75, 223);
 }
 
+.donthave a:hover {
+   text-decoration: underline;
+}
 .form-step.active {
     animation: appear 200ms 100ms ease-in-out backwards;
 }
@@ -244,6 +248,7 @@ a {
 .ou {
     color: var(--information-text-color);
     margin: 10px 0;
+    font-weight: 300px;
     font-size: 20px;
     text-align: center;
     display: block;
@@ -252,7 +257,7 @@ a {
 
 .donthave {
     color: var(--information-text-color);
-    font-weight: 100;
+    font-weight: 300;
     text-align: center;
     display: block;
 }

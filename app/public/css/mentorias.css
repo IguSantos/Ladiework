@@ -5,11 +5,11 @@ main {
 }
 
 h1 {
-    color: var(--title-bold);
     border-bottom: 1px solid var(--title-bold);
     font-size: 1.8rem;
     padding: 0 10px;
     margin-left: 20px;
+    font-weight: 600;
 }
 
 input[type=search] {
@@ -54,112 +54,76 @@ h2 {
     opacity: 0.8;
     margin-bottom: 10px;
     margin-top: 40px;
-
-}
-
-.nextButton,
-.prevButton {
-    background: none;
-    border: none;
-    font-size: 3rem;
-    cursor: pointer;
-    transition: all 0.5s ease;
+    font-weight: 500;
 }
 
 main > section {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    transition: all 0.5s ease;
-}
-
-.slider {
+    background-color: var(--pop-up-color);
     display: flex;
     gap: 20px;
+    padding: 10px 50px;
+}
+
+.mentoring-card {
+    height: 410px;
+    width: 246px;
+    background-color: white;
+}
+
+.mentoring-card img {
     width: 100%;
-    overflow: hidden;
-    scroll-snap-type: x mandatory;
-    transition: all 0.5s ease;
-}
-
-.slider article {
-    width: 578px;
-    height: 247px;
-    border-radius: 10px;
-    background-color: var(--third-color);
-    display: flex;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-}
-
-.slider article img {
-    border-radius: 0 10px 10px 0;
-    width: 230px;
+    height: 110px;
     object-fit: cover;
 }
 
-.slider article span {
-    color: var(--span-color);
-    font-size: 1rem;
-    font-weight: bold;
-    margin-left: 15px;
+.mentoring-card .info-mentoring {
+    margin: 10px;
+}
+
+.mentoring-card h3 {
+ font-size: 1rem;
+ font-weight: 500;
+ color: var(--second-font);
 
 }
 
-.info-mentoring {
+.mentoring-card .stars {
+    margin-bottom: 2px;
     font-size: 0.8rem;
-    margin-left: 15px;
+    color: var(--cta);
+}
+
+.mentoring-card span {
+    font-weight: 300;
     opacity: 0.8;
-    height: 120px;
-    overflow: hidden;
+    font-size: 0.8rem;
 }
 
-.slider article h3 {
-    color: var(--title-bold);
-    margin-left: 15px;
-    margin-top: 8px;
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
+.mentoring-card p {
+    font-size: 0.788rem;
+    opacity: 0.8;
+    margin: 10px 0;
 
-.learn-more {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 5px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-    margin: auto;
-    margin-bottom: 4px;
 }
-
-.stars-icon {
-    display: inline;
-    color: var(--primary-color);
-}
-
-.learn-more:hover {
+.mentoring-card button {
+    width: 100%;
+    font-size: 0.9rem;
+    background-color: var(--cta);
     color: white;
-    background-color: var(--primary-color);
-    backdrop-filter: opacity(0.5);
-
+    border: none;
+    border-radius: 5px;
+    padding: 5px 0;
+    cursor: pointer;
+   
 }
 
-.classification {
-    font-size: 0.8rem;
-    opacity: 0.8;
-    margin-left: 5px;
+.mentoring-card button:hover {
+   background-color: var(--cta-hover);
+   
 }
 
-.avaliation {
-    color: var(--primary-color);
-    margin-left: 20px;
-    font-size: 1rem;
-}
+
+
 
 /* INFO MENTORIA */
 
@@ -243,55 +207,22 @@ main > section {
     }
 
     h1 {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
         margin: 10px 8px;
         padding: 0;
     }
 
-    article {
-        width: 80%;
-        height: 587px;
-        display: flex;
-        flex-direction: column-reverse;
-        margin: auto;
-    }
-
-    .slider {
-        width: 80%;
-        margin: auto;
-    }
-
-    article img {
-        border-radius: 10px 10px 0 0;
-        width: 100%;
-        height: 100%;
-        height: 350px;
-        object-fit: cover;
-    }
-
-
-    article h3 {
-        height: 30px;
+    h2 {
         font-size: 1.2rem;
+        margin-left: 10px;
     }
 
-    article span {
-        font-size: 1.1rem;
+   main section {
+    flex-direction: column;
+    align-items: center;
+   }
 
-    }
-
-    .info-mentoring {
-        font-size: 0.859rem;
-        height: 140px;
-    }
-
-    .learn-more {
-        margin-top: 10px;
-    }
-
-    .avaliation {
-       margin-left: 10px;
-    }
+ 
 
 
 }

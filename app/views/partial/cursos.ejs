@@ -1,5 +1,5 @@
   <link rel="stylesheet" href="css/cursos.css">
-  <title>Cursos</title>
+  <title>Cursos - LadieWork</title>
   <link rel="icon" sizes="41x22" href="images/favicon.png" type="image/png">
   <meta name="description"
     content="Descubra uma ampla seleção de cursos para mulheres, abrangendo uma variedade de categorias. Explore opções gratuitas e pagas, projetadas para capacitá-la em todas as áreas da vida. Encontre o curso perfeito para você e embarque em sua jornada de aprendizado hoje mesmo!">
@@ -21,14 +21,19 @@
     <main>
 
       <aside id="filtragem">
-        <button class="dropdown-btn" id="dropdownBtn">Mais curtidos <ion-icon name="caret-up-outline"></ion-icon></button>
-        <!-- Lista de opções -->
-        <div class="dropdown-content" tabindex="1" id="dropdownOptions">
-          <div>Mais curtidos </div>
-          <div>Novos</div>
-          <div>Para você</div>
-          <div>Por preço</div>
+        
+        <div class="dropdown-container">
+          <select class="dropdown-btn" id="dropdownOptions">
+            <option value="mais-curtidos">Mais curtidos</option>
+            <option value="novos">Novos</option>
+            <option value="para-voce">Para você</option>
+            <option value="por-preco">Por preço</option>
+          </select>
+          <ion-icon name="caret-down-outline" class="dropdown-icon" id="dropdownIcon"></ion-icon>
         </div>
+        
+
+     
 
 
         <article id="filtering">
@@ -160,8 +165,8 @@
                   <div class="additional-information">
 
                     <p id="user">Sophia Moreira</p>
-                    <p id="price">R$ 149</p>
-                    <span>4x de $37,25</span>
+                    <p id="price">R$ 100</p>
+                    <span>4x de $25,00</span>
                   </div>
                 </div>
 

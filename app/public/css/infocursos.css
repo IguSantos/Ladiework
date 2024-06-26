@@ -252,7 +252,7 @@ section #more-info-curse {
     padding: 20px;
     width: 350px;
     position: relative;
-    height: 900px;
+    height: 766px;
 
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -356,7 +356,7 @@ input[type="search"] {
     position: absolute;
     width: 10%;
     right: 30px;
-    bottom: 70px;
+    bottom: 50px;
 }
 
 .ladie-ask {

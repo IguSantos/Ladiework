@@ -1,25 +1,19 @@
 // BARRA DE PESQUISA
 
-function filterCourses() {
-  // Obtém o valor inserido no campo de pesquisa e converte para minúsculas
-  var inputText = document.getElementById('searchInput').value.toLowerCase();
-  
-  // Obtém todos os elementos de curso
-  var courses = document.querySelectorAll('.course');
 
-  // Percorre cada curso
-  courses.forEach(function(course) {
-    // Obtém o título do curso e converte para minúsculas
-    var courseTitle = course.querySelector('h3').textContent.toLowerCase();
-    
-    // Verifica se o título do curso contém o texto de entrada
-    if (courseTitle.includes(inputText)) {
-      course.style.display = 'flex'; // Exibe o curso se corresponder ao filtro
-    } else {
-      course.style.display = 'none'; // Oculta o curso se não corresponder ao filtro
+  const dropdown = document.getElementById('dropdownOptions');
+  const icon = document.getElementById('dropdownIcon');
+
+  dropdown.addEventListener('click', function () {
+    dropdown.classList.toggle('open');
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove('open');
     }
   });
-}
+
 
 // Adiciona um ouvinte de evento para detectar a entrada de texto no campo de pesquisa
 document.getElementById('searchInput').addEventListener('input', filterCourses);

@@ -46,6 +46,23 @@ const userModel = {
         }
     },
 
+    findId: async (id) => {
+        try {
+            const [results] = await pool.query(
+                "SELECT u.ID_USUARIO, u.NOME_USUARIO" +
+                "u.SENHA, u.EMAIL_USUARIO" +
+                "u.CELULAR_USUARIO, u.FOTO_USUARIO" +
+                "t.id_tipo_usuario, t.descricao_usuario " +
+                "FROM usuario u, tipo_usuario t where u.status_usuario = 1 and " +
+                "u.tipo_usuario = t.id_tipo_usuario and u.id_usuario = ? ", [id]
+            )
+            return results;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    },
+
 
 
 };

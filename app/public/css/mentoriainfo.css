@@ -93,12 +93,12 @@ section {
     display: flex;
     justify-content: center;
     color: white;
-    background-color: var(--cta-titles);
+    background-color: var(--button-color);
     margin: 20px 0;
 }
 
 .get_mentory:hover {
- background-color: var(--cta);
+opacity: 0.9;
 }
 
 h1 {
@@ -216,7 +216,7 @@ section #more-info-curse {
 
 #add-cart {
     color: white;
-    background-color: var(--primary-color);
+    background-color: var(--cta);
 
 }
 

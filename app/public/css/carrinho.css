@@ -1,55 +1,61 @@
-
-
-body h3 {
-    margin-left: 18%;
-    margin-top: 30px;
-    transition: all 0.5s ease;
-}
-
-
 h1 {
     font-size: 1.4rem;
     text-align: left;
-    margin-left: 18%;
-    margin-top: 33px;
     font-weight: 600;
     transition: all 0.5s ease;
+    color: var(--cta-titles);
 }
-
 
 main {
-    /* Estilos para a seção principal */
-    display: flex;
-    gap: 100px;
-    width: 70%;
+    width: 82%;
     margin: 40px auto;
-    justify-content: center;
-    transition: all 0.5s ease;
+
 }
 
-main h3 {
-    /* Estilos para o título "Mais cursos para você" dentro da seção principal */
-    margin-left: 18%;
-    margin-top: 30px;
-    transition: all 0.5s ease;
+ion-icon {
+    cursor: pointer;
 }
 
-main ul {
+h1,
+h2,
+h3 {
+    font-weight: 500;
+}
+
+.main-section {
+    display: flex;
+
+    justify-content: space-around;
+    transition: all 0.5s ease;
+    width: 96%;
+    margin: auto;
+    margin: 50px 0;
+
+}
+
+.main-section ul {
     /* Estilos para a lista de cursos comprados */
     overflow-y: scroll;
-    width: 690px;
+    width: 600px;
     overflow-x: hidden;
     transition: all 0.5s ease;
+    height: 500px;
+    overflow-y: scroll;
 }
 
-.purchased-course {
+.main-section ul::-webkit-scrollbar {
+    width: 4px; /* Largura da barra de rolagem */
+    height: 5px;
+}
+
+
+.purchased {
     /* Estilos para cada curso comprado na lista */
     height: 65px;
     border-bottom: 1px solid rgb(209, 209, 209);
     display: flex;
     gap: 15px;
     position: relative;
-    cursor: pointer;
     margin-bottom: 20px;
     transition: all 0.5s ease;
 }
@@ -64,10 +70,16 @@ main ul {
 .info-purchase h2 {
     /* Estilos para o título do curso */
     font-size: 1rem;
-    color: var(--cta-titles);
     font-weight: 600;
     margin-bottom: 3px;
     transition: all 0.5s ease;
+    color: black;
+
+}
+
+.info-purchase h2:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .info-purchase p {
@@ -79,9 +91,9 @@ main ul {
     color: black;
 }
 
-.purchased-course img {
+.purchased img {
     /* Estilos para as imagens dos cursos comprados */
-    width: 45%;
+    width: 200px;
     object-fit: cover;
     transition: all 0.5s ease;
 }
@@ -102,16 +114,16 @@ main ul {
 }
 
 /* Estilos para a seção de finalização da compra */
-main aside {
+.main-section aside {
     width: 300px;
-    height: 380px;
+    /* height: 380px; */
     padding: 15px;
     text-align: center;
     border-radius: 10px;
     transition: all 0.5s ease;
 }
 
-main aside h2 {
+.main-section aside h2 {
     /* Estilos para o título "Total" */
     text-align: left;
     font-size: 1.7rem;
@@ -121,7 +133,7 @@ main aside h2 {
     transition: all 0.5s ease;
 }
 
-main aside p {
+.main-section aside p {
     /* Estilos para o valor total */
     margin-top: -10px;
     font-size: 2rem;
@@ -131,7 +143,7 @@ main aside p {
     transition: all 0.5s ease;
 }
 
-main aside span {
+.main-section aside span {
     /* Estilos para o desconto */
     font-size: 0.8rem;
     opacity: 0.8;
@@ -170,6 +182,12 @@ main aside span {
     margin-left: 5px;
 }
 
+h3 {
+    color: var(--cta-titles);
+    margin: 17px 0;
+    font-size: 1.3rem;
+}
+
 main aside button {
     /* Estilos para o botão "Finalizar compra" */
     width: 100%;
@@ -196,11 +214,16 @@ main aside button:hover {
 
 /* Estilos para a seção "Mais cursos para você" */
 .more-curses {
-    margin: 40px auto;
-    width: 92%;
     display: flex;
-    align-items: center;
+    gap: 10px;
     transition: all 0.5s ease;
+    display: flex;
+    height: 102px;
+    width: 100%;
+    margin-bottom: 140px;
+
+
+
 }
 
 
@@ -210,68 +233,62 @@ main aside button:hover {
     transition: all 0.5s ease;
 }
 
-hr {
-    border: none;
-    width: 80%;
-    height: 1px;
-    margin: auto;
-    background-color: var(--font-color);
-    transition: all 0.5s ease;
-}
-.more-curses {
-display: flex;
-height: 100px;
-border: 1px solid blue;
-width: 70%;
-margin: auto;
 
-}
 
 .more-curses-info {
     margin-left: 5px;
     text-align: left;
+    padding: 5px;
 }
 
-.more-curses-info > p {
+.more-curses-info>p {
     font-size: 0.4rem;
 }
 
 .more-curses article {
     cursor: pointer;
-    height: 100px;
-    width: 400px;
+    height: 100%;
+    width: 100%;
     text-align: center;
-    border: 1px solid red;
+    border: 1px solid grey;
     display: flex;
+    border-radius: 5px;
 
 }
 
-
+.more-curses article h4 {
+    font-size: 0.9rem;
+}
 
 .more-curses img {
     height: 100%;
+    width: 43%;
     transition: all 0.5s ease;
+    object-fit: cover;
 }
 
 
-.more-curses  h4 {
-  font-size: 1rem;
-
+.more-curses h4 {
+    font-size: 1rem;
+    line-height: 17px;
+    margin-bottom: 5px;
 
 }
 
-.more-curses ul{
+.more-curses ul {
     height: 83px;
 }
 
-.more-curses p {
-    font-size: 0.7rem;
+.more-curses article p {
+    font-size: 0.6rem;
     opacity: 0.8;
     text-align: left;
     margin-bottom: 5px;
     transition: all 0.5s ease;
     overflow-y: hidden;
+    overflow: hidden;
 }
+
 
 
 
@@ -288,19 +305,6 @@ margin: auto;
     transition: all 0.5s ease;
 }
 
-.more-curses article button {
-    margin: 20px;
-    width: 60%;
-    font-weight: 600;
-    height: 35px;
-    border: 1px solid rgba(128, 128, 128, 0.808);
-    border-radius: 7px;
-    color: rgba(128, 128, 128, 0.808);
-    cursor: pointer;
-    font-size: 0.7rem;
-    background-color: rgba(255, 255, 255, 0.801);
-    transition: all 0.5s ease;
-}
 
 .more-curses article button:hover {
     border: none;
@@ -339,199 +343,53 @@ margin: auto;
 
 /* MOBILE */
 
+
 @media (min-width: 320px) and (max-width: 700px) {
 
-    h1 {
-        text-align: center;
-        font-size: 1.4rem;
-        text-decoration: underline;
-        text-align: left;
-        margin-top: 22px;
-        font-weight: 600;
-    }
 
     main {
-        width: 100%;
-        flex-direction: column-reverse;
-        gap: 0;
-    }
-
-    main aside {
-        height: auto;
-        border-radius: 0;
-        margin: auto;
-        width: 100%;
-        background: none;
-        border-bottom: 1px solid var(--font-color);
-    }
-
-    main aside img {
-        display: none;
-    }
-
-    main aside h2 {
-        border: none;
-        font-size: 2.6rem;
-    }
-
-    main aside p {
-        border: none;
-        font-size: 2.6rem;
-        margin: 0;
-    }
-
-    main aside span {
-        font-size: 1.4rem;
-    }
-
-    .hour,
-    .module-amount {
-        display: none;
-    }
-
-    main aside button {
-        width: 268px;
-        height: 49px;
-        font-size: 1.1rem;
-        margin: 30px 0;
-    }
-
-    ul {
         width: 90%;
-        margin: auto;
-        overflow-y: auto;
     }
 
-    .purchased-course {
-        width: 89%;
-        margin: 30px 0;
-        height: auto;
-        background: none;
-        flex-direction: column-reverse;
-        gap: 0;
-        position: relative;
-        border-bottom: 1px solid var(--font-color);
-        border-radius: 0;
-        overflow-y: hidden;
+    .main-section {
+        flex-direction: column;
     }
 
-    .purchased-course ion-icon {
-        font-size: 3rem;
-    }
-
-    .purchased-course img {
+    .main-section ul {
         width: 100%;
-        height: auto;
-    }
-
-    .info-purchase h2 {
-        font-size: 2.4rem;
-        margin-top: 20px;
-    }
-
-    .info-purchase {
-        padding-top: 50px;
-    }
-
-    .purchased-course p {
-        display: none;
-    }
-
-    .price {
-        display: block;
-        font-size: 2.7rem;
-        font-weight: 600;
-        opacity: 0.8;
+        margin: auto;
+        max-height: 300px;
+        overflow-y: scroll;
 
     }
 
-    .installments {
-        display: block;
-        opacity: 0.9;
-        font-size: 1.3rem;
-    }
+    .main-section aside {
+        width: 100%;
+        margin: auto;
+        margin-top: 30px;
 
 
-    .info-purchase .classification {
-        position: absolute;
-        bottom: 20px;
-        right: 4px;
-        font-size: 1rem;
-    }
-
-    .info-purchase .stars {
-        display: none;
-
-
-    }
-
-    hr {
-        display: none;
-    }
-
-    body h3 {
-        font-size: 1.7rem;
-        margin-left: 35px;
-        margin-top: 0;
     }
 
     .more-curses {
-        margin: 40px auto;
-        width: 96%;
-        display: flex;
-        align-items: center;
-    }
+        flex-direction: column;
+        height: 100%;
 
-    .more-curses article p {
-        font-size: 0.8rem;
-        height: 138px;
-    }
-
-    .more-curses article button {
-        width: 200px;
     }
 
     .more-curses article {
-        height: auto;
-        width: 90%;
+        height: 110px;
     }
 
-    .more-curses {
-        height: auto;
-    }
 
-    input[type="search"] {
-        width: 229px;
-        height: 42px;
-        padding-left: 20px;
-    }
 
-    input[type="search"]::placeholder {
-        font-size: 1rem;
-    }
 
-    h4 {
-        font-size: 1.4rem;
-    }
-
-    .apply {
-        width: 111px;
-        height: 42px;
-        font-size: 1rem;
-    }
 
 }
 
 /* DESKTOP */
 
 @media (min-width: 1900px) and (max-width: 2100px) {
-
-
-
-    ul {
-        width: 661px;
-
-    }
 
     ul article {
         width: 656px;
@@ -547,14 +405,6 @@ margin: auto;
 
     main aside button {
         width: 180px;
-    }
-
-    .more-curses {
-        width: 75%;
-    }
-
-    .more-curses {
-        width: 80%;
     }
 
 }

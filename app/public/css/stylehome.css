@@ -1,4 +1,6 @@
 /* Estilos gerais */
+
+
 main {
     background: rgb(247, 247, 247) url(https://i.ibb.co/gwnksyN/Home.png) no-repeat center center/cover;
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
@@ -30,26 +32,37 @@ section {
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
 }
 
-.desc h2 {
-    display: inline;
-    text-align: left;
-    font-size: 1.4rem;
-    color: var(--cta-titles);
-    transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
-}
-
 .desc {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 25px;
-    width: 500px;
+    width: 390px;
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
 }
 
-.desc p {
+
+.desc h1 {
+    display: inline;
+    text-align: left;
+    font-size: 2.3rem;
+    color: var(--cta-titles);
+    font-weight: 500;
+    transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
+}
+
+.desc h3 {
     font-size: 1.2rem;
+    color: var(--cta-titles);
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.desc p {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    line-height: 35px;
     color: var(--paragraphs);
+    margin-bottom: 30px;
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
 }
 
@@ -66,10 +79,17 @@ section {
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
 }
 
+section.desc h2{
+   font-weight: 600;
+   color: var(--cta-titles);
+   text-transform: uppercase;
+   font-size: 1.2rem;
+}
+
 .seethecurses>button {
     position: absolute;
-    bottom: 0.5;
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
+    font-weight: 600;
 }
 
 .photo div {
@@ -96,13 +116,15 @@ section {
 .mentoriaresumo h2 {
     color: var(--cta-titles);
     font-size: 1.8rem;
+    font-weight: 600;
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
 }
 
 .mentoriaresumo p {
     color: var(--paragraphs);
     font-size: 1.1rem;
-    line-height: 25px;
+    line-height: 35px;
+    
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
 }
 
@@ -150,7 +172,7 @@ section {
     bottom: 20px;
     right: 20px;
     padding: 10px 20px;
-    background-color: var(--cta);
+    background-color: var(--button-color);
     color: white;
     border: none;
     border-radius: 5px;
@@ -159,7 +181,7 @@ section {
 }
 
 .button:hover {
-    background-color: var(--cta-titles);
+  opacity: 0.8;
    
 }
 
@@ -172,14 +194,13 @@ section {
 
 .cursoshome button,
 button a {
-    font-family: 'Poppins', sans-serif;
     color: white;
-    font-weight: 900;
+    font-weight: 600;
     font-size: 1rem;
-    background-color: var(--cta-about-courses);
-    padding: 7px 23px;
+    background-color: var(--cta);
+    padding: 5px 29px;
     border: none;
-    border-radius: 13px;
+    border-radius: 9px;
     cursor: pointer;
     opacity: 1;
     margin: 0 auto;
@@ -187,14 +208,14 @@ button a {
 }
 
 .cursoshome button:hover {
-    opacity: 0.9;
+    background-color: var(--cta-hover);
 }
 
 aside {
     gap: 40px;
     padding: 50px 150px;
-    font-weight: 800;
-    font-size: 1.25rem;
+    font-weight: 600;
+    font-size: 1.35rem;
     display: flex;
     justify-content: space-around;
     border-bottom: 2px solid #c5b8d9;
@@ -238,6 +259,7 @@ aside a {
 }
 
 aside a:hover {
+    text-decoration: underline;
    color: var(--second-font-hover);  
 }
 

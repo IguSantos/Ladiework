@@ -6,58 +6,78 @@
 
 <body>
     <%- include("../partial/header") %>
-    <h1>Meu carrinho</h1>
     <main>
-          <ul class="purchased-courses">
-    <a href="informacao_da_mentoria">
-        <li class="purchased-course">
-            <img src="images/2787860-1024x1024.jpg" alt="">
-            <div class="info-purchase">
-                <h2>Marketing Digital</h2>
-                <p>Leticia</p>
-            </div>
-            <div class="price-and-trash">
-                <p class="show-price">R$<span class="price-course">100</span></p>
-                <ion-icon name="trash-outline" onclick="removeArticle(this)"></ion-icon>
-            </div>
-        </li>
-    </a>
-</ul>
+            <h1>Meu carrinho</h1>
+         
+            <section class="main-section">
+                <ul class="purchased-courses" id="courses-list">
+                   
+                        <li class="purchased">
+                            <img src="images/2787860-1024x1024.jpg" alt="">
+                            <div class="info-purchase">
+                                <a href="informacao_da_mentoria"></a> <h2>Marketing Digital</h2>  </a>
+                                <p>Leticia</p>
+                            </div>
+                            <div class="price-and-trash">
+                                <p class="show-price">R$<span class="price-course">100</span></p>
+                                <ion-icon name="trash-outline" onclick="removeArticle(this)"></ion-icon>
+                            </div>
+                        </li>
 
-            <aside>
-                <h2>Total:</h2>
-                <p>R$ 100,00</p>
-                <br>
+                      
+                </ul>
+                <aside>
+                    <h2>Total:</h2>
+                    <p>R$ 100,00</p>
+                    <br>
+                    <span class="discont">45% de desconto</span>
+                    <button onclick="window.location.href = 'finalizarcompra'">Finalizar compra</button>
+                 
+                </aside>
+            </section>
 
-                <span class="discont">45% de desconto</span>
-                <button onclick="window.location.href = 'finalizarcompra'">Finalizar compra</button>
 
-                <hr>
+            <hr>
+        <h3>Mais cursos para você</h3>
+        <aside class="more-curses">
+
+
+            <article>
+                <img src="images/templatephoto.svg" alt="">
+                <div class="more-curses-info">
+                    <h4>Como criar sua empresa</h4>
+                    <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de
+                        marketing e gestão..</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="images/templatephoto.svg" alt="">
+                <div class="more-curses-info">
+                    <h4>Como criar sua empresa</h4>
+                    <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de
+                        marketing e gestão..</p>
+                </div>
+            </article>
+
+
+            <article>
+                <img src="images/templatephoto.svg" alt="">
+                <div class="more-curses-info">
+                    <h4>Como criar sua empresa</h4>
+                    <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de
+                        marketing e gestão..</p>
+                </div>
+            </article>
 
 
 
-            </aside>
+
+        </aside>
 
 
         </main>
 
-        <hr>
-        <h3>Mais cursos para você</h3>
         
-        <aside class="more-curses">
-
-
-                <article>
-                    <img src="images/templatephoto.svg" alt="">
-                    <div class="more-curses-info">
-                        <h4>Como criar sua empresa</h4>
-                        <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de marketing e gestão..</p>
-                    </div>
-                </article>
-            
-            
-
-        </aside>
-
 
         <script src="js/crinho.js"></script>

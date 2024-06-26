@@ -44,6 +44,7 @@ maximo de caractere quando enviar mensagem
 paginacao com cursos falsos
 Favicon pagina administracao
 CASO O EMAIL JA EXISTA!! CADASTRO
+chat versao mobile
 atualizacoes do daniel
 
 
@@ -51,3 +52,5 @@ ATUALIZAÇÃO NO CREATE
 Descricao do curso/mentoria
 Span de erro (nao um alert)
 not null nas informacões
+atualizar descricao do perfil mentora e nao mentora
+criar cursos com a mesma dinamica da mentoria
