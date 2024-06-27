@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const textareaDescricao = document.getElementById('description');
         const descricaoValue = textareaDescricao.value.trim();
     
-        if (descricaoValue === '' || descricaoValue.length < 15 || descricaoValue.length > 40) {
+        if (descricaoValue === '' || descricaoValue.length < 15 || descricaoValue.length > 200) {
             event.preventDefault();
             textareaDescricao.classList.add('error');
             if (descricaoValue === '') {

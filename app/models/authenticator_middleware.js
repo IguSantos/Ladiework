@@ -13,8 +13,6 @@ checkAuthenticatedUser = (req, res, next) => {
 }
 
 
-
-
 // LOGOUT - NAO FUNCIONANDO
 clearSession = (req, res, next) => { // Declaração de uma função chamada 
     req.session.destroy(); // Remove todos os dados associados ao usuario. Usa a funcao da biblioteca nodejs "Destroy()"

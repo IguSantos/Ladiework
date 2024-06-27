@@ -22,9 +22,13 @@
             <img src="images/logo-branca.svg" alt="LadieWork">
 
             <ul>
+                <% if (logado) { %>
                 <a href="/criar">
                     <li>Ensinar na Ladiework</li>
                 </a>
+                <% } else { %>
+                    
+                    <% } %>
                 <a href="/mentorias">
                     <li>Mentorias</li>
                 </a>
@@ -52,6 +56,7 @@
                 <a href="">
                     <li>Configurações</li>
                 </a>
+               
             </ul>
 
             <div class="container">

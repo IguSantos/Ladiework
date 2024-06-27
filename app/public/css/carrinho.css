@@ -16,6 +16,8 @@ ion-icon {
     cursor: pointer;
 }
 
+
+
 h1,
 h2,
 h3 {
@@ -145,11 +147,12 @@ h3 {
 
 .main-section aside span {
     /* Estilos para o desconto */
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     opacity: 0.8;
     max-width: 100%;
     display: block;
     text-align: left;
+    margin-top: -20px;
     transition: all 0.5s ease;
 }
 
