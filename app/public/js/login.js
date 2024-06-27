@@ -1,18 +1,17 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('login-form');
-    
-    form.addEventListener('submit', function(event) {
-        // Prevent form from submitting immediately
-        event.preventDefault();
-        
-        // Clear previous errors
-        clearErrors();
 
-        // Validate form
+    form.addEventListener('submit', function (event) {
+       
+        clearErrors();
         if (validateForm()) {
-            // If validation passes, simulate server-side validation
-            simulateServerValidation();
+            // Obter os dados do formulário
+            const formData = new FormData(form);
+            const email = formData.get('email_usu');
+            const password = formData.get('senha_usu');
+
+            // Enviar os dados para o servidor
+            simulateServerValidation(email, password);
         }
     });
 });
@@ -26,27 +25,69 @@ function validateForm() {
     const emailError = document.getElementById("email-error");
     const passwordError = document.getElementById("password-error");
 
-    // Check if email field is empty
     if (!emailField.value.trim()) {
+        event.preventDefault();
         emailError.textContent = "O campo de e-mail não pode estar vazio.";
         emailField.classList.add('error');
         isValid = false;
     } else if (!validateEmail(emailField.value.trim())) {
-        emailError.textContent = "Por favor, insira um e-mail válido.";
+        event.preventDefault();
+        emailError.textContent = "O e-mail inserido não é válido.";
         emailField.classList.add('error');
         isValid = false;
-    } else {
-        emailField.classList.remove('error');
     }
 
-    // Check if password field is empty
     if (!passwordField.value.trim()) {
+        event.preventDefault();
         passwordError.textContent = "O campo de senha não pode estar vazio.";
         passwordField.classList.add('error');
         isValid = false;
-    } else {
-        passwordField.classList.remove('error');
+    } else if (!validatePassword(passwordField.value.trim())) {
+        event.preventDefault();
+        passwordError.textContent = "Senha inválida.";
+        passwordField.classList.add('error');
+        isValid = false;
     }
 
     return isValid;
 }
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePassword(password) {
+    const re = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    return re.test(password);
+}
+
+function clearErrors() {
+    document.getElementById("email-error").textContent = "";
+    document.getElementById("password-error").textContent = "";
+
+    document.getElementById("email").classList.remove('error');
+    document.getElementById("password").classList.remove('error');
+}
+
+function displayServerError(message) {
+    const emailError = document.getElementById("email-error");
+    const passwordError = document.getElementById("password-error");
+
+    emailError.textContent = message;
+    passwordError.textContent = message;
+
+    document.getElementById("email").classList.add('error');
+    document.getElementById("password").classList.add('error');
+}
+
+function simulateServerValidation(email, password) {
+
+    // Simula a resposta do servidor após a validação
+    const serverResponse = {
+        success: true, // Altere isso para false para simular erro
+        message: "Senha incorreta.", // Mensagem de erro do servidor
+        name: "Nome do Usuário" // Substitua isso pelo nome real do usuário obtido do servidor
+    };
+}
+
