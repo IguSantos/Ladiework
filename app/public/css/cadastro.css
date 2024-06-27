@@ -89,6 +89,11 @@ input[type="date"] {
     transition: all .4s;
 }
 
+.btn-disabled {
+    background-color: grey !important;
+    cursor: not-allowed;
+}
+
 .primary {
     padding: 17px 20px;
     margin-left: 20px;

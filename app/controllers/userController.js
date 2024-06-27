@@ -50,14 +50,18 @@ const userController = {
             // }
             // else {
             let create = await user.create(dataForm);
-            req.session.logado = req.body.nome_usu;
-
+          req.session.logado = {
+                NOME_USUARIO: dataForm.NOME_USUARIO,
+                EMAIL_USUARIO: dataForm.EMAIL_USUARIO,
+                FOTO_USUARIO: dataForm.FOTO_USUARIO,
+                CELULAR_USUARIO: dataForm.CELULAR_USUARIO
+            };
             res.redirect("/");
             // }
         } catch (error) {
             console.log("Erro ao cadastrar:", error);
             res.render("pages/main", {
-                pagina: "home",
+                pagina: "cadastro",
                 errorsList: errors,
                 valores: req.body
             });
@@ -80,15 +84,27 @@ const userController = {
             if (!errors.isEmpty()) {
                 return res.render("pages/main", { pagina: "login", errorsList: errors, logado: null });
             }
-
+    
             const dataForm = {
                 EMAIL_USUARIO: req.body.email_usu,
                 SENHA_USUARIO: req.body.senha_usu
             };
-
+    
             let findUserEmail = await user.findUserEmail(dataForm);
             if (findUserEmail.length === 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, findUserEmail[0].SENHA_USUARIO)) {
-                req.session.logado = findUserEmail[0].NOME_USUARIO.toString(); 
+                // Formatando a data de criação
+                const criacaoDate = new Date(findUserEmail[0].DT_CRIACAO_CONTA_USUARIO);
+                const mes = criacaoDate.toLocaleString('default', { month: 'long' });
+                const ano = criacaoDate.getFullYear();
+                const criacaoFormatada = `${mes} ${ano}`;
+    
+                req.session.logado = {
+                    nome: findUserEmail[0].NOME_USUARIO,
+                    email: findUserEmail[0].EMAIL_USUARIO,
+                    telefone: findUserEmail[0].CELULAR_USUARIO,
+                    criacao: criacaoFormatada
+                    // Adicione mais campos conforme necessário
+                }; 
                 return res.redirect("/");
             } else {
                 res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null });
@@ -98,6 +114,7 @@ const userController = {
             res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Erro no servidor" }], logado: null });
         }
     },
+    
 
     showProfile: async (req, res) => {
         // Define uma função assíncrona chamada 'showProfile' que recebe dois parâmetros

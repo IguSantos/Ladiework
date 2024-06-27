@@ -1,58 +1,8 @@
-// EXCLUIR CURSO
-function removeArticle(iconElement) {
-    // Encontra o elemento <li> pai do ícone clicado
-    const listItem = iconElement.closest('.purchased-course');
-    
-    if (listItem) {
-        listItem.remove(); // Remove o <li> do DOM
-    }
-}
-
-
-
-// SLIDER
-
-const slider = document.querySelector('.slider');
-const articles = document.querySelectorAll('.slider article');
-const prevButton = document.querySelector('.prevButton');
-const nextButton = document.querySelector('.nextButton');
-
-let currentIndex = 0;
-let isTransitioning = false;
-
-function nextSlide() {
-    if (isTransitioning) return;
-    currentIndex++;
-    if (currentIndex >= articles.length) {
-        currentIndex = 0;
-    }
-    scrollToCurrentIndex();
-}
-
-function prevSlide() {
-    if (isTransitioning) return;
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = articles.length - 1;
-    }
-    scrollToCurrentIndex();
-}
-
-function scrollToCurrentIndex() {
-    const articleWidth = articles[0].offsetWidth;
-    slider.scrollTo({
-        left: currentIndex * articleWidth,
-        behavior: 'smooth'
+// Aguarda o carregamento completo do documento
+$(document).ready(function() {
+    // Adiciona um evento de clique para o ícone da lixeira
+    $('.trash-icon').click(function() {
+        // Remove o elemento pai (li) da lixeira clicada
+        $(this).closest('li').remove();
     });
-}
-
-nextButton.addEventListener('click', nextSlide);
-prevButton.addEventListener('click', prevSlide);
-
-// Função para rolar automaticamente
-function autoScroll() {
-    nextSlide();
-}
-
-// Inicie a rolagem automática a cada 3 segundos
-setInterval(autoScroll, 4000);
+});

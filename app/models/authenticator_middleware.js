@@ -43,7 +43,14 @@ recordAuthenticatedUser = async (req, res, next) => {
 
         // Verificação bem-sucedida do login
         if (total == 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, results[0].SENHA_USUARIO)) {
-             logado = results[0].NOME_USUARIO; // Definir o nome de usuário como logado
+             logado = {
+
+               nome: results[0].NOME_USUARIO,
+               telefone: results[0].CELULAR_USUARIO,
+               email: results[0].EMAIL_USUARIO,
+               criacao: results[0].DT_CRIACAO_CONTA_USUARI,
+                
+             }  // Definir o nome de usuário como logado
              console.log("Deu erro no authenticator")
         } else {
              logado = null;

@@ -3,18 +3,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const buttonsPrev = document.querySelectorAll('[data-action="prev"]');
     const formSteps = document.querySelectorAll('.form-step');
 
+    // Função para verificar se há campos vazios e desabilitar botões "Next" se necessário
+    function checkEmptyFields() {
+        formSteps.forEach(step => {
+            const inputs = step.querySelectorAll('input, textarea');
+            let hasEmptyField = false;
+
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    hasEmptyField = true;
+                }
+            });
+
+            const nextButton = step.querySelector('[data-action="next"]');
+            if (nextButton) {
+                if (hasEmptyField) {
+                    nextButton.classList.add('btn-disabled');
+                    nextButton.disabled = true; // Desabilita o botão "Next"
+                } else {
+                    nextButton.classList.remove('btn-disabled');
+                    nextButton.disabled = false; // Habilita o botão "Next"
+                }
+            }
+        });
+
+        // Habilita sempre o botão "Prev" quando há campos preenchidos
+        buttonsPrev.forEach(button => {
+            button.classList.remove('btn-disabled');
+            button.disabled = false; // Garante que o botão "Prev" esteja habilitado
+        });
+    }
+
+    // Verifica campos vazios ao carregar a página
+    checkEmptyFields();
+
+    // Adiciona evento de click para o botão "Next"
     buttonsNext.forEach(button => {
         button.addEventListener('click', function() {
             const currentStep = this.closest('.form-step');
-            
+
             // Verifica se estamos na primeira etapa do formulário
             if (currentStep.classList.contains('active')) {
-                // Verifica se há campos vazios ou com erro na primeira etapa do formulário
                 const inputs = currentStep.querySelectorAll('input, textarea');
                 let hasEmptyField = false;
                 let hasError = false;
                 let passwordValue = '';
 
+                // Verifica campos vazios ou com erro na primeira etapa do formulário
                 inputs.forEach(input => {
                     // Verifica se o campo está vazio
                     if (input.value.trim() === '') {
@@ -25,14 +60,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         input.classList.remove('error');
                         input.nextElementSibling.textContent = ''; // Remove qualquer aviso existente
 
-                        // Verifica o nome
+                        // Validações específicas conforme antes
                         if (input.id === 'name' && (input.value.trim().length < 4 || input.value.trim().length > 45)) {
                             input.classList.add('error');
                             input.nextElementSibling.textContent = 'O nome deve ter entre 4 e 45 caracteres';
                             hasError = true;
                         }
 
-                        // Verifica o email
                         if (input.id === 'email') {
                             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                             if (!emailPattern.test(input.value.trim())) {
@@ -50,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }
 
-                        // Verifica a senha
                         if (input.id === 'password') {
                             const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
                             if (!passwordPattern.test(input.value.trim())) {
@@ -62,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }
 
-                        // Verifica o número
                         if (input.id === 'phone' && (input.value.trim().length !== 11 || !/^\d{2}9\d{8}$/.test(input.value.trim()))) {
                             input.classList.add('error');
                             input.nextElementSibling.textContent = 'O número deve seguir o formato correto 11 9XXXXXXXX';
@@ -101,10 +133,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentStep.classList.add('hide');
                 nextStep.classList.remove('hide');
                 nextStep.classList.add('active');
+
+                // Verifica campos vazios na próxima etapa ao mudar de passo
+                checkEmptyFields();
             }
         });
     });
 
+    // Adiciona evento de click para o botão "Prev"
     buttonsPrev.forEach(button => {
         button.addEventListener('click', function() {
             const currentStep = this.closest('.form-step');
@@ -115,52 +151,68 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentStep.classList.add('hide');
                 prevStep.classList.remove('hide');
                 prevStep.classList.add('active');
+
+                // Verifica campos vazios no passo anterior ao mudar de passo
+                checkEmptyFields();
             }
         });
     });
 
-    // Impedir colagem no campo de confirmar senha
-    document.getElementById('confirm-password').addEventListener('paste', function(event) {
-        // Cancela o evento de colar
-        event.preventDefault();
+    // Adiciona evento de input para verificar campos vazios dinamicamente
+    formSteps.forEach(step => {
+        const inputs = step.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                checkEmptyFields();
+            });
+        });
     });
 
-    // Configuração do flatpickr para a data de nascimento
-    flatpickr("#birthday-date", {
-        dateFormat: "Y-m-d",
-        maxDate: "2007-12-31",
-        locale: "pt"
-    });
 
-   
-    // Evento para alterar a imagem de perfil
-    const inputImage = document.getElementById('inputImage');
-    const profileImage = document.getElementById('profileImage');
-    const miniPerfil = document.getElementById('editar');
+
+
+        // Impedir colagem no campo de confirmar senha
+        document.getElementById('confirm-password').addEventListener('paste', function(event) {
+            // Cancela o evento de colar
+            event.preventDefault();
+        });
+
+        // Configuração do flatpickr para a data de nascimento
+        flatpickr("#birthday-date", {
+            dateFormat: "Y-m-d",
+            maxDate: "2007-12-31",
+            locale: "pt"
+        });
+
     
+        // Evento para alterar a imagem de perfil
+        const inputImage = document.getElementById('inputImage');
+        const profileImage = document.getElementById('profileImage');
+        const miniPerfil = document.getElementById('editar');
+        
 
-    miniPerfil.addEventListener('click', () => {
-        inputImage.click();
+        miniPerfil.addEventListener('click', () => {
+            inputImage.click();
+        });
+
+
+        inputImage.addEventListener('change', (event) => {
+            profileImage.src = URL.createObjectURL(event.target.files[0]);
+
+            // const file = event.target.files[0];
+
+
+            // if (file) {
+            //     const reader = new FileReader();
+
+            //     reader.onload = (e) => {
+            //         profileImage.src = e.target.result;
+            //       
+            //         // Salvar a imagem no localStorage
+            //         localStorage.setItem('profileImageSrc', e.target.result);
+            //     };
+
+            //     reader.readAsDataURL(file);
+            // }
+        });
     });
-
-
-    inputImage.addEventListener('change', (event) => {
-        profileImage.src = URL.createObjectURL(event.target.files[0]);
-
-        // const file = event.target.files[0];
-
-
-        // if (file) {
-        //     const reader = new FileReader();
-
-        //     reader.onload = (e) => {
-        //         profileImage.src = e.target.result;
-        //       
-        //         // Salvar a imagem no localStorage
-        //         localStorage.setItem('profileImageSrc', e.target.result);
-        //     };
-
-        //     reader.readAsDataURL(file);
-        // }
-    });
-});

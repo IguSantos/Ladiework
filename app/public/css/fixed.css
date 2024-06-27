@@ -83,7 +83,7 @@ nav a:hover {
 
 .info_profile {
     width: 333px;
-    height: 309px;
+    height: 229px;
     background-color: rgb(218, 218, 218);
     position: absolute;
     top: 81px;
@@ -156,7 +156,7 @@ nav a:hover {
 .profile_info {
     margin-top: 10px;
     background-color: rgb(255 255 255 / 70%);
-    height: 130px;
+    height: 84px;
     padding: 5px;
     margin-bottom: 5px;
 }
@@ -206,6 +206,7 @@ nav a:hover {
     font-size: 0.6rem;
     color: black;
     opacity: 0.5;
+    font-weight: 500;
     text-align: left;
     text-transform: uppercase;
 }

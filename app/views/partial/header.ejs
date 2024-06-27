@@ -64,8 +64,8 @@
             <img src="images/profilephoto.svg" alt="">
             <div>
               
-              <p><%= logado %></p>
-              <span class="user_type">Mentora</span>
+              <p><%= logado.nome %></p>
+              <!-- <span class="user_type">Mentora</span> -->
               <button class="edit">Editar</button>
             </div>
             <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
@@ -76,13 +76,13 @@
             <span>Contato</span>
             <ul>
               <ion-icon name="mail-outline"></ion-icon>
-              <li>amandasilva04@gmail.com</li>
+              <li><%= logado.email %></li>
               <br>
               <ion-icon name="call-outline"></ion-icon>
-              <li>+55 (11) 94563-2056</li>
+              <li><%= logado.telefone %></li>
             </ul>
           </article>
-          <span class="membersince">Membro Desde: Junho 2023</span>
+          <span class="membersince">Membro Desde: <%= logado.criacao %></span>
           <a href="sair" class="logout">Sair</a>
         </section>
       <% } else { %>
