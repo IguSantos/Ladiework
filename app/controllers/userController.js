@@ -51,10 +51,9 @@ const userController = {
             // else {
             let create = await user.create(dataForm);
           req.session.logado = {
-                NOME_USUARIO: dataForm.NOME_USUARIO,
-                EMAIL_USUARIO: dataForm.EMAIL_USUARIO,
-                FOTO_USUARIO: dataForm.FOTO_USUARIO,
-                CELULAR_USUARIO: dataForm.CELULAR_USUARIO
+               nome: dataForm.NOME_USUARIO,
+               email: dataForm.EMAIL_USUARIO,
+                telefone: dataForm.CELULAR_USUARIO
             };
             res.redirect("/");
             // }

@@ -314,10 +314,11 @@ aside a:hover {
     }
 
     .first-course {
-        font-size: 1rem;
+        font-size: 0.9rem;
         justify-content: center;
         height: 30px;
         width: 290px;
+        font-weight: 600;
     }
 
     section {

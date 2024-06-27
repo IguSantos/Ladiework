@@ -306,6 +306,7 @@ nav {
         position: relative;
         flex-direction: column;
         align-items: center;
+        height: 40vh;
     }
 
     section {

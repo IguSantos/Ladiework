@@ -188,7 +188,10 @@ main section article p {
     main {
         width: 95%;
         transition: width 0.5s ease;
+        margin: 20px auto;
     }
+
+
 
     .backtoid {
         margin: auto;
@@ -242,7 +245,7 @@ main section article p {
     div h3 {
         font-size: 1.5rem;
         margin: 0;
-        
+
     }
 
     section article {
@@ -251,9 +254,13 @@ main section article p {
         transition: width 0.5s ease, height 0.5s ease;
     }
 
-    main {
-        margin: 20px auto;
+
+    main div {
+        display: flex;
+        justify-content: space-between;
+        margin-left: -20px;
     }
+
 
 }
 
