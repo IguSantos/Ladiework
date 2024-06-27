@@ -85,12 +85,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
 
                         if (input.id === 'password') {
-                            const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
+                            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
                             if (!passwordPattern.test(input.value.trim())) {
                                 input.classList.add('error');
-                                input.nextElementSibling.textContent = 'A senha deve ter no mínimo 8 caracteres, incluindo 1 letra maiúscula, 1 caractere especial e 1 número';
+                                input.nextElementSibling.textContent = 'A senha deve ter no mínimo 8 caracteres, incluindo 1 letra maiúscula, 1 letra minúscula, 1 caractere especial e 1 número';
                                 hasError = true;
                             } else {
+                                input.classList.remove('error');
+                                input.nextElementSibling.textContent = ''; // Remove qualquer aviso existente
                                 passwordValue = input.value.trim();
                             }
                         }

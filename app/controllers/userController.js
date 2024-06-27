@@ -50,10 +50,16 @@ const userController = {
             // }
             // else {
             let create = await user.create(dataForm);
-          req.session.logado = {
-               nome: dataForm.NOME_USUARIO,
-               email: dataForm.EMAIL_USUARIO,
-                telefone: dataForm.CELULAR_USUARIO
+            const criacaoDate = dataForm.DT_CRIACAO_CONTA_USUARIO;
+            const mes = criacaoDate.toLocaleString('default', { month: 'long' });
+            const ano = criacaoDate.getFullYear();
+            const criacaoFormatada = `${mes} ${ano}`;
+            
+            req.session.logado = {
+                nome: dataForm.NOME_USUARIO,
+                email: dataForm.EMAIL_USUARIO,
+                telefone: dataForm.CELULAR_USUARIO,
+                criacao: criacaoFormatada
             };
             res.redirect("/");
             // }
