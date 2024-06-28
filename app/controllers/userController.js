@@ -21,8 +21,8 @@ const userController = {
     cadastrar: async (req, res) => {
         const errors = validationResult(req);
         console.log(errors);
-        // GUARDAR INFORMAÇÕES DO CADASTRO
 
+        // GUARDAR INFORMAÇÕES DO CADASTRO
         const dataForm = {
             NOME_USUARIO: req.body.nome_usu,
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha_usu, salt),
@@ -35,25 +35,22 @@ const userController = {
 
 
 
+
         // Se algo der errado em todo o cadastro ele reseta
-        if (!errors.isEmpty()) {
+         // Se algo der errado em todo o cadastro ele reseta
+         if (!errors.isEmpty()) {
             console.log(errors);
             return res.render("pages/main", { pagina: "home", logado: null , errorsList: errors, valores: req.body });
         }
 
-
         // CRIAR USUARIO
         try {
-            // let findUserEmail = await user.findUserEmail(dataForm);
-            // if (findUserEmail) {
-            //     console.log("EMAIL JA EXISTE!!")
-            // }
-            // else {
             let create = await user.create(dataForm);
+
+            // Formatando a data de criação da conta
             const criacaoDate = dataForm.DT_CRIACAO_CONTA_USUARIO;
-            const mes = criacaoDate.toLocaleString('default', { month: 'long' });
-            const ano = criacaoDate.getFullYear();
-            const criacaoFormatada = `${mes} ${ano}`;
+            const options = { month: 'long', year: 'numeric' };
+            const criacaoFormatada = new Intl.DateTimeFormat('pt-BR', options).format(criacaoDate);
             
             req.session.logado = {
                 nome: dataForm.NOME_USUARIO,
@@ -62,7 +59,6 @@ const userController = {
                 criacao: criacaoFormatada
             };
             res.redirect("/");
-            // }
         } catch (error) {
             console.log("Erro ao cadastrar:", error);
             res.render("pages/main", {
@@ -99,9 +95,8 @@ const userController = {
             if (findUserEmail.length === 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, findUserEmail[0].SENHA_USUARIO)) {
                 // Formatando a data de criação
                 const criacaoDate = new Date(findUserEmail[0].DT_CRIACAO_CONTA_USUARIO);
-                const mes = criacaoDate.toLocaleString('default', { month: 'long' });
-                const ano = criacaoDate.getFullYear();
-                const criacaoFormatada = `${mes} ${ano}`;
+                const options = { month: 'long', year: 'numeric' };
+                const criacaoFormatada = new Intl.DateTimeFormat('pt-BR', options).format(criacaoDate);
     
                 req.session.logado = {
                     nome: findUserEmail[0].NOME_USUARIO,
