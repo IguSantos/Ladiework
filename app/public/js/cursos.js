@@ -88,3 +88,55 @@ function closeFilter() {
     document.getElementById('background').classList.remove('show-filter')
     document.body.classList.remove('no-scroll')
 };
+
+
+
+// ADICIONAR NO CARRINHO
+document.addEventListener('DOMContentLoaded', () => {
+    // Função para obter o carrinho do localStorage ou inicializar um novo conjunto vazio
+    function getCartFromLocalStorage() {
+        const cartJSON = localStorage.getItem('cart');
+        return cartJSON ? new Set(JSON.parse(cartJSON)) : new Set();
+    }
+
+    // Função para salvar o carrinho no localStorage
+    function saveCartToLocalStorage(cart) {
+        localStorage.setItem('cart', JSON.stringify(Array.from(cart)));
+    }
+
+    let cart = getCartFromLocalStorage();
+    const cartIndicator = document.querySelector('.count-indicator');
+
+    function updateCartIndicator() {
+        cartIndicator.textContent = cart.size;
+        if (cart.size === 0) {
+            cartIndicator.classList.add('hidden');
+        } else {
+            cartIndicator.classList.remove('hidden');
+        }
+        saveCartToLocalStorage(cart); // Salva o carrinho no localStorage após atualizar o indicador
+    }
+
+    function toggleCartItem(event) {
+        const button = event.currentTarget;
+        const courseId = button.getAttribute('data-id');
+        const icon = button.querySelector('ion-icon[name="add-outline"], ion-icon[name="remove-outline"]');
+
+        if (cart.has(courseId)) {
+            cart.delete(courseId);
+            icon.setAttribute('name', 'add-outline');
+        } else {
+            cart.add(courseId);
+            icon.setAttribute('name', 'remove-outline');
+        }
+
+        updateCartIndicator();
+    }
+
+    const addCartButtons = document.querySelectorAll('.add-cart');
+    addCartButtons.forEach(button => {
+        button.addEventListener('click', toggleCartItem);
+    });
+
+    updateCartIndicator(); // Inicializa o contador ao carregar a página
+});

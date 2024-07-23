@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -19,16 +20,16 @@ html {
 }
 
 body {
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .status {
-   position: absolute;
+    position: absolute;
     width: 10px;
     height: 10px;
     background-color: rgb(33, 212, 33);
     border-radius: 50%;
-    top: 45px;
+    top: 38px;
     right: 24px;
 }
 
@@ -42,7 +43,7 @@ nav {
     justify-content: space-between;
     color: var(--second-color);
     position: relative;
-    
+
 }
 
 /* Remover decoração padrão dos links */
@@ -52,7 +53,7 @@ a {
 
 /* Estilização dos links de navegação */
 nav a {
-   
+
     color: var(--second-color);
     text-decoration: none;
     font-weight: 500;
@@ -73,6 +74,22 @@ nav a:hover {
     cursor: pointer;
 }
 
+.count-indicator {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    z-index: 2;
+    bottom:17;
+    left: 0;
+}
 
 .profile-login-mobile {
     width: 45px;
@@ -213,8 +230,8 @@ nav a:hover {
 
 .hidden {
     display: none;
-  }
-  
+}
+
 
 .triangle2 {
     height: 10px;
@@ -260,6 +277,7 @@ nav ul {
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    position: relative;
 }
 
 #menu-icon {
@@ -349,7 +367,7 @@ footer img {
 footer ul {
     columns: 3;
     list-style-type: none;
- 
+
 }
 
 footer>ul>a {
@@ -545,7 +563,7 @@ nav img.profile {
 
 /* MOBILE */
 @media (min-width: 320px) and (max-width: 800px) {
-    
+
 
     /* HEADER MOBILE */
     #closeMenu {
@@ -557,7 +575,7 @@ nav img.profile {
         border-radius: 50%;
     }
 
-    
+
     div .status {
         display: none;
     }

@@ -35,22 +35,25 @@ pendendo, em revisao etc dos cursos...
 id mentora usuaria
 
 
-
-cursos comprados no desk e moobile
-confirmar senha
-trocar icons de tipos de curso
-Bloquear o botaod e continuar no cadastro e login....
-maximo de caractere quando enviar mensagem
-paginacao com cursos falsos
-Favicon pagina administracao
-CASO O EMAIL JA EXISTA!! CADASTRO
-chat versao mobile
-atualizacoes do daniel
+ATUALIZAÇÕES:
+- salvar a foto e usa-la
 
 
-ATUALIZAÇÃO NO CREATE
-Descricao do curso/mentoria
-Span de erro (nao um alert)
-not null nas informacões
-atualizar descricao do perfil mentora e nao mentora
-criar cursos com a mesma dinamica da mentoria
+- Create curso que leva a pagna de adm para palestrante + modifcacao na pagina para nao ser só mentoria
+- resetar os ids no mysql
+- paginacao com cursos falsos
+- adiministracao adm
+- Acessar pagina de adm com sistema de quadno ser mentora
+- atualizar o menu mobile tamanho
+- atualizar descricao do perfil mentora e nao mentora
+- trocar perfil para quando ser mentora
+- se logado leva pra comprar caso contrario logue ou cadastre-se
+
+DASHBOARD
+ - perfil
+ - historico
+ - mentoradas
+ - calendario
+ - dashboard
+
+

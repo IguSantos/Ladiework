@@ -435,6 +435,10 @@ input[type=search]::placeholder {
     margin-left: 5px;
 }
 
+.hidden {
+    display: none;
+}
+
 .course-info span {
     position: absolute;
     right: 0;

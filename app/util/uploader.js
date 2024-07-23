@@ -30,6 +30,7 @@ module.exports = (caminho = null, tamanhoArq = 3) => { // Define o valor como nu
 
   // HÁ UMA DUVIDA!!!!!!!!
 
+  // Versão com armazenamento em SGBD
   // ARMAZENA E USA O FILTRO
   if (caminho == null) { // Se o caminho não for passado
 
@@ -71,7 +72,7 @@ module.exports = (caminho = null, tamanhoArq = 3) => { // Define o valor como nu
 
         req.session.errorMulter = null; // Declara a variavel que sera usada para armazenar informações de erro
 
-        upload.single(campoArquivo)(req, res, function (err) { // SINGLE?????????
+        upload.single(campoArquivo)(req, res, function (err) { 
           if (err instanceof multer.MulterError) { // verifica se o erro fornecido é um erro do multer :D
             req.session.errorMulter = { // Criamos uma variavel de sessão forncendo as informações do erro
               value: '',
@@ -87,7 +88,7 @@ module.exports = (caminho = null, tamanhoArq = 3) => { // Define o valor como nu
             }
             console.log("Não é um erro do multer!")
           }
-          next(); // Fun ção que avança ao próximo middleware
+          next(); // Função que avança ao próximo middleware
         });
       };
     };

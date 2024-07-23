@@ -1,8 +1,8 @@
 html,
 body {
     font-size: 16px;
-    background: rgb(247, 247, 247) url("https://i.ibb.co/R95pV6M/Cadastro.png") no-repeat center center/cover;
-    height: 100%;
+    /* background: rgb(247, 247, 247) url("https://i.ibb.co/R95pV6M/Cadastro.png") no-repeat center center/cover; */
+    
 }
 
 
@@ -10,7 +10,7 @@ main {
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
     width: 35%;
     margin: 40px auto;
-    height: 100%;
+    
    
 }
 

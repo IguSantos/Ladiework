@@ -1,138 +1,136 @@
-<title>LadieWork</title>
-    <link rel="stylesheet" href="css/chat.css">
+<link rel="stylesheet" href="css/chat.css">
 </head>
 
 <body>
-    <%- include("../partial/header") %>
+<%- include("../partial/header") %>
 
-    <main>
+<main>
 
-        <aside class="chat">
-            <header>
-                <input type="search" name="" id="">
-            </header>
+    <aside class="chat">
+        <header>
+            <input type="search" name="" id="">
+        </header>
 
-            <ul>
-                <li>
-                    <img src="images/profilephoto.svg" alt="" class="chatphoto">
-                    <div class="last-time">
-                        <h3 class="user">Ana Paula</h3>
-                        <p>Você: Olá! É Sobre a....</p>
-                    </div>
-                    <p class="hours">Hoje 13:34</p>
-                </li>
-                <li>
-                    <img src="images/profilephoto.svg" alt="" class="chatphoto">
-                    <div class="last-time">
-                        <h3 class="user">Clara Fernandes</h3>
-                        <p>Você: Olá! Gostaria de...</p>
-                    </div>
-                    <p class="hours">Hoje 13:34</p>
-                </li>
-                <li>
-                    <img src="images/profilephoto.svg" alt="" class="chatphoto">
-                    <div class="last-time">
-                        <h3 class="user">Pricilla Souza</h3>
-                        <p>Podemos resolver isso...</p>
-                    </div>
-                    <p class="hours">Hoje 13:34</p>
-                </li>
-                <li>
-                    <img src="images/profilephoto.svg" alt="" class="chatphoto">
-                    <div class="last-time">
-                        <h3 class="user">Paula Moraes</h3>
-                        <p>Ótimo! Nos falamos...</p>
-                    </div>
-                    <p class="hours">Hoje 13:34</p>
-                </li>
-            </ul>
-        </aside>
-
-        <section class="main">
-            <header>
-                <div>
-                    <ion-icon name="chevron-back-outline" class="return"></ion-icon>
-                    <h2 id="contact-name">Ana Paula</h2>
-                    <div class="status-chat"></div>
+        <ul>
+            <li>
+                <img src="images/profilephoto.svg" alt="" class="chatphoto">
+                <div class="last-time">
+                    <h3 class="user">Ana Paula</h3>
+                    <p>Você: Olá! É Sobre a....</p>
                 </div>
-
-                <div>
-                  <ion-icon name="call-outline" id="call-icon"></ion-icon>
-                  <ion-icon name="information-circle-outline" id="info-icon"></ion-icon>
-                  <ion-icon name="ellipsis-vertical-outline" id="ellipsis-icon"></ion-icon>
-                  
+                <p class="hours">Hoje 13:34</p>
+            </li>
+            <li>
+                <img src="images/profilephoto.svg" alt="" class="chatphoto">
+                <div class="last-time">
+                    <h3 class="user">Clara Fernandes</h3>
+                    <p>Você: Olá! Gostaria de...</p>
                 </div>
-            </header>
+                <p class="hours">Hoje 13:34</p>
+            </li>
+            <li>
+                <img src="images/profilephoto.svg" alt="" class="chatphoto">
+                <div class="last-time">
+                    <h3 class="user">Pricilla Souza</h3>
+                    <p>Podemos resolver isso...</p>
+                </div>
+                <p class="hours">Hoje 13:34</p>
+            </li>
+            <li>
+                <img src="images/profilephoto.svg" alt="" class="chatphoto">
+                <div class="last-time">
+                    <h3 class="user">Paula Moraes</h3>
+                    <p>Ótimo! Nos falamos...</p>
+                </div>
+                <p class="hours">Hoje 13:34</p>
+            </li>
+        </ul>
+    </aside>
 
-            <section class="main-profile">
-                <div class="conversation">
-                    <div class="main-chat" id="main-chat">
-                        <!-- Mensagens serão inseridas aqui -->
-                        <div class="chat-container-user">
-                            <div class="chat-message">
-                                <img src="images/profilephoto.svg" alt="Foto do usuário" class="user-photo">
-                                <div class="message-content">
-                                    <p>Olá! Como posso ajudar?</p>
-                                </div>
-                            </div>
-                        </div>
+    <section class="main">
+        <header>
+            <div>
+                <ion-icon name="chevron-back-outline" class="return"></ion-icon>
+                <h2 id="contact-name">Ana Paula</h2>
+                <div class="status-chat"></div>
+            </div>
 
-                        <div class="chat-container-you">
-                            <div class="chat-message-you">
-                                <div class="message-content">
-                                    <p>Boa tarde! É sobre minha mentoria.</p>
-                                
-                                </div>
-                                <img src="images/profilephoto.svg" alt="Foto do usuário" class="user-photo">
+            <div>
+              <ion-icon name="call-outline" id="call-icon"></ion-icon>
+              <ion-icon name="information-circle-outline" id="info-icon"></ion-icon>
+              <ion-icon name="ellipsis-vertical-outline" id="ellipsis-icon"></ion-icon>
+            </div>
+        </header>
+
+        <section class="main-profile">
+            <div class="conversation">
+                <div class="main-chat" id="main-chat">
+                    <!-- Mensagens serão inseridas aqui -->
+                    <div class="chat-container-user">
+                        <div class="chat-message">
+                            <img src="images/profilephoto.svg" alt="Foto do usuário" class="user-photo">
+                            <div class="message-content">
+                                <p>Olá! Como posso ajudar?</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="send-message">
-                        <input type="file" id="file-input">
-                        <label for="file-input" class="photo-icon">
-                            <ion-icon name="document-outline"></ion-icon>
-                        </label>
-
-                        <input type="file" id="file-input">
-                        <label for="file-input" class="photo-icon">
-                            <ion-icon name="images-outline"></ion-icon>
-                        </label>
-
-                        <div class="box-of-message">
-                            <input type="text" id="message-input" placeholder="Conversar com Ana Paula">
-                            <button class="confirm-message" onclick="sendMessage()" id="submitBtn">
-                                <ion-icon name="paper-plane-outline"></ion-icon>
-                            </button>
+                    <div class="chat-container-you">
+                        <div class="chat-message-you">
+                            <div class="message-content">
+                                <p>Boa tarde! É sobre minha mentoria.</p>
+                            </div>
+                            <img src="images/profilephoto.svg" alt="Foto do usuário" class="user-photo">
                         </div>
                     </div>
                 </div>
 
-                <article class="about-profile">
-                    <header>
-                        <img src="images/profilephoto.svg" alt="">
-                        <div>
-                            <h3 class="mentor-name">Ana Paula</h3>
-                            <span>Mentora</span>
-                        </div>
-                    </header>
+                <div class="send-message">
+                    <input type="file" id="file-input">
+                    <label for="file-input" class="photo-icon">
+                        <ion-icon name="document-outline"></ion-icon>
+                    </label>
 
-                    <span>Pesquisar</span><span>Mídia</span><span>Arquivos</span>
+                    <input type="file" id="file-input">
+                    <label for="file-input" class="photo-icon">
+                        <ion-icon name="images-outline"></ion-icon>
+                    </label>
 
-                    <span class="bio">Bio:</span>
-                    <p>
-                        Ana Paula é uma profissional experiente com anos de experiência em cargos de liderança. Conhecida
-                        por sua cordialidade e proximidade, ela se destaca em guiar outras pessoas para o sucesso por meio
-                        de mentoria e apoio. Sua dedicação ao crescimento pessoal e profissional lhe rendeu uma reputação
-                        como uma conselheira confiável e motivadora em seu campo. Com uma paixão por ajudar os outros a
-                        atingir todo o seu potencial, Ana Paula é uma mentora respeitada que inspira as pessoas ao seu
-                        redor a lutar pela grandeza.
-                    </p>
+                    <div class="box-of-message">
+                        <input type="text" id="message-input" placeholder="Conversar com Ana Paula">
+                        <button class="confirm-message" onclick="sendMessage()" id="submitBtn">
+                            <ion-icon name="paper-plane-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-                    <button class="block">Bloquear</button>
-                </article>
-            </section>
+            <article class="about-profile">
+                <header>
+                    <img src="images/profilephoto.svg" alt="">
+                    <div>
+                        <h3 class="mentor-name">Ana Paula</h3>
+                        <span>Mentora</span>
+                    </div>
+                </header>
+
+                <span>Pesquisar</span><span>Mídia</span><span>Arquivos</span>
+
+                <span class="bio">Bio:</span>
+                <p>
+                    Ana Paula é uma profissional experiente com anos de experiência em cargos de liderança. Conhecida
+                    por sua cordialidade e proximidade, ela se destaca em guiar outras pessoas para o sucesso por meio
+                    de mentoria e apoio. Sua dedicação ao crescimento pessoal e profissional lhe rendeu uma reputação
+                    como uma conselheira confiável e motivadora em seu campo. Com uma paixão por ajudar os outros a
+                    atingir todo o seu potencial, Ana Paula é uma mentora respeitada que inspira as pessoas ao seu
+                    redor a lutar pela grandeza.
+                </p>
+
+                <button class="block">Bloquear</button>
+            </article>
         </section>
-    </main>
+    </section>
+</main>
+
 
     <script src="js/chat.js"></script>

@@ -1,8 +1,18 @@
 <header>
+  <!-- AQUI SERA NOTIFY DE LOGADO!! -->
+
+  
+<% 
+    let arquivo = {"imagem":"images/profilevisualitation.svg"};
+    if (logado && logado.foto) {
+      arquivo.imagem = logado.foto;
+    } 
+  %>
+
   <hr class="top-line">
   <nav>
     <img id="menu-icon" src="images/menu.svg" alt="" onclick="openMenu()">
-    <nav id="mobile-nav" >
+    <nav id="mobile-nav">
       <div class="menu">
         <hr class="top-line">
         <ion-icon name="close" id="closeMenu" onclick="closeMenu()"></ion-icon>
@@ -14,56 +24,64 @@
             <button class="sign-in" onclick="window.location.href = 'cadastrar'">Cadastro</button>
           <% } %>
         </div>
+
         <ul>
           <li>
             <a href="carrinho">Carrinho</a>
           </li>
           <% if (logado) { %>
             <li><a href="criar">Ensine na Ladiework</a></li>
+            <li><a href="comprados">Compras</a></li>
           <% } %>
           <li><a href="mentorias">Mentoria</a></li>
           <li><a href="cursos">Cursos</a></li>
         </ul>
         <ul>
           <span>Mais Populares</span>
-          <a href=""><li>Marketing</li></a>
-          <a href=""><li>Programação</li></a>
-          <a href=""><li>Web Design</li></a>
+          <a href="">
+            <li>Marketing</li>
+          </a>
+          <a href="">
+            <li>Programação</li>
+          </a>
+          <a href="">
+            <li>Web Design</li>
+          </a>
         </ul>
         <ul>
           <li><a href="">Ajuda</a></li>
           <li><a href="">Configurações</a></li>
           <% if (logado) { %>
-          <li><a href="/sair">Sair</a></li>
+            <li><a href="/sair">Sair</a></li>
           <% } %>
         </ul>
       </div>
     </nav>
     <img id="logo" onclick="window.location.href = '/'" src="images/logo.svg" alt="LadieWork">
     <div class="nav-items">
+      <small class="count-indicator hidden">0</small>
       <a href="carrinho">
         <ion-icon name="cart-outline" class="cart"></ion-icon>
       </a>
-      
+
       <ul>
         <% if (logado) { %>
           <li><a href="criar">Ensine na Ladiework</a></li>
         <% } %>
-        
+
         <li><a href="mentorias">Mentorias</a></li>
         <li><a href="cursos">Cursos</a></li>
       </ul>
-      
+
       <% if (logado) { %>
         <div class="status"></div>
-        
-        <img id="profileImage" src="images/profilephoto.svg" alt="" class="profile-login-desktop">
+
+        <img id="profileImage" src="images/profilevisualitation.svg" alt="" class="profile-login-desktop">
         <section class="info_profile hidden" id="infoProfile">
           <div class="triangle2"></div>
           <article class="header_profile">
             <img src="images/profilephoto.svg" alt="">
             <div>
-              
               <p><%= logado.nome %></p>
               <!-- <span class="user_type">Mentora</span> -->
               <button class="edit">Editar</button>
@@ -80,6 +98,9 @@
               <br>
               <ion-icon name="call-outline"></ion-icon>
               <li><%= logado.telefone %></li>
+              <a href="comprados">
+                <li>Compras</li>
+              </a>
             </ul>
           </article>
           <span class="membersince">Membro Desde: <%= logado.criacao %></span>

@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const pool = require("../../config/pool_connections")
-const userController = require("../controllers/userController")
+const userController = require("../controllers/userController.js")
 const mentoryController = {  addMentory } = require("../controllers/coursesController")
 
 const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser } = require("../models/authenticator_middleware");

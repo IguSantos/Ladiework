@@ -18,6 +18,12 @@ function sendMessage() {
     // Obtém o texto da mensagem do campo de entrada
     const messageText = messageInput.value.trim();
 
+    // Verifica se o texto excede 500 caracteres
+    if (messageText.length > 338) {
+        alert('A mensagem não pode exceder 340 caracteres.');
+        return;
+    }
+
     // Verifica se o campo de entrada não está vazio
     if (messageText !== '') {
         // Cria um novo elemento de mensagem
@@ -43,15 +49,6 @@ function sendMessage() {
         mainChat.scrollTop = mainChat.scrollHeight;
     }
 }
-
-
-
-
-
-
-
-
-
 
 // Função para exibir o perfil da pessoa selecionada na lista de contatos
 function showProfile(contactName) {
@@ -82,10 +79,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
-
-
-
-
-
-
