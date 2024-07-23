@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const pool = require("../../config/pool_connections")
-const userController = require("../controllers/userController.js")
-const mentoryController = {  addMentory } = require("../controllers/coursesController")
+const userController = require("../controllers/userController")
+const mentoryController = { addMentory } = require("../controllers/coursesController")
 
 const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser } = require("../models/authenticator_middleware");
 const mentoringController = require("../controllers/mentoringController");
@@ -10,10 +10,14 @@ const uploadFile = require("../util/uploader")();
 // const uploadFile = require("../util/uploader")("./app/public/imagem/perfil/");
 
 
-
 router.get("/", checkAuthenticatedUser, function (req, res) {
   res.render("pages/main", { pagina: "home", logado: req.session.logado });
   console.log("Session logado:", req.session.logado);
+});
+
+router.use((req, res, next) => {
+  res.locals.logado = req.session.logado;
+  next();
 });
 
 
@@ -38,11 +42,43 @@ router.get("/cadastrar", function (req, res) {
   });  // E number? Logado erro...
 });
 
+
+
 router.post("/cadastrar",
+  uploadFile("foto_usu"),
   userController.validationRulesFormCad,
+
   async function (req, res) {
-    userController.cadastrar(req, res);
-  });
+    const { email_usu } = req.body;
+
+    try {
+      // Verificar se o e-mail já existe
+      const [emailResults] = await pool.query('SELECT 1 FROM usuario WHERE EMAIL_USUARIO = ?', [email_usu]);
+      const emailExists = emailResults.length > 0;
+
+      if (emailExists) {
+        // Se o e-mail já existir, retornar resposta JSON indicando a existência
+        return res.json({ exists: true });
+      }
+
+      // Se o e-mail não existir, prosseguir com o cadastro
+      await userController.cadastrar(req, res);
+
+      // Responder após o cadastro
+      // Não precisamos enviar resposta adicional aqui porque o cadastro já redireciona
+    } catch (error) {
+      // Tratar o erro e responder com status 500
+      console.error("Erro ao cadastrar usuário [ROUTER]:", error);
+      if (!res.headersSent) {
+        return res.status(500).send("Erro ao cadastrar usuário [ROUTER]");
+      }
+    }
+  }
+);
+
+
+
+
 
 // LOGIN
 router.get('/login', (req, res) => {
@@ -55,7 +91,7 @@ router.get('/login', (req, res) => {
 
 router.post(
   "/login", recordAuthenticatedUser,
-   function (req, res) {
+  function (req, res) {
     userController.logar(req, res);
   });
 
@@ -75,7 +111,7 @@ router.get("/sair", clearSession, function (req, res) {
 router.get('/cursos', (req, res) => {
   res.render('pages/main', {
     pagina: "cursos",
-    dados: null,  
+    dados: null,
     errorsList: null,
     logado: req.session.logado
   });
@@ -85,16 +121,16 @@ router.get('/cursos', (req, res) => {
 router.get('/criar', (req, res) => {
   res.render('pages/main', {
     pagina: "create",
-    dados: null,  
+    dados: null,
     errorsList: null,
     logado: req.session.logado
   });
 });
 
 // Envio do formulario
-router.post("/criar",  function (req, res) {
-    mentoringController.addMentoring(req, res);
-  }
+router.post("/criar", function (req, res) {
+  mentoringController.addMentoring(req, res);
+}
 );
 
 // PAGINA DE ADMINISTRAÇÃO MENTORAr
@@ -112,11 +148,8 @@ router.get('/paginadeadministracao', (req, res) => {
 
 
 router.get('/informacao_da_mentoria', (req, res) => {
-  res.render('pages/main', { pagina: "mentoria_info", logado: req.session.logado});
+  res.render('pages/main', { pagina: "mentoria_info", logado: req.session.logado });
 });
-
-
-
 
 // MENTORIAS
 router.get('/mentorias', (req, res) => {
@@ -124,7 +157,11 @@ router.get('/mentorias', (req, res) => {
 });
 
 router.get('/informacao_da_mentoria', (req, res) => {
-  res.render('pages/main', { pagina: "mentoria_info", logado: null });
+  res.render('pages/main', { pagina: "mentoria_info", logado: req.session.logado });
+});
+
+router.get('/compras', (req, res) => {
+  res.render('pages/main', { pagina: "comprados", logado: req.session.logado });
 });
 
 router.get('/privacidade', (req, res) => {

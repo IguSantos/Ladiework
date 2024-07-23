@@ -72,6 +72,7 @@ nav a:hover {
     width: 35px;
     border-radius: 50%;
     cursor: pointer;
+    object-fit: cover;
 }
 
 .count-indicator {
@@ -100,7 +101,6 @@ nav a:hover {
 
 .info_profile {
     width: 333px;
-    height: 229px;
     background-color: rgb(218, 218, 218);
     position: absolute;
     top: 81px;
@@ -173,9 +173,19 @@ nav a:hover {
 .profile_info {
     margin-top: 10px;
     background-color: rgb(255 255 255 / 70%);
-    height: 84px;
     padding: 5px;
     margin-bottom: 5px;
+}
+
+.profile_info button {
+    border: none;
+    width: 60px;
+    background-color: var(--button-color);
+    color: white;
+    padding: 2px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    margin: 10px 0;
 }
 
 .profile_info span {
@@ -479,7 +489,7 @@ footer a:hover {
     position: absolute;
     top: 0;
     width: 68vw;
-    height: 750px;
+    
     text-align: left;
 }
 

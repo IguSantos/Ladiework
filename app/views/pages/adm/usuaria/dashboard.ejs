@@ -18,9 +18,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Página de Administração - LadieWork </title>
-    
-    <link rel="stylesheet" href="css/dashboard.css">
-   
+
+  <link rel="stylesheet" href="css/dashboard.css">
+
 </head>
 
 <body>
@@ -31,20 +31,20 @@
     <header>
       <div class="busca">
         <form action="">
-          <input type="text" placeholder="Pesquisar" class="search" id="search-input"/>
+          <input type="text" placeholder="Pesquisar" class="search" id="search-input" />
           <button type="submit" title="Buscar">
             <ion-icon name="search-outline"></ion-icon>
           </button>
         </form>
         <button title="Notificações"><ion-icon name="notifications-outline"></ion-icon></button>
         <div class="perfil">
-          <img src="images/muié.png" alt="Sua foto de perfil" />
+          <img src="<%= logado.foto || 'images/profilephoto.svg' %>" alt="Sua foto de perfil" />
           <p>Leticia</p>
         </div>
       </div>
       <div class="saudacao">
         <div class="perfil">
-          <img src="images/muié.png" alt="Sua foto de perfil" />
+          <img src="<%= logado.foto || 'images/profilephoto.svg' %>" alt="Sua foto de perfil" />
           <span>Olá,</span>
           <p>Leticia (@leticia)</p>
         </div>
@@ -107,7 +107,7 @@
         </div>
       </footer>
     </aside>
-    
+
     <main>
       <section class="projetos">
         <h2>Seus projetos</h2>
@@ -115,7 +115,9 @@
           <article class="card">
             <div class="barra"></div>
             <div class="conteudo">
-              <h3><%= mentoring.TITULO_MENTORA %></h3>
+              <h3>
+                <%= mentoring.TITULO_MENTORA %>
+              </h3>
               <p>
                 <%= mentoring.BIOGRAFIA_MENTORA %>
               </p>

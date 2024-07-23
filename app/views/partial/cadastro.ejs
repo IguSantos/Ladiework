@@ -9,7 +9,7 @@
     <%- include("../partial/header") %>
 
         <% 
-        let arquivo = {"imagem":"imagem/img-perfil.png"}
+        let arquivo = {"imagem":"images/profilevisualitation.svg"}
         let msgError={"nome_usu": "" , "email_usu" : "" , "senha_usu" : "" , "aniversario_usu" : "" , "numero_usu"
             : "" , "genero_usu" : "" , "foto_usu" : "" }; let warningError={ nome_usu: "" , email_usu: "" ,
             senha_usu: "" , aniversario_usu: "" , numero_usu: "" , genero_usu: "" , foto_usu: "" }; if(errorsList){
@@ -24,7 +24,7 @@
 
 
             <main id="app">
-                <form method="post" action="/cadastrar">
+                <form method="post" action="/cadastrar" enctype="multipart/form-data">
                     <div class="form-step active">
                         <h2>Bem-Vinda a LadieWork</h2>
                         <span class="step1">Fale um pouco sobre você!</span>

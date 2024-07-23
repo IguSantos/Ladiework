@@ -1,17 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     const buttonsNext = document.querySelectorAll('[data-action="next"]');
     const buttonsPrev = document.querySelectorAll('[data-action="prev"]');
     const formSteps = document.querySelectorAll('.form-step');
 
+    // Função para verificar se o email já existe no backend
     // Função para verificar se o email já existe no backend
     async function checkEmailExists(email) {
         try {
             const response = await fetch('/cadastrar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email_usu: email }) // Certifique-se de que o nome do campo corresponde
+                body: JSON.stringify({ email_usu: email })
             });
+
+            if (!response.ok) {
+                throw new Error('Resposta de rede não foi OK');
+            }
+
             const result = await response.json();
             return result.exists;
         } catch (error) {
@@ -19,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
     }
+
+
 
     // Função para verificar se há campos vazios e aplicar estilos de botão
     function checkEmptyFields() {
@@ -57,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function validatePassword(input) {
         const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
         const errorMessage = 'A senha deve ter no mínimo 8 caracteres, incluindo 1 letra maiúscula, 1 letra minúscula, 1 caractere especial e 1 número';
-        
+
         if (!passwordPattern.test(input.value.trim())) {
             input.classList.add('error');
             input.nextElementSibling.textContent = errorMessage;
@@ -72,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adiciona evento de input no campo de senha
     const passwordInput = document.getElementById('password');
     if (passwordInput) {
-        passwordInput.addEventListener('input', function() {
+        passwordInput.addEventListener('input', function () {
             validatePassword(passwordInput);
         });
     }
@@ -102,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adiciona evento de input no campo de email
     const emailInput = document.getElementById('email');
     if (emailInput) {
-        emailInput.addEventListener('input', function() {
+        emailInput.addEventListener('input', function () {
             validateEmail(emailInput);
         });
     }
@@ -111,13 +119,13 @@ document.addEventListener('DOMContentLoaded', function() {
     buttonsNext.forEach(button => {
         button.addEventListener('click', async function() {
             const currentStep = this.closest('.form-step');
-
+    
             if (currentStep.classList.contains('active')) {
                 const inputs = currentStep.querySelectorAll('input, textarea');
                 let hasEmptyField = false;
                 let hasError = false;
                 let passwordValue = '';
-
+    
                 // Validação básica de campos vazios e outros critérios
                 for (let input of inputs) {
                     if (input.value.trim() === '') {
@@ -127,14 +135,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         input.classList.remove('error');
                         input.nextElementSibling.textContent = '';
-
+    
                         // Validações específicas como email, senha, etc.
                         if (input.id === 'email') {
                             if (!validateEmail(input)) {
                                 hasError = true;
                             } else {
                                 // Verificar se o email já está em uso
-                                const emailExists = await checkEmailExists(input.value.trim()); // Adicione `await` aqui
+                                const emailExists = await checkEmailExists(input.value.trim());
                                 if (emailExists) {
                                     input.classList.add('error');
                                     input.nextElementSibling.textContent = 'Este email já está em uso';
@@ -142,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 }
                             }
                         }
-
+    
                         if (input.id === 'password') {
                             if (!validatePassword(input)) {
                                 hasError = true;
@@ -150,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 passwordValue = input.value.trim();
                             }
                         }
-
+    
                         if (input.id === 'phone' && (input.value.trim().length !== 11 || !/^\d{2}9\d{8}$/.test(input.value.trim()))) {
                             input.classList.add('error');
                             input.nextElementSibling.textContent = 'O número deve seguir o formato correto 11 9XXXXXXXX';
@@ -158,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }
                 }
-
+    
                 const confirmPasswordInput = currentStep.querySelector('#confirm-password');
                 if (confirmPasswordInput) {
                     if (confirmPasswordInput.value.trim() === '') {
@@ -174,28 +182,30 @@ document.addEventListener('DOMContentLoaded', function() {
                         confirmPasswordInput.nextElementSibling.textContent = '';
                     }
                 }
-
+    
                 if (hasEmptyField || hasError) {
                     return;
                 }
             }
-
+    
             const nextStep = currentStep.nextElementSibling;
-
+    
             if (nextStep) {
                 currentStep.classList.remove('active');
                 currentStep.classList.add('hide');
                 nextStep.classList.remove('hide');
                 nextStep.classList.add('active');
-
+    
                 checkEmptyFields();
             }
         });
     });
+    
+   
 
     // Adiciona evento de clique nos botões de voltar
     buttonsPrev.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const currentStep = this.closest('.form-step');
             const prevStep = currentStep.previousElementSibling;
 
@@ -214,14 +224,14 @@ document.addEventListener('DOMContentLoaded', function() {
     formSteps.forEach(step => {
         const inputs = step.querySelectorAll('input, textarea');
         inputs.forEach(input => {
-            input.addEventListener('input', function() {
+            input.addEventListener('input', function () {
                 checkEmptyFields();
             });
         });
     });
 
     // Impede a colagem no campo de confirmar senha
-    document.getElementById('confirm-password').addEventListener('paste', function(event) {
+    document.getElementById('confirm-password').addEventListener('paste', function (event) {
         // Cancela o evento de colar
         event.preventDefault();
     });
@@ -247,9 +257,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
- 
 
-    
+
+
 
     // Evento para alterar a imagem de perfil
     const inputImage = document.getElementById('inputImage');
@@ -264,5 +274,5 @@ document.addEventListener('DOMContentLoaded', function() {
         profileImage.src = URL.createObjectURL(event.target.files[0]);
     });
 
-    
+
 });
