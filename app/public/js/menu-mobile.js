@@ -15,30 +15,32 @@ document.addEventListener("DOMContentLoaded", function() {
   var profileImage = document.getElementById("profileImage");
   var infoProfile = document.getElementById("infoProfile");
 
-  // Mostra ou esconde o perfil ao clicar na imagem de perfil
-  profileImage.addEventListener("click", function() {
-    toggleProfileVisibility();
-  });
+  if (profileImage && infoProfile) {
+    // Mostra ou esconde o perfil ao clicar na imagem de perfil
+    profileImage.addEventListener("click", function() {
+      toggleProfileVisibility();
+    });
 
-  // Fecha o perfil ao clicar fora dele
-  document.addEventListener("click", function(event) {
-    if (!infoProfile.contains(event.target) && event.target !== profileImage) {
-      if (!infoProfile.classList.contains("hidden")) {
+    // Fecha o perfil ao clicar fora dele
+    document.addEventListener("click", function(event) {
+      if (!infoProfile.contains(event.target) && event.target !== profileImage) {
+        if (!infoProfile.classList.contains("hidden")) {
+          infoProfile.classList.add("hidden");
+        }
+      }
+    });
+
+    // Adiciona um evento para fechar o perfil quando a largura da janela for menor que 800px
+    window.addEventListener("resize", function() {
+      if (window.innerWidth < 800 && !infoProfile.classList.contains("hidden")) {
         infoProfile.classList.add("hidden");
       }
-    }
-  });
+    });
 
-  // Adiciona um evento para fechar o perfil quando a largura da janela for menor que 800px
-  window.addEventListener("resize", function() {
+    // Verifica a largura da janela ao carregar a página
     if (window.innerWidth < 800 && !infoProfile.classList.contains("hidden")) {
       infoProfile.classList.add("hidden");
     }
-  });
-
-  // Verifica a largura da janela ao carregar a página
-  if (window.innerWidth < 800 && !infoProfile.classList.contains("hidden")) {
-    infoProfile.classList.add("hidden");
   }
 
   function toggleProfileVisibility() {
@@ -48,4 +50,11 @@ document.addEventListener("DOMContentLoaded", function() {
       infoProfile.classList.add("hidden");
     }
   }
+
+  // Adiciona um ouvinte de evento para detectar a entrada de texto no campo de pesquisa
+  var searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', filterCourses);
+  }
 });
+

@@ -26,24 +26,24 @@ function validateForm() {
     const passwordError = document.getElementById("password-error");
 
     if (!emailField.value.trim()) {
-        event.preventDefault();
+     
         emailError.textContent = "O campo de e-mail não pode estar vazio.";
         emailField.classList.add('error');
         isValid = false;
     } else if (!validateEmail(emailField.value.trim())) {
-        event.preventDefault();
+     
         emailError.textContent = "O e-mail inserido não é válido.";
         emailField.classList.add('error');
         isValid = false;
     }
 
     if (!passwordField.value.trim()) {
-        event.preventDefault();
+
         passwordError.textContent = "O campo de senha não pode estar vazio.";
         passwordField.classList.add('error');
         isValid = false;
     } else if (!validatePassword(passwordField.value.trim())) {
-        event.preventDefault();
+       
         passwordError.textContent = "Senha inválida.";
         passwordField.classList.add('error');
         isValid = false;

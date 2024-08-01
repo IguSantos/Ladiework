@@ -15,16 +15,16 @@ messageInput.addEventListener('keypress', function(event) {
 
 // Função para enviar uma mensagem
 function sendMessage() {
-    // Obtém o texto da mensagem do campo de entrada
+    // Obtém o texto da mensagem do campo de entrada e remove os espaços em branco para contar os caracteres 
     const messageText = messageInput.value.trim();
 
-    // Verifica se o texto excede 500 caracteres
+    // Verifica se o texto excede 338  caracteres
     if (messageText.length > 338) {
-        alert('A mensagem não pode exceder 340 caracteres.');
+        alert('A mensagem não pode exceder 338 caracteres.');
         return;
     }
 
-    // Verifica se o campo de entrada não está vazio
+    // Verifica se o campo de entrada não está vazio. Se estiver, acontece nada. Se não estiver, envia a mensagem
     if (messageText !== '') {
         // Cria um novo elemento de mensagem
         const mainChat = document.getElementById('main-chat');
@@ -39,13 +39,13 @@ function sendMessage() {
             </div>
         `;
 
-        // Adiciona a nova mensagem ao contêiner de conversa
+        // Seleciona o mainChat e enfia o html que criei pelo js
         mainChat.appendChild(messageElement);
 
         // Limpa o campo de entrada
         messageInput.value = '';
 
-        // Rola para baixo para mostrar a última mensagem
+        // Rola para baixo para mostrar a última mensagem de acorod com o tamanho do chat principal
         mainChat.scrollTop = mainChat.scrollHeight;
     }
 }
@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".main").classList.remove("chat-enter"); // Remove a classe de entrada
     });
 
+    // Sempre que for usar um clique em uma lista use este modelo
     chats.forEach(chat => {
         chat.addEventListener("click", function() {
             document.querySelector(".main").classList.remove("chat-leave"); // Remove a classe de saída

@@ -4,7 +4,7 @@ const pool = require("../../config/pool_connections")
 const userController = require("../controllers/userController")
 const mentoryController = { addMentory } = require("../controllers/coursesController")
 
-const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser } = require("../models/authenticator_middleware");
+const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser, verifyAuthorizedUser } = require("../models/authenticator_middleware");
 const mentoringController = require("../controllers/mentoringController");
 const uploadFile = require("../util/uploader")();
 // const uploadFile = require("../util/uploader")("./app/public/imagem/perfil/");
@@ -20,9 +20,6 @@ router.use((req, res, next) => {
   next();
 });
 
-
-// req.session.logado -- o que tnha
-// nao sair 
 
 
 // CADASTRO
@@ -42,6 +39,24 @@ router.get("/cadastrar", function (req, res) {
   });  // E number? Logado erro...
 });
 
+router.post("/verificar-email", async function (req, res) {
+  const { email_usu } = req.body;
+
+  try {
+    // Verificar se o e-mail já existe
+    const [emailResults] = await pool.query('SELECT 1 FROM usuario WHERE EMAIL_USUARIO = ?', [email_usu]);
+    const emailExists = emailResults.length > 0;
+
+    // Retornar resposta JSON indicando se o e-mail já existe
+    return res.json({ exists: emailExists });
+  } catch (error) {
+    // Tratar o erro e responder com status 500
+    console.error("Erro ao verificar e-mail:", error);
+    if (!res.headersSent) {
+      return res.status(500).send("Erro ao verificar e-mail");
+    }
+  }
+});
 
 
 router.post("/cadastrar",
@@ -49,23 +64,11 @@ router.post("/cadastrar",
   userController.validationRulesFormCad,
 
   async function (req, res) {
-    const { email_usu } = req.body;
-
     try {
-      // Verificar se o e-mail já existe
-      const [emailResults] = await pool.query('SELECT 1 FROM usuario WHERE EMAIL_USUARIO = ?', [email_usu]);
-      const emailExists = emailResults.length > 0;
-
-      if (emailExists) {
-        // Se o e-mail já existir, retornar resposta JSON indicando a existência
-        return res.json({ exists: true });
-      }
-
-      // Se o e-mail não existir, prosseguir com o cadastro
+      // Prosseguir com o cadastro
       await userController.cadastrar(req, res);
 
-      // Responder após o cadastro
-      // Não precisamos enviar resposta adicional aqui porque o cadastro já redireciona
+      // Não é necessário responder aqui pois a função `cadastrar` já faz o redirecionamento
     } catch (error) {
       // Tratar o erro e responder com status 500
       console.error("Erro ao cadastrar usuário [ROUTER]:", error);
@@ -75,9 +78,6 @@ router.post("/cadastrar",
     }
   }
 );
-
-
-
 
 
 // LOGIN
@@ -139,6 +139,13 @@ router.get('/paginadeadministracao', (req, res) => {
   res.render('pages/adm/usuaria/dashboard', { logado: req.session.logado, mentoring: req.session.latestMentoring });
 });
 
+router.get(
+  "/administrator",
+  verifyAuthorizedUser(['adm'], "pages/podenao"), // Middleware de verificação de autorização
+  function (req, res) {
+    res.render("pages/adm/administrator"); // Renderiza a página de administrador
+  }
+);
 
 
 // router.post("/criar",  function (req, res) {

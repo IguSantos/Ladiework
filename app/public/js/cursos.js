@@ -1,22 +1,29 @@
-// BARRA DE PESQUISA
-
-
-  const dropdown = document.getElementById('dropdownOptions');
-  const icon = document.getElementById('dropdownIcon');
-
-  dropdown.addEventListener('click', function () {
-    dropdown.classList.toggle('open');
-  });
-
-  document.addEventListener('click', function (event) {
-    if (!dropdown.contains(event.target)) {
-      dropdown.classList.remove('open');
+// Função que inicializa os eventos
+function initializeEvents() {
+    const dropdown = document.getElementById('dropdownOptions');
+    const icon = document.getElementById('dropdownIcon');
+    const searchInput = document.getElementById('searchInput');
+  
+    if (dropdown && icon) {
+      dropdown.addEventListener('click', function () {
+        dropdown.classList.toggle('open');
+      });
+  
+      document.addEventListener('click', function (event) {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
     }
-  });
-
-
-// Adiciona um ouvinte de evento para detectar a entrada de texto no campo de pesquisa
-document.getElementById('searchInput').addEventListener('input', filterCourses);
+  
+    if (searchInput) {
+      searchInput.addEventListener('input', filterCourses);
+    }
+  }
+  
+  // Executa a função initializeEvents após o carregamento do DOM
+  document.addEventListener('DOMContentLoaded', initializeEvents);
+  
 
 
 
@@ -70,10 +77,13 @@ function filterCourses() {
             course.style.display = 'none';
         }
     });
+
+    document.getElementById('searchInput').addEventListener('input', filterCourses);
 }
 
+
 // Adiciona um evento de mudança ao campo de pesquisa
-document.getElementById('searchInput').addEventListener('input', filterCourses);
+
 
 //   FILTRAGEM LATERAL
 

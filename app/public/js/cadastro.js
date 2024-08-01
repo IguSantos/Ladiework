@@ -5,10 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const formSteps = document.querySelectorAll('.form-step');
 
     // Função para verificar se o email já existe no backend
-    // Função para verificar se o email já existe no backend
     async function checkEmailExists(email) {
         try {
-            const response = await fetch('/cadastrar', {
+            const response = await fetch('/verificar-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email_usu: email })
@@ -25,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return false;
         }
     }
-
-
 
     // Função para verificar se há campos vazios e aplicar estilos de botão
     function checkEmptyFields() {
@@ -117,15 +114,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Adiciona evento de clique nos botões de próximo
     buttonsNext.forEach(button => {
-        button.addEventListener('click', async function() {
+        button.addEventListener('click', async function () {
             const currentStep = this.closest('.form-step');
-    
+
             if (currentStep.classList.contains('active')) {
                 const inputs = currentStep.querySelectorAll('input, textarea');
                 let hasEmptyField = false;
                 let hasError = false;
                 let passwordValue = '';
-    
+
                 // Validação básica de campos vazios e outros critérios
                 for (let input of inputs) {
                     if (input.value.trim() === '') {
@@ -135,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else {
                         input.classList.remove('error');
                         input.nextElementSibling.textContent = '';
-    
+
                         // Validações específicas como email, senha, etc.
                         if (input.id === 'email') {
                             if (!validateEmail(input)) {
@@ -150,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }
                             }
                         }
-    
+
                         if (input.id === 'password') {
                             if (!validatePassword(input)) {
                                 hasError = true;
@@ -158,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 passwordValue = input.value.trim();
                             }
                         }
-    
+
                         if (input.id === 'phone' && (input.value.trim().length !== 11 || !/^\d{2}9\d{8}$/.test(input.value.trim()))) {
                             input.classList.add('error');
                             input.nextElementSibling.textContent = 'O número deve seguir o formato correto 11 9XXXXXXXX';
@@ -166,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
                 }
-    
+
                 const confirmPasswordInput = currentStep.querySelector('#confirm-password');
                 if (confirmPasswordInput) {
                     if (confirmPasswordInput.value.trim() === '') {
@@ -182,26 +179,24 @@ document.addEventListener('DOMContentLoaded', function () {
                         confirmPasswordInput.nextElementSibling.textContent = '';
                     }
                 }
-    
+
                 if (hasEmptyField || hasError) {
                     return;
                 }
             }
-    
+
             const nextStep = currentStep.nextElementSibling;
-    
+
             if (nextStep) {
                 currentStep.classList.remove('active');
                 currentStep.classList.add('hide');
                 nextStep.classList.remove('hide');
                 nextStep.classList.add('active');
-    
+
                 checkEmptyFields();
             }
         });
     });
-    
-   
 
     // Adiciona evento de clique nos botões de voltar
     buttonsPrev.forEach(button => {
@@ -257,10 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-
-
-
-
     // Evento para alterar a imagem de perfil
     const inputImage = document.getElementById('inputImage');
     const profileImage = document.getElementById('profileImage');
@@ -273,6 +264,4 @@ document.addEventListener('DOMContentLoaded', function () {
     inputImage.addEventListener('change', (event) => {
         profileImage.src = URL.createObjectURL(event.target.files[0]);
     });
-
-
 });
