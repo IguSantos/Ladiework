@@ -61,6 +61,7 @@ recordAuthenticatedUser = async (req, res, next) => {
                     telefone: results[0].CELULAR_USUARIO,
                     email: results[0].EMAIL_USUARIO,
                     criacao: results[0].DT_CRIACAO_CONTA_USUARIO,
+                    foto: results[0].FOTO_USUARIO,
                     tipo: 'comum'
                 };
 

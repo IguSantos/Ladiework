@@ -8,194 +8,184 @@
 
     <%- include("../partial/header") %>
 
-        <% let valorCampos = { titulo:"", descricao:"",   formacao:"",   disponibilidade:"", duracao:""} %>
+    <% let valorCampos = { titulo:"", descricao:"", formacao:"", disponibilidade:"", duracao:""} %>
+    <% let valorCursos = { titulo:"", descricao:"", nivel:"", categoria:"", carga:""} %>
 
+    <main>
 
-            <main>
+        <div class="style-progress-bar">
+            <div id="progress-bar">
+                <div id="current-progress"></div>
+            </div>
+        </div>
 
-                <div class="style-progress-bar">
-                    <div id="progress-bar">
-                        <div id="current-progress"></div>
-                    </div>
-                </div>
+        <h1>Vamos começar!</h1>
+        <span id="choose">Escolha qual modalidade deseja criar...</span>
 
-                <h1>Vamos começar!</h1>
-                <span id="choose">Escolha qual modalidade deseja criar...</span>
+        <section id="cards" class="cards">
 
-                <section id="cards" class="cards">
+            <article id="card-course" class="card">
+                <h2>Curso</h2>
+                <p>Transforme suas ideias em cursos com um clique. Comece a criar de forma dinâmica e intuitiva agora mesmo!</p>
+                <ion-icon name="book-outline"></ion-icon>
+            </article>
 
-                    <article id="card-course" class="card">
-                        <h2>Curso</h2>
+            <article id="card-mentoring" class="card">
+                <h2>Mentoria</h2>
+                <p>Transforme sua experiência em oportunidades de aprendizado. Inicie sua jornada de mentoria com um simples clique e comece a orientar e inspirar outros de forma dinâmica e criativa!</p>
+                <ion-icon name="newspaper-outline"></ion-icon>
+            </article>
 
-                        <p>Transforme suas ideias em cursos com um clique. Comece a criar de forma dinâmica e intuitiva
-                            agora mesmo!</p>
+        </section>
 
-                        <ion-icon name="book-outline"></ion-icon>
+        <form action="/criar" method="post" id="create-mentory" class="hidden">
 
-                    </article>
-
-
-
-                    <article id="card-mentoring" class="card">
-                        <h2>Mentoria</h2>
-
-                        <p>Transforme sua experiência em oportunidades de aprendizado. Inicie sua jornada de mentoria
-                            com um simples clique e comece a orientar e inspirar outros de forma dinâmica e criativa!"
-                        </p>
-
-                        <ion-icon name="newspaper-outline"></ion-icon>
-                    </article>
-
-                </section>
-
-
-                <form action="/criar" method="post" id="create-mentory" class="hidden">
-
-                    <div class="form-step" id="form-step-1">
-                        <input type="text" placeholder="Exemplo: Aprenda Marketing Digital" id="input" class="input"
-                            minlength="10" maxlength="60" name="titulo" value="<%= valorCampos.titulo %>" required>
-                        <span class="warning"></span>
-                        <button class="continue" type="button" data-action="next">Continuar</button>
-                    </div>
-                    
-                    <div class="form-step" id="form-step-2">
-                        <article class="hours">
-                            <label>
-                                <input type="radio" name="disponibilidade" id="hora1" value="1" <% if (valorCampos.disponibilidade === '1') { %> checked <% } %>>
-                                1 Hora
-                            </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="disponibilidade" id="hora2" value="2" <% if (valorCampos.disponibilidade === '2') { %> checked <% } %>>
-                                2 Horas
-                            </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="disponibilidade" id="hora3" value="3" <% if (valorCampos.disponibilidade === '3') { %> checked <% } %>>
-                                3 Horas
-                            </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="disponibilidade" id="hora4mais" value="4+" <% if (valorCampos.disponibilidade === '4+') { %> checked <% } %>>
-                                4 Horas ou Mais
-                            </label>
-                        </article>
-                        <span class="warning"></span>
-                        
-                        <button class="continue-two" type="button" data-action="next">Continuar</button>
-                    </div>
-                    
-                    <div class="form-step" id="form-step-3">
-                        <select name="formacao" id="category-formation-mentory" class="select-style">
-                            <option <%= valorCampos.formacao === "Mestrado" ? 'selected' : '' %> value="MestradoMarketing">Mestrado em Marketing Digital</option>
-                            <option <%= valorCampos.formacao === "CienciaCompu" ? 'selected' : '' %> value="CienciaCompu">Bacharelado em Ciência da Computação</option>
-                            <option <%= valorCampos.formacao === "CursoTecSoftware" ? 'selected' : '' %> value="CursoTecSoftware">Curso Técnico em Desenvolvimento de Software</option>
-                            <option <%= valorCampos.formacao === "DesignGrafico" ? 'selected' : '' %> value="DesignGrafico">Bacharelado em Design Gráfico</option>
-                            <option <%= valorCampos.formacao === "Outro" ? 'selected' : '' %> value="Outro">Outro</option>
-                            
-                        </select>
-                        <button class="continue-three" type="button" data-action="next">Continuar</button>
-                    </div>
-
-                    <div class="form-step" id="form-step-4">
-                        <article class="hours">
-                            <label>
-                                <input type="radio" name="duracao" id="1s" value="1" <% if (valorCampos.duracao === '1') { %> checked <% } %>>
-                                1 Semana
-                            </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="duracao" id="2s" value="2" <% if (valorCampos.duracao === '2') { %> checked <% } %>>
-                                2 Semanas
-                            </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="duracao" id="3s" value="3" <% if (valorCampos.duracao === '3') { %> checked <% } %>>
-                                3 Semanas
-                            </label>
-                            <br>
-                            <label>
-                                <input type="radio" name="duracao" id="4s+" value="4+" <% if (valorCampos.duracao === '4+') { %> checked <% } %>>
-                                4 Semanas ou Mais
-                            </label>
-                        </article>
-                        <span class="warning"></span>
-                        
-                        <button class="continue-four" type="button" data-action="next">Continuar</button>
-                    </div>
-                    
-                    <div class="form-step" id="form-step-5">
-                        <textarea name="descricao" id="description" class="description"
-                            placeholder="Adicione uma descrição para sua mentoria"><%= valorCampos.descricao %></textarea>
-                        <span class="warning"></span>
-                        <button class="continue-five" type="submit">Criar</button>
-                    </div>
+            <div class="form-step" id="form-step-1">
+                <input type="text" placeholder="Exemplo: Aprenda Marketing Digital" id="input" class="input" minlength="10" maxlength="60" name="titulo" value="<%= valorCampos.titulo %>" required>
+                <span class="warning"></span>
+                <button class="continue" type="button" data-action="next">Continuar</button>
+            </div>
+            
+            <div class="form-step" id="form-step-2">
+                <article class="hours">
+                    <label>
+                        <input type="radio" name="disponibilidade" id="hora1" value="1" <% if (valorCampos.disponibilidade === '1') { %> checked <% } %>>
+                        1 Hora
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="disponibilidade" id="hora2" value="2" <% if (valorCampos.disponibilidade === '2') { %> checked <% } %>>
+                        2 Horas
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="disponibilidade" id="hora3" value="3" <% if (valorCampos.disponibilidade === '3') { %> checked <% } %>>
+                        3 Horas
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="disponibilidade" id="hora4mais" value="4+" <% if (valorCampos.disponibilidade === '4+') { %> checked <% } %>>
+                        4 Horas ou Mais
+                    </label>
+                </article>
+                <span class="warning"></span>
                 
-                </form>
-                
+                <button class="continue-two" type="button" data-action="next">Continuar</button>
+            </div>
+            
+            <div class="form-step" id="form-step-3">
+                <select name="formacao" id="category-formation-mentory" class="select-style">
+                    <option <%= valorCampos.formacao === "Mestrado" ? 'selected' : '' %> value="MestradoMarketing">Mestrado em Marketing Digital</option>
+                    <option <%= valorCampos.formacao === "CienciaCompu" ? 'selected' : '' %> value="CienciaCompu">Bacharelado em Ciência da Computação</option>
+                    <option <%= valorCampos.formacao === "CursoTecSoftware" ? 'selected' : '' %> value="CursoTecSoftware">Curso Técnico em Desenvolvimento de Software</option>
+                    <option <%= valorCampos.formacao === "DesignGrafico" ? 'selected' : '' %> value="DesignGrafico">Bacharelado em Design Gráfico</option>
+                    <option <%= valorCampos.formacao === "Outro" ? 'selected' : '' %> value="Outro">Outro</option>
+                </select>
+                <button class="continue-three" type="button" data-action="next">Continuar</button>
+            </div>
 
-
-                <form id="create-course" class="hidden">
-
-                    <div class="form-step" id="form-step-1">
-                        <input type="text" placeholder="Exemplo: Curso de Design Gráfico" id="input-course" 
-                            minlength="10" maxlength="100" required>
-                    </div>
+            <div class="form-step" id="form-step-4">
+                <article class="hours">
+                    <label>
+                        <input type="radio" name="duracao" id="1s" value="1" <% if (valorCampos.duracao === '1') { %> checked <% } %>>
+                        1 Semana
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="duracao" id="2s" value="2" <% if (valorCampos.duracao === '2') { %> checked <% } %>>
+                        2 Semanas
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="duracao" id="3s" value="3" <% if (valorCampos.duracao === '3') { %> checked <% } %>>
+                        3 Semanas
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="duracao" id="4s+" value="4+" <% if (valorCampos.duracao === '4+') { %> checked <% } %>>
+                        4 Semanas ou Mais
+                    </label>
+                </article>
+                <span class="warning"></span>
                 
-                    <div class="form-step" id="form-step-2">
-                        <select name="Marketing"  id="category-course">
-                            <option value="Marketing">Marketing Digital</option>
-                            <option value="Empreendedorismo">Empreendedorismo</option>
-                            <option value="TI">TI</option>
-                            <option value="Design">Design</option>
-                        </select>
-                    </div>
-                
-                    <div class="form-step" id="form-step-3">
-                        <select name="Nivel"  id="category-level">
-                            <option value="Iniciante">Iniciante</option>
-                            <option value="Intermediario">Intermediário</option>
-                            <option value="Avancado">Avançado</option>
-                        </select>
-                    </div>
-                
-                    <div class="form-step" id="form-step-4">
-                        <article id="hours-course" class="hours">
-                            <label>
-                                <input type="checkbox" name="" id="10">
-                                2 - 10 horas
-                            </label>
-                            <br>
-                            <label>
-                                <input type="checkbox" name="" id="20">
-                                10 - 20 horas
-                            </label>
-                            <br>
-                            <label>
-                                <input type="checkbox" name="" id="40">
-                                20 - 40 horas
-                            </label>
-                            <br>
-                            <label>
-                                <input type="checkbox" name="" id="40+">
-                                40 horas ou mais
-                            </label>
-                        </article>
-                    </div>
-                
-                    <!-- Botões para navegação entre os passos (opcional) -->
-                    <div class="botoes-navegacao">
-                        <button id="continue-course" >Continuar</button>
-                        <button id="continue-two-course" >Continuar</button>
-                        <button id="continue-three-course" >Continuar</button>
-                        <button id="continue-four-course" >Criar</button>
-                    </div>
-                
-                </form>
-                
+                <button class="continue-four" type="button" data-action="next">Continuar</button>
+            </div>
+            
+            <div class="form-step" id="form-step-5">
+                <textarea name="descricao" id="description" class="description" placeholder="Adicione uma descrição para sua mentoria"><%= valorCampos.descricao %></textarea>
+                <span class="warning"></span>
+                <button class="continue-five" type="submit">Criar</button>
+            </div>
 
+        </form>
 
-            </main>
+        <form action="/criar-curso" method="post" id="create-course" class="hidden">
 
+            <div class="form-step" id="form-step-1-course">
+                <input type="text" placeholder="Exemplo: Curso de Design Gráfico" id="input-course" class="input" minlength="10" maxlength="100" name="titulo" value="<%= valorCampos.titulo %>" required>
+                <span class="warning"></span>
+                <button class="continue" type="button" id="continue-course" data-action="next">Continuar</button>
+            </div>
+            
+            <div class="form-step" id="form-step-2-course">
+                <article class="hours">
+                    <label>
+                        <input type="radio" name="duracao" id="10" value="10" <% if (valorCursos.carga === '10') { %> checked <% } %>>
+                        2 - 10 horas
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="carga" id="20" value="20" <% if (valorCursos.carga === '20') { %> checked <% } %>>
+                        10 - 20 horas
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="carga" id="40" value="40" <% if (valorCursos.carga === '40') { %> checked <% } %>>
+                        20 - 40 horas
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="carga" id="40+" value="40+" <% if (valorCursos.carga === '40+') { %> checked <% } %>>
+                        40 horas ou mais
+                    </label>
+                </article>
+                <span class="warning"></span>
+                <button class="continue-two" id="continue-two-course" type="button" data-action="next">Continuar</button>
+            </div>
+            
+            <div class="form-step" id="form-step-3-course">
+                <select name="nivel" id="category-level" class="select-style">
+                    <option <%= valorCursos.nivel === "Iniciante" ? 'selected' : '' %> value="Iniciante">Iniciante</option>
+                    <option <%= valorCursos.nivel === "Intermediario" ? 'selected' : '' %> value="Intermediario">Intermediário</option>
+                    <option <%= valorCursos.nivel === "Avancado" ? 'selected' : '' %> value="Avancado">Avançado</option>
+                </select>
+                
+                <button class="continue-three" id="continue-three-course" type="button" data-action="next">Continuar</button>
+            </div>
+            
+            <div class="form-step" id="form-step-4-course">
+                <select name="formacao" id="category-course" class="select-style">
+                    <option <%= valorCursos.categoria === "Marketing" ? 'selected' : '' %> value="Marketing">Marketing Digital</option>
+                    <option <%= valorCursos.categoria === "Empreendedorismo" ? 'selected' : '' %> value="Empreendedorismo">Empreendedorismo</option>
+                    <option <%= valorCursos.categoria === "TI" ? 'selected' : '' %> value="TI">TI</option>
+                    <option <%= valorCursos.categoria === "Design" ? 'selected' : '' %> value="Design">Design</option>
+                    <option <%= valorCursos.categoria === "Outros" ? 'selected' : '' %> value="Outros">Outros</option>
+                </select>
+                <span class="warning"></span>
+                
+                <button class="continue-four" id="continue-four-course" type="button" data-action="next">Continuar</button>
+            </div>
+            
+            <div class="form-step" id="form-step-5-course">
+                <textarea name="descricao" id="description-course" class="description" placeholder="Adicione uma descrição para seu curso"><%= valorCursos.descricao %></textarea>
+                <span class="warning"></span>
+                <button class="continue-five" id="continue-five-course" type="submit">Criar</button>
+            </div>
 
-            <script src="js/create.js"></script>
+        </form>
+
+    </main>
+
+    <script src="js/create.js"></script>
+</body>
+</html>

@@ -61,6 +61,8 @@ const userController = {
                 telefone: dataForm.CELULAR_USUARIO,
                 criacao: criacaoFormatada,
                 foto: dataForm.FOTO_USUARIO ? `data:image/jpeg;base64,${dataForm.FOTO_USUARIO.toString('base64')}` : null
+                
+                
             };
     
             return res.redirect("/");  // Use return para evitar execução adicional

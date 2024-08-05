@@ -25,12 +25,12 @@ body {
 
 .status {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 13px;
+    height: 13px;
     background-color: rgb(33, 212, 33);
     border-radius: 50%;
-    top: 38px;
-    right: 24px;
+    top: 40px;
+    right: 26px;
 }
 
 /* Estilização da barra de navegação */
@@ -69,7 +69,8 @@ nav a:hover {
 }
 
 .profile-login-desktop {
-    width: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
     object-fit: cover;
@@ -94,6 +95,7 @@ nav a:hover {
 
 .profile-login-mobile {
     width: 45px;
+    height: 45px;
     padding: 10px 0;
     border-radius: 50%;
     display: none;
@@ -151,6 +153,7 @@ nav a:hover {
     width: 80px;
     height: 80px;
     border-radius: 100%;
+    object-fit: contain;
 }
 
 .edit {

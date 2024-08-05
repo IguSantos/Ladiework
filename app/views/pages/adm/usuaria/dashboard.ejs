@@ -39,14 +39,14 @@
         <button title="Notificações"><ion-icon name="notifications-outline"></ion-icon></button>
         <div class="perfil">
           <img src="<%= logado.foto || 'images/profilephoto.svg' %>" alt="Sua foto de perfil" />
-          <p>Leticia</p>
+          <p><%= logado.nome %></p>
         </div>
       </div>
       <div class="saudacao">
         <div class="perfil">
           <img src="<%= logado.foto || 'images/profilephoto.svg' %>" alt="Sua foto de perfil" />
           <span>Olá,</span>
-          <p>Leticia (@leticia)</p>
+          <p><%= logado.nome %></p>
         </div>
         <div class="acoes">
           <button>Criar Curso</button>
@@ -116,10 +116,10 @@
             <div class="barra"></div>
             <div class="conteudo">
               <h3>
-                <%= mentoring.TITULO_MENTORA %>
+                <%= mentoring.titulo %>
               </h3>
               <p>
-                <%= mentoring.BIOGRAFIA_MENTORA %>
+                <%= mentoring.biografia %>
               </p>
               <div class="acoes">
                 <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>

@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.logo {
+    margin-bottom: 20px;
+    width: 50vw; /* Logo ocupa metade da largura da tela */
+}
+.logo img {
+    width: 20%;
+  
+}
+.message {
+    font-size: 2em;
+    color: red;
+    margin: 20px 0;
+}
+.info {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+.home-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #6f42c1; /* Cor roxa */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.home-btn:hover {
+    background-color: #5a2e8b; /* Cor roxa escura para hover */
+}
