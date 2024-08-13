@@ -6,8 +6,11 @@ const bcrypt = require("bcryptjs");
 checkAuthenticatedUser = (req, res, next) => {
     if (req.session.logado) {
         var logado = req.session.logado;
+        req.session.logado = req.session.logado;
+        req.session.autenticado++;
     } else {
         var logado = { logado: null, id: null, tipo: null }
+        req.session.autenticado = 0;
     }
     next();
 }
@@ -61,7 +64,6 @@ recordAuthenticatedUser = async (req, res, next) => {
                     telefone: results[0].CELULAR_USUARIO,
                     email: results[0].EMAIL_USUARIO,
                     criacao: results[0].DT_CRIACAO_CONTA_USUARIO,
-                    foto: results[0].FOTO_USUARIO,
                     tipo: 'comum'
                 };
 
@@ -74,8 +76,8 @@ recordAuthenticatedUser = async (req, res, next) => {
         }
     } else {
         req.session.logado = logado;
+        req.session.autenticado = 0;   
     }
-
     next();
 },
 

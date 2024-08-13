@@ -21,8 +21,14 @@
             if(itemError.path=="numero_usu" ) { warningError.numero_usu="erro" ; msgError.numero_usu=itemError.msg; }
             if(itemError.path=="foto_usu" ) { warningError.foto_usu="erro" ; msgError.foto_usu=itemError.msg; }
             }) } %>
-
-
+            <%
+    
+            if (dadosNotificacao) { %>
+                <script>
+                        notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")                      
+                </script>
+            <% } %>
+            
             <main id="app">
                 <form method="post" action="/cadastrar" enctype="multipart/form-data">
                     <div class="form-step active">
@@ -125,7 +131,7 @@
                         </div>
                         <div class="button-wrapper">
                             <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
-                            <button class="btn primary" type="submit">TUDO PRONTO</button>
+                            <button id="btn" class="btn primary" type="submit">TUDO PRONTO</button>
                         </div>
                     </div>
                 </form>

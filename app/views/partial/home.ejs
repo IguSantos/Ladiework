@@ -9,115 +9,117 @@
 
 
   <%- include("../partial/header") %>
-    <main>
-      <!-- Above the Fold Section -->
-      <section>
-        <article class="abovethefold">
-          <img src="images/abovethefoldgirl.png" alt="Mulher sorrindo" class="smile-women1">
-          <section class="desc">
-            <h1>LadieWork </h1>
-            <h3>A chave para o desenvolvimento pessoal e profissional!</h3>
-            <p>Voltada para mulheres que desejam crescer financeiramente em seu próprio serviço, ou buscam se destacar
-              no
-              mercado de trabalho.</p>
-          </section>
-        </article>
 
-        <!-- Cursos Home Section -->
-        <article class="cursoshome">
-          <section class="desc">
-            <h2>Cursos para você evoluir a sua carreira</h2>
-            <p>Oferecemos cursos onlines, pagos e gratuitos para que você possa evoluir na sua carreira como
-              profissional!
-            </p>
-            <button onclick="window.location.href = 'cursos'">Inscreva-se</button>
-
-          </section>
-          <img src="images/smilewomen2.svg" alt="Mulher olhando para o desktop" class="smilewomen2">
-        </article>
-
-        <h3 class="first-course">Quais são os principais cursos?</h3>
-
-        <article class="seethecurses">
-          <section class="photo">
-            <div></div>
-            <img src="images/ti.svg" alt="Cursos de ti">
-            <figcaption>TI e Software</figcaption>
-          </section>
-          <section class="photo">
-            <div></div>
-            <img src="images/design.svg" alt="Cursos de design">
-            <figcaption>Design</figcaption>
-          </section>
-          <section class="photo">
-            <div></div>
-            <img src="images/idioma.svg" alt="Cursos de idioma">
-            <figcaption>Idioma</figcaption>
-          </section>
-          <section class="photo">
-            <div></div>
-            <img src="images/marketing.svg" alt="Cursos de marketing digital">
-            <figcaption>Marketing</figcaption>
-          </section>
-          <section class="photo">
-            <div></div>
-            <img src="images/desenvolvimento-pessoal.svg" alt="Curso de desenvolvimento pessoal">
-            <figcaption>Desenvolvimento Pessoal</figcaption>
-          </section>
-          <section class="photo">
-            <div></div>
-            <img src="images/finanças.svg" alt="Cursos de finanças">
-            <figcaption>Finanças</figcaption>
-          </section>
-
-          <button class="button" onclick="window.location.href = 'cursos'">Explorar mais</button>
-        </article>
-
-        <article class="sobrementoria">
-          <section class="mentoriaresumo">
-            <h2>Utilize nossas mentorias ou seja uma mentora!</h2>
-            <p>Como <strong>mentora</strong>, descubra o poder transformador de orientar outros em suas jornadas. Ao
-              compartilhar sua
-              experiência, você fortalece suas habilidades de liderança e comunicação, enquanto ajuda outros a alcançar
-              seu potencial máximo.
-              E como <strong>mentorada</strong> receba orientação personalizada para alcançar seus objetivos, enquanto
-              desenvolve
-              habilidades essenciais para o sucesso. </p>
-
-          </section>
-          <img src="images/working-women.jpg" alt="Mulheres trabalhando">
-        </article>
+    <% if(logado !=null){ if(login==1){%>
+      <script>
+        notify("Login sucedido", "Bem-vindo ao Ladiework!! <%= logado %>", "success", "center")
+      </script>
+      <% } %>
+        <% } %>
 
 
+          <main>
+            <!-- Above the Fold Section -->
+            <section>
+              <article class="abovethefold">
+                <img src="images/abovethefoldgirl.png" alt="Mulher sorrindo" class="smile-women1">
+                <section class="desc">
+                  <h1>LadieWork </h1>
+                  <h3>A chave para o desenvolvimento pessoal e profissional!</h3>
+                  <p>Voltada para mulheres que desejam crescer financeiramente em seu próprio serviço ou buscam se
+                    destacar no mercado de trabalho através da capacitação profissional.</p>
+                </section>
+              </article>
 
-        <!-- Aside Section -->
-        <aside>
-          <span><a href="mentorias">Procuro mentoria</a></span>
-          <% if (logado) { %>
-          <span><a href="criar">Procuro ser uma mentora</a></span>
-          <% } else { %>
-            <span><a href="cadatrar">Procuro ser uma mentora</a></span>
-            <% } %>
-        </aside>
+              <!-- Cursos Home Section -->
+              <article class="cursoshome">
+                <section class="desc">
+                  <h2>Cursos para você evoluir a sua carreira</h2>
+                  <p>Oferecemos cursos online para mulheres empreendedoras e cursos de desenvolvimento pessoal para que
+                    você possa evoluir na sua carreira como profissional!
+                  </p>
+                  <button onclick="window.location.href = 'cursos'">Inscreva-se</button>
 
-        <!-- Article Section -->
-        <article class="onu">
-          <p>Nós estamos na reta com esses</p>
-          <p>Objetivos de desenvolvimento Sustentáveis</p>
-          <img src="images/onu4.png" alt="">
-          <img src="images/onu5.png" class="onu-mini" alt="">
-          <img src="images/onu8.png" alt="">
-          <img src="images/onu10.png" class="onu-mini" alt="">
-          <img src="images/onu12.png" alt="">
-          <img src="images/onu17.png" class="onu-mini" alt="">
-          
-        </article>
+                </section>
+                <img src="images/smilewomen2.svg" alt="Mulher olhando para o desktop" class="smilewomen2">
+              </article>
 
-      </section>
+              <h3 class="first-course">Quais são os principais cursos?</h3>
 
-      <!-- Scroll to Top Button -->
-      <button id="scrollToTopBtn" class="hidden"><ion-icon name="chevron-up-outline"></ion-icon></button>
-    </main>
+              <article class="seethecurses">
+                <section class="photo">
+                  <div></div>
+                  <img src="images/ti.svg" alt="Cursos de ti">
+                  <figcaption>TI e Software</figcaption>
+                </section>
+                <section class="photo">
+                  <div></div>
+                  <img src="images/design.svg" alt="Cursos de design">
+                  <figcaption>Design</figcaption>
+                </section>
+                <section class="photo">
+                  <div></div>
+                  <img src="images/idioma.svg" alt="Cursos de idioma">
+                  <figcaption>Idioma</figcaption>
+                </section>
+                <section class="photo">
+                  <div></div>
+                  <img src="images/marketing.svg" alt="Cursos de marketing digital">
+                  <figcaption>Marketing</figcaption>
+                </section>
+                <section class="photo">
+                  <div></div>
+                  <img src="images/desenvolvimento-pessoal.svg" alt="Curso de desenvolvimento pessoal">
+                  <figcaption>Desenvolvimento Pessoal</figcaption>
+                </section>
+                <section class="photo">
+                  <div></div>
+                  <img src="images/finanças.svg" alt="Cursos de finanças">
+                  <figcaption>Finanças</figcaption>
+                </section>
+
+                <button class="button" onclick="window.location.href = 'cursos'">Explorar mais</button>
+              </article>
+
+              <article class="sobrementoria">
+                <section class="mentoriaresumo">
+                  <h2>Utilize nossas mentorias ou seja uma mentora!</h2>
+                  <p>Como <strong>mentoria</strong>, descubra o poder transformador de orientar outros em suas jornadas com mentorias
+                    online para mulheres que querem avançar na carreira. Ao compartilhar sua experiência, você fortalece
+                    suas habilidades de liderança e comunicação, enquanto ajuda outros a alcançar seu potencial máximo.
+                    E como <strong>mentorada</strong>, receba mentorias de carreira com orientação personalizada para alcançar seus
+                    objetivos, enquanto desenvolve habilidades essenciais para o sucesso. </p>
+
+                </section>
+                <img src="images/working-women.jpg" alt="Mulheres trabalhando">
+              </article>
 
 
-    <script src="js/home.js"></script>
+
+              <!-- Aside Section -->
+              <aside>
+                <span><a href="mentorias">Procuro mentoria</a></span>
+                <span><a href="criar">Procuro ser uma mentora</a></span>
+              </aside>
+
+              <!-- Article Section -->
+              <article class="onu">
+                <p>Nós estamos na reta com esses</p>
+                <p>Objetivos de desenvolvimento Sustentáveis</p>
+                <img src="images/onu4.png" alt="">
+                <img src="images/onu5.png" class="onu-mini" alt="">
+                <img src="images/onu8.png" alt="">
+                <img src="images/onu10.png" class="onu-mini" alt="">
+                <img src="images/onu12.png" alt="">
+                <img src="images/onu17.png" class="onu-mini" alt="">
+
+              </article>
+
+            </section>
+
+            <!-- Scroll to Top Button -->
+            <button id="scrollToTopBtn" class="hidden"><ion-icon name="chevron-up-outline"></ion-icon></button>
+          </main>
+
+
+          <script src="js/home.js"></script>

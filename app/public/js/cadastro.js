@@ -265,3 +265,4 @@ document.addEventListener('DOMContentLoaded', function () {
         profileImage.src = URL.createObjectURL(event.target.files[0]);
     });
 });
+

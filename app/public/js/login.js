@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('login-form');
 
     form.addEventListener('submit', function (event) {
-       
+
         clearErrors();
         if (validateForm()) {
             // Obter os dados do formulário
@@ -26,12 +26,12 @@ function validateForm() {
     const passwordError = document.getElementById("password-error");
 
     if (!emailField.value.trim()) {
-     
+
         emailError.textContent = "O campo de e-mail não pode estar vazio.";
         emailField.classList.add('error');
         isValid = false;
     } else if (!validateEmail(emailField.value.trim())) {
-     
+
         emailError.textContent = "O e-mail inserido não é válido.";
         emailField.classList.add('error');
         isValid = false;
@@ -43,7 +43,7 @@ function validateForm() {
         passwordField.classList.add('error');
         isValid = false;
     } else if (!validatePassword(passwordField.value.trim())) {
-       
+
         passwordError.textContent = "Senha inválida.";
         passwordField.classList.add('error');
         isValid = false;
@@ -91,3 +91,26 @@ function simulateServerValidation(email, password) {
     };
 }
 
+
+const btn = document.querySelector('.btn')
+
+btn.addEventListener('click', () => {
+    new Notify({
+        status: 'success',
+        title: 'Login sucedido',
+        text: 'Bem-vindo ao Ladiework!!',
+        effect: 'slide',
+        speed: 100,
+        customClass: '',
+        customIcon: '',
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: true,
+        autotimeout: 2000,
+        notificationsGap: 20,
+        notificationsPadding: null,
+        type: 'outline',
+        position: 'right top',
+        customWrapper: '',
+    })
+})

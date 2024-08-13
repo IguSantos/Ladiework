@@ -16,20 +16,19 @@ const userController = {
     ],
 
     cadastrar: async (req, res) => {
-        // Adicione isso para ver o que está no corpo da requisição
         const errors = validationResult(req);
     
         if (!errors.isEmpty()) {
             console.log(errors);
-            return res.render("pages/main", { 
-                pagina: "home", 
-                logado: null, 
-                errorsList: errors.array(), 
-                valores: req.body 
+            return res.render("pages/main", {
+                pagina: "home",
+                logado: null,
+                errorsList: errors.array(),
+                dadosNotificacao: null,
+                valores: req.body
             });
         }
     
-        // GUARDAR INFORMAÇÕES DO CADASTRO
         const dataForm = {
             NOME_USUARIO: req.body.nome_usu,
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha_usu, salt),
@@ -40,17 +39,15 @@ const userController = {
             DT_CRIACAO_CONTA_USUARIO: new Date()
         };
     
-    
-        // TRATAMENTO DE IMAGEM
         if (req.file) {
             dataForm.FOTO_USUARIO = req.file.buffer;
         } else {
-            console.log("Falha no carregamenton da imagem");
+            console.log("Falha no carregamento da imagem");
         }
     
-        // CRIAR USUARIO
         try {
-            let create = await user.create(dataForm);
+            await user.create(dataForm);
+    
             const criacaoDate = dataForm.DT_CRIACAO_CONTA_USUARIO;
             const options = { month: 'long', year: 'numeric' };
             const criacaoFormatada = new Intl.DateTimeFormat('pt-BR', options).format(criacaoDate);
@@ -61,11 +58,21 @@ const userController = {
                 telefone: dataForm.CELULAR_USUARIO,
                 criacao: criacaoFormatada,
                 foto: dataForm.FOTO_USUARIO ? `data:image/jpeg;base64,${dataForm.FOTO_USUARIO.toString('base64')}` : null
-                
-                
             };
     
-            return res.redirect("/");  // Use return para evitar execução adicional
+            res.render("pages/main", {
+                pagina: "home",
+                errorsList: null, 
+                logado: req.session.logado,
+                login: req.session.login,
+                dadosNotificacao: {
+                    titulo: "Cadastrado com sucesso!", 
+                    mensagem: "Bem-vindo ao Ladiework!!", 
+                    tipo: "success"
+                },
+                valores: req.body
+            });
+            
         } catch (error) {
             console.log("Erro ao cadastrar:", error);
             if (!res.headersSent) {
@@ -76,7 +83,8 @@ const userController = {
                 });
             }
         }
-    },    
+    },
+    
 
     validationRulesFormLogin: [
         body("nome_usu")
@@ -93,27 +101,27 @@ const userController = {
             if (!errors.isEmpty()) {
                 return res.render("pages/main", { pagina: "login", errorsList: errors.array(), logado: null });
             }
-    
+
             const dataForm = {
                 EMAIL_USUARIO: req.body.email_usu,
                 SENHA_USUARIO: req.body.senha_usu
             };
-    
+
             let findUserEmail = await user.findUserEmail(dataForm);
             if (findUserEmail.length === 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, findUserEmail[0].SENHA_USUARIO)) {
                 // Formatando a data de criação
                 const criacaoDate = new Date(findUserEmail[0].DT_CRIACAO_CONTA_USUARIO);
                 const options = { month: 'long', year: 'numeric' };
                 const criacaoFormatada = new Intl.DateTimeFormat('pt-BR', options).format(criacaoDate);
-    
+
                 req.session.logado = {
                     nome: findUserEmail[0].NOME_USUARIO,
                     email: findUserEmail[0].EMAIL_USUARIO,
                     telefone: findUserEmail[0].CELULAR_USUARIO,
                     criacao: criacaoFormatada,
-                    foto:  findUserEmail[0].FOTO_USUARIO ? `data:image/jpeg;base64,${findUserEmail[0].FOTO_USUARIO.toString('base64')}` : null
+                    foto: findUserEmail[0].FOTO_USUARIO ? `data:image/jpeg;base64,${findUserEmail[0].FOTO_USUARIO.toString('base64')}` : null
 
-                }; 
+                };
                 return res.redirect("/");
             } else {
                 res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null });
@@ -131,7 +139,7 @@ const userController = {
                 foto_usu: results[0].FOTO_USUARIO ? `data:image/jpeg;base64,${results[0].FOTO_USUARIO.toString('base64')}` : null,
                 senha_usuario: ""
             };
-            
+
             res.render("pages/perfil", { errorsList: null, valores: campos })
         } catch (e) {
             console.log("Deu erro na renderização da imagem", e);
