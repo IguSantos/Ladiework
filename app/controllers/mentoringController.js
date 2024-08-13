@@ -14,6 +14,8 @@ const mentoringController = {
         return res.render("pages/main", { pagina: "criar", dados: req.body, errorsList: errors }); // Recarrega a página 
     }
 
+    const userId = req.session.logad;
+
     // Salva os dados dentro do Data form
     var dataForm = {
         TITULO_MENTORA: req.body.titulo,
@@ -21,6 +23,7 @@ const mentoringController = {
         FORM_ACADEMICA_MENTORA: req.body.formacao,
         DISPONIBILIDADE_HORARIO_MENTORA: req.body.disponibilidade,
         DURACAO_MENTORIA: req.body.duracao,
+        ID_USUARIO: userId 
        
     };
 

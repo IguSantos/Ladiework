@@ -33,7 +33,11 @@
                     <p>R$ 100,00</p>
                     <br>
                     <span class="discont">4x R$ 25</span>
+                    <% if (logado) { %>
                     <button onclick="window.location.href = 'finalizarcompra'">Finalizar compra</button>
+                    <% } else { %>
+                        <button onclick="window.location.href = 'login'">Finalizar compra</button>
+                        <% } %>
                  
                 </aside>
             </section>

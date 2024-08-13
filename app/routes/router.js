@@ -195,6 +195,10 @@ router.get('/chat', (req, res) => {
   res.render('pages/main', { pagina: "chat", logado: req.session.logado });
 });
 
+router.get('/mentorias', (req, res) => {
+  res.render('pages/main', { pagina: "mentorias", logado: req.session.logado });
+});
+
 // CARRINHO DE COMPRAS
 router.get('/carrinho', (req, res) => {
   res.render('pages/main', { pagina: "carrinho", logado: req.session.logado });

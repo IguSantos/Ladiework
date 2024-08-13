@@ -137,7 +137,12 @@
 
                     <p class="ladie-ask">Ja pensou em ajudar mais mulheres a alcançar grandes metas? </p>
                     <img src="images/logo.svg" alt="Logotipo ladiework">
+                    <% if (logado) { %>
                     <p class="beamentor" onclick="window.location.href = 'criar'">Seja uma mentora!</p>
+                    <% } else { %>
+                        <p class="beamentor" onclick="window.location.href = 'login'">Seja uma mentora!</p>
+                        <% } %>
+
                 </section>
 
             </aside>

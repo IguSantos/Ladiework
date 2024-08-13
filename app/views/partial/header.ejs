@@ -71,10 +71,19 @@
             <img src="<%= logado.foto || 'images/profilephoto.svg' %>" alt="">
             <div>
               <p><%= logado.nome %></p>
-              <button class="edit">Editar</button>
-            </div>
-            <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
-          </article>
+             
+
+              <div class="buttons">
+                <button class=" dashboard" onclick="window.location.href = 'paginadeadministracao'">Dashboard</button>
+                <button class="edit">Editar</button>
+              </div>
+         
+      
+                <ion-icon name="ellipsis-horizontal-circle-outline" ></ion-icon>
+                <ion-icon name="bag-handle-outline" onclick="window.location.href = 'compras'"></ion-icon>
+              
+            
+          </article> 
 
           <article class="profile_info">
             <span>Contato</span>
@@ -86,7 +95,7 @@
               <li><%= logado.telefone %></li>
              
             </ul>
-            <button onclick="window.location.href = 'compras'">Compras</button>
+
           </article>
           <span class="membersince">Membro Desde: <%= logado.criacao %></span>
           <a href="sair" class="logout">Sair</a>

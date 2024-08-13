@@ -93,7 +93,11 @@
         <!-- Aside Section -->
         <aside>
           <span><a href="mentorias">Procuro mentoria</a></span>
+          <% if (logado) { %>
           <span><a href="criar">Procuro ser uma mentora</a></span>
+          <% } else { %>
+            <span><a href="cadatrar">Procuro ser uma mentora</a></span>
+            <% } %>
         </aside>
 
         <!-- Article Section -->

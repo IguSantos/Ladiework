@@ -2,6 +2,7 @@ main {
     margin-left: 5%;
     display: flex;
     padding-top: 5vh;
+    background: rgb(247, 247, 247) url("../images/fundocursos.svg") no-repeat center center/cover;
 }
 
 h1 {

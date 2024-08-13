@@ -73,7 +73,11 @@
                     <span class="parcelas"> 4x de R$25,00</span> <br>
 
                     <button id="add-cart">Adicionar ao carrinho</button> <br>
+                    <% if (logado) { %>
                     <button id="buy-now" onclick="window.location.href = 'finalizarcompra'">Comprar agora</button>
+                    <% } else { %>
+                        <button id="buy-now" onclick="window.location.href = 'login'">Comprar agora</button>
+                        <% } %>
 
                     <div class="includes">
                         <span>Está mentoria inclui:</span>
@@ -84,7 +88,12 @@
 
                     <p class="ladie-ask">Ja pensou em ajudar mais mulheres a alcançar grandes metas?</p>
                     <img src="images/logo.svg" alt="logotipo ladiework">
+                    <% if (logado) { %>
                     <p class="beamentor" onclick="window.location.href = 'criar'">Crie um curso!</p>
+                    <% } else { %>
+                        <p class="beamentor" onclick="window.location.href = 'login'">Crie um curso!</p>
+                        <% } %>
+
                 </section>
 
             </aside>

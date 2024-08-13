@@ -2,6 +2,7 @@
 
 
 main {
+    background: rgb(247, 247, 247) url("../images/fundohome.svg") no-repeat center center/cover;
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
 
 }
@@ -22,7 +23,10 @@ section {
 .abovethefold img {
     width: 38%;
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
+    object-fit: contain;
 }
+
+
 
 .smilewomen2,
 .smilewomen3 {
