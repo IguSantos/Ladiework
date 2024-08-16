@@ -12,6 +12,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
 
 
 
@@ -19,9 +20,31 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/fixed.css">
 
-
     <%- include("../partial/" + pagina) %>
 
+    <% if (dadosNotificacao) { %>
+        <script>
+            new Notify({
+                status: 'success',
+                title: '<%= dadosNotificacao.titulo%>',
+                text: '<%=dadosNotificacao.mensagem%>',
+                effect: 'slide',
+                speed: 200,
+                customClass: '',
+                customIcon: '',
+                showIcon: true,
+                showCloseButton: true,
+                autoclose: true,
+                autotimeout: 3000,
+                notificationsGap: 20,
+                notificationsPadding: null,
+                type: 'outline',
+                position: 'right top',
+                customWrapper: '',
+            })
+            // notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "right top")                      
+        </script>
+        <% } %>
 
         <footer>
             <img src="images/logo-branca.svg" alt="LadieWork">
@@ -55,7 +78,7 @@
                             <a href="/privacidade">
                                 <li>Política de Privacidade</li>
                             </a>
-                            <a href="">
+                            <a href="mapadosite">
                                 <li>Mapa do Site</li>
                             </a>
                             <a href="">
@@ -78,7 +101,7 @@
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.min.js"></script>
+
 
         <script src="js/menu-mobile.js"></script>
         <script src="js/cursos.js"></script>

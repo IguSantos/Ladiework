@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="css/mapadosite.css">
+</head>
+<body>
+    <%- include("../partial/header") %>
+
+    <main>
+        <div class="ladiework-header">Mapa do site da Ladiework</div>
+        <div class="ladiework-container">
+            <div class="ladiework-column">
+                <div class="ladiework-category">
+                    <div class="ladiework-category-title">Ladiework</div>
+                    <a href="https://ladiework.onrender.com/" class="ladiework-item">Home</a>
+                    <a href="https://ladiework.onrender.com/termosecondicoes" class="ladiework-item">Termos e condições</a>
+                    <a href="https://ladiework.onrender.com/quemsomos" class="ladiework-item">Quem somos</a>
+                    <a href="https://ladiework.onrender.com/privacidade" class="ladiework-item">Política de Privacidade</a>
+                </div>
+                <div class="ladiework-category">
+                    <div class="ladiework-category-title">Mentorias</div>
+                    <a href="https://ladiework.onrender.com/mentorias" class="ladiework-item">Home Mentorias</a>
+                    <% if (logado) { %>
+                    <a href="https://ladiework.onrender.com/criar" class="ladiework-item">Criação</a>
+                    <% } else { %>
+                        <% } %>
+                </div>
+            </div>
+            <div class="ladiework-column">
+                <div class="ladiework-category">
+                    <div class="ladiework-category-title">Cursos</div>
+                    <a href="https://ladiework.onrender.com/cursos" class="ladiework-item">Home Cursos</a>
+                    <% if (logado) { %>
+                        <a href="https://ladiework.onrender.com/criar" class="ladiework-item">Criação</a>
+                        <% } else { %>
+                            <% } %>
+                </div>
+                <div class="ladiework-category">
+                    <div class="ladiework-category-title">Compras</div>
+                    <a href="https://ladiework.onrender.com/carrinho" class="ladiework-item">Carrinho de compras</a>
+                    <% if (logado) { %>
+                        <a href="https://ladiework.onrender.com/compras" class="ladiework-item">Minhas compras</a>
+                        <% } else { %>
+                            <% } %>
+                 
+                </div>
+                <div class="ladiework-category">
+                    <div class="ladiework-category-title">Cadastro</div>
+                    <a href="https://ladiework.onrender.com/cadastrar" class="ladiework-item">Cadastro</a>
+                    <a href="https://ladiework.onrender.com/login" class="ladiework-item">Login</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttonsNext = document.querySelectorAll('[data-action="next"]');
     const buttonsPrev = document.querySelectorAll('[data-action="prev"]');
     const formSteps = document.querySelectorAll('.form-step');
+    const form = document.querySelector('form'); // Adicione um seletor para o formulário
 
     // Função para verificar se o email já existe no backend
     async function checkEmailExists(email) {
@@ -112,6 +113,74 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Função para validar nome
+    function validateName(input) {
+        const errorMessage = 'O nome deve ter mais de 4 caracteres';
+        if (input.value.trim().length <= 4) {
+            input.classList.add('error');
+            input.nextElementSibling.textContent = errorMessage;
+            return false;
+        } else {
+            input.classList.remove('error');
+            input.nextElementSibling.textContent = '';
+            return true;
+        }
+    }
+
+    // Adiciona evento de input no campo de nome
+    const nameInput = document.getElementById('name');
+    if (nameInput) {
+        nameInput.addEventListener('input', function () {
+            validateName(nameInput);
+        });
+    }
+
+    // Função para aplicar a máscara no telefone
+    function applyPhoneMask(input) {
+        const value = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+        const formatted = value.replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4');
+        input.value = formatted;
+    }
+
+    // Função para validar telefone e aplicar máscara
+    function validatePhone(input) {
+        const value = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+        const errorMessage = 'O número deve seguir o formato correto (XX) XXXXX-XXXX';
+        if (value.length !== 11) {
+            input.classList.add('error');
+            input.nextElementSibling.textContent = errorMessage;
+            return false;
+        } else {
+            input.classList.remove('error');
+            input.nextElementSibling.textContent = '';
+            return true;
+        }
+    }
+
+    // Adiciona evento de input no campo de telefone
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function () {
+            applyPhoneMask(phoneInput);
+            validatePhone(phoneInput); // Valida enquanto aplica a máscara
+        });
+    }
+
+    // Função para remover máscaras antes de enviar
+    function removeMasks() {
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.value = phoneInput.value.replace(/\D/g, ''); // Remove a máscara
+        }
+    }
+
+    // Adiciona evento de submissão no formulário
+    if (form) {
+        form.addEventListener('submit', function (event) {
+            removeMasks(); // Remove as máscaras antes de enviar
+        });
+    }
+
     // Adiciona evento de clique nos botões de próximo
     buttonsNext.forEach(button => {
         button.addEventListener('click', async function () {
@@ -156,10 +225,16 @@ document.addEventListener('DOMContentLoaded', function () {
                             }
                         }
 
-                        if (input.id === 'phone' && (input.value.trim().length !== 11 || !/^\d{2}9\d{8}$/.test(input.value.trim()))) {
-                            input.classList.add('error');
-                            input.nextElementSibling.textContent = 'O número deve seguir o formato correto 11 9XXXXXXXX';
-                            hasError = true;
+                        if (input.id === 'phone') {
+                            if (!validatePhone(input)) {
+                                hasError = true;
+                            }
+                        }
+
+                        if (input.id === 'name') {
+                            if (!validateName(input)) {
+                                hasError = true;
+                            }
                         }
                     }
                 }
@@ -194,6 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextStep.classList.add('active');
 
                 checkEmptyFields();
+                reaplicarMascaraTelefone(); // Reaplica a máscara ao voltar
             }
         });
     });
@@ -211,9 +287,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 prevStep.classList.add('active');
 
                 checkEmptyFields();
+                reaplicarMascaraTelefone(); // Reaplica a máscara ao voltar
             }
         });
-    });
+
 
     // Adiciona evento de input para verificar campos vazios dinamicamente
     formSteps.forEach(step => {
@@ -221,9 +298,25 @@ document.addEventListener('DOMContentLoaded', function () {
         inputs.forEach(input => {
             input.addEventListener('input', function () {
                 checkEmptyFields();
+                if (input.id === 'phone') {
+                    applyPhoneMask(input); // Aplica a máscara ao telefone ao digitar
+                }
             });
         });
     });
+
+    // Reaplica a máscara ao telefone quando se volta para um passo anterior
+    function reaplicarMascaraTelefone() {
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            applyPhoneMask(phoneInput);
+        }
+    }
+
+    // Chama a função para reaplicar a máscara ao telefone ao carregar a página
+    reaplicarMascaraTelefone();
+});
+
 
     // Impede a colagem no campo de confirmar senha
     document.getElementById('confirm-password').addEventListener('paste', function (event) {

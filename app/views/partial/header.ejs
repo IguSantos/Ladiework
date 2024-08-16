@@ -9,20 +9,23 @@
         <ion-icon name="close" id="closeMenu" onclick="closeMenu()"></ion-icon>
         <div class="enter">
           <% if (logado) { %>
-            <img id="profileImageMobile" src="<%= logado.foto || 'images/profilephoto.svg' %>" alt="" class="profile-login-mobile">
-          <% } else { %>
-            <button class="login-mobile" onclick="window.location.href = 'login'">Login</button>
-            <button class="sign-in" onclick="window.location.href = 'cadastrar'">Cadastro</button>
-          <% } %>
+            <img id="profileImageMobile" src="<%= logado.foto || 'images/profilephoto.svg' %>" alt=""
+              class="profile-login-mobile">
+            <% } else { %>
+              <button class="login-mobile" onclick="window.location.href = 'login'">Login</button>
+              <button class="sign-in" onclick="window.location.href = 'cadastrar'">Cadastro</button>
+              <% } %>
         </div>
 
         <ul>
           <% if (logado) { %>
             <li><a href="criar">Ensine na Ladiework</a></li>
-          
-          <% } %>
-          <li><a href="mentorias">Mentoria</a></li>
-          <li><a href="cursos">Cursos</a></li>
+            <% } else { %>
+
+              <% } %>
+
+                <li><a href="mentorias">Mentoria</a></li>
+                <li><a href="cursos">Cursos</a></li>
         </ul>
         <ul>
           <a href="compras">
@@ -31,18 +34,20 @@
           <a href="carrinho">
             <li>Carrinho</li>
           </a>
-          <% if (logado) { %>
-          <a href="#">
-            <li>Dashboard</li>
-          </a>
-          <% } %>
+          <% if (mentoring) { %>
+            <a href="#">
+              <li href="paginadeadministracao">Dashboard</li>
+            </a>
+            <% } else { %>
+              <% } %>
+
         </ul>
         <ul>
           <li><a href="">Ajuda</a></li>
           <li><a href="">Configurações</a></li>
           <% if (logado) { %>
             <li><a href="/sair">Sair</a></li>
-          <% } %>
+            <% } %>
         </ul>
       </div>
     </nav>
@@ -56,55 +61,76 @@
       <ul>
         <% if (logado) { %>
           <li><a href="criar">Ensine na Ladiework</a></li>
-        <% } %>
-        <li><a href="mentorias">Mentorias</a></li>
-        <li><a href="cursos">Cursos</a></li>
+          <% } %>
+            <li><a href="mentorias">Mentorias</a></li>
+            <li><a href="cursos">Cursos</a></li>
       </ul>
 
       <% if (logado) { %>
         <div class="status"></div>
 
-        <img id="profileImage" src="<%= logado.foto || 'images/profilevisualitation.svg' %>" alt="" class="profile-login-desktop">
+        <img id="profileImage" src="<%= logado.foto || 'images/profilevisualitation.svg' %>" alt=""
+          class="profile-login-desktop">
         <section class="info_profile hidden" id="infoProfile">
           <div class="triangle2"></div>
           <article class="header_profile">
             <img src="<%= logado.foto || 'images/profilephoto.svg' %>" alt="">
-            <div>
-              <p><%= logado.nome %></p>
-             
+            <div class="first-info">
+              <p>
+                <%= logado.nome %>
+              </p>
+              <% if (mentoring) { %>
+                <small class="mentoring-badge">Mentora</small>
+                <% } else { %>
+                  <% } %>
+                    <div class="buttons">
+                      <% if (mentoring) { %>
+                        <button class=" dashboard"
+                          onclick="window.location.href = 'paginadeadministracao'">Dashboard</button>
+                        <% } else { %>
+                          <% } %>
+                            <button class="edit">Editar</button>
+                    </div>
 
-              <div class="buttons">
-                <button class=" dashboard" onclick="window.location.href = 'paginadeadministracao'">Dashboard</button>
-                <button class="edit">Editar</button>
-              </div>
-         
-      
-                <ion-icon name="ellipsis-horizontal-circle-outline" ></ion-icon>
-                <ion-icon name="bag-handle-outline" onclick="window.location.href = 'compras'"></ion-icon>
-              
-            
-          </article> 
+
+                    <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
+                    <ion-icon name="bag-handle-outline" onclick="window.location.href = 'compras'"></ion-icon>
+
+
+          </article>
 
           <article class="profile_info">
             <span>Contato</span>
             <ul>
               <ion-icon name="mail-outline"></ion-icon>
-              <li><%= logado.email %></li>
+              <li>
+                <%= logado.email %>
+              </li>
               <br>
               <ion-icon name="call-outline"></ion-icon>
-              <li><%= logado.telefone %></li>
-             
-            </ul>
+              <li>
+                <%= logado.telefone %>
+              </li>
 
+            </ul>
+            <% if (mentoring) { %>
+            <span>SOBRE</span>
+            <p>
+              <%= mentoring.biografia %>
+            </p>
+            <% } else { %>
+              <% } %>
           </article>
-          <span class="membersince">Membro Desde: <%= logado.criacao %></span>
-          <a href="sair" class="logout">Sair</a>
+          <article class="footer">
+            <span class="membersince">Membro Desde: <%= logado.criacao %></span>
+            <a href="sair" class="logout">Sair</a>
+          </article>
         </section>
 
-      <% } else { %>
-        <button class="login" onclick="window.location.href = 'login'">Login</button>
-        <button class="cadastro" onclick="window.location.href = 'cadastrar'">Cadastro</button>
-      <% } %>
+        <% } else { %>
+          <button class="login" onclick="window.location.href = 'login'">Login</button>
+          <button class="cadastro" onclick="window.location.href = 'cadastrar'">Cadastro</button>
+          <% } %>
     </div>
   </nav>
 </header>

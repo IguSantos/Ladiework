@@ -1,4 +1,5 @@
 const user = require("../models/usermodel");
+const mentoring = require("../models/mentoringmodel");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
@@ -63,6 +64,7 @@ const userController = {
             res.render("pages/main", {
                 pagina: "home",
                 errorsList: null, 
+                mentoring: null,
                 logado: req.session.logado,
                 login: req.session.login,
                 dadosNotificacao: {
@@ -97,6 +99,7 @@ const userController = {
 
     logar: async (req, res) => {
         try {
+            // Verifica erros de validação
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
                 return res.render("pages/main", { pagina: "login", errorsList: errors.array(), logado: null });
@@ -107,6 +110,7 @@ const userController = {
                 SENHA_USUARIO: req.body.senha_usu
             };
 
+            // Busca o usuário pelo email
             let findUserEmail = await user.findUserEmail(dataForm);
             if (findUserEmail.length === 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, findUserEmail[0].SENHA_USUARIO)) {
                 // Formatando a data de criação
@@ -114,14 +118,32 @@ const userController = {
                 const options = { month: 'long', year: 'numeric' };
                 const criacaoFormatada = new Intl.DateTimeFormat('pt-BR', options).format(criacaoDate);
 
+                // Recupera a mentoria associada ao usuário
+                const userMentoring = await mentoring.findByUserId(findUserEmail[0].ID_USUARIO);
+
+                // Armazena as informações do usuário e da mentoria na sessão
                 req.session.logado = {
+                    id: findUserEmail[0].ID_USUARIO,
                     nome: findUserEmail[0].NOME_USUARIO,
                     email: findUserEmail[0].EMAIL_USUARIO,
                     telefone: findUserEmail[0].CELULAR_USUARIO,
                     criacao: criacaoFormatada,
                     foto: findUserEmail[0].FOTO_USUARIO ? `data:image/jpeg;base64,${findUserEmail[0].FOTO_USUARIO.toString('base64')}` : null
-
                 };
+
+                // Armazena as informações da mentoria na sessão, se existir
+                if (userMentoring) {
+                    req.session.latestMentoring = {
+                        titulo: userMentoring.TITULO_MENTORA,
+                        biografia: userMentoring.BIOGRAFIA_MENTORA,
+                        formacao: userMentoring.FORM_ACADEMICA_MENTORA,
+                        disponibilidade: userMentoring.DISPONIBILIDADE_HORARIO_MENTORA,
+                        duracao: userMentoring.DURACAO_MENTORIA
+                    };
+                } else {
+                    req.session.latestMentoring = null;
+                }
+
                 return res.redirect("/");
             } else {
                 res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null });

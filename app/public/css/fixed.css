@@ -101,13 +101,22 @@ nav a:hover {
     display: none;
 }
 
+.footer {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
 .info_profile {
-    width: 333px;
+    width: 373px;
     background-color: rgb(218, 218, 218);
     position: absolute;
     top: 81px;
     right: -31px;
-    padding: 0 15px;
+    padding: 5px 15px;
     z-index: 5;
     border-radius: 5px;
 
@@ -125,14 +134,13 @@ nav a:hover {
 .header_profile div p {
     color: black;
     opacity: 0.6;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
-    height:30px;
+    height: 20px;
+    width: 75%;
+    overflow: hidden;
 }
 
-.header_profile div {
-    width: 100%;
-}
 
 .user_type {
     font-size: 0.9rem;
@@ -163,14 +171,20 @@ nav a:hover {
 
 
 .header_profile img {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 82px;
     border-radius: 100%;
     object-fit: contain;
 }
 
+.first-info {
+    width: 100%;
+}
+
 .buttons {
+    margin-top: 10px;
     display: flex;
+   justify-content: flex-end;
     gap: 10px;
     
 }
@@ -184,7 +198,7 @@ nav a:hover {
     border: 1px solid var(--primary-color);
     width: 70px;
     height: 20px;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -215,8 +229,7 @@ nav a:hover {
 .profile_info {
     margin-top: 10px;
     background-color: rgb(255 255 255 / 70%);
-    padding: 5px;
-    margin-bottom: 5px;
+    padding: 10px 5px;
 }
 
 .profile_info button {
@@ -244,12 +257,12 @@ nav a:hover {
     font-size: 0.7rem;
     color: black;
     opacity: 0.6;
-    height: 85px;
     margin: 9px 0;
 }
 
 .profile_info ul {
     display: block;
+    margin: 5px 0;
 }
 
 .profile_info ion-icon {
@@ -257,7 +270,7 @@ nav a:hover {
 }
 
 .profile_info li {
-    font-size: 0.8rem;
+    font-size: 1rem;
     display: inline;
     align-self: center;
     color: black;
@@ -272,7 +285,7 @@ nav a:hover {
 
 .membersince {
     display: inline;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     color: black;
     opacity: 0.5;
     font-weight: 500;
@@ -292,20 +305,21 @@ nav a:hover {
     border-right: 15px solid transparent;
     border-bottom: 20px solid rgb(218, 218, 218);
     margin-top: -19px;
-    margin-left: 253px;
+    margin-left: 285px;
 }
 
 .logout {
     color: rgba(255, 0, 0, 0.555);
-    border: 1px solid rgba(255, 0, 0, 0.555);
+    outline: 1px solid rgba(255, 0, 0, 0.555);
     border-radius: 5px;
     padding: 1px 16px;
     font-size: 0.7rem;
-    margin-left: 22%;
+  
 }
 
 .logout:hover {
-    border: none;
+  
+    outline: none;
     background-color: rgba(255, 0, 0, 0.555);
     color: white;
 }
@@ -334,6 +348,13 @@ nav ul {
 
 #menu-icon {
     display: none;
+}
+
+.mentoring-badge {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--primary-color);
+
 }
 
 nav li {
