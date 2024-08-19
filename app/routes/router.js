@@ -163,7 +163,7 @@ router.get('/paginadeadministracao', (req, res) => {
 
 router.get(
  "/administrator",
- verifyAuthorizedUser(['adm'], "pages/podenao"), // Middleware de verificação de autorização
+ verifyAuthorizedUser([1], "pages/acessonegado"), // Middleware de verificação de autorização
  function (req, res) {
    res.render("pages/adm/administrator"); // Renderiza a página de administrador
  }

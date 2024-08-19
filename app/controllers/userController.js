@@ -20,7 +20,7 @@ const userController = {
         const errors = validationResult(req);
     
         if (!errors.isEmpty()) {
-            console.log(errors);
+            console.log("Erros de validação:", errors.array());
             return res.render("pages/main", {
                 pagina: "home",
                 logado: null,
@@ -47,13 +47,23 @@ const userController = {
         }
     
         try {
-            await user.create(dataForm);
+            const result = await user.create(dataForm);
+    
+            // Verifique o que foi retornado
+            console.log("Resultado da criação do usuário:", result);
+    
+            // Verifique se o ID está definido
+            if (!result || !result.ID_USUARIO) {
+                console.log("Erro: ID do usuário é undefined");
+                throw new Error("ID do usuário não foi retornado.");
+            }
     
             const criacaoDate = dataForm.DT_CRIACAO_CONTA_USUARIO;
             const options = { month: 'long', year: 'numeric' };
             const criacaoFormatada = new Intl.DateTimeFormat('pt-BR', options).format(criacaoDate);
     
             req.session.logado = {
+                id: result.ID_USUARIO, // Certifique-se de que o ID está sendo corretamente definido
                 nome: dataForm.NOME_USUARIO,
                 email: dataForm.EMAIL_USUARIO,
                 telefone: dataForm.CELULAR_USUARIO,
@@ -61,32 +71,34 @@ const userController = {
                 foto: dataForm.FOTO_USUARIO ? `data:image/jpeg;base64,${dataForm.FOTO_USUARIO.toString('base64')}` : null
             };
     
+            console.log("ID do usuário salvo na sessão:", req.session.logado.id);
+    
             res.render("pages/main", {
                 pagina: "home",
-                errorsList: null, 
+                errorsList: null,
                 mentoring: null,
                 logado: req.session.logado,
                 login: req.session.login,
                 dadosNotificacao: {
-                    titulo: "Cadastrado com sucesso!", 
-                    mensagem: "Bem-vindo ao Ladiework!!", 
+                    titulo: "Cadastrado com sucesso!",
+                    mensagem: "Bem-vindo ao Ladiework!!",
                     tipo: "success"
                 },
                 valores: req.body
             });
-            
+    
         } catch (error) {
             console.log("Erro ao cadastrar:", error);
             if (!res.headersSent) {
                 return res.render("pages/main", {
                     pagina: "cadastro",
                     errorsList: errors.array(),
-                    valores: req.body
+                    valores: req.body,
+                    dadosNotificacao: null
                 });
             }
         }
-    },
-    
+    }, 
 
     validationRulesFormLogin: [
         body("nome_usu")

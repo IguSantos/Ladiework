@@ -35,16 +35,25 @@ const userModel = {
 
     create: async (camposForm) => {
         try {
+            // Execute a inserção no banco de dados
             const [results] = await pool.query(
-                "insert into usuario set ?", [camposForm] // PEga o campos forms e insere todos os dados do cadastro
-            )
-            
-            return results;
+                "INSERT INTO usuario SET ?", [camposForm]
+            );
+    
+            // Verifique se o resultado contém o ID
+            if (results.insertId) {
+                // Retorne o ID gerado
+                return { ID_USUARIO: results.insertId };
+            } else {
+                console.log("Erro: ID do usuário não foi retornado.");
+                return null;
+            }
         } catch (error) {
             console.log("Erro ao criar a conta!!", error);
             return null;
         }
     },
+    
 
     findId: async (id) => {
         try {
@@ -62,6 +71,23 @@ const userModel = {
             return error;
         }
     },
+
+    // findUserByQuery: async (camposForm) => {
+    //     try {
+    //         const [results] = await pool.query(
+    //             `SELECT u.*, IF(a.id_admin > 0, '2', '1') as tipo 
+    //              FROM teste_ladiework.usuario u 
+    //              LEFT JOIN administrador a 
+    //              ON u.ID_USUARIO = a.usuario_id_usuario 
+    //              WHERE u.EMAIL_USUARIO = ?`, // Campo email é igual ao valor do parametro passado no ?
+    //             [camposForm.EMAIL_USUARIO] // camposForm = Dataform
+    //         )
+    //         return results;
+    //     } catch (error) {
+    //         console.log("Erro ao comparar email!!", error);
+    //         return error;
+    //     }
+    // },
 
 
 

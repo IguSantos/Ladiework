@@ -1,146 +1,151 @@
 <title>Cadastro - LadieWork</title>
 <link rel="stylesheet" href="css/cadastro.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-
 </head>
-
 <body>
     <%- include("../partial/header") %>
 
-        <% 
-        let arquivo = {"imagem":"images/profilevisualitation.svg"}
-        let msgError={"nome_usu": "" , "email_usu" : "" , "senha_usu" : "" , "aniversario_usu" : "" , "numero_usu"
-            : "" , "genero_usu" : "" , "foto_usu" : "" }; let warningError={ nome_usu: "" , email_usu: "" ,
-            senha_usu: "" , aniversario_usu: "" , numero_usu: "" , genero_usu: "" , foto_usu: "" }; if(errorsList){
-            errorsList.errors.forEach(function(itemError){ if(itemError.path=="nome_usu" ) {
-            warningError.nome_usu="erro" ; msgError.nome_usu +="" +itemError.msg; } if(itemError.path=="senha_usu" ) {
-            warningError.senha_usu="erro" ; msgError.senha_usu=itemError.msg; } if(itemError.path=="email_usu" ) {
-            warningError.email_usu="erro" ; msgError.email_usu=itemError.msg; } if(itemError.path=="aniversario_usu" ) {
-            warningError.aniversario_usu="erro" ; msgError.aniversario_usu=itemError.msg; }
-            if(itemError.path=="numero_usu" ) { warningError.numero_usu="erro" ; msgError.numero_usu=itemError.msg; }
-            if(itemError.path=="foto_usu" ) { warningError.foto_usu="erro" ; msgError.foto_usu=itemError.msg; }
-            }) } %>
-            <%
+    <% 
+ 
+    let arquivo = {"imagem":"images/profilevisualitation.svg"};
+    let msgError = {
+        "nome_usu": "", 
+        "email_usu": "", 
+        "senha_usu": "", 
+        "aniversario_usu": "", 
+        "numero_usu": "", 
+        "genero_usu": "", 
+        "foto_usu": ""
+    };
+    let warningError = {
+        nome_usu: "", 
+        email_usu: "", 
+        senha_usu: "", 
+        aniversario_usu: "", 
+        numero_usu: "", 
+        genero_usu: "", 
+        foto_usu: ""
+    }; 
     
-            if (dadosNotificacao) { %>
-                <script>
-                        notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")                      
-                </script>
-            <% } %>
-            
-            <main id="app">
-                <form method="post" action="/cadastrar" enctype="multipart/form-data">
-                    <div class="form-step active">
-                        <h2>Bem-Vinda a LadieWork</h2>
-                        <span class="step1">Fale um pouco sobre você!</span>
-                        <div class="content">
-
-                            <div class="input-wrapper">
-                                <label for="name">Nome</label>
-                                <input id="name" name="nome_usu" type="text" placeholder="Como prefere ser chamado?"
-                                    autocomplete="name" value="<%= valores.nome_usu %>"> <!-- valores? -->
-                                <span class="warning">
-                                </span>
-                            </div>
-
-                            <div class="input-wrapper">
-                                <label for="email">E-mail</label>
-                                <input id="email" name="email_usu" type="email" placeholder="Digite seu e-mail" required
-                                    value="<%= valores.email_usu %>">
-                                <span class="warning">
-                                </span>
-
-                            </div>
-
-                            <div class="input-wrapper">
-                                <label for="password">Senha</label>
-                                <input id="password" name="senha_usu" type="password" placeholder="Digite sua senha"
-                                    required value="<%= valores.senha_usu %>">
-                                <span class="warning">
-                                </span>
-                            </div>
-
-                            <div class="input-wrapper">
-                                <label for="password">Confimar Senha</label>
-                                <input id="confirm-password"  type="password" placeholder="Sua sua senha anterior"
-                                    required>
-                                <span class="warning">
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="button-wrapper justify-end">
-                            <button type="button" class="btn " data-action="next">PRÓXIMO</button>
-                        </div>
+    if (errorsList && errorsList.errors) {
+        errorsList.errors.forEach(function(itemError) {
+            if (itemError.path == "nome_usu") {
+                warningError.nome_usu = "erro";
+                msgError.nome_usu += itemError.msg;
+            }
+            if (itemError.path == "senha_usu") {
+                warningError.senha_usu = "erro";
+                msgError.senha_usu = itemError.msg;
+            }
+            if (itemError.path == "email_usu") {
+                warningError.email_usu = "erro";
+                msgError.email_usu = itemError.msg;
+            }
+            if (itemError.path == "aniversario_usu") {
+                warningError.aniversario_usu = "erro";
+                msgError.aniversario_usu = itemError.msg;
+            }
+            if (itemError.path == "numero_usu") {
+                warningError.numero_usu = "erro";
+                msgError.numero_usu = itemError.msg;
+            }
+            if (itemError.path == "foto_usu") {
+                warningError.foto_usu = "erro";
+                msgError.foto_usu = itemError.msg;
+            }
+        });
+    }
+    %>
+    
+    <% if (dadosNotificacao) { %>
+        <script>
+            notify("<%= dadosNotificacao.titulo %>", "<%= dadosNotificacao.mensagem %>", "<%= dadosNotificacao.tipo %>", "center");
+        </script>
+    <% } %>
+    
+    <main id="app">
+        <form method="post" action="/cadastrar" enctype="multipart/form-data">
+            <div class="form-step active">
+                <h2>Bem-Vinda a LadieWork</h2>
+                <span class="step1">Fale um pouco sobre você!</span>
+                <div class="content">
+                    <div class="input-wrapper">
+                        <label for="name">Nome</label>
+                        <input id="name" name="nome_usu" type="text" placeholder="Como prefere ser chamado?" autocomplete="name" value="<%= valores.nome_usu %>">
+                        <span class="warning"><%= warningError.nome_usu %></span>
                     </div>
 
-                    <div class="form-step hide">
-                        <h2>Bem-Vinda a LadieWork</h2>
-                        <span class="step1">Algumas informações básicas</span>
-                        <div class="content">
-
-                            <div class="input-wrapper">
-                                <label for="birthday-date">Data de nascimento</label>
-                                <input id="birthday-date" name="aniversario_usu" type="date"
-                                    placeholder="Selecione a data de nascimento" required
-                                    value="<%= valores.aniversario_usu %>">
-                                <span class="warning">
-                                </span>
-                            </div>
-
-                            <div class="input-wrapper">
-                                <label for="phone">Número de telefone</label>
-                                <input id="phone" name="numero_usu" type="tel"
-                                    placeholder="Digite seu número. Ex: 11 9XXXXXXXX"
-                                    onkeypress="return /\d/.test(event.key)" required value="<%= valores.numero_usu %>">
-                                <span class="warning">
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="button-wrapper">
-                            <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
-                            <button type="button" class="btn primary" data-action="next">CONTINUAR</button>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email_usu" type="email" placeholder="Digite seu e-mail" required value="<%= valores.email_usu %>">
+                        <span class="warning"><%= warningError.email_usu %></span>
                     </div>
 
-                    <div class="form-step hide"> <!-- Ultima etapa -->
-                        <h2>Bem-Vinda a LadieWork</h2>
-                        <span class="step1">Personalize seu perfil</span>
-                        <div class="profile">
-
-                            <div>
-                                <img src="images/profilevisualitation.svg" id="profileImage" alt="Sua foto de perfil">
-                                <figcaption>Sua foto de perfil</figcaption>
-
-                                <button type="button" id="editar" name="editar"> Faça upload de uma foto</button>
-                                <input type="file" id="inputImage" accept="image/*" style="display: none;" name="foto_usu"
-                                >
-
-                            
-                                    
-                            </div>
-                        </div>
-                        <div class="content">
-
-                            <span class="iagree">Ao clicar em "Tudo pronto", você concorda com os nossos <a
-                                    href="/termosecondicoes">Termos de Uso</a> e nossa <a href="/privacidade">Política
-                                    de Privacidade</a></span>
-
-                        </div>
-                        <div class="button-wrapper">
-                            <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
-                            <button id="btn" class="btn primary" type="submit">TUDO PRONTO</button>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="password">Senha</label>
+                        <input id="password" name="senha_usu" type="password" placeholder="Digite sua senha" required value="<%= valores.senha_usu %>">
+                        <span class="warning"><%= warningError.senha_usu %></span>
                     </div>
-                </form>
-            </main>
 
-            <script src="js/cadastro.js"></script>
-            
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
-            
+                    <div class="input-wrapper">
+                        <label for="password">Confimar Senha</label>
+                        <input id="confirm-password" type="password" placeholder="Sua sua senha anterior" required>
+                        <span class="warning"><%= warningError.senha_usu %></span>
+                    </div>
+                </div>
 
-            <!-- <img src="<%= arquivo.imagem %>" id="profileImage" alt="Sua foto de perfil"> -->
+                <div class="button-wrapper justify-end">
+                    <button type="button" class="btn" data-action="next">PRÓXIMO</button>
+                </div>
+            </div>
+
+            <div class="form-step hide">
+                <h2>Bem-Vinda a LadieWork</h2>
+                <span class="step1">Algumas informações básicas</span>
+                <div class="content">
+                    <div class="input-wrapper">
+                        <label for="birthday-date">Data de nascimento</label>
+                        <input id="birthday-date" name="aniversario_usu" type="date" placeholder="Selecione a data de nascimento" required value="<%= valores.aniversario_usu %>">
+                        <span class="warning"><%= warningError.aniversario_usu %></span>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="phone">Número de telefone</label>
+                        <input id="phone" name="numero_usu" type="tel" placeholder="Digite seu número. Ex: 11 9XXXXXXXX" onkeypress="return /\d/.test(event.key)" required value="<%= valores.numero_usu %>">
+                        <span class="warning"><%= warningError.numero_usu %></span>
+                    </div>
+                </div>
+
+                <div class="button-wrapper">
+                    <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
+                    <button type="button" class="btn primary" data-action="next">CONTINUAR</button>
+                </div>
+            </div>
+
+            <div class="form-step hide"> <!-- Ultima etapa -->
+                <h2>Bem-Vinda a LadieWork</h2>
+                <span class="step1">Personalize seu perfil</span>
+                <div class="profile">
+                    <div>
+                        <img src="images/profilevisualitation.svg" id="profileImage" alt="Sua foto de perfil">
+                        <figcaption>Sua foto de perfil</figcaption>
+                        <button type="button" id="editar" name="editar">Faça upload de uma foto</button>
+                        <input type="file" id="inputImage" accept="image/*" style="display: none;" name="foto_usu">
+                    </div>
+                </div>
+                <div class="content">
+                    <span class="iagree">Ao clicar em "Tudo pronto", você concorda com os nossos <a href="/termosecondicoes">Termos de Uso</a> e nossa <a href="/privacidade">Política de Privacidade</a></span>
+                </div>
+                <div class="button-wrapper">
+                    <button type="button" class="btn secondary" data-action="prev">VOLTAR</button>
+                    <button id="btn" class="btn primary" type="submit">TUDO PRONTO</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script src="js/cadastro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+</body>
+</html>
