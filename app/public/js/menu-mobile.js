@@ -10,6 +10,7 @@ function closeMenu() {
     document.body.classList.remove('no-scroll')
 };
 
+
 // PROFILE
 document.addEventListener("DOMContentLoaded", function() {
   var profileImage = document.getElementById("profileImage");

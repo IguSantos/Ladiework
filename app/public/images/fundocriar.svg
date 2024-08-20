@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 854.4 478.31">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d3bef6;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        opacity: .53;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #eadffa;
+      }
+
+      .cls-3 {
+        fill: #e1d2f9;
+      }
+
+      .cls-4 {
+        fill: #d2bdf5;
+      }
+
+      .cls-5 {
+        fill: #cab0f4;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="230.39" y="336.24" width="135.41" height="135.41" rx="7.36" ry="7.36" transform="translate(-137.98 652.7) rotate(-83.28)"/>
+  <rect class="cls-2" x="41.1" y="128.48" width="104.18" height="104.18" rx="8.95" ry="8.95" transform="translate(179.19 -3.53) rotate(52.34)"/>
+  <circle class="cls-5" cx="358.1" cy="243.38" r="61.84"/>
+  <circle class="cls-1" cx="167.67" cy="321.87" r="49.47"/>
+  <rect class="cls-4" x="213.69" y="128.41" width="70.71" height="70.71" rx="5.35" ry="5.35"/>
+  <circle class="cls-3" cx="28.29" cy="387.24" r="28.29"/>
+  <circle class="cls-3" cx="319.8" cy="39.13" r="39.13"/>
+</svg>

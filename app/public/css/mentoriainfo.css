@@ -8,6 +8,7 @@ main {
     grid-template-rows: 100%;
 
     margin-bottom: 70px;
+    background: rgb(247, 247, 247) url("../images/fundoinformacao.svg") no-repeat center center/cover;
 }
 
 .more-curses {
@@ -180,6 +181,7 @@ section #more-info-curse {
     width: 350px;
     position: relative;
     height: 760px;
+    background-color: rgb(247, 247, 247) ;
 
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }

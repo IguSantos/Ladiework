@@ -91,26 +91,3 @@ function simulateServerValidation(email, password) {
     };
 }
 
-
-const btn = document.querySelector('.btn')
-
-btn.addEventListener('click', () => {
-    new Notify({
-        status: 'success',
-        title: 'Login sucedido',
-        text: 'Bem-vindo ao Ladiework!!',
-        effect: 'slide',
-        speed: 100,
-        customClass: '',
-        customIcon: '',
-        showIcon: true,
-        showCloseButton: true,
-        autoclose: true,
-        autotimeout: 2000,
-        notificationsGap: 20,
-        notificationsPadding: null,
-        type: 'outline',
-        position: 'right top',
-        customWrapper: '',
-    })
-})

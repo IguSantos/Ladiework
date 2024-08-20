@@ -18,7 +18,7 @@ const userController = {
 
     cadastrar: async (req, res) => {
         const errors = validationResult(req);
-    
+
         if (!errors.isEmpty()) {
             console.log("Erros de validação:", errors.array());
             return res.render("pages/main", {
@@ -29,7 +29,7 @@ const userController = {
                 valores: req.body
             });
         }
-    
+
         const dataForm = {
             NOME_USUARIO: req.body.nome_usu,
             SENHA_USUARIO: bcrypt.hashSync(req.body.senha_usu, salt),
@@ -39,29 +39,29 @@ const userController = {
             DT_NASC_USUARIO: req.body.aniversario_usu,
             DT_CRIACAO_CONTA_USUARIO: new Date()
         };
-    
+
         if (req.file) {
             dataForm.FOTO_USUARIO = req.file.buffer;
         } else {
             console.log("Falha no carregamento da imagem");
         }
-    
+
         try {
             const result = await user.create(dataForm);
-    
+
             // Verifique o que foi retornado
             console.log("Resultado da criação do usuário:", result);
-    
+
             // Verifique se o ID está definido
             if (!result || !result.ID_USUARIO) {
                 console.log("Erro: ID do usuário é undefined");
                 throw new Error("ID do usuário não foi retornado.");
             }
-    
+
             const criacaoDate = dataForm.DT_CRIACAO_CONTA_USUARIO;
             const options = { month: 'long', year: 'numeric' };
             const criacaoFormatada = new Intl.DateTimeFormat('pt-BR', options).format(criacaoDate);
-    
+
             req.session.logado = {
                 id: result.ID_USUARIO, // Certifique-se de que o ID está sendo corretamente definido
                 nome: dataForm.NOME_USUARIO,
@@ -70,9 +70,9 @@ const userController = {
                 criacao: criacaoFormatada,
                 foto: dataForm.FOTO_USUARIO ? `data:image/jpeg;base64,${dataForm.FOTO_USUARIO.toString('base64')}` : null
             };
-    
+
             console.log("ID do usuário salvo na sessão:", req.session.logado.id);
-    
+
             res.render("pages/main", {
                 pagina: "home",
                 errorsList: null,
@@ -86,7 +86,7 @@ const userController = {
                 },
                 valores: req.body
             });
-    
+
         } catch (error) {
             console.log("Erro ao cadastrar:", error);
             if (!res.headersSent) {
@@ -98,7 +98,7 @@ const userController = {
                 });
             }
         }
-    }, 
+    },
 
     validationRulesFormLogin: [
         body("nome_usu")
@@ -156,7 +156,19 @@ const userController = {
                     req.session.latestMentoring = null;
                 }
 
-                return res.redirect("/");
+                res.render("pages/main", {
+                    pagina: "home",
+                    errorsList: null,
+                    mentoring: null,
+                    logado: req.session.logado,
+                    login: req.session.login,
+                    dadosNotificacao: {
+                        titulo: "Login realizado com sucesso!",
+                        mensagem: "Que bom ver você de novo!",
+                        tipo: "success"
+                    },
+                    valores: req.body
+                });
             } else {
                 res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null });
             }

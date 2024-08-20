@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1168.93 595.28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d8c5f7;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        opacity: .53;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #d3bef6;
+      }
+
+      .cls-3 {
+        fill: #eadffa;
+      }
+
+      .cls-4 {
+        fill: #e1d2f9;
+      }
+
+      .cls-5 {
+        fill: #d2bdf5;
+      }
+
+      .cls-6 {
+        fill: #cab0f4;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="1003.31" y="446.84" width="130.81" height="130.81" rx="9.87" ry="9.87" transform="translate(190.74 1308.3) rotate(-67.81)"/>
+  <rect class="cls-3" x="902.32" y="376.82" width="89.17" height="89.17" rx="8.95" ry="8.95" transform="translate(951.65 -615.03) rotate(66.27)"/>
+  <circle class="cls-6" cx="1105.57" cy="290.41" r="63.36"/>
+  <circle class="cls-2" cx="279.47" cy="500.24" r="64.52"/>
+  <rect class="cls-5" x="929.34" y="179.59" width="73.29" height="73.29" rx="9.64" ry="9.64" transform="translate(21.3 511.96) rotate(-30)"/>
+  <circle class="cls-4" cx="1042.22" cy="124.93" r="28.97"/>
+  <circle class="cls-4" cx="168.59" cy="217.84" r="29.35"/>
+  <rect class="cls-1" x="39.48" y="25.12" width="129.66" height="129.66" rx="10.03" ry="10.03" transform="translate(-33.22 82.43) rotate(-37.64)"/>
+  <rect class="cls-3" x="252.1" y="52.44" width="68.95" height="68.95" rx="9.06" ry="9.06" transform="translate(126.81 340.2) rotate(-74.63)"/>
+  <circle class="cls-6" cx="139.09" cy="353.69" r="63.04"/>
+  <rect class="cls-3" x="322.58" y="265.24" width="87.72" height="87.72" rx="8.95" ry="8.95" transform="translate(719.13 -15.61) rotate(97.22)"/>
+  <circle class="cls-4" cx="897.64" cy="541.17" r="28.92"/>
+  <circle class="cls-2" cx="848.61" cy="124.76" r="50.4"/>
+  <circle class="cls-4" cx="266.19" cy="329.81" r="21.4"/>
+  <rect class="cls-5" x="256.9" y="189.04" width="60.67" height="60.67" rx="9.06" ry="9.06" transform="translate(-71.97 179.33) rotate(-31.01)"/>
+</svg>

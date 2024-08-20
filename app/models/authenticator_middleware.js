@@ -70,8 +70,6 @@ recordAuthenticatedUser = async (req, res, next) => {
 };
 
 
-
-
 verifyAuthorizedUser = (authorizedTypes, destinoFalha) => {
     return (req, res, next) => {
         if (req.session.logado != null &&

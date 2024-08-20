@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1314.67 595.42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d3bef6;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        opacity: .53;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #eadffa;
+      }
+
+      .cls-3 {
+        fill: #e1d2f9;
+      }
+
+      .cls-4 {
+        fill: #d2bdf5;
+      }
+
+      .cls-5 {
+        fill: #cab0f4;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="1060.61" y="364.88" width="120.25" height="120.25" rx="7.36" ry="7.36" transform="translate(192.3 1183.08) rotate(-60)"/>
+  <rect class="cls-2" x="915.58" y="251.36" width="99.63" height="99.63" rx="8.95" ry="8.95" transform="translate(269.99 -433.06) rotate(29.23)"/>
+  <circle class="cls-1" cx="1252.75" cy="78.29" r="57.44"/>
+  <circle class="cls-1" cx="302.03" cy="538.2" r="57.23"/>
+  <rect class="cls-4" x="1142.59" y="171.27" width="83.41" height="83.41" rx="9.64" ry="9.64" transform="translate(52.18 620.68) rotate(-30)"/>
+  <circle class="cls-3" cx="1233.64" cy="323.56" r="33.39"/>
+  <circle class="cls-3" cx="225.82" cy="425.23" r="33.36"/>
+  <rect class="cls-2" x="32.14" y="428.04" width="121.91" height="121.91" rx="12.16" ry="12.16" transform="translate(-394.35 388.1) rotate(-67.53)"/>
+  <rect class="cls-4" x="122.69" y="281.01" width="83.28" height="83.28" rx="9.06" ry="9.06" transform="translate(-142.74 130.77) rotate(-31.01)"/>
+  <circle class="cls-5" cx="565.78" cy="314.05" r="72.23"/>
+  <rect class="cls-2" x="399.26" y="414.04" width="99.85" height="99.85" rx="8.95" ry="8.95" transform="translate(693.1 -133.98) rotate(66.26)"/>
+</svg>

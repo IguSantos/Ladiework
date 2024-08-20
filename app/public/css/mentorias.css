@@ -1,6 +1,8 @@
 main {
     width: 90%;
     margin: 40px auto;
+
+    background: rgb(247, 247, 247) url("../images/fundomentoria.svg") no-repeat center center/cover;
     
 }
 

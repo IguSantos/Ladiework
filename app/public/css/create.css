@@ -1,5 +1,6 @@
 body {
     transition: font-size 0.5s ease, width 0.5s ease, height 0.5s ease;
+    background: rgb(247, 247, 247) url("../images/fundocriar.svg") no-repeat center center/cover;
 }
 
 main {

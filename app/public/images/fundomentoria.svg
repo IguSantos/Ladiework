@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 842.08 622.61">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f5effd;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        opacity: .53;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #d8c5f7;
+      }
+
+      .cls-3 {
+        fill: #e9defa;
+      }
+
+      .cls-4 {
+        fill: #d3bef6;
+      }
+
+      .cls-5 {
+        fill: #eadffa;
+      }
+
+      .cls-6 {
+        fill: #e1d2f9;
+      }
+
+      .cls-7 {
+        fill: #d2bdf5;
+      }
+
+      .cls-8 {
+        fill: #f0e9fc;
+      }
+
+      .cls-9 {
+        fill: #cab0f4;
+      }
+
+      .cls-10 {
+        fill: #f2ebfc;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="603.26" y="192.51" width="87.61" height="87.61" rx="5.07" ry="5.07" transform="translate(29.97 -69.85) rotate(6.32)"/>
+  <rect class="cls-10" x="599.77" y="12.92" width="57.38" height="57.38" rx="4.09" ry="4.09" transform="translate(265.56 -473.16) rotate(51.03)"/>
+  <circle class="cls-9" cx="738.11" cy="55.54" r="42.88"/>
+  <circle class="cls-4" cx="515.61" cy="174.31" r="33.54"/>
+  <circle class="cls-6" cx="474.89" cy="75.07" r="19.54"/>
+  <rect class="cls-3" x="666.74" y="111.49" width="47.91" height="47.91" rx="5.35" ry="5.35" transform="translate(462.65 -530.44) rotate(60)"/>
+  <rect class="cls-5" x="9.63" y="219.11" width="87.61" height="87.61" rx="5.07" ry="5.07" transform="translate(60.8 -5.28) rotate(13.06)"/>
+  <rect class="cls-1" x="211.09" y="393.85" width="57.38" height="57.38" rx="4.09" ry="4.09" transform="translate(470.18 -5.19) rotate(57.88)"/>
+  <circle class="cls-9" cx="69.06" cy="443.39" r="53.71"/>
+  <circle class="cls-4" cx="155.11" cy="175.42" r="33.54"/>
+  <circle class="cls-6" cx="724.18" cy="521.59" r="19.54"/>
+  <circle class="cls-6" cx="151.02" cy="270.58" r="19.07"/>
+  <rect class="cls-7" x="142.85" y="332.14" width="48.82" height="48.82" rx="5.35" ry="5.35" transform="translate(428.35 61.71) rotate(66.66)"/>
+  <rect class="cls-8" x="612.07" y="398.69" width="87.61" height="87.61" rx="5.07" ry="5.07" transform="translate(-99.33 206.61) rotate(-16.66)"/>
+  <circle class="cls-9" cx="506.72" cy="546.85" r="53.71"/>
+  <rect class="cls-7" x="609.13" y="519.94" width="48.82" height="48.82" rx="5.35" ry="5.35" transform="translate(454.7 -271.56) rotate(36.97)"/>
+  <rect class="cls-9" x="468.06" y="367.6" width="58.79" height="58.79" rx="5.35" ry="5.35" transform="translate(1076.16 132.1) rotate(116.81)"/>
+  <circle class="cls-4" cx="779.86" cy="451.42" r="44"/>
+</svg>

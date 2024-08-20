@@ -111,8 +111,9 @@
                     </ul>
                 </div>
 
-                <span class="havementory" >Esse curso possui uma mentoria!</span>
-                <button class="get_mentory" onclick="window.location.href = 'informacao_da_mentoria'">Acessar mentoria</button>
+                <span class="havementory">Esse curso possui uma mentoria!</span>
+                <button class="get_mentory" onclick="window.location.href = 'informacao_da_mentoria'">Acessar
+                    mentoria</button>
             </section>
 
 
@@ -124,24 +125,28 @@
                     <span class="parcelas"> 4x de R$25,00</span> <br>
 
                     <button id="add-cart">Adicionar ao carrinho</button> <br>
-                    <button id="buy-now" onclick="window.location.href = 'finalizarcompra'">Comprar agora</button>
-
-                    <div class="includes">
-                        <span>Este curso inclui:</span>
-                        <p><ion-icon name="time-outline"></ion-icon> 60 horas</p>
-                        <p><ion-icon name="document-text-outline"></ion-icon> Com material de apoio</p>
-                        <p><ion-icon name="refresh-outline"></ion-icon> Acesso total vitalício</p>
-                        <p><ion-icon name="receipt-outline"></ion-icon>Certificado de conslusão</p>
-                    </div>
-
-
-                    <p class="ladie-ask">Ja pensou em ajudar mais mulheres a alcançar grandes metas? </p>
-                    <img src="images/logo.svg" alt="Logotipo ladiework">
                     <% if (logado) { %>
-                    <p class="beamentor" onclick="window.location.href = 'criar'">Seja uma mentora!</p>
-                    <% } else { %>
-                        <p class="beamentor" onclick="window.location.href = 'login'">Seja uma mentora!</p>
-                        <% } %>
+                        <button id="buy-now" onclick="window.location.href = 'finalizarcompra'">Comprar agora</button>
+                        <% } else { %>
+                            <button id="buy-now" onclick="window.location.href = 'login'">Comprar agora</button>
+                            <% } %>
+                                <div class="includes">
+                                    <span>Este curso inclui:</span>
+                                    <p><ion-icon name="time-outline"></ion-icon> 60 horas</p>
+                                    <p><ion-icon name="document-text-outline"></ion-icon> Com material de apoio</p>
+                                    <p><ion-icon name="refresh-outline"></ion-icon> Acesso total vitalício</p>
+                                    <p><ion-icon name="receipt-outline"></ion-icon>Certificado de conslusão</p>
+                                </div>
+
+
+                                <p class="ladie-ask">Ja pensou em ajudar mais mulheres a alcançar grandes metas? </p>
+                                <img src="images/logo.svg" alt="Logotipo ladiework">
+                                <% if (logado) { %>
+                                    <p class="beamentor" onclick="window.location.href = 'criar'">Seja uma mentora!</p>
+                                    <% } else { %>
+                                        <p class="beamentor" onclick="window.location.href = 'login'">Seja uma mentora!
+                                        </p>
+                                        <% } %>
 
                 </section>
 

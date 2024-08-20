@@ -8,6 +8,7 @@ main {
     grid-template-rows: 100%;
 
     margin-bottom: 70px;
+    background: rgb(247, 247, 247) url("../images/fundoinformacao.svg") no-repeat center center/cover;
 }
 
 /* MAIS CURSOS */
@@ -41,9 +42,9 @@ main {
     color: var(--cta-titles);
 }
 
-.more-curses h2{
-  font-size: 1rem;
-  color: var(--primary-color);
+.more-curses h2 {
+    font-size: 1rem;
+    color: var(--primary-color);
 }
 
 .more-curses span {
@@ -78,7 +79,7 @@ section {
 }
 
 .havementory {
-   font-size: 1.3rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--second-color);
     display: block;
@@ -102,7 +103,7 @@ section {
 }
 
 .get_mentory:hover {
-opacity: 0.9;
+    opacity: 0.9;
 }
 
 h1 {
@@ -224,7 +225,7 @@ section #more-info-curse {
 
 
 .modulo li:hover {
-    background-color: #e9e9e9; 
+    background-color: #e9e9e9;
 
 }
 
@@ -253,6 +254,7 @@ section #more-info-curse {
     width: 350px;
     position: relative;
     height: 766px;
+    background-color: rgb(247, 247, 247);
 
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -294,7 +296,7 @@ section #more-info-curse {
 }
 
 #add-cart:hover {
-background-color: var(--cta-hover);
+    background-color: var(--cta-hover);
 }
 
 #buy-now {
