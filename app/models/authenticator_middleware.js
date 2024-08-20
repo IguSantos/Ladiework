@@ -29,7 +29,6 @@ recordAuthenticatedUser = async (req, res, next) => {
 
     const errors = validationResult(req);
     console.log("Validation errors:", errors.array());
-    
 
     if (errors.isEmpty()) {
         const dataForm = {
@@ -41,45 +40,42 @@ recordAuthenticatedUser = async (req, res, next) => {
         const results = await user.findUserEmail(dataForm);
         console.log("Database results:", results);
 
-        const total = results.length;
-        console.log("Total results found:", total);
-
-        // Verificação bem-sucedida do login
-        if (total === 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, results[0].SENHA_USUARIO)) {
-            var logado = {
+        if (results.length === 1 && bcrypt.compareSync(dataForm.SENHA_USUARIO, results[0].SENHA_USUARIO)) {
+            const logado = {
                 id: results[0].ID_USUARIO,
                 nome: results[0].NOME_USUARIO,
                 telefone: results[0].CELULAR_USUARIO,
                 email: results[0].EMAIL_USUARIO,
                 criacao: results[0].DT_CRIACAO_CONTA_USUARIO,
-                tipo: results[0].TIPO_USUARIO
             };
-            if (logado.tipo === 1) { // Correção: comparar com número
-              
-                req.session.logado = logado;
-                console.log("Usuário administrador autenticado com sucesso:", logado);
-                return res.redirect("/administrator"    );
-            } 
 
             req.session.logado = logado;
-            console.log("Usuário comum autenticado com sucesso:", logado);
+
+            if (logado.id === 1) { // Se for o administrador
+                console.log("Usuário administrador autenticado com sucesso:", logado);
+                return res.redirect("/administrator"); // Redireciona para a página de administrador
+            } else {
+                console.log("Usuário comum autenticado com sucesso:", logado);
+            }
         } else {
-            req.session.logado = null; // Alterado de logado para null em caso de falha
+            req.session.logado = null; // Falha na autenticação
             console.log("Autenticação falhou");
         }
     } else {
-        req.session.logado = null; // Alterado de logado para null em caso de erro de validação
-        req.session.autenticado = 0;
+        req.session.logado = null; // Erros de validação
+        console.log("Erros de validação encontrados");
     }
-    next();
+
+    next(); // Continua para a próxima middleware/rota
 };
+
 
 
 
 verifyAuthorizedUser = (authorizedTypes, destinoFalha) => {
     return (req, res, next) => {
         if (req.session.logado != null &&
-            authorizedTypes.includes(req.session.logado.tipo)) {
+            authorizedTypes.includes(req.session.logado.id)) {
             next();
         } else {
             res.render(destinoFalha);

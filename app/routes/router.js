@@ -162,12 +162,13 @@ router.get('/paginadeadministracao', (req, res) => {
 });
 
 router.get(
- "/administrator",
- verifyAuthorizedUser([1], "pages/acessonegado"), // Middleware de verificação de autorização
- function (req, res) {
-   res.render("pages/adm/administrator"); // Renderiza a página de administrador
- }
+  "/administrator",
+  verifyAuthorizedUser([1], "pages/acessonegado"), // Middleware de verificação de autorização para o ID 1
+  function (req, res) {
+      res.render("pages/adm/administrator"); // Renderiza a página de administrador
+  }
 );
+
 
 
 // router.post("/criar",  function (req, res) {
