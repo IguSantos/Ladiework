@@ -170,11 +170,11 @@ const userController = {
                     valores: req.body
                 });
             } else {
-                res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null });
+                res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null , dadosNotificacao: null});
             }
         } catch (e) {
             console.log("Deu erro no logar!!", e);
-            res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Erro no servidor" }], logado: null });
+            res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Erro no servidor" }], logado: null , dadosNotificacao: null });
         }
     },
 
