@@ -175,7 +175,6 @@ const userController = {
                     valores: req.body
                 });
             } else {
-<<<<<<< HEAD
                 res.render("pages/main", {
                     pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null, dadosNotificacao: {
                         titulo: "Falha ao logar!",
@@ -187,13 +186,6 @@ const userController = {
         } catch (e) {
             console.log("Deu erro no logar!!", e);
             res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Erro no servidor" }], logado: null, dadosNotificacao: null });
-=======
-                res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null , dadosNotificacao: null});
-            }
-        } catch (e) {
-            console.log("Deu erro no logar!!", e);
-            res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Erro no servidor" }], logado: null , dadosNotificacao: null });
->>>>>>> f8bde6cb9323677749562327e7732f4b7e342adc
         }
     },
 
