@@ -22,12 +22,11 @@
 
     <%- include("../partial/" + pagina) %>
 
-    <% 
-    if (dadosNotificacao) { %>
+    <% if (dadosNotificacao) { %>
         <script>
             new Notify({
-                status: 'success',
-                title: '<%= dadosNotificacao.titulo%>',
+                status: '<%= dadosNotificacao.tipo %>', // Utiliza o tipo de notificação (success ou error)
+                title: '<%= dadosNotificacao.titulo %>',
                 text: '<%=dadosNotificacao.mensagem%>',
                 effect: 'slide',
                 speed: 200,
@@ -42,70 +41,70 @@
                 type: 'outline',
                 position: 'right top',
                 customWrapper: '',
-            })
-            // notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "right top")                      
+            });
         </script>
-        <% } %>
+    <% } %>
+    
 
-        <footer>
-            <img src="images/logo-branca.svg" alt="LadieWork">
+                <footer>
+                    <img src="images/logo-branca.svg" alt="LadieWork">
 
-            <ul>
-                <% if (logado) { %>
-                    <a href="/criar">
-                        <li>Ensinar na Ladiework</li>
-                    </a>
-                    <% } else { %>
+                    <ul>
+                        <% if (logado) { %>
+                            <a href="/criar">
+                                <li>Ensinar na Ladiework</li>
+                            </a>
+                            <% } else { %>
 
-                        <% } %>
-                            <a href="/mentorias">
-                                <li>Mentorias</li>
-                            </a>
-                            <a href="/cursos">
-                                <li>Cursos</li>
-                            </a>
-                            <a href="/quemsomos">
-                                <li>Quem Somos</li>
-                            </a>
-                            <a href="">
-                                <li>Fale Conosco</li>
-                            </a>
-                            <a href="">
-                                <li>Ajuda e Suporte</li>
-                            </a>
-                            <a href="/termosecondicoes">
-                                <li>Termos</li>
-                            </a>
-                            <a href="/privacidade">
-                                <li>Política de Privacidade</li>
-                            </a>
-                            <a href="mapadosite">
-                                <li>Mapa do Site</li>
-                            </a>
-                            <a href="">
-                                <li>Configurações</li>
-                            </a>
+                                <% } %>
+                                    <a href="/mentorias">
+                                        <li>Mentorias</li>
+                                    </a>
+                                    <a href="/cursos">
+                                        <li>Cursos</li>
+                                    </a>
+                                    <a href="/quemsomos">
+                                        <li>Quem Somos</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Fale Conosco</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Ajuda e Suporte</li>
+                                    </a>
+                                    <a href="/termosecondicoes">
+                                        <li>Termos</li>
+                                    </a>
+                                    <a href="/privacidade">
+                                        <li>Política de Privacidade</li>
+                                    </a>
+                                    <a href="mapadosite">
+                                        <li>Mapa do Site</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Configurações</li>
+                                    </a>
 
-            </ul>
+                    </ul>
 
-            <div class="container">
-                <section class="socials">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <ion-icon name="logo-instagram"></ion-icon>
-                    <ion-icon name="logo-facebook"></ion-icon>
-                    <ion-icon name="logo-whatsapp"></ion-icon>
-                </section>
-                <button class="contato">Contato</button>
-            </div>
+                    <div class="container">
+                        <section class="socials">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <ion-icon name="logo-instagram"></ion-icon>
+                            <ion-icon name="logo-facebook"></ion-icon>
+                            <ion-icon name="logo-whatsapp"></ion-icon>
+                        </section>
+                        <button class="contato">Contato</button>
+                    </div>
 
-            <span>© 2024 - LadieWork</span>
-        </footer>
+                    <span>© 2024 - LadieWork</span>
+                </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 
-        <script src="js/menu-mobile.js"></script>
-        <script src="js/cursos.js"></script>
-        </body>
+                <script src="js/menu-mobile.js"></script>
+                <script src="js/cursos.js"></script>
+                </body>
 
 </html>

@@ -4,45 +4,51 @@
 </head>
 
 <body>
-  <%- include("../partial/header") %>
+    <%- include("../partial/header") %>
 
-    <body>
-      <% let warningError={ "email_usu" : "" , "senha_usu" : "" }; let msgError={ "email_usu" : "" , "senha_usu" : "" };
-      if (errorsList && errorsList.errors) { errorsList.errors.forEach(function(itemError) { if
-      (itemError.path=="email_usu" ) { warningError.email_usu="errors" ; msgError.email_usu=itemError.msg; } if
-      (itemError.path=="senha_usu" ) { warningError.senha_usu="errors" ; msgError.senha_usu=itemError.msg; } }); } %>
-      
-      <main id="app">
-        <form id="login-form" action="/login" method="post" onsubmit="return validateForm()">
-            <div class="form-step active">
-                <h2>Que bom ver você de novo!</h2>
-    
-                <div class="content">
-                    <div class="input-wrapper">
-                        <label for="email">E-mail</label>
-                        <input id="email" name="email_usu" type="email" placeholder="Digite seu e-mail">
-                        <span id="email-error" class="warning"></span>
-                    </div>
-    
-                    <div class="input-wrapper">
-                        <label for="password">Senha</label>
-                        <input id="password" name="senha_usu" type="password" placeholder="Digite sua senha">
-                        <span id="password-error" class="warning"></span>
-                    </div>
-                    <a href="">Esqueceu a senha?</a>
-                </div>
-    
-                <div class="button-wrapper justify-end">
-                    <button type="submit" class="btn">Entrar</button>
-                </div>
-                <span class="ou">ou</span>
-                <span class="donthave">Não tem uma conta? <a href="cadastrar">Inscreva-se</a></span>
-            </div>
-        </form>
-    
-      
-    </main>
-    
-       
-       <script src="js/login.js"></script> 
-    </body>
+        <body>
+            <% let warningError={ "email_usu" : "" , "senha_usu" : "" }; let msgError={ "email_usu" : "" , "senha_usu"
+                : "" }; if (errorsList && errorsList.errors) { errorsList.errors.forEach(function(itemError) { if
+                (itemError.path=="email_usu" ) { warningError.email_usu="errors" ; msgError.email_usu=itemError.msg; }
+                if (itemError.path=="senha_usu" ) { warningError.senha_usu="errors" ; msgError.senha_usu=itemError.msg;
+                } }); } %>
+
+                <% if (dadosNotificacao) { %>
+                    <% } %>
+
+                        <main id="app">
+                            <form id="login-form" action="/login" method="post" onsubmit="return validateForm()">
+                                <div class="form-step active">
+                                    <h2>Que bom ver você de novo!</h2>
+
+                                    <div class="content">
+                                        <div class="input-wrapper">
+                                            <label for="email">E-mail</label>
+                                            <input id="email" name="email_usu" type="email"
+                                                placeholder="Digite seu e-mail">
+                                            <span id="email-error" class="warning"></span>
+                                        </div>
+
+                                        <div class="input-wrapper">
+                                            <label for="password">Senha</label>
+                                            <input id="password" name="senha_usu" type="password"
+                                                placeholder="Digite sua senha">
+                                            <span id="password-error" class="warning"></span>
+                                        </div>
+                                        <a href="">Esqueceu a senha?</a>
+                                    </div>
+
+                                    <div class="button-wrapper justify-end">
+                                        <button type="submit" class="btn">Entrar</button>
+                                    </div>
+                                    <span class="ou">ou</span>
+                                    <span class="donthave">Não tem uma conta? <a href="cadastrar">Inscreva-se</a></span>
+                                </div>
+                            </form>
+
+
+                        </main>
+
+
+                        <script src="js/login.js"></script>
+        </body>

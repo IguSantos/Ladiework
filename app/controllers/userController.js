@@ -94,7 +94,11 @@ const userController = {
                     pagina: "cadastro",
                     errorsList: errors.array(),
                     valores: req.body,
-                    dadosNotificacao: null
+                    dadosNotificacao: {
+                        titulo: "Falha ao Cadastrar!",
+                        mensagem: "Credenciais inválidas",
+                        tipo: "error"
+                    },
                 });
             }
         }
@@ -114,7 +118,7 @@ const userController = {
             // Verifica erros de validação
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
-                return res.render("pages/main", { pagina: "login", errorsList: errors.array(), logado: null });
+                return res.render("pages/main", { pagina: "login", errorsList: errors, logado: null, dadosNotificacao: null });
             }
 
             const dataForm = {
@@ -167,14 +171,29 @@ const userController = {
                         mensagem: "Que bom ver você de novo!",
                         tipo: "success"
                     },
+
                     valores: req.body
                 });
             } else {
+<<<<<<< HEAD
+                res.render("pages/main", {
+                    pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null, dadosNotificacao: {
+                        titulo: "Falha ao logar!",
+                        mensagem: "Credenciais inválidas",
+                        tipo: "error"
+                    },
+                });
+            }
+        } catch (e) {
+            console.log("Deu erro no logar!!", e);
+            res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Erro no servidor" }], logado: null, dadosNotificacao: null });
+=======
                 res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Credenciais inválidas" }], logado: null , dadosNotificacao: null});
             }
         } catch (e) {
             console.log("Deu erro no logar!!", e);
             res.render("pages/main", { pagina: "login", errorsList: [{ msg: "Erro no servidor" }], logado: null , dadosNotificacao: null });
+>>>>>>> f8bde6cb9323677749562327e7732f4b7e342adc
         }
     },
 

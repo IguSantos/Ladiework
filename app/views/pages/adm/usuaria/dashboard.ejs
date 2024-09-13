@@ -66,7 +66,7 @@
       </div>
       <ul class="menu">
         <li class="selecionado">
-          <a href="#"><ion-icon name="home-outline"></ion-icon></i>Início</a>
+          <a href="#" id="inicio"><ion-icon name="home-outline"></ion-icon></i>Início</a>
         </li>
         <li>
           <a href="#"><ion-icon name="person-outline"></ion-icon>Perfil</a>
@@ -81,7 +81,7 @@
           <a href="#"><ion-icon name="people-outline"></ion-icon>Mentoradas</a>
         </li>
         <li>
-          <a href="#"><ion-icon name="people-circle-outline"></ion-icon>Mentorias</a>
+          <a href="#" id="mentorias"><ion-icon name="people-circle-outline"></ion-icon>Mentorias</a>
         </li>
         <li>
           <a href="#"><ion-icon name="calendar-clear-outline"></ion-icon>Calendário</a>
@@ -112,7 +112,7 @@
       </footer>
     </aside>
 
-    <main>
+    <main id="home" >
       <section class="projetos">
         <h2>Seus projetos</h2>
         <div>
@@ -273,6 +273,80 @@
           </div>
         </div>
       </section>
+    </main>
+
+    <main id="edit-form" class="hidden">
+      <div class="container">
+        <h1>Mentoria</h1>
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" />
+          </div>
+    
+          <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao"></textarea>
+          </div>
+    
+          <div class="form-group">
+            <label for="categorias">Categorias</label>
+            <select id="categorias" name="categorias">
+              <option value="market-digital">Market Digital</option>
+              <option value="Empreendoderismo">Empreendoderismo</option>
+              <option value="programacao">Programação</option>
+              <option value="desing">Desing</option>
+            </select>
+          </div>
+    
+          <label for="thumbnail" class="thumbnail">Carregar Thumbnail</label>
+          <div class="form-group thumbnail-upload">
+            <input type="file" id="thumbnail" name="thumbnail" accept="image/*" />
+            <small>O arquivo não pode ser maior que 5MB</small>
+          </div>
+          <button class="btn-salvar">salvar</button>
+    
+          <div class="form-group">
+            <h3>Selecione suas preferências:</h3>
+            <label><input type="checkbox" name="preferencia" value="1" />
+              Checkbox</label>
+            <label><input type="checkbox" name="preferencia" value="2" />
+              Checkbox</label>
+            <label><input type="checkbox" name="preferencia" value="3" />
+              Checkbox</label>
+            <label><input type="checkbox" name="preferencia" value="4" />
+              Checkbox</label>
+            <label><input type="checkbox" name="preferencia" value="5" />
+              Checkbox</label>
+            <label><input type="checkbox" name="preferencia" value="6" />
+              Checkbox</label>
+          </div>
+    
+          <div class="form-group">
+            <label for="pagamento">Pagamentos</label>
+            <select id="pagamento" name="pagamento">
+              <option value="pix">Pix</option>
+              <option value="master">Master Card</option>
+              <option value="paypal">PayPal</option>
+              <option value="boleto">Boleto</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label for="duracao">Duração</label>
+            <select id="duracao" name="duracao">
+              <option value="2-semanas">2 semanas</option>
+              <option value="2-meses">2 meses</option>
+              <option value="3-meses">3 meses</option>
+            </select>
+          </div>
+    
+          <div class="form-buttons">
+            <button type="button" class="btn-cancelar">Cancelar</button>
+            <button type="submit" class="btn-enviar">Enviar</button>
+          </div>
+        </form>
+      </div>
     </main>
   </div>
 

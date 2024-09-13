@@ -223,12 +223,17 @@ header,
   border-radius: 4px;
 }
 
-main {
+#home {
   display: grid;
   padding: 16px;
   grid-template: auto auto / 3fr 1fr;
   gap: 24px;
 }
+
+.hidden {
+  display: none;
+}
+
 
 section {
   display: flex;
@@ -381,3 +386,135 @@ footer div {
   justify-content: center;
   gap: 8px;
 }
+
+/* GIOVANNI CODE */
+
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+h1 {
+  color: #6b2cd6;
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea,
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+ 
+  border-radius: 10px;
+  resize: none;
+}
+
+input[type="text"],
+select {
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+textarea {
+  height: 100px;
+}
+
+.thumbnail{
+  margin-left: 575px;
+}
+
+input[type="file"]{
+  width: 400px;
+  cursor: pointer;
+}
+
+small{
+  margin-left: 100px;
+}
+
+.thumbnail-upload {
+  display: flex;
+  align-items: baseline;
+}
+
+.thumbnail-upload input[type="file"] {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.thumbnail-upload small {
+  color: #999;
+}
+
+form .form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.btn-enviar {
+  width: 105px;
+  background-color: #6b2cd6;
+  color: white;
+
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  width: 105px;
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-salvar {
+  width: 90px;
+  background-color: #6b2cd6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 590px;
+  margin-top: -10px;
+}
+
+.btn-enviar:hover {
+  background-color: #5b26b3;
+  outline: 1px solid #ffffff;
+}
+
+.btn-cancelar:hover {
+  background-color: #d0d0d0;
+}
+
+.btn-salvar:hover {
+  background-color: #5b26b3;
+}
+
+
+
+
+

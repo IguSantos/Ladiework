@@ -311,10 +311,10 @@ aside a:hover {
 
 @media (min-width: 320px) and (max-width: 700px) {
 
-    main {
+    /* main {
         background: rgb(247, 247, 247) url(https://i.ibb.co/gwnksyN/Home.png) no-repeat center center/cover;
     
-    }
+    } */
 
     .first-course {
         font-size: 0.9rem;

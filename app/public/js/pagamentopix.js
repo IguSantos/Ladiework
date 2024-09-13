@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   
+
+// Colar chave pix
 document.addEventListener("DOMContentLoaded", function() {
     const controlvButton = document.getElementById("controlv");
     const uniqueIdentificatorInput = document.getElementById("unique-identificator");
