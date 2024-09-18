@@ -72,6 +72,19 @@ const userModel = {
         }
     },
 
+    findUserCustom: async (criterionWhere) => {
+        try {
+            const [results] = await pool.query(
+                "SELECT *  FROM usuario WHERE ?",
+                [criterionWhere]
+            )
+            return results;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    },
+
     // findUserByQuery: async (camposForm) => {
     //     try {
     //         const [results] = await pool.query(

@@ -85,11 +85,11 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     font-size: 0.7rem;
+    bottom: 20px;
     height: 15px;
     width: 15px;
     position: absolute;
     z-index: 2;
-    bottom: 17;
     left: 0;
 }
 

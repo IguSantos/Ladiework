@@ -40,7 +40,43 @@ const mentoringModel = {
             console.error('Erro ao atualizar mentoria:', error);
             throw error;
         }
-    }
+    },
+
+    // PAGINAÇÃO
+
+    findPage: async (page, total) => {
+        try {
+            const [lines] = await pool.query('SELECT * FROM mentora limit ?, ?', [page , total]) // Seleciona o limite da paginação
+            return lines;
+        } catch (error) {
+            return error;
+        }  
+    },
+
+    totalReg: async ()=>{
+        try {
+            const [lines] = await pool.query('SELECT count(*) total FROM mentora') // Contagem total dos cursos para a paginacao
+            return lines;
+        } catch (error) {
+            return error;
+        }  
+    },
+
+   posicaoRegMentoria: async (id) => {
+
+//    para giovanni: troque pro id mentoria etc
+        try {
+            const [lines] = await pool.query(
+                'SELECT *, ' +
+                '(SELECT COUNT(*) + 1 FROM cursos AS c2 WHERE c2.ID_CURSOS < c1.ID_CURSOS) AS numero_ordem ' +
+                'FROM cursos AS c1 WHERE c1.ID_CURSOS = ?;',
+                [id]
+            );
+            return lines;
+        } catch (error) {
+            return error;
+        }
+    },
 };
 
 

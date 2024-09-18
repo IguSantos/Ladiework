@@ -21,12 +21,15 @@
 
 
 ATUALIZAÇÕES:
-
-- Create curso que leva a pagna de adm para palestrante + modifcacao na pagina para nao ser só mentoria
+- erro do sobre na home
 - botao para voltar na criação de cursos e mentoria
 - não permitir que crie  conta se a foto for muito grande ou aumentar a carga da foto
-- criar  mentoria e aparecer na página de mentoria
 
+DUVIDAS:
+- Adicionar no carrinho atualiza o carrinho
+- Que banco de dados uso pro seu site
+- Paginação aparcer em outra conta
+- cursos falsos pra teste
 
 DASHBOARD
  - perfil

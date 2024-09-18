@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 const pool = require("../../config/pool_connections")
 const userController = require("../controllers/userController")
-const mentoryController = { addMentory } = require("../controllers/coursesController")
+const {carrinhoController} = require("../controllers/carrinhoController")
 
 const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser, verifyAuthorizedUser } = require("../models/authenticator_middleware");
 const mentoringController = require("../controllers/mentoringController");
@@ -12,10 +12,11 @@ const uploadFile = require("../util/uploader")();
 router.use((req, res, next) => {
   res.locals.logado = req.session.logado;
   res.locals.mentoring = req.session.latestMentoring;
+  res.locals.carrinho = req.session.carrinho;
   
   next();
- });
- 
+});
+
 
 
 // SUMÁRIO:
@@ -168,6 +169,51 @@ router.get(
       res.render("pages/adm/administrator"); // Renderiza a página de administrador
   }
 );
+
+// ROTAS CARRINHO
+
+router.get('/addItem', function (req, res)  {
+  carrinhoController.addItem(req, res);
+
+});
+
+router.get('/removeItem', function (req, res)  {
+  carrinhoController.removeItem(req, res);
+});
+
+router.get('/deleteItem', function (req, res)  {
+  carrinhoController.deleteItem(req, res);
+});
+
+router.get('/carrinho', function (req, res)  {
+  carrinhoController.listcart(req, res);
+});
+
+
+// REDEFINIR SENHA
+
+router.get("/recuperar-senha", recordAuthenticatedUser, function(req, res){
+  res.render('pages/main', { pagina: "recuperar-senha", logado: req.session.logado, dadosNotificacao: null, errorsList: null});
+});
+
+router.post("/recuperar-senha",
+  recordAuthenticatedUser,
+  userController.ValidationRules, 
+  function(req, res){
+    userController.recoverPassword(req, res);
+});
+
+router.get("/resetar-senha", 
+  function(req, res){
+    userController.validateTokenNewPassword(req, res);
+  });
+  
+router.post("/reset-senha", 
+    userController.ValidationRulesFormNewPassword,
+  function(req, res){
+    userController.resetPassword(req, res);
+});
+
 
 
 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperação de Senha</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-page {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        .login-page h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: #4a90e2;
+        }
+        .form-cadastro input {
+            width: calc(100% - 2rem);
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        .form-cadastro button {
+            background: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        .form-cadastro button:hover {
+            background: #357abd;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <% 
+            let avisoErro = {"email_usu":""}
+            let msgErro = ""
+            if (listaErros) {
+                listaErros.errors.forEach(function(itemErro) {
+                    if (itemErro.path === "email_usu") {
+                        avisoErro.email_usu = "erro";
+                        msgErro += `* ${itemErro.msg} <br>`;
+                    }
+                });
+                if (msgErro !== "") {
+                    %>
+                    <script>
+                        let msgErro = "<%= msgErro %>";
+                        notify("Erro(s) no preenchimento", 
+                               "Verifique o(s) campo(s) <br>" + msgErro.replace(/&lt;/g, "<").replace(/&gt;/g, ">"), 
+                               "error", "center", 5000);
+                    </script>
+                    <%
+                }
+            }
+            if (dadosNotificacao) { %>
+                <script>
+                    notify("<%= dadosNotificacao.titulo %>", 
+                           "<%= dadosNotificacao.mensagem %>", 
+                           "<%= dadosNotificacao.tipo %>", 
+                           "center");
+                    if ("<%= dadosNotificacao.tipo %>" === "success") {
+                        setTimeout(function() { window.location = "/"; }, 3000);
+                    }
+                </script>
+            <% } %>
+            
+            <div class="login-page">
+                <div class="form-cadastro">
+                    <h2>Recuperar a Senha</h2>
+                    <form action="/recuperar-senha" method="post">
+                        <input type="text" name="email_usu" placeholder="Digite seu e-mail" value=""
+                               class="<%= avisoErro.email_usu %>" />
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>

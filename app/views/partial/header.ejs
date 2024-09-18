@@ -33,6 +33,7 @@
           </a>
           <a href="carrinho">
             <li>Carrinho</li>
+
           </a>
           <% if (mentoring) { %>
             <a href="#">
@@ -53,9 +54,18 @@
     </nav>
     <img id="logo" onclick="window.location.href = '/'" src="images/logo.svg" alt="LadieWork">
     <div class="nav-items">
-      <small class="count-indicator hidden">0</small>
+      
       <a href="carrinho">
+      
         <ion-icon name="cart-outline" class="cart"></ion-icon>
+        <%
+        if(carrinho){
+          var itensCarrinho =  carrinho.length 
+      }else{
+          var itensCarrinho = 0; 
+      }
+            %>
+            <small class="count-indicator "><%= itensCarrinho %></small>
       </a>
 
       <ul>

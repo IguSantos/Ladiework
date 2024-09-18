@@ -189,6 +189,99 @@ const userController = {
         }
     },
 
+
+    recoverPassword: async (req, res) => {
+        const erros = validationResult(req);
+        console.log(erros);
+        if (!erros.isEmpty()) {
+            return res.render("pages/recuperar-senha", {
+                errorsList: erros,
+                dadosNotificacao: null,
+                valores: req.body,
+            });
+        }
+        try {
+            //logica do token
+            client = await user.findUserEmail({
+                EMAIL_USUARIO: req.body.email_usu,
+            });
+            const token = jwt.sign(
+                { userId: client[0].ID_USUARIO }, // Informações do usuário no payload
+                process.env.SECRET_KEY, // Chave secreta para assinar o token
+                { expiresIn: '30m' } // Tempo de expiração do token
+            );
+
+            //enviar e-mail com link usando o token
+            html = require("../util/templateEmailreset")(process.env.URL_BASE, token)
+            enviarEmail(req.body.email_usu, "Pedido de recuperação de senha", null, html, () => {
+                return res.render("pages/index", {
+                    errorsList: null,
+                    logado: req.session.logado,
+                    dadosNotificacao: {
+                        titulo: "Recuperação de senha",
+                        mensagem: "Enviamos um e-mail com instruções para resetar sua senha",
+                        tipo: "success",
+                    },
+                });
+            });
+
+        } catch (e) {
+            console.log(e);
+        }
+    },
+
+    validateTokenNewPassword: async (req, res) => {
+        //receber token da URL
+
+        const token = req.query.token;
+        console.log(token);
+        //validar token
+        jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+            if (err) {
+                res.render("pages/rec-senha", {
+                    listaErros: null,
+                    dadosNotificacao: { titulo: "Link expirado!", mensagem: "Insira seu e-mail para iniciar o reset de senha.", tipo: "error", },
+                    valores: req.body
+                });
+            } else {
+                res.render("pages/resetar-senha", {
+                    listaErros: null,
+                    logado: req.session.logado,
+                    id_usuario: decoded.userId,
+                    dadosNotificacao: null
+                });
+            }
+        });
+    },
+
+    resetPassword: async (req, res) => {
+        const erros = validationResult(req);
+        console.log(erros);
+        if (!erros.isEmpty()) {
+            return res.render("pages/resetar-senha", {
+                listaErros: erros,
+                dadosNotificacao: null,
+                valores: req.body,
+            });
+        }
+        try {
+            //gravar nova senha
+            senha = bcrypt.hashSync(req.body.senha_usu);
+            const resetar = await usuario.update({ senha_usuario: senha }, req.body.id_usuario);
+            console.log(resetar);
+            res.render("pages/login", {
+                listaErros: null,
+                dadosNotificacao: {
+                    titulo: "Perfil alterado",
+                    mensagem: "Nova senha registrada",
+                    tipo: "success",
+                },
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    },
+
     showProfile: async (req, res) => {
         try {
             let results = await user.findId(req.session.logado.id);
