@@ -4,7 +4,41 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
+const https = require("https");
+const jwt = require("jsonwebtoken");
+const { enviarEmail } = require("../util/email");
+
 const userController = {
+    regrasValidacaoFormNovaSenha: [
+        body("senha_usu")
+            .isStrongPassword()
+            .withMessage(
+                "A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"
+            )
+            .custom(async (value, { req }) => {
+                if (value !== req.body.csenha_usu) {
+                    throw new Error("As senhas não são iguais!");
+                }
+            }),
+        body("csenha_usu")
+            .isStrongPassword()
+            .withMessage(
+                "A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"
+            ),
+    ],
+
+    validationRulesFormRecPassword: [
+        body("email_usu")
+            .isEmail()
+            .withMessage("Digite um e-mail válido!")
+            .custom(async (value) => {
+                const nomeUsu = await user.findCampoCustom({ EMAIL_USUARIO: value });
+                if (nomeUsu == 0) {
+                    throw new Error("E-mail não encontrado");
+                }
+            }),
+    ],
+
     validationRulesFormCad: [
         body("nome_usu")
             .isLength({ min: 4, max: 45 }).withMessage("Mínimo de 4 letras e máximo de 45!"),
@@ -15,6 +49,24 @@ const userController = {
         body("numero_usu")
             .isMobilePhone("pt-BR", { min: 11, max: 11 }).withMessage("Coloque seu número de telefone correto!")
     ],
+
+    ValidationRulesFormNewPassword: [
+        body("senha_usu")
+          .isStrongPassword()
+          .withMessage(
+            "A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"
+          )
+          .custom(async (value, { req }) => {
+            if (value !== req.body.csenha_usu) {
+              throw new Error("As senhas não são iguais!");
+            }
+          }),
+        body("csenha_usu")
+          .isStrongPassword()
+          .withMessage(
+            "A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)"
+          ),
+      ],
 
     cadastrar: async (req, res) => {
         const errors = validationResult(req);
@@ -189,7 +241,6 @@ const userController = {
         }
     },
 
-
     recoverPassword: async (req, res) => {
         const erros = validationResult(req);
         console.log(erros);
@@ -206,15 +257,15 @@ const userController = {
                 EMAIL_USUARIO: req.body.email_usu,
             });
             const token = jwt.sign(
-                { userId: client[0].ID_USUARIO }, // Informações do usuário no payload
-                process.env.SECRET_KEY, // Chave secreta para assinar o token
-                { expiresIn: '30m' } // Tempo de expiração do token
+             { userId: client[0].ID_USUARIO, expiresIn: "30m" },
+        process.env.SECRET_KEY
             );
 
             //enviar e-mail com link usando o token
             html = require("../util/templateEmailreset")(process.env.URL_BASE, token)
             enviarEmail(req.body.email_usu, "Pedido de recuperação de senha", null, html, () => {
-                return res.render("pages/index", {
+                return res.render("pages/main", {
+                    pagina: "home",
                     errorsList: null,
                     logado: req.session.logado,
                     dadosNotificacao: {
@@ -238,16 +289,18 @@ const userController = {
         //validar token
         jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
             if (err) {
-                res.render("pages/rec-senha", {
-                    listaErros: null,
+                res.render("pages/main", {
+                    pagina: "novasenha",
+                    errorsList: null,
                     dadosNotificacao: { titulo: "Link expirado!", mensagem: "Insira seu e-mail para iniciar o reset de senha.", tipo: "error", },
                     valores: req.body
                 });
             } else {
-                res.render("pages/resetar-senha", {
-                    listaErros: null,
+                res.render("pages/main", {
+                    pagina: "novasenha",
+                    errorsList: null,
                     logado: req.session.logado,
-                    id_usuario: decoded.userId,
+                    ID_USUARIO: decoded.userId,
                     dadosNotificacao: null
                 });
             }
@@ -258,8 +311,9 @@ const userController = {
         const erros = validationResult(req);
         console.log(erros);
         if (!erros.isEmpty()) {
-            return res.render("pages/resetar-senha", {
-                listaErros: erros,
+            return res.render("pages/main", {
+                pagina: "novasenha",
+                errorsList: erros,
                 dadosNotificacao: null,
                 valores: req.body,
             });
@@ -267,9 +321,10 @@ const userController = {
         try {
             //gravar nova senha
             senha = bcrypt.hashSync(req.body.senha_usu);
-            const resetar = await usuario.update({ senha_usuario: senha }, req.body.id_usuario);
-            console.log(resetar);
-            res.render("pages/login", {
+            const reset = await user.update({ senha_usuario: senha }, req.body.email_usu);
+            console.log(reset);
+            res.render("pages/main", {
+                pagina: "login",
                 listaErros: null,
                 dadosNotificacao: {
                     titulo: "Perfil alterado",

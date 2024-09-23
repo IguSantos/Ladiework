@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f3f4f6;
+            background: #faedff;
             color: #333;
             display: flex;
             justify-content: center;
@@ -20,6 +20,8 @@
             height: 100vh;
             margin: 0;
         }
+
+     
         .login-page {
             background: #fff;
             border-radius: 8px;
@@ -28,30 +30,53 @@
             width: 100%;
             max-width: 400px;
         }
+
         .login-page h2 {
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
-            color: #4a90e2;
+            color: #8b53e6;
+            text-align: center;
         }
+
         .form-cadastro input {
-            width: calc(100% - 2rem);
+            width: 100%;
             padding: 0.8rem;
             border: 1px solid #ddd;
             border-radius: 5px;
             margin-bottom: 1rem;
+            box-sizing: border-box;
         }
+
         .form-cadastro button {
-            background: #4a90e2;
+            background: #8b53e6;
             color: #fff;
             border: none;
-            padding: 0.8rem;
+            padding: 8px;
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
             font-size: 1rem;
         }
+
         .form-cadastro button:hover {
-            background: #357abd;
+            background: #7642cc;
+        }
+
+        .btn-voltar {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+          display: block;
+        }
+
+        .btn-voltar:hover {
+            background: #ddd;
         }
     </style>
 </head>
@@ -61,25 +86,26 @@
         <% 
             let avisoErro = {"email_usu":""}
             let msgErro = ""
-            if (listaErros) {
-                listaErros.errors.forEach(function(itemErro) {
+            if (errorsList) {
+                errorsList.errors.forEach(function(itemErro) {
                     if (itemErro.path === "email_usu") {
                         avisoErro.email_usu = "erro";
                         msgErro += `* ${itemErro.msg} <br>`;
                     }
                 });
-                if (msgErro !== "") {
-                    %>
+                if (msgErro !== "") { 
+        %>
                     <script>
                         let msgErro = "<%= msgErro %>";
                         notify("Erro(s) no preenchimento", 
                                "Verifique o(s) campo(s) <br>" + msgErro.replace(/&lt;/g, "<").replace(/&gt;/g, ">"), 
                                "error", "center", 5000);
                     </script>
-                    <%
+        <% 
                 }
             }
-            if (dadosNotificacao) { %>
+            if (dadosNotificacao) { 
+        %>
                 <script>
                     notify("<%= dadosNotificacao.titulo %>", 
                            "<%= dadosNotificacao.mensagem %>", 
@@ -89,18 +115,21 @@
                         setTimeout(function() { window.location = "/"; }, 3000);
                     }
                 </script>
-            <% } %>
-            
-            <div class="login-page">
-                <div class="form-cadastro">
-                    <h2>Recuperar a Senha</h2>
-                    <form action="/recuperar-senha" method="post">
-                        <input type="text" name="email_usu" placeholder="Digite seu e-mail" value=""
-                               class="<%= avisoErro.email_usu %>" />
-                        <button type="submit">Enviar</button>
-                    </form>
-                </div>
+        <% } %>
+
+        <div class="login-page">
+            <div class="form-cadastro">
+                <h2>Recuperar a Senha</h2>
+                <form action="/recuperar-senha" method="post">
+                    <input type="text" name="email_usu" placeholder="Digite seu e-mail" value=""
+                        class="<%= avisoErro.email_usu %>" />
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <!-- Botão de Voltar -->
+                <a href="login" class="btn-voltar">Voltar</a>
             </div>
+        </div>
     </main>
 </body>
 

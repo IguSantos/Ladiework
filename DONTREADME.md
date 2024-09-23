@@ -24,6 +24,8 @@ ATUALIZAÇÕES:
 - erro do sobre na home
 - botao para voltar na criação de cursos e mentoria
 - não permitir que crie  conta se a foto for muito grande ou aumentar a carga da foto
+- Resetar senha eu loguei mas nao  
+
 
 DUVIDAS:
 - Adicionar no carrinho atualiza o carrinho

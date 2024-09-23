@@ -2,7 +2,7 @@ var pool = require("../../config/pool_connections");
 
 
 const userModel = {
-   // Seleciona todas as infromações da tabela usuario
+    // Seleciona todas as infromações da tabela usuario
     findAll: async () => {
         try {
             const [results] = await pool.query(
@@ -19,7 +19,7 @@ const userModel = {
         }
     },
 
- //Encontrar o usuario com base no email fornecido
+    //Encontrar o usuario com base no email fornecido
     findUserEmail: async (camposForm) => {
         try {
             const [results] = await pool.query(
@@ -28,7 +28,7 @@ const userModel = {
             )
             return results;
         } catch (error) {
-            console.log("Erro ao comparar email!!" , error);
+            console.log("Erro ao comparar email!!", error);
             return error;
         }
     },
@@ -39,7 +39,7 @@ const userModel = {
             const [results] = await pool.query(
                 "INSERT INTO usuario SET ?", [camposForm]
             );
-    
+
             // Verifique se o resultado contém o ID
             if (results.insertId) {
                 // Retorne o ID gerado
@@ -53,7 +53,7 @@ const userModel = {
             return null;
         }
     },
-    
+
 
     findId: async (id) => {
         try {
@@ -84,6 +84,46 @@ const userModel = {
             return error;
         }
     },
+
+    findCampoCustom: async (criterioWhere) => {
+        try {
+            const [results] = await pool.query(
+                "SELECT count(*) totalReg FROM usuario WHERE ?",
+                [criterioWhere]
+            )
+            return results[0].totalReg;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    },
+
+    update: async (camposForm, emailUser) => {
+        try {
+            const [results] = await pool.query(
+                "UPDATE usuario SET ? WHERE EMAIL_USUARIO = ?",
+                [camposForm, emailUser]
+            )
+            return results;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // findUserByQuery: async (camposForm) => {
     //     try {

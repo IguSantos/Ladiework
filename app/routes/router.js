@@ -114,6 +114,7 @@ router.get('/login', (req, res) => {
    logado: req.session.logado,
    dadosNotificacao: null,
    errorsList: null,
+   
  });
 });
 
@@ -192,35 +193,30 @@ router.get('/carrinho', function (req, res)  {
 
 // REDEFINIR SENHA
 
-// router.get("/recuperar-senha", recordAuthenticatedUser, function(req, res){
-//   res.render('pages/main', { pagina: "recuperar-senha", logado: req.session.logado, dadosNotificacao: null, errorsList: null});
-// });
+ router.get("/recuperar-senha",  function(req, res){
+   res.render('pages/recuperar-senha', {  logado: req.session.logado, dadosNotificacao: null, errorsList: null});
+ });
 
-// router.post("/recuperar-senha",
-//   recordAuthenticatedUser,
-//   userController.ValidationRules, 
-//   function(req, res){
-//     userController.recoverPassword(req, res);
-// });
+ router.post("/recuperar-senha",
+  // recordAuthenticatedUser,
+  userController.validationRulesFormRecPassword, 
+  function(req, res){
+    userController.recoverPassword(req, res);
+});
 
-// router.get("/resetar-senha", 
-//   function(req, res){
-//     userController.validateTokenNewPassword(req, res);
-//   });
-  
-// router.post("/reset-senha", 
-//     userController.ValidationRulesFormNewPassword,
-//   function(req, res){
-//     userController.resetPassword(req, res);
-// });
-
-
+router.get("/novasenha", 
+  function(req, res){
+    userController.validateTokenNewPassword(req, res);
+  });
+ 
+router.post("/reset-senha", 
+    userController.ValidationRulesFormNewPassword,
+  function(req, res){
+    userController.resetPassword(req, res);
+});
 
 
-// router.post("/criar",  function (req, res) {
-//   coursesController.addCourse(req, res);
-// }
-// );
+
 
 router.get('/informacao_da_mentoria', (req, res) => {
   res.render('pages/main', { pagina: "mentoria_info", logado: req.session.logado, dadosNotificacao: null });

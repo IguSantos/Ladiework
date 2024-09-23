@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Resetar Senha</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .login-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        footer {
+            display: none;
+        }
+
+        .form-cadastro {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-cadastro label {
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-cadastro input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-cadastro button {
+            background-color: #8b53e6;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-cadastro button:hover {
+            background-color: #7141b8;
+        }
+
+        .form-cadastro input.erro {
+            border-color: #ff6f61;
+        }
+
+        .form-cadastro span.error-message {
+            font-size: 12px;
+            color: #ff6f61;
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            height: 16px; /* Garantir que o layout não quebre com ou sem a mensagem */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <% 
+            let avisoErro = {"senha_usu":"","csenha_usu":"","email_usu":""}
+            let msgErro = ""
+                if(errorsList){
+                    errorsList.errors.forEach(function(itemErro){
+                        if(itemErro.path == "senha_usu"){
+                            avisoErro.senha_usu = "erro";
+                            msgErro += `* ${itemErro.msg} <br>`
+                        }
+                        if(itemErro.path == "csenha_usu"){
+                            avisoErro.csenha_usu = "erro";
+                            msgErro += `* ${itemErro.msg} <br>`
+                        }
+                    })
+                    if(msgErro != ""){
+                    %>
+                        <script>
+                            let msgErro ="<%= msgErro %>"
+                            notify("Erro(s) no preenchimento", 
+                                   "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                                   "error", "center", 5000)                        
+                        </script>
+                    <%
+                    }
+                }
+                if (dadosNotificacao) { %>
+                    <script>
+                            notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                            if("<%= dadosNotificacao.tipo %>" == "success"){
+                                setTimeout(function(){window.location="/"}, 3000)
+                            }                        
+                    </script>
+                <% } %>              
+                <div class="login-page">
+                    <div class="form-cadastro">
+                        <h2>Resetar senha</h2>
+                        <form action="/reset-senha" method="post">
+                            <label for="email_usu">E-mail</label>
+                            <input type="email" id="email_usu" name="email_usu" placeholder="Insira seu e-mail" value="">
+                            <span id="email-erro" class="error-message"></span>
+
+                            <label for="senha_usu">Nova senha</label>
+                            <input type="password" id="senha_usu" name="senha_usu" placeholder="Nova senha" value=""
+                                class="<%= avisoErro.senha_usu %>" />
+                            <span id="senha-erro" class="error-message"></span>
+                            
+                            <label for="csenha_usu">Repita a nova senha</label>
+                            <input type="password" id="csenha_usu" name="csenha_usu" placeholder="Repita a nova senha" value=""
+                                class="<%= avisoErro.csenha_usu %>" />
+                            <span id="csenha-erro" class="error-message"></span>
+                                
+                            <button type="submit">Redefinir Senha</button>
+                        </form>
+                    </div>
+                </div>
+    </main>
+
+    <script>
+        const senhaInput = document.getElementById('senha_usu');
+        const csenhaInput = document.getElementById('csenha_usu');
+        const senhaErro = document.getElementById('senha-erro');
+        const csenhaErro = document.getElementById('csenha-erro');
+
+        // Função que verifica se a senha atende aos critérios
+        function verificarRequisitosSenha(senha) {
+            const regexMaiuscula = /[A-Z]/;
+            const regexEspecial = /[!@#$%^&*(),.?":{}|<>]/;
+            const regexNumero = /[0-9]/;
+
+            if (senha.length < 8) {
+                return 'A senha deve ter no mínimo 8 caracteres.';
+            } else if (!regexMaiuscula.test(senha)) {
+                return 'A senha deve ter pelo menos 1 letra maiúscula.';
+            } else if (!regexEspecial.test(senha)) {
+                return 'A senha deve ter pelo menos 1 caractere especial.';
+            } else if (!regexNumero.test(senha)) {
+                return 'A senha deve ter pelo menos 1 número.';
+            }
+            return ''; // Nenhum erro encontrado
+        }
+
+        // Função que verifica se as senhas são iguais
+        function verificarSenhas() {
+            const erroRequisitos = verificarRequisitosSenha(senhaInput.value);
+            if (erroRequisitos) {
+                senhaErro.textContent = erroRequisitos;
+                senhaInput.classList.add('erro');
+            } else {
+                senhaErro.textContent = '';
+                senhaInput.classList.remove('erro');
+            }
+
+            if (csenhaInput.value !== senhaInput.value) {
+                csenhaErro.textContent = 'As senhas não coincidem.';
+                csenhaInput.classList.add('erro');
+            } else {
+                csenhaErro.textContent = '';
+                csenhaInput.classList.remove('erro');
+            }
+        }
+
+        // Adiciona eventos para verificar as senhas em tempo real
+        senhaInput.addEventListener('input', verificarSenhas);
+        csenhaInput.addEventListener('input', verificarSenhas);
+    </script>
+</body>
+
+</html>

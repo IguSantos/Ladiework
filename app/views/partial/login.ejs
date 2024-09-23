@@ -7,7 +7,9 @@
     <%- include("../partial/header") %>
 
         <body>
-            <% let warningError={ "email_usu" : "" , "senha_usu" : "" }; let msgError={ "email_usu" : "" , "senha_usu"
+            <%
+            let errorsList;
+            let warningError={ "email_usu" : "" , "senha_usu" : "" }; let msgError={ "email_usu" : "" , "senha_usu"
                 : "" }; if (errorsList && errorsList.errors) { errorsList.errors.forEach(function(itemError) { if
                 (itemError.path=="email_usu" ) { warningError.email_usu="errors" ; msgError.email_usu=itemError.msg; }
                 if (itemError.path=="senha_usu" ) { warningError.senha_usu="errors" ; msgError.senha_usu=itemError.msg;
@@ -35,7 +37,7 @@
                                                 placeholder="Digite sua senha">
                                             <span id="password-error" class="warning"></span>
                                         </div>
-                                        <a href="">Esqueceu a senha?</a>
+                                        <a href="/recuperar-senha">Esqueceu a senha?</a>
                                     </div>
 
                                     <div class="button-wrapper justify-end">

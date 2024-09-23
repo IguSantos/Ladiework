@@ -21,13 +21,14 @@ module.exports = (url, token) => {
             max-width: 600px;
         }
         .header {
-            background-color: #FF6F61;
+            background-color: #8b53e6;
             color: white;
             padding: 20px;
             text-align: center;
             border-radius: 12px 12px 0 0;
             font-family: 'Georgia', serif;
         }
+
         .header h1 {
             margin: 0;
             font-size: 26px;
@@ -39,6 +40,11 @@ module.exports = (url, token) => {
             line-height: 1.6;
             color: #555555;
         }
+
+        a {
+        color: white;
+        }
+
         .content p {
             font-size: 16px;
             margin-bottom: 20px;
@@ -47,15 +53,20 @@ module.exports = (url, token) => {
             display: inline-block;
             padding: 12px 30px;
             margin-top: 25px;
-            background-color: #FF6F61;
-            color: white;
+            background-color: #8b53e6;
+            color: white; 
             text-decoration: none;
             border-radius: 6px;
             font-size: 16px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
+.ii a[href] {
+   color: white !important;
+}
+
         .button:hover {
-            background-color: #E85A50;
+            background-color: #836DAC;
         }
         .footer {
             padding: 20px 20px;
@@ -73,17 +84,17 @@ module.exports = (url, token) => {
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔒 Recuperação de Senha</h1>
+            <h1>🔒 Recuperação de Senha 🔒 </h1>
         </div>
         <div class="content">
-            <p>Olá, querida usuária 💖,</p>
+            <p>Olá, querida usuária.</p>
             <p>Parece que você solicitou uma nova senha para sua conta. Não se preocupe, estamos aqui para ajudar!</p>
             <p>Basta clicar no botão abaixo para redefinir sua senha de forma rápida e segura. Estamos ansiosos para ver você de volta!</p>
-            <a href="${url}/resetar-senha?token=${token}" class="button">Redefinir Senha</a>
+            <a href="${url}novasenha?token=${token}" class="button">Redefinir Senha</a>
         </div>
         <div class="footer">
-            <p>Se você não fez essa solicitação, fique tranquiloa! Simplesmente ignore este e-mail e nada será alterado em sua conta.</p>
-            <p>💌 Com carinho, LadieWork
+            <p>Se você não fez essa solicitação, fique tranquila! Simplesmente ignore este e-mail e nada será alterado em sua conta.</p>
+            <p>
         </div>
     </div>
 </body>
