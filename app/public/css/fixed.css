@@ -94,11 +94,12 @@ nav a:hover {
 }
 
 .profile-login-mobile {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 60px;
     padding: 10px 0;
     border-radius: 50%;
     display: none;
+    object-fit: cover;
 }
 
 .footer {
@@ -177,7 +178,7 @@ nav a:hover {
     width: 85px;
     height: 82px;
     border-radius: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .first-info {
@@ -557,7 +558,7 @@ footer a:hover {
     background-color: white;
     position: absolute;
     top: 0;
-    width: 68vw;
+    width: 55vw;
 
     text-align: left;
 }

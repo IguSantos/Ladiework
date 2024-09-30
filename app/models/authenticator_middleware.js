@@ -47,9 +47,11 @@ recordAuthenticatedUser = async (req, res, next) => {
                 telefone: results[0].CELULAR_USUARIO,
                 email: results[0].EMAIL_USUARIO,
                 criacao: results[0].DT_CRIACAO_CONTA_USUARIO,
+                
             };
 
             req.session.logado = logado;
+            
 
             if (logado.id === 1) { // Se for o administrador
                 console.log("Usuário administrador autenticado com sucesso:", logado);

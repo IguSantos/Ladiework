@@ -1,26 +1,34 @@
+/* privacidade.css */
+
 main {
-    width: 85%;
-    margin: 30px auto;
+    text-align: left;
+    margin: auto;
+    width: 70%;
 }
 
-
-
-/* Estilos para o título */
-h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
+h2,
+h3 {
+    color: rgb(68, 68, 68);
+    margin-top: 20px;
 }
 
-p {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
+p,
+ul {
+    color: rgb(68, 68, 68);
+    margin: 10px 0;
+    padding: 0 15px;
 }
 
-/* Estilos para os links */
+ul {
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
 a {
-    color: #007bff;
+    color: #007BFF;
     text-decoration: none;
-    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
 }

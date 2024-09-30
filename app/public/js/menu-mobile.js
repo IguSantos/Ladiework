@@ -52,10 +52,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Adiciona um ouvinte de evento para detectar a entrada de texto no campo de pesquisa
-  var searchInput = document.getElementById('searchInput');
-  if (searchInput) {
-    searchInput.addEventListener('input', filterCourses);
-  }
 });
 

@@ -4,7 +4,7 @@ const path = require("path");
 // Faz a verficação do arquivo
 const fileFilter = (req, file, callBack) => {
 
-  const allowedExtensions = /jpeg|jpg|png|gif/; // Permitir determinadas extensões de imagem
+  const allowedExtensions = /jpeg|jpg|png|gif|webp/; // Permitir determinadas extensões de imagem
 
 
   const extname = allowedExtensions.test(  // Testa para ver se a imagem é uma das permitidas
@@ -26,7 +26,7 @@ const fileFilter = (req, file, callBack) => {
 };
 
 
-module.exports = (caminho = null, tamanhoArq = 3) => { // Define o valor como null se nenhum caminho for declarado, o mesmo vale para o tamanho do arquivo, porém, sera 3
+module.exports = (caminho = null, tamanhoArq = 10) => { // Define o valor como null se nenhum caminho for declarado, o mesmo vale para o tamanho do arquivo, porém, sera 3
 
   // HÁ UMA DUVIDA!!!!!!!!
 

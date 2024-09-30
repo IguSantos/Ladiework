@@ -41,7 +41,7 @@ h1 {
     font-weight: 600;
 }
 
-span {
+.choose {
     text-align: center;
     display: block;
     opacity: 0.8;
@@ -57,7 +57,7 @@ span {
 }
 
 .error {
-    border: 1px solid red  !important;
+    border: 1px solid red !important;
 }
 
 .cards {
@@ -106,7 +106,7 @@ section .card h2 {
 
 #form-step-1 {
     width: 70%;
-  margin: auto;
+    margin: auto;
 }
 
 textarea {
@@ -124,9 +124,12 @@ textarea {
 }
 
 textarea:focus {
-    outline: none; /* Remove a borda ao focar */
-    border-color: var(--primary-color); /* Cor da borda ao focar */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra ao focar */
+    outline: none;
+    /* Remove a borda ao focar */
+    border-color: var(--primary-color);
+    /* Cor da borda ao focar */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Sombra ao focar */
 }
 
 #continue-four {
@@ -182,10 +185,11 @@ section .card ion-icon {
 
 button {
     display: block;
-    margin: auto;
+    margin: 30px auto;
     height: 30px;
     text-align: center;
     display: flex;
+    ;
     align-items: center;
     border-radius: 5px;
     padding: 3px 30px;
@@ -218,7 +222,8 @@ button:hover {
 }
 
 .hours.error {
-    border-color: red; /* Define a cor da borda como vermelha em caso de erro */
+    border-color: red;
+    /* Define a cor da borda como vermelha em caso de erro */
 }
 
 .hours {
@@ -233,7 +238,7 @@ button:hover {
 }
 
 .error-radio label {
-    color: red; 
+    color: red;
 }
 
 .error-select select {
@@ -254,7 +259,7 @@ button:hover {
     width: auto;
     font-size: 1.1rem;
 }
- 
+
 
 option {
     font-size: 1rem;
@@ -282,6 +287,7 @@ option:hover {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -294,16 +300,24 @@ option:hover {
         width: 80%;
         font-size: 1.6rem;
     }
+
+    .cards {
+        justify-content: center;
+    }
+
     .hours {
         width: 90%;
         height: 70%;
     }
+
     span {
         font-size: 0.9rem;
     }
+
     .input {
         width: 90%;
     }
+
     .select-style {
         width: 90%;
         margin-top: 118px;
@@ -314,9 +328,10 @@ option:hover {
     .cards {
         width: 54%;
     }
+
     main {
         margin: 30px auto 240px;
     }
 }
-/* 
 
+/* 

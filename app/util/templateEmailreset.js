@@ -28,7 +28,9 @@ module.exports = (url, token) => {
             border-radius: 12px 12px 0 0;
             font-family: 'Georgia', serif;
         }
-
+.li[href] {
+color: white !important;
+}
         .header h1 {
             margin: 0;
             font-size: 26px;
@@ -39,10 +41,6 @@ module.exports = (url, token) => {
             font-size: 18px;
             line-height: 1.6;
             color: #555555;
-        }
-
-        a {
-        color: white;
         }
 
         .content p {
@@ -61,9 +59,10 @@ module.exports = (url, token) => {
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-.ii a[href] {
+a {
    color: white !important;
 }
+
 
         .button:hover {
             background-color: #836DAC;

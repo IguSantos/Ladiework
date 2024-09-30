@@ -2,7 +2,6 @@
 function initializeEvents() {
     const dropdown = document.getElementById('dropdownOptions');
     const icon = document.getElementById('dropdownIcon');
-    const searchInput = document.getElementById('searchInput');
   
     if (dropdown && icon) {
       dropdown.addEventListener('click', function () {
@@ -15,10 +14,7 @@ function initializeEvents() {
         }
       });
     }
-  
-    if (searchInput) {
-      searchInput.addEventListener('input', filterCourses);
-    }
+ 
   }
   
   // Executa a função initializeEvents após o carregamento do DOM
@@ -64,22 +60,28 @@ dropdownItems.forEach(function (item) {
 
 // BARRA DE PESQUISA
 
-// Função para filtrar os cursos com base no texto de pesquisa
-function filterCourses() {
-    var inputText = document.getElementById('searchInput').value.toLowerCase();
-    var courses = document.querySelectorAll('.course');
+function filterCoursesBySearch() {
+    // Obtém todos os cursos
+    const courses = document.querySelectorAll('.course');
+    
+    // Obtém o valor de pesquisa
+    const searchValue = document.getElementById('searchInput').value.toLowerCase();
 
-    courses.forEach(function (course) {
-        var courseTitle = course.querySelector('h3').textContent.toLowerCase();
-        if (courseTitle.includes(inputText)) {
-            course.style.display = 'flex';
+    // Filtra os cursos
+    courses.forEach(course => {
+        const title = course.querySelector('h3').textContent.toLowerCase();
+
+        // Verifica se o título do curso contém o valor de pesquisa
+        if (title.includes(searchValue)) {
+            course.style.display = 'flex'; // Exibe o curso
         } else {
-            course.style.display = 'none';
+            course.style.display = 'none'; // Oculta o curso
         }
     });
-
-    document.getElementById('searchInput').addEventListener('input', filterCourses);
 }
+
+// Adiciona um listener de evento ao campo de pesquisa
+document.getElementById('searchInput').addEventListener('input', filterCoursesBySearch);
 
 
 // Adiciona um evento de mudança ao campo de pesquisa

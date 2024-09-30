@@ -215,7 +215,7 @@ const userController = {
                 res.render("pages/main", {
                     pagina: "home",
                     errorsList: null,
-                    mentoring: null,
+                    mentoring: req.session.latestMentoring,
                     logado: req.session.logado,
                     login: req.session.login,
                     dadosNotificacao: {
