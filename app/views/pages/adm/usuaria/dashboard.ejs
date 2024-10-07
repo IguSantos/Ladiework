@@ -281,12 +281,12 @@
         <form action="/submit" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="titulo">Título</label>
-            <input type="text" id="titulo" name="titulo" />
+            <input type="text" id="titulo" name="titulo" placeholder="Digite o título da sua mentoria"/>
           </div>
     
           <div class="form-group">
             <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="descricao"></textarea>
+            <textarea id="descricao" name="descricao" placeholder="Digite a descrição da sua mentoria"></textarea>
           </div>
     
           <div class="form-group">
@@ -295,41 +295,53 @@
               <option value="market-digital">Market Digital</option>
               <option value="Empreendoderismo">Empreendoderismo</option>
               <option value="programacao">Programação</option>
-              <option value="desing">Desing</option>
+              <option value="desing">Design</option>
             </select>
           </div>
     
-          <label for="thumbnail" class="thumbnail">Carregar Thumbnail</label>
-          <div class="form-group thumbnail-upload">
-            <input type="file" id="thumbnail" name="thumbnail" accept="image/*" />
-            <small>O arquivo não pode ser maior que 5MB</small>
-          </div>
-          <button class="btn-salvar">salvar</button>
+          
+          <section class="send-image">
+            <article class="form-group">
+              <label for="thumbnail" >
+                <img src="https://via.placeholder.com/150" alt="Upload thumbnail"  />
+              </label>
+              <input type="file" id="thumbnail" name="thumbnail" accept="image/*" />
+            
+            </article>
+            
+            <article>
+              <label for="thumbnail" class="thumbnail">Carregar Thumbnail</label>
+              <small>O arquivo não pode ser maior que 5MB</small>
+              <button class="btn-salvar">Salvar</button>
+            </article>
+          </section>
     
-          <div class="form-group">
+          <section class="preferences">
             <h3>Selecione suas preferências:</h3>
-            <label><input type="checkbox" name="preferencia" value="1" />
-              Checkbox</label>
-            <label><input type="checkbox" name="preferencia" value="2" />
-              Checkbox</label>
-            <label><input type="checkbox" name="preferencia" value="3" />
-              Checkbox</label>
-            <label><input type="checkbox" name="preferencia" value="4" />
-              Checkbox</label>
-            <label><input type="checkbox" name="preferencia" value="5" />
-              Checkbox</label>
-            <label><input type="checkbox" name="preferencia" value="6" />
-              Checkbox</label>
-          </div>
+            <article>
+              <div class="left">
+                <label><input type="checkbox" name="preferencia" value="1" />
+                  Checkbox</label>
+                <label><input type="checkbox" name="preferencia" value="2" />
+                  Checkbox</label>
+                <label><input type="checkbox" name="preferencia" value="3" />
+                  Checkbox</label>
+              </div>
+              
+              <div class="right">
+                <label><input type="checkbox" name="preferencia" value="4" />
+                  Checkbox</label>
+                <label><input type="checkbox" name="preferencia" value="5" />
+                  Checkbox</label>
+                <label><input type="checkbox" name="preferencia" value="6" />
+                  Checkbox</label>
+              </div>
+            </article>
+          </section>
     
           <div class="form-group">
-            <label for="pagamento">Pagamentos</label>
-            <select id="pagamento" name="pagamento">
-              <option value="pix">Pix</option>
-              <option value="master">Master Card</option>
-              <option value="paypal">PayPal</option>
-              <option value="boleto">Boleto</option>
-            </select>
+            <label for="price">Preço</label>
+         <input type="text" id="price" placeholder="Digite o preço da sua mentoria">
           </div>
     
           <div class="form-group">
@@ -342,7 +354,6 @@
           </div>
     
           <div class="form-buttons">
-            <button type="button" class="btn-cancelar">Cancelar</button>
             <button type="submit" class="btn-enviar">Enviar</button>
           </div>
         </form>

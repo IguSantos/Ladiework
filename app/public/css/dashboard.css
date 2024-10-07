@@ -118,10 +118,10 @@ button {
   transition: background-color 0.3s, border 0.3s;
 }
 
-button:hover {
+/* button:hover {
   background-color: var(--second-color);
   border: 1px solid var(--second-color);
-}
+} */
 
 
 .saudacao .perfil {
@@ -154,7 +154,7 @@ button:hover {
 }
 
 
-.saudacao .acoes > button {
+.saudacao .acoes>button {
   font-size: 0.9rem;
 }
 
@@ -404,14 +404,8 @@ h1 {
   font-size: 2rem;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
-
 .form-group label {
-  display: block;
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
 input[type="text"],
@@ -420,42 +414,78 @@ select,
 input[type="file"] {
   width: 100%;
   padding: 10px;
- 
   border-radius: 10px;
   resize: none;
 }
 
 input[type="text"],
 select {
-    border-radius: 100px;
-    cursor: pointer;
+  border-radius: 100px;
+  cursor: pointer;
 }
 
-textarea {
-  height: 100px;
+
+.thumbnail {
+  display: block;
+  text-align: center;
 }
 
-.thumbnail{
-  margin-left: 575px;
+
+#thumbnail-preview {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
 }
 
-input[type="file"]{
+.thumbnail-label img {
+  max-width: 150px;
+  /* Ajuste o tamanho da imagem */
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+input[type="file"] {
   width: 400px;
   cursor: pointer;
 }
 
-small{
-  margin-left: 100px;
-}
-
-.thumbnail-upload {
+section.send-image {
   display: flex;
-  align-items: baseline;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  height: 400px;
 }
 
-.thumbnail-upload input[type="file"] {
+.send-image article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-image img {
+  cursor: pointer;
+  width: 300px;
+}
+
+.send-image article {
+  flex: 1;
+}
+
+.send-image article:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.form-group input[type="file"] {
   margin-top: 10px;
   cursor: pointer;
+  display: none;
 }
 
 .thumbnail-upload small {
@@ -489,32 +519,73 @@ form .form-buttons {
   cursor: pointer;
 }
 
+
 .btn-salvar {
-  width: 90px;
+  padding: 5px 50px;
   background-color: #6b2cd6;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
   cursor: pointer;
-  margin-left: 590px;
-  margin-top: -10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-align: center;
 }
 
-.btn-enviar:hover {
-  background-color: #5b26b3;
-  outline: 1px solid #ffffff;
+label {
+  font-size: 1.2rem;
+  opacity: 0.4;
+
 }
 
-.btn-cancelar:hover {
-  background-color: #d0d0d0;
+input[type="text"],
+textarea,
+select {
+  box-shadow: 9px 6px 10px 0px rgba(152, 132, 171, 0.31);
+  border: none;
+  border: 2px solid rgba(152, 132, 171, 0.14);
+  margin-bottom: 30px;
+  opacity: 0.7;
 }
 
-.btn-salvar:hover {
-  background-color: #5b26b3;
+.preferences {
+  text-align: center;
+  border-radius: 23px;
+  border: 1px solid rgba(152, 132, 171, 0.28);
+  box-shadow: 9px 10px 8px 0px rgba(152, 132, 171, 0.28);
+  height: 300px;
+  width: 600px;
+  margin-bottom: 60px;
+  justify-content: space-between;
+  padding: 50px 20px 20px 20px;
 }
 
+.preferences h3 {
+  color: var(--primary-color);
+  font-size: 1.540rem;
+}
 
+.preferences article {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
+input[type="checkbox"] {
+  font-size: 1.568rem;
+  cursor: pointer;
+}
+label {
+  cursor: pointer;
+}
 
+.right,
+.left {
+  display: flex;
+  flex-direction: column;
+}
 
+textarea {
+  height: 200px;
+}
