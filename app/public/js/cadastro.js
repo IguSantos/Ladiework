@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Função para validar nome
     function validateName(input) {
         const errorMessage = 'O nome deve ter mais de 4 caracteres';
-        if (input.value.trim().length <= 4) {
+        if (input.value.trim().length < 4) {
             input.classList.add('error');
             input.nextElementSibling.textContent = errorMessage;
             return false;

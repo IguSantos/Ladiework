@@ -68,6 +68,16 @@ const userController = {
           ),
       ],
 
+
+    validationRulesFormLogin: [
+        body("nome_usu")
+            .isLength({ min: 4, max: 45 })
+            .withMessage("O nome de usuário deve ter de 4 a 45 caracteres"),
+        body("senha_usu")
+            .isStrongPassword()
+            .withMessage("A senha deve ter no mínimo 4 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
+    ],
+
     cadastrar: async (req, res) => {
         const errors = validationResult(req);
 
@@ -155,15 +165,6 @@ const userController = {
             }
         }
     },
-
-    validationRulesFormLogin: [
-        body("nome_usu")
-            .isLength({ min: 4, max: 45 })
-            .withMessage("O nome de usuário deve ter de 4 a 45 caracteres"),
-        body("senha_usu")
-            .isStrongPassword()
-            .withMessage("A senha deve ter no mínimo 4 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
-    ],
 
     logar: async (req, res) => {
         try {

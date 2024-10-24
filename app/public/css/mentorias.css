@@ -6,7 +6,13 @@ main {
     
 }
 
+.avaliation {
+    cursor: not-allowed  !important;
+    background-color: rgba(128, 128, 128, 0.505) !important;
+}
+
 h1 {
+ 
     border-bottom: 1px solid var(--title-bold);
     font-size: 1.8rem;
     padding: 0 10px;
@@ -63,7 +69,7 @@ main > section {
     background-color: var(--pop-up-color);
     display: flex;
     gap: 20px;
-    padding: 10px 50px;
+    padding: 10px 28px;
     
 }
 
@@ -79,8 +85,9 @@ main > section {
     object-fit: cover;
 }
 
+
 .mentoring-card .info-mentoring {
-    margin: 10px;
+    margin: 0px 10px 10px 10px
 }
 
 .mentoring-card h3 {
@@ -106,8 +113,15 @@ main > section {
     font-size: 0.788rem;
     opacity: 0.8;
     margin: 10px 0;
-
+ height: 115px;
+ overflow-wrap: break-word;
 }
+
+
+.more {
+    height: 137px !important;
+}
+
 .mentoring-card button {
     width: 100%;
     font-size: 0.9rem;
@@ -117,6 +131,7 @@ main > section {
     border-radius: 5px;
     padding: 5px 0;
     cursor: pointer;
+  
    
 }
 

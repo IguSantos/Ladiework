@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 const pool = require("../../config/pool_connections")
 const userController = require("../controllers/userController")
-const {carrinhoController} = require("../controllers/carrinhoController")
 
 const { checkAuthenticatedUser, clearSession, recordAuthenticatedUser, verifyAuthorizedUser } = require("../models/authenticator_middleware");
 const mentoringController = require("../controllers/mentoringController");
@@ -157,7 +156,19 @@ router.post("/criar", function (req, res) {
 }
 );
 
-// PAGINA DE ADMINISTRAÇÃO MENTORAr
+
+
+// PAGINA DE ADMINISTRAÇÃO MENTORA
+router.get("/mentorias",checkAuthenticatedUser, function (req, res) {
+  console.log(req.session.logado)
+  mentoringController.listarTiposMentoria(req, res);
+});
+
+
+router.get('/paginadeadministracao', (req, res) => {
+  mentoringController.listarMentoria(req, res);
+ });
+
 router.get('/paginadeadministracao', (req, res) => {
  console.log("Valor de mentoring na sessão:", req.session.latestMentoring); // Adiciona o console.log aqui
  res.render('pages/adm/usuaria/dashboard', { logado: req.session.logado, mentoring: req.session.latestMentoring,  dadosNotificacao: null, });
@@ -171,24 +182,11 @@ router.get(
   }
 );
 
-// ROTAS CARRINHO
 
-router.get('/addItem', function (req, res)  {
-  carrinhoController.addItem(req, res);
+router.get('/editar', mentoringController.editarMentoria);
 
-});
+router.post('/editar', uploadFile("FOTO_THUMBNAIL"), mentoringController.adicionarMentoria);
 
-router.get('/removeItem', function (req, res)  {
-  carrinhoController.removeItem(req, res);
-});
-
-router.get('/deleteItem', function (req, res)  {
-  carrinhoController.deleteItem(req, res);
-});
-
-router.get('/carrinho', function (req, res)  {
-  carrinhoController.listcart(req, res);
-});
 
 
 // REDEFINIR SENHA
@@ -276,34 +274,6 @@ router.get('/assistiraula', (req, res) => {
 });
 
 
-
-// router.post("/criar",  function (req, res) {
-//   coursesController.addCourse(req, res);
-// }
-// );
-
-
-// ROTA PARA CRIAR CURSO
-// router.get('/criar-curso', (req, res) => {
-//   res.render('pages/main', {
-//     pagina: "create",
-//     dados: null,
-//     errorsList: null,
-//     logado: req.session.logado
-//   });
-// });
-
-
-// router.post("/criar", function (req, res) {
-//   mentoringController.addMentoring(req, res);
-// }
-// );
-
-// CURSOS
-
-// router.get('/cursos', function (req, res) {
-//   coursesController.listPaginatedCourses(req, res);
-// });
 
 
 module.exports = router;

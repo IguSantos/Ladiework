@@ -14,152 +14,155 @@
       <aside class="top-information">
         <h1>Mentorias</h1>
 
-        <div>
-          <input type="search" id="searchInput" placeholder="Pesquisar..."> <img class="filter-image"
-            src="images/filterimage.svg" alt="">
-        </div>
+        
       </aside>
+
+      
+      <% if (mentoring) { %>
+        <h2>Suas mentorias</h2>
+      <section>
+
+        <%if(listarTiposMentoria){ let contador=1; listarTiposMentoria.forEach(element=> {
+          %>
+          <article class="mentoring-card">
+           <img src="<%= logado.foto %>" alt=""> 
+       
+            <div class="info-mentoring">
+              <h3>
+                <%= element.TITULO_MENTORA %>
+              </h3>
+              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
+                  name="star-half"></ion-icon>
+              </div>
+              <span>
+                 Duração: <%= element.DURACAO_MENTORIA %>
+              </span> <br>
+              <span>Investimento: <%= element.VALOR_MENTORIA_MENTORA %> Não definido</span>
+              <p>
+                <%= element.BIOGRAFIA_MENTORA %>
+              </p>
+              <button class="avaliation" onclick="window.location.href = '/informacao_da_mentoria'">Em avaliação...</button>
+            </div>
+
+          </article>
+          
+          <% contador++; }); }%>
+
+
+          
+      </section>
+      <% } else { %>
+      <% } %>
+
+
 
       <h2>Populares</h2>
 
       <section>
 
-
-
-
-
-          <article class="mentoring-card">
-            <img src="images/mentoria-template.jpg" alt="">
-            <div class="info-mentoring">
-              <h3>Mentoria para mulher</h3>
-              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
-                    name="star-half"></ion-icon></div>
+        <article class="mentoring-card">
+          <img src="images/mulher1.jpg" alt="">
+          <div class="info-mentoring">
+              <h3>Mentoria virtual</h3>
+              <div class="stars">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+              </div>
               <span>Duração: 2 meses</span> <br>
-              <span>Investimento: R$ 100</span>
-              <p>
-                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
-                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
-              </p>
-              <button onclick="window.location.href = '/informacao_da_mentoria'">Saiba mais</button>
-            </div>
-
-          </article>
-
-          <article class="mentoring-card">
-            <img src="images/mentoria-template.jpg" alt="">
-            <div class="info-mentoring">
-              <h3>Mentoria para mulher</h3>
-              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
-                    name="star-half"></ion-icon></div>
-              <span>Duração: 2 meses</span> <br>
-              <span>Investimento Gratuito</span>
-              <p>
-                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
-                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
-              </p>
-            <button onclick="window.location.href = '/informacao_da_mentoria'">Saiba mais</button>
-            </div>
-
-          </article>
-
-          <article class="mentoring-card">
-            <img src="images/mentoria-template.jpg" alt="">
-            <div class="info-mentoring">
-              <h3>Mentoria para mulher</h3>
-              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
-                    name="star-half"></ion-icon></div>
-              <span>Duração: 2 meses</span> <br>
-              <span>Investimento Gratuito</span>
-              <p>
-                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
-                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
+              <span>Investimento: Gratuito</span>
+              <p class="more">
+                  Apoio estratégias práticas para empoderar mulheres em suas trajetórias pessoais e profissionais.
               </p>
               <button>Saiba mais</button>
-            </div>
-
-          </article>
-
-          <article class="mentoring-card">
-            <img src="images/mentoria-template.jpg" alt="">
-            <div class="info-mentoring">
-              <h3>Mentoria para mulher</h3>
-              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
-                    name="star-half"></ion-icon></div>
-              <span>Duração: 2 meses</span> <br>
-              <span>Investimento Gratuito</span>
-              <p>
-                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
-                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
-              </p>
-              <button>Saiba mais</button>
-            </div>
-
-          </article>
-
-          
-
-        
-
-
-
-
-
-      </section>
-
+          </div>
+        </article>
       
-      <h2>Para você</h2>
-
-      <section>
-
-
-
-
-
-          <article class="mentoring-card">
-            <img src="images/mentoria-template.jpg" alt="">
-            <div class="info-mentoring">
+        <article class="mentoring-card">
+          <img src="images/mulher2.jpg" alt="">
+          <div class="info-mentoring">
               <h3>Mentoria para mulher</h3>
-              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
-                    name="star-half"></ion-icon></div>
+              <div class="stars">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+              </div>
               <span>Duração: 2 meses</span> <br>
-              <span>Investimento Gratuito</span>
-              <p>
-                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
-                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
-              </p>
-              <button onclick="window.location.href = '/informacao_da_mentoria'">Saiba mais</button>
-            </div>
-
-          </article>
-
-          <article class="mentoring-card">
-            <img src="images/mentoria-template.jpg" alt="">
-            <div class="info-mentoring">
-              <h3>Mentoria para mulher</h3>
-              <div class="stars"><ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon
-                    name="star-half"></ion-icon></div>
-              <span>Duração: 2 meses</span> <br>
-              <span>Investimento Gratuito</span>
-              <p>
-                Este programa foi desenvolvido para apoiar e empoderar mulheres em suas jornadas pessoais e profissionais,
-                oferecendo orientação especializada, suporte contínuo e estratégias práticas para alcançar seus objetivos.
+              <span>Investimento: Gratuito</span>
+              <p class="more">
+                  Programa para apoiar mulheres em suas jornadas, oferecendo orientação e suporte prático.
               </p>
               <button>Saiba mais</button>
-            </div>
-
-          </article>
-
-       
-
+          </div>
+        </article>
+      
+        <article class="mentoring-card">
+          <img src="images/mulher3.jpg" alt="">
+          <div class="info-mentoring">
+              <h3>Mentoria em Carreira</h3>
+              <div class="stars">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+              </div>
+              <span>Duração: 3 meses</span> <br>
+              <span>Investimento: R$ 200,00</span>
+              <p class="more">
+                  Acelere sua carreira com orientações práticas sobre desenvolvimento profissional, habilidades de liderança e networking.
+              </p>
+              <button onclick="window.location.href = '/informacao_da_mentoria_carreira'">Saiba mais</button>
+          </div>
+        </article>
+      
+        <article class="mentoring-card">
+          <img src="images/mulher4.jpg" alt="">
+          <div class="info-mentoring">
+              <h3>Mentoria em Saúde e Bem-Estar</h3>
+              <div class="stars">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+              </div>
+              <span>Duração: 4 meses</span> <br>
+              <span>Investimento: R$ 150,00</span>
+              <p>
+                  Um programa focado em promover a saúde mental e física, oferecendo suporte e estratégias para um estilo de vida equilibrado.
+              </p>
+              <button onclick="window.location.href = '/informacao_da_mentoria_saude'">Saiba mais</button>
+          </div>
+        </article>
+      
+        <article class="mentoring-card">
+          <img src="images/mulher5.jpg" alt="">
+          <div class="info-mentoring">
+              <h3>Mentoria em Empreendedorismo</h3>
+              <div class="stars">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+              </div>
+              <span>Duração: 5 meses</span> <br>
+              <span>Investimento: R$ 250,00</span>
+              <p>
+                  Aprenda a transformar suas ideias em negócios sustentáveis, com suporte em planejamento, marketing e gestão.
+              </p>
+              <button onclick="window.location.href = '/informacao_da_mentoria_empreendedorismo'">Saiba mais</button>
+          </div>
+        </article>
       
       </section>
-
+      
 
     </main>
 

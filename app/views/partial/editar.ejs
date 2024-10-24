@@ -1,0 +1,65 @@
+
+<main id="edit-form">
+      
+<div class="container">
+    <h1>Mentoria</h1>
+    <form action="/editar" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" value="<%= valores.TITULO_MENTORA %>" name="TITULO_MENTORA" />
+        <input type="hidden" name="ID_MENTORA" value="<%= valores.ID_MENTORA %>">
+      </div>
+
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" value="<%= valores.BIOGRAFIA_MENTORA %>" name="BIOGRAFIA_MENTORA"></textarea>
+      </div>
+
+      <article class="form-group">
+        <label for="disponibilidade">Disponibilidade</label>
+        <label>
+          <input type="radio" name="DURACAO_MENTORIA" id="hora1" value="1"> 1 Hora
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="DURACAO_MENTORIA" id="hora2" value="2"> 2 Horas
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="DURACAO_MENTORIA" id="hora3" value="3"> 3 Horas
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="DURACAO_MENTORIA" id="hora4mais" value="4+"> 4 Horas ou Mais
+        </label>
+      </article>
+
+
+      <div class="form-group">
+        <label for="pagamento">Pagamentos</label>
+        <select id="pagamento" name="VALOR_MENTORIA_MENTORA">
+          <option value="pix">Pix</option>
+          <option value="master">Master Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="boleto">Boleto</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="duracao">Duração</label>
+        <select id="duracao" name="duracao">
+          <option value="2-semanas">2 semanas</option>
+          <option value="2-meses">2 meses</option>
+          <option value="3-meses">3 meses</option>
+        </select>
+      </div>
+
+      <div class="form-buttons">
+        <button type="button" class="btn-cancelar" onclick="window.location.href = 'paginadeadministracao'">Cancelar</button>
+        <button type="submit" class="btn-enviar" onclick="window.location.href = 'paginadeadministracao'">Enviar</button>
+      </div>
+    
+    </form>
+  </div>
+
+</main>

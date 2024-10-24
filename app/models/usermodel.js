@@ -54,17 +54,15 @@ const userModel = {
         }
     },
 
-
     findId: async (id) => {
         try {
             const [results] = await pool.query(
-                "SELECT u.ID_USUARIO, u.NOME_USUARIO" +
-                "u.SENHA, u.EMAIL_USUARIO" +
-                "u.CELULAR_USUARIO, u.FOTO_USUARIO" +
-                "t.id_tipo_usuario, t.descricao_usuario " +
-                "FROM usuario u, tipo_usuario t where u.status_usuario = 1 and " +
-                "u.tipo_usuario = t.id_tipo_usuario and u.id_usuario = ? ", [id]
-            )
+                "SELECT * " +
+                "FROM usuario u " +
+                "INNER JOIN mentora t ON u.ID_USUARIO = t.usuario_ID_USUARIO " +
+                "WHERE u.ID_USUARIO = ?",
+                [id]
+            );
             return results;
         } catch (error) {
             console.log(error);
@@ -111,36 +109,6 @@ const userModel = {
         }
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // findUserByQuery: async (camposForm) => {
-    //     try {
-    //         const [results] = await pool.query(
-    //             `SELECT u.*, IF(a.id_admin > 0, '2', '1') as tipo 
-    //              FROM teste_ladiework.usuario u 
-    //              LEFT JOIN administrador a 
-    //              ON u.ID_USUARIO = a.usuario_id_usuario 
-    //              WHERE u.EMAIL_USUARIO = ?`, // Campo email é igual ao valor do parametro passado no ?
-    //             [camposForm.EMAIL_USUARIO] // camposForm = Dataform
-    //         )
-    //         return results;
-    //     } catch (error) {
-    //         console.log("Erro ao comparar email!!", error);
-    //         return error;
-    //     }
-    // },
 
 
 

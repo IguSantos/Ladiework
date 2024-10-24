@@ -1,0 +1,80 @@
+<main id="home">
+    <section class="projetos">
+      <h2>Seus projetos</h2>
+      <div>
+
+        <% mentoring.forEach(function(mentoria){ %>
+
+           <article class="card">
+            <div class="barra"></div>
+            <div class="conteudo">
+              <h3>
+                <%= mentoria.TITULO_MENTORA %>
+              </h3>
+              <p>
+                <%= mentoria.BIOGRAFIA_MENTORA %>
+              </p>
+              <div class="acoes">
+                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
+                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
+                <button title="Compartilhar">
+                  <ion-icon name="share-social-outline"></ion-icon>
+                </button>
+                <button id="editar-btn" title="Editar" 
+                onclick="window.location='/editar?ID_MENTORA=<%= mentoria.ID_MENTORA %>&ID_USUARIO=<%= mentoria.usuario_ID_USUARIO %>'">
+                  <ion-icon name="pencil-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </article>
+          <% }); %>
+      </div>
+    </section>
+    <section class="anuncios">
+      <h2>Recentes</h2>
+      <div class="card">
+        <article>
+          <h4>Empreendedorismo Feminino</h4>
+          <p>
+            Maria comprou a mentoria de Empreendedorismo Feminino
+          </p>
+        </article>
+        <article>
+          <h4>Desenvolvimento de Liderança Feminina</h4>
+          <p>
+            Ana adquiriu a mentoria de Desenvolvimento de Liderança Feminina para aprimorar suas habilidades de
+            liderança e promover um ambiente de trabalho inclusivo.
+          </p>
+        </article>
+        <article>
+          <h4>Tecnologia e Inovação para Mulheres</h4>
+          <p>
+            Juliana comprou o curso de Tecnologia e Inovação para Mulheres para aprender sobre programação e
+            desenvolvimento de aplicativos.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="em-alta">
+      <h2>Mentoradas</h2>
+      <div>
+        <div class="perfil">
+          <img src="images/muié2.png" alt="Foto de perfil" />
+          <p>@rafaela23</p>
+        </div>
+        <div class="perfil">
+          <img src="images/muié4.png" alt="Foto de perfil" />
+          <p>@carolrodrigues</p>
+        </div>
+        <div class="perfil">
+          <img src="images/muié3.png" alt="Foto de perfil" />
+          <p>@julianasilva</p>
+        </div>
+        <div class="perfil">
+          <img src="images/muié5.png" alt="Foto de perfil" />
+          <p>@marianagomes</p>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -112,254 +112,36 @@
       </footer>
     </aside>
 
-    <main id="home" >
-      <section class="projetos">
-        <h2>Seus projetos</h2>
-        <div>
-          <article class="card">
-            <div class="barra"></div>
-            <div class="conteudo">
-              <h3>
-                <%= mentoring.titulo %>
-              </h3>
-              <p>
-                <%= mentoring.biografia %>
-              </p>
-              <div class="acoes">
-                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
-                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
-                <button title="Compartilhar">
-                  <ion-icon name="share-social-outline"></ion-icon>
-                </button>
-              </div>
-            </div>
-          </article>
+     <%- include("../../../partial/"+ pagina) %>
 
-          <!-- <article class="card">
-            <div class="barra"></div>
-            <div class="conteudo">
-              <h3>Desenvolvimento de Liderança Feminina</h3>
-              <p>
-                Explore técnicas de liderança eficazes e inspire-se com mulheres que ocupam posições de liderança. Aprenda
-                a superar desafios específicos e a promover um ambiente de trabalho inclusivo e equitativo.
-              </p>
-              <div class="acoes">
-                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
-                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
-                <button title="Compartilhar">
-                  <ion-icon name="share-social-outline"></ion-icon>
-                </button>
-              </div>
-            </div>
-          </article>
+      <% if (logado && dadosNotificacao) { %>
+        <script>
+          function notify(titulo, texto, tipo, posicao, duracao = 3000) {
+            new Notify({
+              status: tipo,
+              title: titulo,
+              text: texto.replace(/&lt;/g, "<").replace(/&gt;/g, ">"),
+              effect: 'fade',
+              speed: 500,
+              showIcon: true,
+              showCloseButton: true,
+              autoclose: true,
+              autotimeout: duracao,
+              gap: 20,
+              distance: 20,
+              type: 1,
+              position: posicao
+            })
+          }
 
-          <article class="card">
-            <div class="barra"></div>
-            <div class="conteudo">
-              <h3>Tecnologia e Inovação para Mulheres</h3>
-              <p>
-                Mergulhe no mundo da tecnologia com um enfoque especial para mulheres. Aprenda sobre programação,
-                desenvolvimento de aplicativos e inovação tecnológica, enquanto se conecta com outras mulheres na área.
-              </p>
-              <div class="acoes">
-                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
-                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
-                <button title="Compartilhar">
-                  <ion-icon name="share-social-outline"></ion-icon>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="barra"></div>
-            <div class="conteudo">
-              <h3>Saúde e Bem-Estar Feminino</h3>
-              <p>
-                Descubra como manter um equilíbrio saudável entre vida pessoal e profissional. Inclui dicas sobre
-                nutrição, exercícios físicos, saúde mental e bem-estar geral voltadas especificamente para mulheres.
-              </p>
-              <div class="acoes">
-                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
-                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
-                <button title="Compartilhar">
-                  <ion-icon name="share-social-outline"></ion-icon>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="barra"></div>
-            <div class="conteudo">
-              <h3>Finanças Pessoais para Mulheres</h3>
-              <p>
-                Aprenda a gerenciar suas finanças pessoais de forma eficaz. Este curso aborda orçamento, investimentos,
-                economia e planejamento financeiro a longo prazo, com um enfoque nas necessidades das mulheres.
-              </p>
-              <div class="acoes">
-                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
-                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
-                <button title="Compartilhar">
-                  <ion-icon name="share-social-outline"></ion-icon>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="barra"></div>
-            <div class="conteudo">
-              <h3>Networking e Conexões Profissionais</h3>
-              <p>
-                Desenvolva suas habilidades de networking e aprenda a criar conexões profissionais duradouras. Inclui
-                estratégias para expandir sua rede e aproveitar ao máximo as oportunidades de networking.
-              </p>
-              <div class="acoes">
-                <button title="Favoritar"><ion-icon name="bookmark-outline"></ion-icon></button>
-                <button title="Visualizar"><ion-icon name="eye-outline"></ion-icon></button>
-                <button title="Compartilhar">
-                  <ion-icon name="share-social-outline"></ion-icon>
-                </button>
-              </div>
-            </div>
-          </article> -->
-        </div>
-      </section>
-      <section class="anuncios">
-        <h2>Recentes</h2>
-        <div class="card">
-          <article>
-            <h4>Empreendedorismo Feminino</h4>
-            <p>
-              Maria comprou a mentoria de Empreendedorismo Feminino
-            </p>
-          </article>
-          <article>
-            <h4>Desenvolvimento de Liderança Feminina</h4>
-            <p>
-              Ana adquiriu a mentoria de Desenvolvimento de Liderança Feminina para aprimorar suas habilidades de
-              liderança e promover um ambiente de trabalho inclusivo.
-            </p>
-          </article>
-          <article>
-            <h4>Tecnologia e Inovação para Mulheres</h4>
-            <p>
-              Juliana comprou o curso de Tecnologia e Inovação para Mulheres para aprender sobre programação e
-              desenvolvimento de aplicativos.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="em-alta">
-        <h2>Mentoradas</h2>
-        <div>
-          <div class="perfil">
-            <img src="images/muié2.png" alt="Foto de perfil" />
-            <p>@rafaela23</p>
-          </div>
-          <div class="perfil">
-            <img src="images/muié4.png" alt="Foto de perfil" />
-            <p>@carolrodrigues</p>
-          </div>
-          <div class="perfil">
-            <img src="images/muié3.png" alt="Foto de perfil" />
-            <p>@julianasilva</p>
-          </div>
-          <div class="perfil">
-            <img src="images/muié5.png" alt="Foto de perfil" />
-            <p>@marianagomes</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <main id="edit-form" class="hidden">
-      <div class="container">
-        <h1>Mentoria</h1>
-        <form action="/submit" method="POST" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="titulo">Título</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Digite o título da sua mentoria"/>
-          </div>
-    
-          <div class="form-group">
-            <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="descricao" placeholder="Digite a descrição da sua mentoria"></textarea>
-          </div>
-    
-          <div class="form-group">
-            <label for="categorias">Categorias</label>
-            <select id="categorias" name="categorias">
-              <option value="market-digital">Market Digital</option>
-              <option value="Empreendoderismo">Empreendoderismo</option>
-              <option value="programacao">Programação</option>
-              <option value="desing">Design</option>
-            </select>
-          </div>
-    
-          
-          <section class="send-image">
-            <article class="form-group">
-              <label for="thumbnail" >
-                <img src="https://via.placeholder.com/150" alt="Upload thumbnail"  />
-              </label>
-              <input type="file" id="thumbnail" name="thumbnail" accept="image/*" />
-            
-            </article>
-            
-            <article>
-              <label for="thumbnail" class="thumbnail">Carregar Thumbnail</label>
-              <small>O arquivo não pode ser maior que 5MB</small>
-              <button class="btn-salvar">Salvar</button>
-            </article>
-          </section>
-    
-          <section class="preferences">
-            <h3>Selecione suas preferências:</h3>
-            <article>
-              <div class="left">
-                <label><input type="checkbox" name="preferencia" value="1" />
-                  Checkbox</label>
-                <label><input type="checkbox" name="preferencia" value="2" />
-                  Checkbox</label>
-                <label><input type="checkbox" name="preferencia" value="3" />
-                  Checkbox</label>
-              </div>
-              
-              <div class="right">
-                <label><input type="checkbox" name="preferencia" value="4" />
-                  Checkbox</label>
-                <label><input type="checkbox" name="preferencia" value="5" />
-                  Checkbox</label>
-                <label><input type="checkbox" name="preferencia" value="6" />
-                  Checkbox</label>
-              </div>
-            </article>
-          </section>
-    
-          <div class="form-group">
-            <label for="price">Preço</label>
-         <input type="text" id="price" placeholder="Digite o preço da sua mentoria">
-          </div>
-    
-          <div class="form-group">
-            <label for="duracao">Duração</label>
-            <select id="duracao" name="duracao">
-              <option value="2-semanas">2 semanas</option>
-              <option value="2-meses">2 meses</option>
-              <option value="3-meses">3 meses</option>
-            </select>
-          </div>
-    
-          <div class="form-buttons">
-            <button type="submit" class="btn-enviar">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </main>
-  </div>
+          notify(
+            "Mentoria!",
+            "<%= dadosNotificacao.mensagem %>",
+            "<%= dadosNotificacao.tipo %>",
+            "center"
+          );
+        </script>
+        <% } %>
 
 
   <script>

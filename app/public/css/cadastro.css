@@ -2,7 +2,7 @@ html,
 body {
     font-size: 16px;
     background: rgb(247, 247, 247) url("../images/fundocadastro.svg") no-repeat center center/cover;
-    
+    height: 100%;
 }
 
 main {
