@@ -13,30 +13,21 @@
          
             <section class="main-section">
                 <ul class="purchased-courses" id="courses-list">
-                   
-                        <li class="purchased">
-                            <img src="images/2787860-1024x1024.jpg" alt="">
-                            <div class="info-purchase">
-                                <a href="informacao_da_mentoria"></a> <h2>Marketing Digital</h2>  </a>
-                                <p>Leticia</p>
-                            </div>
-                            <div class="price-and-trash">
-                                <p class="show-price">R$<span class="price-course">100</span></p>
-                                <ion-icon name="trash-outline" class="trash-icon"></ion-icon>
-                            </div>
-                        </li>
-
-                      
+                    <li class="empty-cart">
+                        <h2>Seu carrinho está vazio!</h2>
+                        <p>Adicione cursos ou mentoria ao seu carrinho para começar sua jornada de aprendizado.</p>
+                    </li>
                 </ul>
+                
                 <aside>
                     <h2>Total:</h2>
-                    <p>R$ 100,00</p>
+                    <p>R$ 0</p>
                     <br>
-                    <span class="discont">4x R$ 25</span>
+                    <!-- <span class="discont">4x R$ 25</span> -->
                     <% if (logado) { %>
-                    <button onclick="window.location.href = 'finalizarcompra'">Finalizar compra</button>
+                    <button disabled onclick="window.location.href = 'finalizarcompra'">Finalizar compra</button>
                     <% } else { %>
-                        <button onclick="window.location.href = 'login'">Finalizar compra</button>
+                        <button disabled onclick="window.location.href = 'login'">Finalizar compra</button>
                         <% } %>
                  
                 </aside>
@@ -51,34 +42,27 @@
             <article>
                 <img src="images/image1.jpg" alt="">
                 <div class="more-curses-info">
-                    <h4>Como criar sua empresa</h4>
-                    <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de
-                        marketing e gestão..</p>
+                    <h4>Fundamentos do Empreendedorismo</h4>
+                    <p>Descubra as bases essenciais para iniciar um negócio e dominar técnicas de marketing.</p>
                 </div>
             </article>
-
+            
             <article>
                 <img src="images/image2.jpg" alt="">
                 <div class="more-curses-info">
-                    <h4>Como criar sua empresa</h4>
-                    <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de
-                        marketing e gestão..</p>
+                    <h4>Estrategizando sua Empresa</h4>
+                    <p>Explore as estratégias de gestão e marketing para impulsionar o sucesso do seu empreendimento.</p>
                 </div>
             </article>
-
-
+            
             <article>
                 <img src="images/image3.jpg" alt="">
                 <div class="more-curses-info">
-                    <h4>Como criar sua empresa</h4>
-                    <p>Este curso abrange desde os fundamentos do empreendedorismo até estratégias avançadas de
-                        marketing e gestão..</p>
+                    <h4>Construindo Marcas de Sucesso</h4>
+                    <p>Aprenda a criar uma identidade forte e a aplicar táticas avançadas de marketing eficaz.</p>
                 </div>
             </article>
-
-
-
-
+            
         </aside>
 
 
